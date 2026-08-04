@@ -1,0 +1,1305 @@
+{
+ "n": 145388,
+ "age_n_by_band": {
+  "13-20": {
+   "n": 62244,
+   "n_male": 24839,
+   "n_female": 37405
+  },
+  "21-29": {
+   "n": 49097,
+   "n_male": 21748,
+   "n_female": 27349
+  },
+  "30-39": {
+   "n": 19730,
+   "n_male": 8510,
+   "n_female": 11220
+  },
+  "40-49": {
+   "n": 9473,
+   "n_male": 3585,
+   "n_female": 5888
+  },
+  "50-59": {
+   "n": 3704,
+   "n_male": 1468,
+   "n_female": 2236
+  },
+  "60+": {
+   "n": 647,
+   "n_male": 308,
+   "n_female": 339
+  }
+ },
+ "age_scheme_vs_site_2band": [
+  {
+   "scheme": "3band_lt21_21to29_30plus",
+   "mean_abs_pct_shift_all_35": 1.265,
+   "median_abs_pct_shift": 0.32,
+   "share_cells_gt5": 0.0375,
+   "mean_scales_moving_gt5_of_35": 1.31
+  },
+  {
+   "scheme": "3band_lt21_21to34_35plus",
+   "mean_abs_pct_shift_all_35": 1.203,
+   "median_abs_pct_shift": 0.26,
+   "share_cells_gt5": 0.0523,
+   "mean_scales_moving_gt5_of_35": 1.83
+  },
+  {
+   "scheme": "4band_lt21_21to29_30to44_45plus",
+   "mean_abs_pct_shift_all_35": 1.281,
+   "median_abs_pct_shift": 0.272,
+   "share_cells_gt5": 0.0413,
+   "mean_scales_moving_gt5_of_35": 1.45
+  },
+  {
+   "scheme": "5band_lt21_21to25_26to34_35to49_50plus",
+   "mean_abs_pct_shift_all_35": 1.293,
+   "median_abs_pct_shift": 0.214,
+   "share_cells_gt5": 0.0653,
+   "mean_scales_moving_gt5_of_35": 2.29
+  }
+ ],
+ "age_cost_by_age_group": [
+  {
+   "age": "13-20",
+   "n": 62244,
+   "mean_abs_pct_shift_3band": 0.0,
+   "max_scale_mean_shift_3band": 0.0,
+   "worst_scale_3band": "N",
+   "mean_abs_pct_shift_4band": 0.0
+  },
+  {
+   "age": "21-24",
+   "n": 29270,
+   "mean_abs_pct_shift_3band": 1.87,
+   "max_scale_mean_shift_3band": 5.14,
+   "worst_scale_3band": "E5 寻求刺激",
+   "mean_abs_pct_shift_4band": 1.87
+  },
+  {
+   "age": "25-29",
+   "n": 19827,
+   "mean_abs_pct_shift_3band": 1.87,
+   "max_scale_mean_shift_3band": 5.26,
+   "worst_scale_3band": "E5 寻求刺激",
+   "mean_abs_pct_shift_4band": 1.87
+  },
+  {
+   "age": "30-34",
+   "n": 12160,
+   "mean_abs_pct_shift_3band": 2.72,
+   "max_scale_mean_shift_3band": 7.71,
+   "worst_scale_3band": "E5 寻求刺激",
+   "mean_abs_pct_shift_4band": 1.78
+  },
+  {
+   "age": "35-39",
+   "n": 7570,
+   "mean_abs_pct_shift_3band": 2.74,
+   "max_scale_mean_shift_3band": 7.76,
+   "worst_scale_3band": "E5 寻求刺激",
+   "mean_abs_pct_shift_4band": 1.78
+  },
+  {
+   "age": "40-49",
+   "n": 9473,
+   "mean_abs_pct_shift_3band": 2.73,
+   "max_scale_mean_shift_3band": 7.56,
+   "worst_scale_3band": "E5 寻求刺激",
+   "mean_abs_pct_shift_4band": 3.52
+  },
+  {
+   "age": "50-59",
+   "n": 3704,
+   "mean_abs_pct_shift_3band": 2.69,
+   "max_scale_mean_shift_3band": 7.17,
+   "worst_scale_3band": "E5 寻求刺激",
+   "mean_abs_pct_shift_4band": 5.84
+  },
+  {
+   "age": "60+",
+   "n": 647,
+   "mean_abs_pct_shift_3band": 2.61,
+   "max_scale_mean_shift_3band": 6.52,
+   "worst_scale_3band": "E5 寻求刺激",
+   "mean_abs_pct_shift_4band": 5.66
+  }
+ ],
+ "age_drift_within_adults_top12": [
+  {
+   "scale": "E5 寻求刺激",
+   "mean_21_29": 32.79,
+   "mean_30_44": 29.98,
+   "mean_45plus": 26.7,
+   "d_45plus_minus_21_29": -0.779,
+   "pct_shift_for_45plus_person_at_median": 26.45
+  },
+  {
+   "scale": "C3 尽责",
+   "mean_21_29": 40.02,
+   "mean_30_44": 41.28,
+   "mean_45plus": 42.91,
+   "d_45plus_minus_21_29": 0.508,
+   "pct_shift_for_45plus_person_at_median": -17.74
+  },
+  {
+   "scale": "C",
+   "mean_21_29": 213.89,
+   "mean_30_44": 222.11,
+   "mean_45plus": 229.34,
+   "d_45plus_minus_21_29": 0.496,
+   "pct_shift_for_45plus_person_at_median": -17.32
+  },
+  {
+   "scale": "A",
+   "mean_21_29": 209.7,
+   "mean_30_44": 214.32,
+   "mean_45plus": 222.47,
+   "d_45plus_minus_21_29": 0.465,
+   "pct_shift_for_45plus_person_at_median": -16.29
+  },
+  {
+   "scale": "A4 合作",
+   "mean_21_29": 34.34,
+   "mean_30_44": 35.52,
+   "mean_45plus": 37.41,
+   "d_45plus_minus_21_29": 0.453,
+   "pct_shift_for_45plus_person_at_median": -15.88
+  },
+  {
+   "scale": "C5 自律",
+   "mean_21_29": 31.03,
+   "mean_30_44": 32.99,
+   "mean_45plus": 34.64,
+   "d_45plus_minus_21_29": 0.43,
+   "pct_shift_for_45plus_person_at_median": -15.09
+  },
+  {
+   "scale": "C6 谨慎",
+   "mean_21_29": 32.32,
+   "mean_30_44": 33.94,
+   "mean_45plus": 35.48,
+   "d_45plus_minus_21_29": 0.425,
+   "pct_shift_for_45plus_person_at_median": -14.91
+  },
+  {
+   "scale": "A2 正直",
+   "mean_21_29": 37.55,
+   "mean_30_44": 38.81,
+   "mean_45plus": 40.11,
+   "d_45plus_minus_21_29": 0.411,
+   "pct_shift_for_45plus_person_at_median": -14.43
+  },
+  {
+   "scale": "O1 想象力",
+   "mean_21_29": 39.71,
+   "mean_30_44": 38.35,
+   "mean_45plus": 37.23,
+   "d_45plus_minus_21_29": -0.348,
+   "pct_shift_for_45plus_person_at_median": 12.26
+  },
+  {
+   "scale": "E2 合群",
+   "mean_21_29": 30.55,
+   "mean_30_44": 28.73,
+   "mean_45plus": 27.56,
+   "d_45plus_minus_21_29": -0.345,
+   "pct_shift_for_45plus_person_at_median": 12.15
+  },
+  {
+   "scale": "C4 成就追求",
+   "mean_21_29": 38.05,
+   "mean_30_44": 39.27,
+   "mean_45plus": 40.18,
+   "d_45plus_minus_21_29": 0.324,
+   "pct_shift_for_45plus_person_at_median": -11.44
+  },
+  {
+   "scale": "A6 同情",
+   "mean_21_29": 34.69,
+   "mean_30_44": 35.35,
+   "mean_45plus": 36.8,
+   "d_45plus_minus_21_29": 0.319,
+   "pct_shift_for_45plus_person_at_median": -11.27
+  }
+ ],
+ "age_drift_within_adults_all": [
+  {
+   "scale": "E5 寻求刺激",
+   "mean_21_29": 32.79,
+   "mean_30_44": 29.98,
+   "mean_45plus": 26.7,
+   "d_45plus_minus_21_29": -0.779,
+   "pct_shift_for_45plus_person_at_median": 26.45
+  },
+  {
+   "scale": "C3 尽责",
+   "mean_21_29": 40.02,
+   "mean_30_44": 41.28,
+   "mean_45plus": 42.91,
+   "d_45plus_minus_21_29": 0.508,
+   "pct_shift_for_45plus_person_at_median": -17.74
+  },
+  {
+   "scale": "C",
+   "mean_21_29": 213.89,
+   "mean_30_44": 222.11,
+   "mean_45plus": 229.34,
+   "d_45plus_minus_21_29": 0.496,
+   "pct_shift_for_45plus_person_at_median": -17.32
+  },
+  {
+   "scale": "A",
+   "mean_21_29": 209.7,
+   "mean_30_44": 214.32,
+   "mean_45plus": 222.47,
+   "d_45plus_minus_21_29": 0.465,
+   "pct_shift_for_45plus_person_at_median": -16.29
+  },
+  {
+   "scale": "A4 合作",
+   "mean_21_29": 34.34,
+   "mean_30_44": 35.52,
+   "mean_45plus": 37.41,
+   "d_45plus_minus_21_29": 0.453,
+   "pct_shift_for_45plus_person_at_median": -15.88
+  },
+  {
+   "scale": "C5 自律",
+   "mean_21_29": 31.03,
+   "mean_30_44": 32.99,
+   "mean_45plus": 34.64,
+   "d_45plus_minus_21_29": 0.43,
+   "pct_shift_for_45plus_person_at_median": -15.09
+  },
+  {
+   "scale": "C6 谨慎",
+   "mean_21_29": 32.32,
+   "mean_30_44": 33.94,
+   "mean_45plus": 35.48,
+   "d_45plus_minus_21_29": 0.425,
+   "pct_shift_for_45plus_person_at_median": -14.91
+  },
+  {
+   "scale": "A2 正直",
+   "mean_21_29": 37.55,
+   "mean_30_44": 38.81,
+   "mean_45plus": 40.11,
+   "d_45plus_minus_21_29": 0.411,
+   "pct_shift_for_45plus_person_at_median": -14.43
+  },
+  {
+   "scale": "O1 想象力",
+   "mean_21_29": 39.71,
+   "mean_30_44": 38.35,
+   "mean_45plus": 37.23,
+   "d_45plus_minus_21_29": -0.348,
+   "pct_shift_for_45plus_person_at_median": 12.26
+  },
+  {
+   "scale": "E2 合群",
+   "mean_21_29": 30.55,
+   "mean_30_44": 28.73,
+   "mean_45plus": 27.56,
+   "d_45plus_minus_21_29": -0.345,
+   "pct_shift_for_45plus_person_at_median": 12.15
+  },
+  {
+   "scale": "C4 成就追求",
+   "mean_21_29": 38.05,
+   "mean_30_44": 39.27,
+   "mean_45plus": 40.18,
+   "d_45plus_minus_21_29": 0.324,
+   "pct_shift_for_45plus_person_at_median": -11.44
+  },
+  {
+   "scale": "A6 同情",
+   "mean_21_29": 34.69,
+   "mean_30_44": 35.35,
+   "mean_45plus": 36.8,
+   "d_45plus_minus_21_29": 0.319,
+   "pct_shift_for_45plus_person_at_median": -11.27
+  },
+  {
+   "scale": "N",
+   "mean_21_29": 172.14,
+   "mean_30_44": 168.38,
+   "mean_45plus": 160.0,
+   "d_45plus_minus_21_29": -0.309,
+   "pct_shift_for_45plus_person_at_median": 10.9
+  },
+  {
+   "scale": "N6 脆弱",
+   "mean_21_29": 25.52,
+   "mean_30_44": 24.22,
+   "mean_45plus": 23.18,
+   "d_45plus_minus_21_29": -0.302,
+   "pct_shift_for_45plus_person_at_median": 10.69
+  },
+  {
+   "scale": "C1 自我效能",
+   "mean_21_29": 39.07,
+   "mean_30_44": 40.01,
+   "mean_45plus": 40.65,
+   "d_45plus_minus_21_29": 0.276,
+   "pct_shift_for_45plus_person_at_median": -9.76
+  },
+  {
+   "scale": "A1 信任",
+   "mean_21_29": 33.36,
+   "mean_30_44": 33.74,
+   "mean_45plus": 35.42,
+   "d_45plus_minus_21_29": 0.266,
+   "pct_shift_for_45plus_person_at_median": -9.4
+  },
+  {
+   "scale": "C2 条理性",
+   "mean_21_29": 33.39,
+   "mean_30_44": 34.62,
+   "mean_45plus": 35.47,
+   "d_45plus_minus_21_29": 0.26,
+   "pct_shift_for_45plus_person_at_median": -9.21
+  },
+  {
+   "scale": "N5 放纵",
+   "mean_21_29": 32.35,
+   "mean_30_44": 31.86,
+   "mean_45plus": 30.42,
+   "d_45plus_minus_21_29": -0.259,
+   "pct_shift_for_45plus_person_at_median": 9.18
+  },
+  {
+   "scale": "N2 愤怒",
+   "mean_21_29": 28.25,
+   "mean_30_44": 28.09,
+   "mean_45plus": 25.96,
+   "d_45plus_minus_21_29": -0.249,
+   "pct_shift_for_45plus_person_at_median": 8.83
+  },
+  {
+   "scale": "E",
+   "mean_21_29": 200.69,
+   "mean_30_44": 196.07,
+   "mean_45plus": 192.59,
+   "d_45plus_minus_21_29": -0.246,
+   "pct_shift_for_45plus_person_at_median": 8.71
+  },
+  {
+   "scale": "A5 谦逊",
+   "mean_21_29": 30.16,
+   "mean_30_44": 31.01,
+   "mean_45plus": 31.87,
+   "d_45plus_minus_21_29": 0.246,
+   "pct_shift_for_45plus_person_at_median": -8.72
+  },
+  {
+   "scale": "N4 自我意识",
+   "mean_21_29": 29.22,
+   "mean_30_44": 28.45,
+   "mean_45plus": 27.42,
+   "d_45plus_minus_21_29": -0.229,
+   "pct_shift_for_45plus_person_at_median": 8.13
+  },
+  {
+   "scale": "N1 焦虑",
+   "mean_21_29": 30.09,
+   "mean_30_44": 29.45,
+   "mean_45plus": 28.34,
+   "d_45plus_minus_21_29": -0.213,
+   "pct_shift_for_45plus_person_at_median": 7.55
+  },
+  {
+   "scale": "N3 抑郁",
+   "mean_21_29": 26.71,
+   "mean_30_44": 26.31,
+   "mean_45plus": 24.67,
+   "d_45plus_minus_21_29": -0.212,
+   "pct_shift_for_45plus_person_at_median": 7.52
+  },
+  {
+   "scale": "A3 利他",
+   "mean_21_29": 39.6,
+   "mean_30_44": 39.89,
+   "mean_45plus": 40.87,
+   "d_45plus_minus_21_29": 0.207,
+   "pct_shift_for_45plus_person_at_median": -7.33
+  },
+  {
+   "scale": "O6 自由主义",
+   "mean_21_29": 30.28,
+   "mean_30_44": 29.15,
+   "mean_45plus": 28.97,
+   "d_45plus_minus_21_29": -0.169,
+   "pct_shift_for_45plus_person_at_median": 5.99
+  },
+  {
+   "scale": "E6 快乐",
+   "mean_21_29": 38.11,
+   "mean_30_44": 37.2,
+   "mean_45plus": 36.96,
+   "d_45plus_minus_21_29": -0.166,
+   "pct_shift_for_45plus_person_at_median": 5.89
+  },
+  {
+   "scale": "E4 活跃度",
+   "mean_21_29": 30.41,
+   "mean_30_44": 31.22,
+   "mean_45plus": 31.37,
+   "d_45plus_minus_21_29": 0.163,
+   "pct_shift_for_45plus_person_at_median": -5.77
+  },
+  {
+   "scale": "O2 艺术兴趣",
+   "mean_21_29": 40.4,
+   "mean_30_44": 40.45,
+   "mean_45plus": 41.39,
+   "d_45plus_minus_21_29": 0.15,
+   "pct_shift_for_45plus_person_at_median": -5.32
+  },
+  {
+   "scale": "O",
+   "mean_21_29": 223.44,
+   "mean_30_44": 221.41,
+   "mean_45plus": 220.74,
+   "d_45plus_minus_21_29": -0.101,
+   "pct_shift_for_45plus_person_at_median": 3.61
+  },
+  {
+   "scale": "E1 友善",
+   "mean_21_29": 34.72,
+   "mean_30_44": 34.55,
+   "mean_45plus": 35.43,
+   "d_45plus_minus_21_29": 0.088,
+   "pct_shift_for_45plus_person_at_median": -3.13
+  },
+  {
+   "scale": "E3 自信主张",
+   "mean_21_29": 34.12,
+   "mean_30_44": 34.39,
+   "mean_45plus": 34.58,
+   "d_45plus_minus_21_29": 0.062,
+   "pct_shift_for_45plus_person_at_median": -2.19
+  },
+  {
+   "scale": "O5 智性",
+   "mean_21_29": 39.61,
+   "mean_30_44": 40.04,
+   "mean_45plus": 39.82,
+   "d_45plus_minus_21_29": 0.031,
+   "pct_shift_for_45plus_person_at_median": -1.09
+  },
+  {
+   "scale": "O3 情绪感受性",
+   "mean_21_29": 37.89,
+   "mean_30_44": 37.76,
+   "mean_45plus": 37.78,
+   "d_45plus_minus_21_29": -0.018,
+   "pct_shift_for_45plus_person_at_median": 0.63
+  },
+  {
+   "scale": "O4 冒险",
+   "mean_21_29": 35.54,
+   "mean_30_44": 35.65,
+   "mean_45plus": 35.56,
+   "d_45plus_minus_21_29": 0.003,
+   "pct_shift_for_45plus_person_at_median": -0.09
+  }
+ ],
+ "single_year_domain_z_NEOAC": [
+  {
+   "age": 14,
+   "n": 2660,
+   "z": [
+    0.203,
+    0.179,
+    -0.05,
+    -0.339,
+    -0.484
+   ]
+  },
+  {
+   "age": 15,
+   "n": 5034,
+   "z": [
+    0.192,
+    0.129,
+    -0.03,
+    -0.272,
+    -0.508
+   ]
+  },
+  {
+   "age": 16,
+   "n": 8214,
+   "z": [
+    0.177,
+    0.177,
+    -0.02,
+    -0.216,
+    -0.428
+   ]
+  },
+  {
+   "age": 17,
+   "n": 10458,
+   "z": [
+    0.104,
+    0.187,
+    -0.087,
+    -0.193,
+    -0.352
+   ]
+  },
+  {
+   "age": 18,
+   "n": 12299,
+   "z": [
+    0.061,
+    0.114,
+    -0.071,
+    -0.07,
+    -0.214
+   ]
+  },
+  {
+   "age": 19,
+   "n": 11495,
+   "z": [
+    0.06,
+    0.05,
+    -0.04,
+    -0.011,
+    -0.148
+   ]
+  },
+  {
+   "age": 20,
+   "n": 10830,
+   "z": [
+    0.013,
+    0.046,
+    -0.042,
+    -0.016,
+    -0.059
+   ]
+  },
+  {
+   "age": 21,
+   "n": 9802,
+   "z": [
+    -0.002,
+    0.058,
+    -0.004,
+    -0.004,
+    -0.015
+   ]
+  },
+  {
+   "age": 22,
+   "n": 7473,
+   "z": [
+    0.008,
+    -0.005,
+    0.049,
+    -0.036,
+    0.013
+   ]
+  },
+  {
+   "age": 23,
+   "n": 6487,
+   "z": [
+    -0.008,
+    -0.002,
+    0.095,
+    -0.019,
+    0.052
+   ]
+  },
+  {
+   "age": 24,
+   "n": 5508,
+   "z": [
+    0.006,
+    -0.006,
+    0.125,
+    -0.007,
+    0.081
+   ]
+  },
+  {
+   "age": 25,
+   "n": 5026,
+   "z": [
+    -0.008,
+    -0.069,
+    0.138,
+    0.016,
+    0.119
+   ]
+  },
+  {
+   "age": 26,
+   "n": 4413,
+   "z": [
+    0.001,
+    -0.066,
+    0.106,
+    -0.014,
+    0.099
+   ]
+  },
+  {
+   "age": 27,
+   "n": 3877,
+   "z": [
+    -0.041,
+    -0.082,
+    0.108,
+    0.015,
+    0.162
+   ]
+  },
+  {
+   "age": 28,
+   "n": 3414,
+   "z": [
+    -0.041,
+    -0.083,
+    0.062,
+    0.005,
+    0.182
+   ]
+  },
+  {
+   "age": 29,
+   "n": 3097,
+   "z": [
+    -0.037,
+    -0.087,
+    0.053,
+    0.062,
+    0.205
+   ]
+  },
+  {
+   "age": 30,
+   "n": 3125,
+   "z": [
+    -0.037,
+    -0.112,
+    0.013,
+    0.049,
+    0.234
+   ]
+  },
+  {
+   "age": 31,
+   "n": 2615,
+   "z": [
+    -0.029,
+    -0.111,
+    0.059,
+    0.069,
+    0.222
+   ]
+  },
+  {
+   "age": 32,
+   "n": 2379,
+   "z": [
+    -0.041,
+    -0.138,
+    0.034,
+    0.056,
+    0.256
+   ]
+  },
+  {
+   "age": 33,
+   "n": 2105,
+   "z": [
+    -0.033,
+    -0.155,
+    0.024,
+    0.075,
+    0.281
+   ]
+  },
+  {
+   "age": 34,
+   "n": 1936,
+   "z": [
+    -0.081,
+    -0.161,
+    -0.005,
+    0.119,
+    0.274
+   ]
+  },
+  {
+   "age": 35,
+   "n": 1851,
+   "z": [
+    -0.131,
+    -0.149,
+    -0.051,
+    0.141,
+    0.352
+   ]
+  },
+  {
+   "age": 36,
+   "n": 1544,
+   "z": [
+    -0.121,
+    -0.186,
+    -0.006,
+    0.17,
+    0.321
+   ]
+  },
+  {
+   "age": 37,
+   "n": 1451,
+   "z": [
+    -0.123,
+    -0.226,
+    -0.076,
+    0.14,
+    0.37
+   ]
+  },
+  {
+   "age": 38,
+   "n": 1433,
+   "z": [
+    -0.115,
+    -0.152,
+    -0.032,
+    0.225,
+    0.384
+   ]
+  },
+  {
+   "age": 39,
+   "n": 1291,
+   "z": [
+    -0.174,
+    -0.169,
+    -0.034,
+    0.3,
+    0.402
+   ]
+  },
+  {
+   "age": 40,
+   "n": 1283,
+   "z": [
+    -0.199,
+    -0.188,
+    -0.015,
+    0.291,
+    0.453
+   ]
+  },
+  {
+   "age": 41,
+   "n": 1096,
+   "z": [
+    -0.188,
+    -0.217,
+    0.029,
+    0.353,
+    0.422
+   ]
+  },
+  {
+   "age": 42,
+   "n": 1087,
+   "z": [
+    -0.207,
+    -0.162,
+    -0.054,
+    0.316,
+    0.447
+   ]
+  },
+  {
+   "age": 43,
+   "n": 1058,
+   "z": [
+    -0.248,
+    -0.193,
+    -0.063,
+    0.323,
+    0.521
+   ]
+  },
+  {
+   "age": 44,
+   "n": 939,
+   "z": [
+    -0.245,
+    -0.266,
+    0.013,
+    0.328,
+    0.472
+   ]
+  },
+  {
+   "age": 45,
+   "n": 1051,
+   "z": [
+    -0.219,
+    -0.241,
+    -0.012,
+    0.433,
+    0.479
+   ]
+  },
+  {
+   "age": 46,
+   "n": 832,
+   "z": [
+    -0.296,
+    -0.183,
+    0.011,
+    0.415,
+    0.57
+   ]
+  },
+  {
+   "age": 47,
+   "n": 744,
+   "z": [
+    -0.225,
+    -0.24,
+    -0.058,
+    0.433,
+    0.495
+   ]
+  },
+  {
+   "age": 48,
+   "n": 735,
+   "z": [
+    -0.224,
+    -0.303,
+    -0.073,
+    0.376,
+    0.479
+   ]
+  },
+  {
+   "age": 49,
+   "n": 648,
+   "z": [
+    -0.304,
+    -0.273,
+    -0.001,
+    0.423,
+    0.519
+   ]
+  },
+  {
+   "age": 50,
+   "n": 679,
+   "z": [
+    -0.324,
+    -0.247,
+    0.007,
+    0.465,
+    0.555
+   ]
+  },
+  {
+   "age": 51,
+   "n": 529,
+   "z": [
+    -0.287,
+    -0.321,
+    -0.035,
+    0.431,
+    0.573
+   ]
+  },
+  {
+   "age": 52,
+   "n": 494,
+   "z": [
+    -0.416,
+    -0.245,
+    -0.047,
+    0.496,
+    0.609
+   ]
+  },
+  {
+   "age": 53,
+   "n": 434,
+   "z": [
+    -0.311,
+    -0.195,
+    0.039,
+    0.599,
+    0.56
+   ]
+  },
+  {
+   "age": 54,
+   "n": 403,
+   "z": [
+    -0.358,
+    -0.303,
+    -0.076,
+    0.46,
+    0.596
+   ]
+  },
+  {
+   "age": 55,
+   "n": 315,
+   "z": [
+    -0.423,
+    -0.345,
+    0.022,
+    0.587,
+    0.619
+   ]
+  },
+  {
+   "age": 56,
+   "n": 278,
+   "z": [
+    -0.433,
+    -0.358,
+    -0.043,
+    0.496,
+    0.584
+   ]
+  },
+  {
+   "age": 57,
+   "n": 219,
+   "z": [
+    -0.417,
+    -0.348,
+    0.042,
+    0.452,
+    0.595
+   ]
+  }
+ ],
+ "facet_informativeness": [
+  {
+   "domain": "A",
+   "facet_no": 5,
+   "name": "谦逊",
+   "r_with_own_domain": 0.4624,
+   "pct_variance_unique": 0.7862,
+   "residual_T_sd": 8.867,
+   "median_abs_pct_gap_to_own_domain": 19.25,
+   "share_gap_ge25": 0.3933
+  },
+  {
+   "domain": "E",
+   "facet_no": 4,
+   "name": "活跃度",
+   "r_with_own_domain": 0.5006,
+   "pct_variance_unique": 0.7494,
+   "residual_T_sd": 8.657,
+   "median_abs_pct_gap_to_own_domain": 18.11,
+   "share_gap_ge25": 0.3672
+  },
+  {
+   "domain": "O",
+   "facet_no": 3,
+   "name": "情绪感受性",
+   "r_with_own_domain": 0.5624,
+   "pct_variance_unique": 0.6837,
+   "residual_T_sd": 8.268,
+   "median_abs_pct_gap_to_own_domain": 16.84,
+   "share_gap_ge25": 0.3384
+  },
+  {
+   "domain": "N",
+   "facet_no": 5,
+   "name": "放纵",
+   "r_with_own_domain": 0.5694,
+   "pct_variance_unique": 0.6758,
+   "residual_T_sd": 8.221,
+   "median_abs_pct_gap_to_own_domain": 16.74,
+   "share_gap_ge25": 0.3392
+  },
+  {
+   "domain": "O",
+   "facet_no": 6,
+   "name": "自由主义",
+   "r_with_own_domain": 0.5724,
+   "pct_variance_unique": 0.6724,
+   "residual_T_sd": 8.2,
+   "median_abs_pct_gap_to_own_domain": 17.15,
+   "share_gap_ge25": 0.3427
+  },
+  {
+   "domain": "O",
+   "facet_no": 4,
+   "name": "冒险",
+   "r_with_own_domain": 0.61,
+   "pct_variance_unique": 0.6279,
+   "residual_T_sd": 7.924,
+   "median_abs_pct_gap_to_own_domain": 16.26,
+   "share_gap_ge25": 0.3211
+  },
+  {
+   "domain": "A",
+   "facet_no": 1,
+   "name": "信任",
+   "r_with_own_domain": 0.6389,
+   "pct_variance_unique": 0.5918,
+   "residual_T_sd": 7.693,
+   "median_abs_pct_gap_to_own_domain": 14.78,
+   "share_gap_ge25": 0.2879
+  },
+  {
+   "domain": "E",
+   "facet_no": 5,
+   "name": "寻求刺激",
+   "r_with_own_domain": 0.6675,
+   "pct_variance_unique": 0.5544,
+   "residual_T_sd": 7.446,
+   "median_abs_pct_gap_to_own_domain": 14.56,
+   "share_gap_ge25": 0.2849
+  },
+  {
+   "domain": "O",
+   "facet_no": 1,
+   "name": "想象力",
+   "r_with_own_domain": 0.6866,
+   "pct_variance_unique": 0.5286,
+   "residual_T_sd": 7.27,
+   "median_abs_pct_gap_to_own_domain": 13.88,
+   "share_gap_ge25": 0.2636
+  },
+  {
+   "domain": "C",
+   "facet_no": 6,
+   "name": "谨慎",
+   "r_with_own_domain": 0.692,
+   "pct_variance_unique": 0.5212,
+   "residual_T_sd": 7.219,
+   "median_abs_pct_gap_to_own_domain": 13.84,
+   "share_gap_ge25": 0.2617
+  },
+  {
+   "domain": "C",
+   "facet_no": 2,
+   "name": "条理性",
+   "r_with_own_domain": 0.7016,
+   "pct_variance_unique": 0.5078,
+   "residual_T_sd": 7.126,
+   "median_abs_pct_gap_to_own_domain": 13.59,
+   "share_gap_ge25": 0.2531
+  },
+  {
+   "domain": "N",
+   "facet_no": 4,
+   "name": "自我意识",
+   "r_with_own_domain": 0.7111,
+   "pct_variance_unique": 0.4943,
+   "residual_T_sd": 7.031,
+   "median_abs_pct_gap_to_own_domain": 13.34,
+   "share_gap_ge25": 0.2498
+  },
+  {
+   "domain": "O",
+   "facet_no": 2,
+   "name": "艺术兴趣",
+   "r_with_own_domain": 0.715,
+   "pct_variance_unique": 0.4888,
+   "residual_T_sd": 6.991,
+   "median_abs_pct_gap_to_own_domain": 13.41,
+   "share_gap_ge25": 0.2431
+  },
+  {
+   "domain": "A",
+   "facet_no": 6,
+   "name": "同情",
+   "r_with_own_domain": 0.7214,
+   "pct_variance_unique": 0.4795,
+   "residual_T_sd": 6.925,
+   "median_abs_pct_gap_to_own_domain": 13.33,
+   "share_gap_ge25": 0.239
+  },
+  {
+   "domain": "E",
+   "facet_no": 6,
+   "name": "快乐",
+   "r_with_own_domain": 0.7238,
+   "pct_variance_unique": 0.4762,
+   "residual_T_sd": 6.9,
+   "median_abs_pct_gap_to_own_domain": 13.11,
+   "share_gap_ge25": 0.2344
+  },
+  {
+   "domain": "O",
+   "facet_no": 5,
+   "name": "智性",
+   "r_with_own_domain": 0.7238,
+   "pct_variance_unique": 0.476,
+   "residual_T_sd": 6.9,
+   "median_abs_pct_gap_to_own_domain": 12.64,
+   "share_gap_ge25": 0.2257
+  },
+  {
+   "domain": "C",
+   "facet_no": 1,
+   "name": "自我效能",
+   "r_with_own_domain": 0.7332,
+   "pct_variance_unique": 0.4625,
+   "residual_T_sd": 6.801,
+   "median_abs_pct_gap_to_own_domain": 12.79,
+   "share_gap_ge25": 0.2246
+  },
+  {
+   "domain": "A",
+   "facet_no": 2,
+   "name": "正直",
+   "r_with_own_domain": 0.7379,
+   "pct_variance_unique": 0.4555,
+   "residual_T_sd": 6.749,
+   "median_abs_pct_gap_to_own_domain": 12.47,
+   "share_gap_ge25": 0.2198
+  },
+  {
+   "domain": "C",
+   "facet_no": 3,
+   "name": "尽责",
+   "r_with_own_domain": 0.7423,
+   "pct_variance_unique": 0.449,
+   "residual_T_sd": 6.701,
+   "median_abs_pct_gap_to_own_domain": 12.21,
+   "share_gap_ge25": 0.2137
+  },
+  {
+   "domain": "N",
+   "facet_no": 2,
+   "name": "愤怒",
+   "r_with_own_domain": 0.7432,
+   "pct_variance_unique": 0.4476,
+   "residual_T_sd": 6.69,
+   "median_abs_pct_gap_to_own_domain": 12.25,
+   "share_gap_ge25": 0.2257
+  },
+  {
+   "domain": "A",
+   "facet_no": 3,
+   "name": "利他",
+   "r_with_own_domain": 0.7509,
+   "pct_variance_unique": 0.4362,
+   "residual_T_sd": 6.605,
+   "median_abs_pct_gap_to_own_domain": 12.4,
+   "share_gap_ge25": 0.2113
+  },
+  {
+   "domain": "E",
+   "facet_no": 3,
+   "name": "自信主张",
+   "r_with_own_domain": 0.7534,
+   "pct_variance_unique": 0.4324,
+   "residual_T_sd": 6.576,
+   "median_abs_pct_gap_to_own_domain": 12.24,
+   "share_gap_ge25": 0.2133
+  },
+  {
+   "domain": "C",
+   "facet_no": 4,
+   "name": "成就追求",
+   "r_with_own_domain": 0.7786,
+   "pct_variance_unique": 0.3938,
+   "residual_T_sd": 6.275,
+   "median_abs_pct_gap_to_own_domain": 11.62,
+   "share_gap_ge25": 0.1892
+  },
+  {
+   "domain": "A",
+   "facet_no": 4,
+   "name": "合作",
+   "r_with_own_domain": 0.7826,
+   "pct_variance_unique": 0.3876,
+   "residual_T_sd": 6.226,
+   "median_abs_pct_gap_to_own_domain": 11.3,
+   "share_gap_ge25": 0.1833
+  },
+  {
+   "domain": "E",
+   "facet_no": 1,
+   "name": "友善",
+   "r_with_own_domain": 0.8349,
+   "pct_variance_unique": 0.3029,
+   "residual_T_sd": 5.504,
+   "median_abs_pct_gap_to_own_domain": 9.93,
+   "share_gap_ge25": 0.1375
+  },
+  {
+   "domain": "C",
+   "facet_no": 5,
+   "name": "自律",
+   "r_with_own_domain": 0.839,
+   "pct_variance_unique": 0.296,
+   "residual_T_sd": 5.441,
+   "median_abs_pct_gap_to_own_domain": 9.75,
+   "share_gap_ge25": 0.1366
+  },
+  {
+   "domain": "N",
+   "facet_no": 3,
+   "name": "抑郁",
+   "r_with_own_domain": 0.8478,
+   "pct_variance_unique": 0.2813,
+   "residual_T_sd": 5.303,
+   "median_abs_pct_gap_to_own_domain": 9.29,
+   "share_gap_ge25": 0.1273
+  },
+  {
+   "domain": "E",
+   "facet_no": 2,
+   "name": "合群",
+   "r_with_own_domain": 0.8554,
+   "pct_variance_unique": 0.2682,
+   "residual_T_sd": 5.179,
+   "median_abs_pct_gap_to_own_domain": 9.14,
+   "share_gap_ge25": 0.1172
+  },
+  {
+   "domain": "N",
+   "facet_no": 6,
+   "name": "脆弱",
+   "r_with_own_domain": 0.8602,
+   "pct_variance_unique": 0.2601,
+   "residual_T_sd": 5.1,
+   "median_abs_pct_gap_to_own_domain": 9.17,
+   "share_gap_ge25": 0.1128
+  },
+  {
+   "domain": "N",
+   "facet_no": 1,
+   "name": "焦虑",
+   "r_with_own_domain": 0.8669,
+   "pct_variance_unique": 0.2484,
+   "residual_T_sd": 4.984,
+   "median_abs_pct_gap_to_own_domain": 8.84,
+   "share_gap_ge25": 0.1044
+  }
+ ],
+ "hero_chip_rule": {
+  "n_sampled": 20000,
+  "mean_overlap_of_top6": 2.664,
+  "share_with_identical_top6": 0.0042,
+  "share_with_le3_overlap": 0.7812
+ }
+}

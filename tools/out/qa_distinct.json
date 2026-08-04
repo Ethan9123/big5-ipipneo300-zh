@@ -1,0 +1,1182 @@
+{
+ "source": "C:\\Users\\kids1\\Downloads\\bigfive\\tools\\out\\profiles_ordered.json",
+ "n": 243,
+ "placeholder_profiles": 243,
+ "shape_problems": [
+  "[0] 缺 cell 字段（按索引推得 O低C低E低A低N低）",
+  "[1] 缺 cell 字段（按索引推得 O低C低E低A低N中）",
+  "[2] 缺 cell 字段（按索引推得 O低C低E低A低N高）",
+  "[3] 缺 cell 字段（按索引推得 O低C低E低A中N低）",
+  "[4] 缺 cell 字段（按索引推得 O低C低E低A中N中）",
+  "[5] 缺 cell 字段（按索引推得 O低C低E低A中N高）",
+  "[6] 缺 cell 字段（按索引推得 O低C低E低A高N低）",
+  "[7] 缺 cell 字段（按索引推得 O低C低E低A高N中）",
+  "[8] 缺 cell 字段（按索引推得 O低C低E低A高N高）",
+  "[9] 缺 cell 字段（按索引推得 O低C低E中A低N低）",
+  "[10] 缺 cell 字段（按索引推得 O低C低E中A低N中）",
+  "[11] 缺 cell 字段（按索引推得 O低C低E中A低N高）",
+  "[12] 缺 cell 字段（按索引推得 O低C低E中A中N低）",
+  "[13] 缺 cell 字段（按索引推得 O低C低E中A中N中）",
+  "[14] 缺 cell 字段（按索引推得 O低C低E中A中N高）",
+  "[15] 缺 cell 字段（按索引推得 O低C低E中A高N低）",
+  "[16] 缺 cell 字段（按索引推得 O低C低E中A高N中）",
+  "[17] 缺 cell 字段（按索引推得 O低C低E中A高N高）",
+  "[18] 缺 cell 字段（按索引推得 O低C低E高A低N低）",
+  "[19] 缺 cell 字段（按索引推得 O低C低E高A低N中）",
+  "[20] 缺 cell 字段（按索引推得 O低C低E高A低N高）",
+  "[21] 缺 cell 字段（按索引推得 O低C低E高A中N低）",
+  "[22] 缺 cell 字段（按索引推得 O低C低E高A中N中）",
+  "[23] 缺 cell 字段（按索引推得 O低C低E高A中N高）",
+  "[24] 缺 cell 字段（按索引推得 O低C低E高A高N低）",
+  "[25] 缺 cell 字段（按索引推得 O低C低E高A高N中）",
+  "[26] 缺 cell 字段（按索引推得 O低C低E高A高N高）",
+  "[27] 缺 cell 字段（按索引推得 O低C中E低A低N低）",
+  "[28] 缺 cell 字段（按索引推得 O低C中E低A低N中）",
+  "[29] 缺 cell 字段（按索引推得 O低C中E低A低N高）",
+  "[30] 缺 cell 字段（按索引推得 O低C中E低A中N低）",
+  "[31] 缺 cell 字段（按索引推得 O低C中E低A中N中）",
+  "[32] 缺 cell 字段（按索引推得 O低C中E低A中N高）",
+  "[33] 缺 cell 字段（按索引推得 O低C中E低A高N低）",
+  "[34] 缺 cell 字段（按索引推得 O低C中E低A高N中）",
+  "[35] 缺 cell 字段（按索引推得 O低C中E低A高N高）",
+  "[36] 缺 cell 字段（按索引推得 O低C中E中A低N低）",
+  "[37] 缺 cell 字段（按索引推得 O低C中E中A低N中）",
+  "[38] 缺 cell 字段（按索引推得 O低C中E中A低N高）",
+  "[39] 缺 cell 字段（按索引推得 O低C中E中A中N低）",
+  "[40] 缺 cell 字段（按索引推得 O低C中E中A中N中）",
+  "[41] 缺 cell 字段（按索引推得 O低C中E中A中N高）",
+  "[42] 缺 cell 字段（按索引推得 O低C中E中A高N低）",
+  "[43] 缺 cell 字段（按索引推得 O低C中E中A高N中）",
+  "[44] 缺 cell 字段（按索引推得 O低C中E中A高N高）",
+  "[45] 缺 cell 字段（按索引推得 O低C中E高A低N低）",
+  "[46] 缺 cell 字段（按索引推得 O低C中E高A低N中）",
+  "[47] 缺 cell 字段（按索引推得 O低C中E高A低N高）",
+  "[48] 缺 cell 字段（按索引推得 O低C中E高A中N低）",
+  "[49] 缺 cell 字段（按索引推得 O低C中E高A中N中）",
+  "[50] 缺 cell 字段（按索引推得 O低C中E高A中N高）",
+  "[51] 缺 cell 字段（按索引推得 O低C中E高A高N低）",
+  "[52] 缺 cell 字段（按索引推得 O低C中E高A高N中）",
+  "[53] 缺 cell 字段（按索引推得 O低C中E高A高N高）",
+  "[54] 缺 cell 字段（按索引推得 O低C高E低A低N低）",
+  "[55] 缺 cell 字段（按索引推得 O低C高E低A低N中）",
+  "[56] 缺 cell 字段（按索引推得 O低C高E低A低N高）",
+  "[57] 缺 cell 字段（按索引推得 O低C高E低A中N低）",
+  "[58] 缺 cell 字段（按索引推得 O低C高E低A中N中）",
+  "[59] 缺 cell 字段（按索引推得 O低C高E低A中N高）",
+  "[60] 缺 cell 字段（按索引推得 O低C高E低A高N低）",
+  "[61] 缺 cell 字段（按索引推得 O低C高E低A高N中）",
+  "[62] 缺 cell 字段（按索引推得 O低C高E低A高N高）",
+  "[63] 缺 cell 字段（按索引推得 O低C高E中A低N低）",
+  "[64] 缺 cell 字段（按索引推得 O低C高E中A低N中）",
+  "[65] 缺 cell 字段（按索引推得 O低C高E中A低N高）",
+  "[66] 缺 cell 字段（按索引推得 O低C高E中A中N低）",
+  "[67] 缺 cell 字段（按索引推得 O低C高E中A中N中）",
+  "[68] 缺 cell 字段（按索引推得 O低C高E中A中N高）",
+  "[69] 缺 cell 字段（按索引推得 O低C高E中A高N低）",
+  "[70] 缺 cell 字段（按索引推得 O低C高E中A高N中）",
+  "[71] 缺 cell 字段（按索引推得 O低C高E中A高N高）",
+  "[72] 缺 cell 字段（按索引推得 O低C高E高A低N低）",
+  "[73] 缺 cell 字段（按索引推得 O低C高E高A低N中）",
+  "[74] 缺 cell 字段（按索引推得 O低C高E高A低N高）",
+  "[75] 缺 cell 字段（按索引推得 O低C高E高A中N低）",
+  "[76] 缺 cell 字段（按索引推得 O低C高E高A中N中）",
+  "[77] 缺 cell 字段（按索引推得 O低C高E高A中N高）",
+  "[78] 缺 cell 字段（按索引推得 O低C高E高A高N低）",
+  "[79] 缺 cell 字段（按索引推得 O低C高E高A高N中）",
+  "[80] 缺 cell 字段（按索引推得 O低C高E高A高N高）",
+  "[81] 缺 cell 字段（按索引推得 O中C低E低A低N低）",
+  "[82] 缺 cell 字段（按索引推得 O中C低E低A低N中）",
+  "[83] 缺 cell 字段（按索引推得 O中C低E低A低N高）",
+  "[84] 缺 cell 字段（按索引推得 O中C低E低A中N低）",
+  "[85] 缺 cell 字段（按索引推得 O中C低E低A中N中）",
+  "[86] 缺 cell 字段（按索引推得 O中C低E低A中N高）",
+  "[87] 缺 cell 字段（按索引推得 O中C低E低A高N低）",
+  "[88] 缺 cell 字段（按索引推得 O中C低E低A高N中）",
+  "[89] 缺 cell 字段（按索引推得 O中C低E低A高N高）",
+  "[90] 缺 cell 字段（按索引推得 O中C低E中A低N低）",
+  "[91] 缺 cell 字段（按索引推得 O中C低E中A低N中）",
+  "[92] 缺 cell 字段（按索引推得 O中C低E中A低N高）",
+  "[93] 缺 cell 字段（按索引推得 O中C低E中A中N低）",
+  "[94] 缺 cell 字段（按索引推得 O中C低E中A中N中）",
+  "[95] 缺 cell 字段（按索引推得 O中C低E中A中N高）",
+  "[96] 缺 cell 字段（按索引推得 O中C低E中A高N低）",
+  "[97] 缺 cell 字段（按索引推得 O中C低E中A高N中）",
+  "[98] 缺 cell 字段（按索引推得 O中C低E中A高N高）",
+  "[99] 缺 cell 字段（按索引推得 O中C低E高A低N低）",
+  "[100] 缺 cell 字段（按索引推得 O中C低E高A低N中）",
+  "[101] 缺 cell 字段（按索引推得 O中C低E高A低N高）",
+  "[102] 缺 cell 字段（按索引推得 O中C低E高A中N低）",
+  "[103] 缺 cell 字段（按索引推得 O中C低E高A中N中）",
+  "[104] 缺 cell 字段（按索引推得 O中C低E高A中N高）",
+  "[105] 缺 cell 字段（按索引推得 O中C低E高A高N低）",
+  "[106] 缺 cell 字段（按索引推得 O中C低E高A高N中）",
+  "[107] 缺 cell 字段（按索引推得 O中C低E高A高N高）",
+  "[108] 缺 cell 字段（按索引推得 O中C中E低A低N低）",
+  "[109] 缺 cell 字段（按索引推得 O中C中E低A低N中）",
+  "[110] 缺 cell 字段（按索引推得 O中C中E低A低N高）",
+  "[111] 缺 cell 字段（按索引推得 O中C中E低A中N低）",
+  "[112] 缺 cell 字段（按索引推得 O中C中E低A中N中）",
+  "[113] 缺 cell 字段（按索引推得 O中C中E低A中N高）",
+  "[114] 缺 cell 字段（按索引推得 O中C中E低A高N低）",
+  "[115] 缺 cell 字段（按索引推得 O中C中E低A高N中）",
+  "[116] 缺 cell 字段（按索引推得 O中C中E低A高N高）",
+  "[117] 缺 cell 字段（按索引推得 O中C中E中A低N低）",
+  "[118] 缺 cell 字段（按索引推得 O中C中E中A低N中）",
+  "[119] 缺 cell 字段（按索引推得 O中C中E中A低N高）",
+  "[120] 缺 cell 字段（按索引推得 O中C中E中A中N低）",
+  "[121] 缺 cell 字段（按索引推得 O中C中E中A中N中）",
+  "[122] 缺 cell 字段（按索引推得 O中C中E中A中N高）",
+  "[123] 缺 cell 字段（按索引推得 O中C中E中A高N低）",
+  "[124] 缺 cell 字段（按索引推得 O中C中E中A高N中）",
+  "[125] 缺 cell 字段（按索引推得 O中C中E中A高N高）",
+  "[126] 缺 cell 字段（按索引推得 O中C中E高A低N低）",
+  "[127] 缺 cell 字段（按索引推得 O中C中E高A低N中）",
+  "[128] 缺 cell 字段（按索引推得 O中C中E高A低N高）",
+  "[129] 缺 cell 字段（按索引推得 O中C中E高A中N低）",
+  "[130] 缺 cell 字段（按索引推得 O中C中E高A中N中）",
+  "[131] 缺 cell 字段（按索引推得 O中C中E高A中N高）",
+  "[132] 缺 cell 字段（按索引推得 O中C中E高A高N低）",
+  "[133] 缺 cell 字段（按索引推得 O中C中E高A高N中）",
+  "[134] 缺 cell 字段（按索引推得 O中C中E高A高N高）",
+  "[135] 缺 cell 字段（按索引推得 O中C高E低A低N低）",
+  "[136] 缺 cell 字段（按索引推得 O中C高E低A低N中）",
+  "[137] 缺 cell 字段（按索引推得 O中C高E低A低N高）",
+  "[138] 缺 cell 字段（按索引推得 O中C高E低A中N低）",
+  "[139] 缺 cell 字段（按索引推得 O中C高E低A中N中）",
+  "[140] 缺 cell 字段（按索引推得 O中C高E低A中N高）",
+  "[141] 缺 cell 字段（按索引推得 O中C高E低A高N低）",
+  "[142] 缺 cell 字段（按索引推得 O中C高E低A高N中）",
+  "[143] 缺 cell 字段（按索引推得 O中C高E低A高N高）",
+  "[144] 缺 cell 字段（按索引推得 O中C高E中A低N低）",
+  "[145] 缺 cell 字段（按索引推得 O中C高E中A低N中）",
+  "[146] 缺 cell 字段（按索引推得 O中C高E中A低N高）",
+  "[147] 缺 cell 字段（按索引推得 O中C高E中A中N低）",
+  "[148] 缺 cell 字段（按索引推得 O中C高E中A中N中）",
+  "[149] 缺 cell 字段（按索引推得 O中C高E中A中N高）",
+  "[150] 缺 cell 字段（按索引推得 O中C高E中A高N低）",
+  "[151] 缺 cell 字段（按索引推得 O中C高E中A高N中）",
+  "[152] 缺 cell 字段（按索引推得 O中C高E中A高N高）",
+  "[153] 缺 cell 字段（按索引推得 O中C高E高A低N低）",
+  "[154] 缺 cell 字段（按索引推得 O中C高E高A低N中）",
+  "[155] 缺 cell 字段（按索引推得 O中C高E高A低N高）",
+  "[156] 缺 cell 字段（按索引推得 O中C高E高A中N低）",
+  "[157] 缺 cell 字段（按索引推得 O中C高E高A中N中）",
+  "[158] 缺 cell 字段（按索引推得 O中C高E高A中N高）",
+  "[159] 缺 cell 字段（按索引推得 O中C高E高A高N低）",
+  "[160] 缺 cell 字段（按索引推得 O中C高E高A高N中）",
+  "[161] 缺 cell 字段（按索引推得 O中C高E高A高N高）",
+  "[162] 缺 cell 字段（按索引推得 O高C低E低A低N低）",
+  "[163] 缺 cell 字段（按索引推得 O高C低E低A低N中）",
+  "[164] 缺 cell 字段（按索引推得 O高C低E低A低N高）",
+  "[165] 缺 cell 字段（按索引推得 O高C低E低A中N低）",
+  "[166] 缺 cell 字段（按索引推得 O高C低E低A中N中）",
+  "[167] 缺 cell 字段（按索引推得 O高C低E低A中N高）",
+  "[168] 缺 cell 字段（按索引推得 O高C低E低A高N低）",
+  "[169] 缺 cell 字段（按索引推得 O高C低E低A高N中）",
+  "[170] 缺 cell 字段（按索引推得 O高C低E低A高N高）",
+  "[171] 缺 cell 字段（按索引推得 O高C低E中A低N低）",
+  "[172] 缺 cell 字段（按索引推得 O高C低E中A低N中）",
+  "[173] 缺 cell 字段（按索引推得 O高C低E中A低N高）",
+  "[174] 缺 cell 字段（按索引推得 O高C低E中A中N低）",
+  "[175] 缺 cell 字段（按索引推得 O高C低E中A中N中）",
+  "[176] 缺 cell 字段（按索引推得 O高C低E中A中N高）",
+  "[177] 缺 cell 字段（按索引推得 O高C低E中A高N低）",
+  "[178] 缺 cell 字段（按索引推得 O高C低E中A高N中）",
+  "[179] 缺 cell 字段（按索引推得 O高C低E中A高N高）",
+  "[180] 缺 cell 字段（按索引推得 O高C低E高A低N低）",
+  "[181] 缺 cell 字段（按索引推得 O高C低E高A低N中）",
+  "[182] 缺 cell 字段（按索引推得 O高C低E高A低N高）",
+  "[183] 缺 cell 字段（按索引推得 O高C低E高A中N低）",
+  "[184] 缺 cell 字段（按索引推得 O高C低E高A中N中）",
+  "[185] 缺 cell 字段（按索引推得 O高C低E高A中N高）",
+  "[186] 缺 cell 字段（按索引推得 O高C低E高A高N低）",
+  "[187] 缺 cell 字段（按索引推得 O高C低E高A高N中）",
+  "[188] 缺 cell 字段（按索引推得 O高C低E高A高N高）",
+  "[189] 缺 cell 字段（按索引推得 O高C中E低A低N低）",
+  "[190] 缺 cell 字段（按索引推得 O高C中E低A低N中）",
+  "[191] 缺 cell 字段（按索引推得 O高C中E低A低N高）",
+  "[192] 缺 cell 字段（按索引推得 O高C中E低A中N低）",
+  "[193] 缺 cell 字段（按索引推得 O高C中E低A中N中）",
+  "[194] 缺 cell 字段（按索引推得 O高C中E低A中N高）",
+  "[195] 缺 cell 字段（按索引推得 O高C中E低A高N低）",
+  "[196] 缺 cell 字段（按索引推得 O高C中E低A高N中）",
+  "[197] 缺 cell 字段（按索引推得 O高C中E低A高N高）",
+  "[198] 缺 cell 字段（按索引推得 O高C中E中A低N低）",
+  "[199] 缺 cell 字段（按索引推得 O高C中E中A低N中）",
+  "[200] 缺 cell 字段（按索引推得 O高C中E中A低N高）",
+  "[201] 缺 cell 字段（按索引推得 O高C中E中A中N低）",
+  "[202] 缺 cell 字段（按索引推得 O高C中E中A中N中）",
+  "[203] 缺 cell 字段（按索引推得 O高C中E中A中N高）",
+  "[204] 缺 cell 字段（按索引推得 O高C中E中A高N低）",
+  "[205] 缺 cell 字段（按索引推得 O高C中E中A高N中）",
+  "[206] 缺 cell 字段（按索引推得 O高C中E中A高N高）",
+  "[207] 缺 cell 字段（按索引推得 O高C中E高A低N低）",
+  "[208] 缺 cell 字段（按索引推得 O高C中E高A低N中）",
+  "[209] 缺 cell 字段（按索引推得 O高C中E高A低N高）",
+  "[210] 缺 cell 字段（按索引推得 O高C中E高A中N低）",
+  "[211] 缺 cell 字段（按索引推得 O高C中E高A中N中）",
+  "[212] 缺 cell 字段（按索引推得 O高C中E高A中N高）",
+  "[213] 缺 cell 字段（按索引推得 O高C中E高A高N低）",
+  "[214] 缺 cell 字段（按索引推得 O高C中E高A高N中）",
+  "[215] 缺 cell 字段（按索引推得 O高C中E高A高N高）",
+  "[216] 缺 cell 字段（按索引推得 O高C高E低A低N低）",
+  "[217] 缺 cell 字段（按索引推得 O高C高E低A低N中）",
+  "[218] 缺 cell 字段（按索引推得 O高C高E低A低N高）",
+  "[219] 缺 cell 字段（按索引推得 O高C高E低A中N低）",
+  "[220] 缺 cell 字段（按索引推得 O高C高E低A中N中）",
+  "[221] 缺 cell 字段（按索引推得 O高C高E低A中N高）",
+  "[222] 缺 cell 字段（按索引推得 O高C高E低A高N低）",
+  "[223] 缺 cell 字段（按索引推得 O高C高E低A高N中）",
+  "[224] 缺 cell 字段（按索引推得 O高C高E低A高N高）",
+  "[225] 缺 cell 字段（按索引推得 O高C高E中A低N低）",
+  "[226] 缺 cell 字段（按索引推得 O高C高E中A低N中）",
+  "[227] 缺 cell 字段（按索引推得 O高C高E中A低N高）",
+  "[228] 缺 cell 字段（按索引推得 O高C高E中A中N低）",
+  "[229] 缺 cell 字段（按索引推得 O高C高E中A中N中）",
+  "[230] 缺 cell 字段（按索引推得 O高C高E中A中N高）",
+  "[231] 缺 cell 字段（按索引推得 O高C高E中A高N低）",
+  "[232] 缺 cell 字段（按索引推得 O高C高E中A高N中）",
+  "[233] 缺 cell 字段（按索引推得 O高C高E中A高N高）",
+  "[234] 缺 cell 字段（按索引推得 O高C高E高A低N低）",
+  "[235] 缺 cell 字段（按索引推得 O高C高E高A低N中）",
+  "[236] 缺 cell 字段（按索引推得 O高C高E高A低N高）",
+  "[237] 缺 cell 字段（按索引推得 O高C高E高A中N低）",
+  "[238] 缺 cell 字段（按索引推得 O高C高E高A中N中）",
+  "[239] 缺 cell 字段（按索引推得 O高C高E高A中N高）",
+  "[240] 缺 cell 字段（按索引推得 O高C高E高A高N低）",
+  "[241] 缺 cell 字段（按索引推得 O高C高E高A高N中）",
+  "[242] 缺 cell 字段（按索引推得 O高C高E高A高N高）"
+ ],
+ "neighbor_pairs": 810,
+ "similarity": {
+  "median": 0.6569230769230769,
+  "p90": 0.8538461538461538,
+  "p99": 0.8538461538461538,
+  "max": 0.8538461538461538,
+  "min": 0.6569230769230769
+ },
+ "top60_similar_pairs": [
+  {
+   "cell_a": "O低C低E低A低N低",
+   "cell_b": "O低C低E低A低N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E低A低N中",
+   "cell_b": "O低C低E低A低N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E低A中N低",
+   "cell_b": "O低C低E低A中N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E低A中N中",
+   "cell_b": "O低C低E低A中N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E低A高N低",
+   "cell_b": "O低C低E低A高N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E低A高N中",
+   "cell_b": "O低C低E低A高N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E中A低N低",
+   "cell_b": "O低C低E中A低N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E中A低N中",
+   "cell_b": "O低C低E中A低N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E中A中N低",
+   "cell_b": "O低C低E中A中N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E中A中N中",
+   "cell_b": "O低C低E中A中N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E中A高N低",
+   "cell_b": "O低C低E中A高N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E中A高N中",
+   "cell_b": "O低C低E中A高N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E高A低N低",
+   "cell_b": "O低C低E高A低N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E高A低N中",
+   "cell_b": "O低C低E高A低N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E高A中N低",
+   "cell_b": "O低C低E高A中N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E高A中N中",
+   "cell_b": "O低C低E高A中N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E高A高N低",
+   "cell_b": "O低C低E高A高N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C低E高A高N中",
+   "cell_b": "O低C低E高A高N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E低A低N低",
+   "cell_b": "O低C中E低A低N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E低A低N中",
+   "cell_b": "O低C中E低A低N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E低A中N低",
+   "cell_b": "O低C中E低A中N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E低A中N中",
+   "cell_b": "O低C中E低A中N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E低A高N低",
+   "cell_b": "O低C中E低A高N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E低A高N中",
+   "cell_b": "O低C中E低A高N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E中A低N低",
+   "cell_b": "O低C中E中A低N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E中A低N中",
+   "cell_b": "O低C中E中A低N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E中A中N低",
+   "cell_b": "O低C中E中A中N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E中A中N中",
+   "cell_b": "O低C中E中A中N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E中A高N低",
+   "cell_b": "O低C中E中A高N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E中A高N中",
+   "cell_b": "O低C中E中A高N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E高A低N低",
+   "cell_b": "O低C中E高A低N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E高A低N中",
+   "cell_b": "O低C中E高A低N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E高A中N低",
+   "cell_b": "O低C中E高A中N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E高A中N中",
+   "cell_b": "O低C中E高A中N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E高A高N低",
+   "cell_b": "O低C中E高A高N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C中E高A高N中",
+   "cell_b": "O低C中E高A高N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E低A低N低",
+   "cell_b": "O低C高E低A低N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E低A低N中",
+   "cell_b": "O低C高E低A低N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E低A中N低",
+   "cell_b": "O低C高E低A中N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E低A中N中",
+   "cell_b": "O低C高E低A中N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E低A高N低",
+   "cell_b": "O低C高E低A高N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E低A高N中",
+   "cell_b": "O低C高E低A高N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E中A低N低",
+   "cell_b": "O低C高E中A低N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E中A低N中",
+   "cell_b": "O低C高E中A低N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E中A中N低",
+   "cell_b": "O低C高E中A中N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E中A中N中",
+   "cell_b": "O低C高E中A中N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E中A高N低",
+   "cell_b": "O低C高E中A高N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E中A高N中",
+   "cell_b": "O低C高E中A高N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E高A低N低",
+   "cell_b": "O低C高E高A低N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E高A低N中",
+   "cell_b": "O低C高E高A低N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E高A中N低",
+   "cell_b": "O低C高E高A中N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E高A中N中",
+   "cell_b": "O低C高E高A中N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E高A高N低",
+   "cell_b": "O低C高E高A高N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O低C高E高A高N中",
+   "cell_b": "O低C高E高A高N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O中C低E低A低N低",
+   "cell_b": "O中C低E低A低N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O中C低E低A低N中",
+   "cell_b": "O中C低E低A低N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O中C低E低A中N低",
+   "cell_b": "O中C低E低A中N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O中C低E低A中N中",
+   "cell_b": "O中C低E低A中N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O中C低E低A高N低",
+   "cell_b": "O中C低E低A高N中",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  },
+  {
+   "cell_a": "O中C低E低A高N中",
+   "cell_b": "O中C低E低A高N高",
+   "dim": "N",
+   "score": 0.8538,
+   "per_field": {
+    "summary": 0.8846,
+    "life": 0.8462,
+    "friends": 0.8462,
+    "love": 0.8462,
+    "work": 0.8462
+   }
+  }
+ ],
+ "repeated_sentences_top20": [
+  {
+   "text": "真实文案由写作工作流产出后替换",
+   "count": 486,
+   "cells": 243
+  },
+  {
+   "text": "占位 summary，用于测试渲染与边界提示",
+   "count": 243,
+   "cells": 243
+  },
+  {
+   "text": "O低C低E低A低N低",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "占位 生活 O低C低E低A低N低",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "占位 交友 O低C低E低A低N低",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "占位 恋爱 O低C低E低A低N低",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "占位 工作 O低C低E低A低N低",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "O低C低E低A低N中",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "占位 生活 O低C低E低A低N中",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "占位 交友 O低C低E低A低N中",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "占位 恋爱 O低C低E低A低N中",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "占位 工作 O低C低E低A低N中",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "O低C低E低A低N高",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "占位 生活 O低C低E低A低N高",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "占位 交友 O低C低E低A低N高",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "占位 恋爱 O低C低E低A低N高",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "占位 工作 O低C低E低A低N高",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "O低C低E低A中N低",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "占位 生活 O低C低E低A中N低",
+   "count": 1,
+   "cells": 1
+  },
+  {
+   "text": "占位 交友 O低C低E低A中N低",
+   "count": 1,
+   "cells": 1
+  }
+ ],
+ "list_item_unique_rate": 0.00411522633744856,
+ "list_items_top15": [
+  {
+   "text": "占位优点一",
+   "count": 243
+  },
+  {
+   "text": "占位优点二",
+   "count": 243
+  },
+  {
+   "text": "占位优点三",
+   "count": 243
+  },
+  {
+   "text": "占位缺点一",
+   "count": 243
+  },
+  {
+   "text": "占位缺点二",
+   "count": 243
+  },
+  {
+   "text": "占位缺点三",
+   "count": 243
+  },
+  {
+   "text": "占位练习一",
+   "count": 243
+  },
+  {
+   "text": "占位练习二",
+   "count": 243
+  },
+  {
+   "text": "占位练习三",
+   "count": 243
+  }
+ ],
+ "n_pairs_driven": 0
+}

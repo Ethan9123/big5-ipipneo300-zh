@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://big5.try-board-game.uk/sitemap.xml

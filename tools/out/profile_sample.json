@@ -1,0 +1,1646 @@
+{
+  "n_total": 145388,
+  "country": {
+    "n_distinct": 224,
+    "top25": [
+      {
+        "code": "USA",
+        "n": 100608,
+        "share_pct": 69.1997
+      },
+      {
+        "code": "Canada",
+        "n": 10382,
+        "share_pct": 7.1409
+      },
+      {
+        "code": "UK",
+        "n": 7680,
+        "share_pct": 5.2824
+      },
+      {
+        "code": "Australia",
+        "n": 4978,
+        "share_pct": 3.4239
+      },
+      {
+        "code": "Netherlands",
+        "n": 1853,
+        "share_pct": 1.2745
+      },
+      {
+        "code": "India",
+        "n": 1218,
+        "share_pct": 0.8378
+      },
+      {
+        "code": "Thailand",
+        "n": 1156,
+        "share_pct": 0.7951
+      },
+      {
+        "code": "Singapore",
+        "n": 1149,
+        "share_pct": 0.7903
+      },
+      {
+        "code": "Philippines",
+        "n": 1088,
+        "share_pct": 0.7483
+      },
+      {
+        "code": "Finland",
+        "n": 992,
+        "share_pct": 0.6823
+      },
+      {
+        "code": "New Zealand",
+        "n": 911,
+        "share_pct": 0.6266
+      },
+      {
+        "code": "Ireland",
+        "n": 904,
+        "share_pct": 0.6218
+      },
+      {
+        "code": "Sweden",
+        "n": 738,
+        "share_pct": 0.5076
+      },
+      {
+        "code": "Germany",
+        "n": 574,
+        "share_pct": 0.3948
+      },
+      {
+        "code": "Norway",
+        "n": 520,
+        "share_pct": 0.3577
+      },
+      {
+        "code": "China",
+        "n": 484,
+        "share_pct": 0.3329
+      },
+      {
+        "code": "South Afric",
+        "n": 406,
+        "share_pct": 0.2793
+      },
+      {
+        "code": "France",
+        "n": 398,
+        "share_pct": 0.2738
+      },
+      {
+        "code": "Malaysia",
+        "n": 394,
+        "share_pct": 0.271
+      },
+      {
+        "code": "Hong Kong",
+        "n": 356,
+        "share_pct": 0.2449
+      },
+      {
+        "code": "Denmark",
+        "n": 319,
+        "share_pct": 0.2194
+      },
+      {
+        "code": "Brazil",
+        "n": 305,
+        "share_pct": 0.2098
+      },
+      {
+        "code": "Mexico",
+        "n": 304,
+        "share_pct": 0.2091
+      },
+      {
+        "code": "Belgium",
+        "n": 303,
+        "share_pct": 0.2084
+      },
+      {
+        "code": "Greece",
+        "n": 288,
+        "share_pct": 0.1981
+      }
+    ],
+    "anglosphere": {
+      "codes": [
+        "USA",
+        "UK",
+        "Canada",
+        "Australia",
+        "New Zealand",
+        "Ireland"
+      ],
+      "per_code": {
+        "USA": 100608,
+        "UK": 7680,
+        "Canada": 10382,
+        "Australia": 4978,
+        "New Zealand": 911,
+        "Ireland": 904
+      },
+      "n": 125463,
+      "share_pct": 86.2953
+    },
+    "greater_china_plus_sg": {
+      "codes": [
+        "China",
+        "Hong Kong",
+        "Taiwan",
+        "Singapore",
+        "Macau",
+        "Macao"
+      ],
+      "per_code": {
+        "China": 484,
+        "Hong Kong": 356,
+        "Taiwan": 128,
+        "Singapore": 1149,
+        "Macau": 15,
+        "Macao": 0
+      },
+      "n": 2132,
+      "share_pct": 1.4664
+    },
+    "cn_hk_tw_sg_strict": {
+      "codes": [
+        "China",
+        "Hong Kong",
+        "Taiwan",
+        "Singapore"
+      ],
+      "per_code": {
+        "China": 484,
+        "Hong Kong": 356,
+        "Taiwan": 128,
+        "Singapore": 1149
+      },
+      "n": 2117,
+      "share_pct": 1.4561
+    },
+    "greater_china_excl_singapore": {
+      "codes": [
+        "China",
+        "Hong Kong",
+        "Taiwan"
+      ],
+      "n": 968,
+      "share_pct": 0.6658
+    },
+    "blank_or_missing": {
+      "n": 280,
+      "share_pct": 0.0963
+    },
+    "all_codes_sorted_by_n": [
+      [
+        "USA",
+        100608
+      ],
+      [
+        "Canada",
+        10382
+      ],
+      [
+        "UK",
+        7680
+      ],
+      [
+        "Australia",
+        4978
+      ],
+      [
+        "Netherlands",
+        1853
+      ],
+      [
+        "India",
+        1218
+      ],
+      [
+        "Thailand",
+        1156
+      ],
+      [
+        "Singapore",
+        1149
+      ],
+      [
+        "Philippines",
+        1088
+      ],
+      [
+        "Finland",
+        992
+      ],
+      [
+        "New Zealand",
+        911
+      ],
+      [
+        "Ireland",
+        904
+      ],
+      [
+        "Sweden",
+        738
+      ],
+      [
+        "Germany",
+        574
+      ],
+      [
+        "Norway",
+        520
+      ],
+      [
+        "China",
+        484
+      ],
+      [
+        "South Afric",
+        406
+      ],
+      [
+        "France",
+        398
+      ],
+      [
+        "Malaysia",
+        394
+      ],
+      [
+        "Hong Kong",
+        356
+      ],
+      [
+        "Denmark",
+        319
+      ],
+      [
+        "Brazil",
+        305
+      ],
+      [
+        "Mexico",
+        304
+      ],
+      [
+        "Belgium",
+        303
+      ],
+      [
+        "Greece",
+        288
+      ],
+      [
+        "Afghanistan",
+        282
+      ],
+      [
+        "Israel",
+        257
+      ],
+      [
+        "South Korea",
+        250
+      ],
+      [
+        "Albania",
+        245
+      ],
+      [
+        "Romania",
+        231
+      ],
+      [
+        "Portugal",
+        213
+      ],
+      [
+        "Italy",
+        202
+      ],
+      [
+        "Japan",
+        198
+      ],
+      [
+        "Spain",
+        190
+      ],
+      [
+        "Turkey",
+        187
+      ],
+      [
+        "Russian Fed",
+        184
+      ],
+      [
+        "Poland",
+        171
+      ],
+      [
+        "Algeria",
+        158
+      ],
+      [
+        "Egypt",
+        144
+      ],
+      [
+        "",
+        140
+      ],
+      [
+        "Croatia",
+        138
+      ],
+      [
+        "Indonesia",
+        130
+      ],
+      [
+        "Taiwan",
+        128
+      ],
+      [
+        "Pakistan",
+        120
+      ],
+      [
+        "Austria",
+        115
+      ],
+      [
+        "Argentina",
+        108
+      ],
+      [
+        "Latvia",
+        104
+      ],
+      [
+        "Switzerland",
+        100
+      ],
+      [
+        "Puerto Rico",
+        98
+      ],
+      [
+        "Serbia",
+        96
+      ],
+      [
+        "Estonia",
+        93
+      ],
+      [
+        "Columbia",
+        87
+      ],
+      [
+        "Iceland",
+        86
+      ],
+      [
+        "Bulgaria",
+        85
+      ],
+      [
+        "United Arab",
+        81
+      ],
+      [
+        "Slovenia",
+        79
+      ],
+      [
+        "Ukraine",
+        73
+      ],
+      [
+        "Yugoslavia",
+        72
+      ],
+      [
+        "Hungary",
+        67
+      ],
+      [
+        "Lebanon",
+        63
+      ],
+      [
+        "Trinidad an",
+        61
+      ],
+      [
+        "Lithuania",
+        61
+      ],
+      [
+        "Andorra",
+        60
+      ],
+      [
+        "Malta",
+        54
+      ],
+      [
+        "Iran",
+        53
+      ],
+      [
+        "Angola",
+        52
+      ],
+      [
+        "Vietnam",
+        52
+      ],
+      [
+        "Venezuela",
+        51
+      ],
+      [
+        "Uganda",
+        51
+      ],
+      [
+        "Slovakia",
+        51
+      ],
+      [
+        "Jamaica",
+        51
+      ],
+      [
+        "Saudi Arabi",
+        50
+      ],
+      [
+        "Czech Repub",
+        49
+      ],
+      [
+        "Anguilla",
+        42
+      ],
+      [
+        "Jordan",
+        42
+      ],
+      [
+        "Peru",
+        42
+      ],
+      [
+        "Chile",
+        38
+      ],
+      [
+        "Dominican R",
+        38
+      ],
+      [
+        "Cyprus",
+        37
+      ],
+      [
+        "Kenya",
+        36
+      ],
+      [
+        "Cape Verde",
+        35
+      ],
+      [
+        "Cuba",
+        33
+      ],
+      [
+        "Bosnia Herz",
+        32
+      ],
+      [
+        "Cayman Isla",
+        30
+      ],
+      [
+        "Kuwait",
+        29
+      ],
+      [
+        "Barbados",
+        29
+      ],
+      [
+        "Antarctica",
+        28
+      ],
+      [
+        "Uruguay",
+        28
+      ],
+      [
+        "Bahamas",
+        27
+      ],
+      [
+        "Costa Rica",
+        27
+      ],
+      [
+        "Bangladesh",
+        25
+      ],
+      [
+        "Sri Lanka",
+        24
+      ],
+      [
+        "Nigeria",
+        21
+      ],
+      [
+        "British Vir",
+        20
+      ],
+      [
+        "Ecuador",
+        20
+      ],
+      [
+        "Panama",
+        20
+      ],
+      [
+        "Guatemala",
+        20
+      ],
+      [
+        "Zimbabwe",
+        19
+      ],
+      [
+        "Belarus",
+        17
+      ],
+      [
+        "Guam",
+        17
+      ],
+      [
+        "El Salvador",
+        17
+      ],
+      [
+        "Antigua",
+        16
+      ],
+      [
+        "Honduras",
+        16
+      ],
+      [
+        "Bahrain",
+        15
+      ],
+      [
+        "Bermuda",
+        15
+      ],
+      [
+        "Nicaragua",
+        15
+      ],
+      [
+        "Macau",
+        15
+      ],
+      [
+        "Azerbaijan",
+        14
+      ],
+      [
+        "Luxembourg",
+        14
+      ],
+      [
+        "Aruba",
+        13
+      ],
+      [
+        "Armenia",
+        13
+      ],
+      [
+        "Belize",
+        13
+      ],
+      [
+        "Morocco",
+        13
+      ],
+      [
+        "Georgia",
+        12
+      ],
+      [
+        "Syria",
+        11
+      ],
+      [
+        "Macedonia",
+        11
+      ],
+      [
+        "Iraq",
+        11
+      ],
+      [
+        "Brunei",
+        10
+      ],
+      [
+        "Gibraltar",
+        10
+      ],
+      [
+        "New Caledon",
+        10
+      ],
+      [
+        "Bolivia",
+        10
+      ],
+      [
+        "Arabian Gul",
+        9
+      ],
+      [
+        "Cameroon",
+        9
+      ],
+      [
+        "Ethiopia",
+        9
+      ],
+      [
+        "Nepal",
+        9
+      ],
+      [
+        "Kazakhstan",
+        9
+      ],
+      [
+        "Turks and C",
+        9
+      ],
+      [
+        "Mauritius",
+        8
+      ],
+      [
+        "British Ind",
+        8
+      ],
+      [
+        "Uzbekistan",
+        8
+      ],
+      [
+        "Cambodia",
+        8
+      ],
+      [
+        "Oman",
+        8
+      ],
+      [
+        "Haiti",
+        7
+      ],
+      [
+        "Tunisia",
+        7
+      ],
+      [
+        "Virgin Isla",
+        7
+      ],
+      [
+        "Fiji",
+        7
+      ],
+      [
+        "Northern Ma",
+        7
+      ],
+      [
+        "Burma(Myanm",
+        7
+      ],
+      [
+        "Chad",
+        7
+      ],
+      [
+        "Bhutan",
+        6
+      ],
+      [
+        "Namibia",
+        6
+      ],
+      [
+        "Paraguay",
+        6
+      ],
+      [
+        "Borneo",
+        6
+      ],
+      [
+        "Tanzania",
+        6
+      ],
+      [
+        "Ghana",
+        6
+      ],
+      [
+        "Central Afr",
+        5
+      ],
+      [
+        "Faeroe Isla",
+        5
+      ],
+      [
+        "Dominica",
+        5
+      ],
+      [
+        "Tuvalu",
+        5
+      ],
+      [
+        "French Poly",
+        5
+      ],
+      [
+        "Burundi",
+        4
+      ],
+      [
+        "Burma",
+        4
+      ],
+      [
+        "Qatar",
+        4
+      ],
+      [
+        "Sudan",
+        4
+      ],
+      [
+        "St Vincent",
+        4
+      ],
+      [
+        "Seychelles",
+        4
+      ],
+      [
+        "Maldives",
+        4
+      ],
+      [
+        "Yemen",
+        4
+      ],
+      [
+        "Djibouti",
+        3
+      ],
+      [
+        "Lesotho",
+        3
+      ],
+      [
+        "Turkmenista",
+        3
+      ],
+      [
+        "Benin",
+        3
+      ],
+      [
+        "Zambia",
+        3
+      ],
+      [
+        "Niger",
+        3
+      ],
+      [
+        "Guyana",
+        3
+      ],
+      [
+        "Monaco",
+        3
+      ],
+      [
+        "Togo",
+        3
+      ],
+      [
+        "Ivory Coast",
+        3
+      ],
+      [
+        "Tonga",
+        3
+      ],
+      [
+        "Greenland",
+        3
+      ],
+      [
+        "Grenada",
+        3
+      ],
+      [
+        "Comoros",
+        3
+      ],
+      [
+        "Senegal",
+        3
+      ],
+      [
+        "Moldova",
+        3
+      ],
+      [
+        "Cook Island",
+        3
+      ],
+      [
+        "Vatican Cit",
+        3
+      ],
+      [
+        "Kyrgystan",
+        3
+      ],
+      [
+        "Norfolk Isl",
+        2
+      ],
+      [
+        "French Guia",
+        2
+      ],
+      [
+        "St Lucia",
+        2
+      ],
+      [
+        "Saint Kitts",
+        2
+      ],
+      [
+        "Liberia",
+        2
+      ],
+      [
+        "Guadeloupe",
+        2
+      ],
+      [
+        "Libyan Arab",
+        2
+      ],
+      [
+        "Congo",
+        2
+      ],
+      [
+        "Micronesia",
+        2
+      ],
+      [
+        "North Korea",
+        2
+      ],
+      [
+        "Lao P.Dem.R",
+        2
+      ],
+      [
+        "Botswana",
+        2
+      ],
+      [
+        "Martinique",
+        2
+      ],
+      [
+        "Reunion",
+        2
+      ],
+      [
+        "Solomon Isl",
+        2
+      ],
+      [
+        "Palau",
+        2
+      ],
+      [
+        "Cocos (Keel",
+        2
+      ],
+      [
+        "Republic of",
+        2
+      ],
+      [
+        "Tokelau",
+        2
+      ],
+      [
+        "Mozambique",
+        1
+      ],
+      [
+        "Western Sah",
+        1
+      ],
+      [
+        "Swaziland",
+        1
+      ],
+      [
+        "Niue",
+        1
+      ],
+      [
+        "Equatorial",
+        1
+      ],
+      [
+        "Vanuatu",
+        1
+      ],
+      [
+        "Eritrea",
+        1
+      ],
+      [
+        "Wallis and",
+        1
+      ],
+      [
+        " Japan",
+        1
+      ],
+      [
+        "Guinea-Biss",
+        1
+      ],
+      [
+        "Guinea",
+        1
+      ],
+      [
+        "Vatican",
+        1
+      ],
+      [
+        "Pitcairn Is",
+        1
+      ],
+      [
+        "Wake Island",
+        1
+      ],
+      [
+        "Falkland Is",
+        1
+      ],
+      [
+        "Zaire",
+        1
+      ],
+      [
+        "Samoa",
+        1
+      ],
+      [
+        "Bouvet Isla",
+        1
+      ],
+      [
+        "Madagascar",
+        1
+      ],
+      [
+        "W. Samoa",
+        1
+      ],
+      [
+        "Rwanda",
+        1
+      ],
+      [
+        " Greece",
+        1
+      ],
+      [
+        "Saint Helen",
+        1
+      ],
+      [
+        "Sierra Leon",
+        1
+      ],
+      [
+        "Christmas I",
+        1
+      ],
+      [
+        "Svalbard &",
+        1
+      ],
+      [
+        "Mongolia",
+        1
+      ],
+      [
+        "Marshall Is",
+        1
+      ]
+    ]
+  },
+  "sex": {
+    "overall": {
+      "n": 145388,
+      "codes": {
+        "1": {
+          "n": 60677,
+          "share_pct": 41.7345
+        },
+        "2": {
+          "n": 84711,
+          "share_pct": 58.2655
+        }
+      }
+    },
+    "lt21": {
+      "n": 62718,
+      "codes": {
+        "1": {
+          "n": 25042,
+          "share_pct": 39.9279
+        },
+        "2": {
+          "n": 37676,
+          "share_pct": 60.0721
+        }
+      }
+    },
+    "gte21": {
+      "n": 82670,
+      "codes": {
+        "1": {
+          "n": 35635,
+          "share_pct": 43.1051
+        },
+        "2": {
+          "n": 47035,
+          "share_pct": 56.8949
+        }
+      }
+    },
+    "codes_other_than_1_or_2": {}
+  },
+  "age": {
+    "min": 10,
+    "max": 99,
+    "mean": 24.7929,
+    "median": 22.0,
+    "sd": 9.5676,
+    "p5": 15.0,
+    "p25": 18.0,
+    "p50": 22.0,
+    "p75": 29.0,
+    "p95": 46.0,
+    "n_lt21": 62718,
+    "share_lt21_pct": 43.1384,
+    "n_gte21": 82670,
+    "share_gte21_pct": 56.8616,
+    "implausible": {
+      "lt_10": 0,
+      "lt_13": 474,
+      "gt_90": 19,
+      "gt_100": 0,
+      "gt_110": 0,
+      "n_at_min_10": 26,
+      "n_at_max_99": 15,
+      "note": "file is already range-limited to 10..99; no out-of-range values present"
+    },
+    "share_16_to_25_pct": 60.2471,
+    "n_16_to_25": 87592,
+    "hist_by_decade": {
+      "10-19": 51888,
+      "20-29": 59927,
+      "30-39": 19730,
+      "40-49": 9473,
+      "50-59": 3704,
+      "60-69": 558,
+      "70-79": 70,
+      "80-89": 19,
+      "90-99": 19
+    },
+    "top_single_ages": [
+      [
+        18,
+        12299
+      ],
+      [
+        19,
+        11495
+      ],
+      [
+        20,
+        10830
+      ],
+      [
+        17,
+        10458
+      ],
+      [
+        21,
+        9802
+      ],
+      [
+        16,
+        8214
+      ],
+      [
+        22,
+        7473
+      ],
+      [
+        23,
+        6487
+      ],
+      [
+        24,
+        5508
+      ],
+      [
+        15,
+        5034
+      ]
+    ]
+  },
+  "year": {
+    "raw_min": 101,
+    "raw_max": 111,
+    "interpretation": "column stores year-1900",
+    "counts_by_calendar_year": {
+      "2001": 38323,
+      "2002": 25372,
+      "2003": 20300,
+      "2004": 9978,
+      "2005": 6993,
+      "2006": 7455,
+      "2007": 6984,
+      "2008": 7039,
+      "2009": 9369,
+      "2010": 9309,
+      "2011": 4266
+    },
+    "n_distinct": 11,
+    "modal_year": 2001,
+    "modal_year_n": 38323
+  },
+  "cohorts": {
+    "M_lt21": {
+      "n": 25042,
+      "share_pct": 17.2243
+    },
+    "M_gte21": {
+      "n": 35635,
+      "share_pct": 24.5103
+    },
+    "F_lt21": {
+      "n": 37676,
+      "share_pct": 25.9141
+    },
+    "F_gte21": {
+      "n": 47035,
+      "share_pct": 32.3514
+    },
+    "N_lt21": {
+      "n": 62718,
+      "share_pct": 43.1384
+    },
+    "N_gte21": {
+      "n": 82670,
+      "share_pct": 56.8616
+    },
+    "n_not_in_any_MF_cohort": 0
+  },
+  "straightlining": {
+    "rule": "flag if longest run of consecutive identical option v exceeds RUN_CUT[v]",
+    "RUN_CUT_1to5": [
+      6,
+      9,
+      10,
+      14,
+      9
+    ],
+    "n_reverse_keyed_items": 148,
+    "site_equivalent_variant": "raw_keypress",
+    "johnson_2005_claimed_pct": 3.5,
+    "variants": {
+      "raw_keypress": {
+        "n_flagged": 4350,
+        "flag_rate_pct": 2.992,
+        "per_option": {
+          "1": {
+            "cut": 6,
+            "n_flagged": 4350,
+            "rate_pct": 2.992,
+            "max_run_observed": 9,
+            "mean_longest_run": 3.1419,
+            "n_at_cap": 925
+          },
+          "2": {
+            "cut": 9,
+            "n_flagged": 0,
+            "rate_pct": 0.0,
+            "max_run_observed": 9,
+            "mean_longest_run": 3.8182,
+            "n_at_cap": 1016
+          },
+          "3": {
+            "cut": 10,
+            "n_flagged": 0,
+            "rate_pct": 0.0,
+            "max_run_observed": 9,
+            "mean_longest_run": 2.9416,
+            "n_at_cap": 424
+          },
+          "4": {
+            "cut": 14,
+            "n_flagged": 0,
+            "rate_pct": 0.0,
+            "max_run_observed": 12,
+            "mean_longest_run": 4.471,
+            "n_at_cap": 236
+          },
+          "5": {
+            "cut": 9,
+            "n_flagged": 0,
+            "rate_pct": 0.0,
+            "max_run_observed": 9,
+            "mean_longest_run": 3.1325,
+            "n_at_cap": 731
+          }
+        },
+        "observed_caps_option_1to5": [
+          9,
+          9,
+          9,
+          12,
+          9
+        ],
+        "n_flagged_on_2plus_options": 0
+      },
+      "as_stored_recoded": {
+        "n_flagged": 393,
+        "flag_rate_pct": 0.2703,
+        "per_option": {
+          "1": {
+            "cut": 6,
+            "n_flagged": 245,
+            "rate_pct": 0.1685,
+            "max_run_observed": 13,
+            "mean_longest_run": 1.8823,
+            "n_at_cap": 1
+          },
+          "2": {
+            "cut": 9,
+            "n_flagged": 50,
+            "rate_pct": 0.0344,
+            "max_run_observed": 13,
+            "mean_longest_run": 3.1442,
+            "n_at_cap": 1
+          },
+          "3": {
+            "cut": 10,
+            "n_flagged": 0,
+            "rate_pct": 0.0,
+            "max_run_observed": 9,
+            "mean_longest_run": 2.9416,
+            "n_at_cap": 424
+          },
+          "4": {
+            "cut": 14,
+            "n_flagged": 18,
+            "rate_pct": 0.0124,
+            "max_run_observed": 20,
+            "mean_longest_run": 4.6137,
+            "n_at_cap": 2
+          },
+          "5": {
+            "cut": 9,
+            "n_flagged": 80,
+            "rate_pct": 0.055,
+            "max_run_observed": 14,
+            "mean_longest_run": 3.4657,
+            "n_at_cap": 3
+          }
+        },
+        "observed_caps_option_1to5": [
+          13,
+          13,
+          9,
+          20,
+          14
+        ],
+        "n_flagged_on_2plus_options": 0
+      }
+    },
+    "delta_vs_claim_pp": -0.508,
+    "tail_evidence": {
+      "raw_keypress": {
+        "1": {
+          "cap": 9,
+          "n_at_cap_minus_1": 1383,
+          "n_at_cap": 925,
+          "n_at_cap_plus_1": 0,
+          "tail_decay_ratio": 0.6688,
+          "expected_at_cap_plus_1_if_geometric": 618.7,
+          "tail_hist": {
+            "1": 11049,
+            "2": 40388,
+            "3": 44552,
+            "4": 30080,
+            "5": 10275,
+            "6": 4322,
+            "7": 2042,
+            "8": 1383,
+            "9": 925
+          }
+        },
+        "2": {
+          "cap": 9,
+          "n_at_cap_minus_1": 2064,
+          "n_at_cap": 1016,
+          "n_at_cap_plus_1": 0,
+          "tail_decay_ratio": 0.4922,
+          "expected_at_cap_plus_1_if_geometric": 500.1,
+          "tail_hist": {
+            "1": 1167,
+            "2": 19056,
+            "3": 47088,
+            "4": 42245,
+            "5": 19689,
+            "6": 8855,
+            "7": 4052,
+            "8": 2064,
+            "9": 1016
+          }
+        },
+        "3": {
+          "cap": 9,
+          "n_at_cap_minus_1": 746,
+          "n_at_cap": 424,
+          "n_at_cap_plus_1": 0,
+          "tail_decay_ratio": 0.5684,
+          "expected_at_cap_plus_1_if_geometric": 241.0,
+          "tail_hist": {
+            "1": 12618,
+            "2": 46066,
+            "3": 46518,
+            "4": 23720,
+            "5": 9062,
+            "6": 3679,
+            "7": 1617,
+            "8": 746,
+            "9": 424
+          }
+        },
+        "4": {
+          "cap": 12,
+          "n_at_cap_minus_1": 426,
+          "n_at_cap": 236,
+          "n_at_cap_plus_1": 0,
+          "tail_decay_ratio": 0.554,
+          "expected_at_cap_plus_1_if_geometric": 130.7,
+          "tail_hist": {
+            "4": 49255,
+            "5": 28036,
+            "6": 15247,
+            "7": 7975,
+            "8": 3232,
+            "9": 1799,
+            "10": 796,
+            "11": 426,
+            "12": 236
+          }
+        },
+        "5": {
+          "cap": 9,
+          "n_at_cap_minus_1": 1173,
+          "n_at_cap": 731,
+          "n_at_cap_plus_1": 0,
+          "tail_decay_ratio": 0.6232,
+          "expected_at_cap_plus_1_if_geometric": 455.6,
+          "tail_hist": {
+            "1": 10411,
+            "2": 41874,
+            "3": 44625,
+            "4": 30465,
+            "5": 8526,
+            "6": 4556,
+            "7": 2800,
+            "8": 1173,
+            "9": 731
+          }
+        }
+      },
+      "as_stored_recoded": {
+        "1": {
+          "cap": 13,
+          "n_at_cap_minus_1": 0,
+          "n_at_cap": 1,
+          "n_at_cap_plus_1": 0,
+          "tail_decay_ratio": null,
+          "expected_at_cap_plus_1_if_geometric": null,
+          "tail_hist": {
+            "5": 1022,
+            "6": 330,
+            "7": 149,
+            "8": 60,
+            "9": 34,
+            "10": 1,
+            "13": 1
+          }
+        },
+        "2": {
+          "cap": 13,
+          "n_at_cap_minus_1": 1,
+          "n_at_cap": 1,
+          "n_at_cap_plus_1": 0,
+          "tail_decay_ratio": 1.0,
+          "expected_at_cap_plus_1_if_geometric": 1.0,
+          "tail_hist": {
+            "5": 8045,
+            "6": 2457,
+            "7": 784,
+            "8": 256,
+            "9": 107,
+            "10": 32,
+            "11": 16,
+            "12": 1,
+            "13": 1
+          }
+        },
+        "3": {
+          "cap": 9,
+          "n_at_cap_minus_1": 746,
+          "n_at_cap": 424,
+          "n_at_cap_plus_1": 0,
+          "tail_decay_ratio": 0.5684,
+          "expected_at_cap_plus_1_if_geometric": 241.0,
+          "tail_hist": {
+            "1": 12618,
+            "2": 46066,
+            "3": 46518,
+            "4": 23720,
+            "5": 9062,
+            "6": 3679,
+            "7": 1617,
+            "8": 746,
+            "9": 424
+          }
+        },
+        "4": {
+          "cap": 20,
+          "n_at_cap_minus_1": 0,
+          "n_at_cap": 2,
+          "n_at_cap_plus_1": 0,
+          "tail_decay_ratio": null,
+          "expected_at_cap_plus_1_if_geometric": null,
+          "tail_hist": {
+            "12": 182,
+            "13": 31,
+            "14": 21,
+            "15": 9,
+            "16": 4,
+            "17": 2,
+            "18": 1,
+            "20": 2
+          }
+        },
+        "5": {
+          "cap": 14,
+          "n_at_cap_minus_1": 3,
+          "n_at_cap": 3,
+          "n_at_cap_plus_1": 0,
+          "tail_decay_ratio": 1.0,
+          "expected_at_cap_plus_1_if_geometric": 3.0,
+          "tail_hist": {
+            "6": 5915,
+            "7": 3406,
+            "8": 1729,
+            "9": 904,
+            "10": 51,
+            "11": 16,
+            "12": 7,
+            "13": 3,
+            "14": 3
+          }
+        }
+      }
+    },
+    "finding": "In raw-keypress space the longest-run histogram decays smoothly and then drops to EXACTLY ZERO one step past caps of [9,9,9,12,9] for options 1..5. That is a hard cliff, not a natural tail, so the published 145,388-row file is ALREADY the post-screen sample: Johnson's ~3.5%% was removed BEFORE publication and cannot be reproduced from this file by construction. The site's cut for option 1 (6) is stricter than the cap actually present in the retained data (9), which is the only reason anything flags at all.",
+    "cut_comparison": {
+      "site_RUN_CUT_1to5": [
+        6,
+        9,
+        10,
+        14,
+        9
+      ],
+      "caps_present_in_published_data_1to5": [
+        9,
+        9,
+        9,
+        12,
+        9
+      ],
+      "site_stricter_on_options": [
+        1
+      ],
+      "site_looser_on_options": [
+        3,
+        4
+      ]
+    }
+  },
+  "duplicates": {
+    "case_ids_distinct": 145388,
+    "case_ids_appearing_more_than_once": 0,
+    "case_id_min": 4,
+    "case_id_max": 334161,
+    "distinct_300item_vectors": 145387,
+    "duplicate_vector_groups": 1,
+    "rows_in_duplicate_vector_groups": 2,
+    "rows_in_duplicate_vector_groups_pct": 0.0014,
+    "largest_vector_group_size": 2,
+    "top_duplicate_group_sizes": [
+      2
+    ],
+    "duplicate_vector_examples": [
+      {
+        "case_ids": [
+          305514,
+          305517
+        ],
+        "ages": [
+          18,
+          18
+        ],
+        "sexes": [
+          2,
+          2
+        ],
+        "years": [
+          2010,
+          2010
+        ]
+      }
+    ]
+  }
+}

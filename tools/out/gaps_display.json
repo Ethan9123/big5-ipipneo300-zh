@@ -1,0 +1,543 @@
+{
+ "n": 145388,
+ "level_bands": {
+  "rule": "level(p): p<45 低, 45<=p<=55 中等, p>55 高  -- applied to the PERCENTILE",
+  "share_low": 0.4196797534872204,
+  "share_mid": 0.11854132194050207,
+  "share_high": 0.46177892457227754,
+  "mean_mid_scales_of_35": 4.148946267917572,
+  "median_mid_scales_of_35": 4.0,
+  "share_people_with_zero_mid_of_35": 0.029060170027787713,
+  "share_people_with_le2_mid_of_35": 0.2629790629212865,
+  "if_cutoffs_applied_to_T": {
+   "share_low": 0.29550837365237453,
+   "share_mid": 0.36952646907388703,
+   "share_high": 0.33496515727373843,
+   "mean_mid_scales_of_35": 12.933426417586046
+  }
+ },
+ "tendency_tag_bands_domains": {
+  "p_le30": 0.27028365477205823,
+  "p_30_45": 0.15125870085564144,
+  "p_45_55": 0.10907227556607148,
+  "p_55_70": 0.16545932264010785,
+  "p_ge70": 0.303926046166121
+ },
+ "hero_selection": {
+  "mean_facets_with_dev_ge25_of_30": 14.452334443007675,
+  "share_people_with_ge6_such_facets": 0.9714969598591355,
+  "mean_domains_with_dev_ge15_of_5": 3.3876042039232948,
+  "share_people_with_zero_strong_domain": 0.005378710760172779
+ },
+ "reliability_ci": {
+  "definition": "SEM = sd_raw*sqrt(1-alpha); CI = printed percentile at raw +/- 1.96*SEM",
+  "facet_alpha_min": 0.7245,
+  "facet_alpha_median": 0.8416,
+  "facet_alpha_max": 0.916,
+  "domain_alpha": {
+   "N": 0.9555,
+   "E": 0.9434,
+   "O": 0.9069,
+   "A": 0.92,
+   "C": 0.9466
+  },
+  "facet_ci95_width_median_over_all_cells": 45.15,
+  "facet_ci95_width_mean_over_all_cells": 42.3,
+  "domain_ci95_width_median_over_all_cells": 29.69,
+  "facets": [
+   {
+    "slot": 0,
+    "domain": "N",
+    "facet_no": 1,
+    "name": "焦虑",
+    "alpha": 0.8649,
+    "sd_raw": 7.996,
+    "sem_raw": 2.939,
+    "ci95_pct_width_median": 43.98,
+    "ci95_pct_width_at_p50": 50.1
+   },
+   {
+    "slot": 1,
+    "domain": "E",
+    "facet_no": 1,
+    "name": "友善",
+    "alpha": 0.8901,
+    "sd_raw": 8.079,
+    "sem_raw": 2.679,
+    "ci95_pct_width_median": 38.93,
+    "ci95_pct_width_at_p50": 44.3
+   },
+   {
+    "slot": 2,
+    "domain": "O",
+    "facet_no": 1,
+    "name": "想象力",
+    "alpha": 0.8548,
+    "sd_raw": 6.974,
+    "sem_raw": 2.657,
+    "ci95_pct_width_median": 43.98,
+    "ci95_pct_width_at_p50": 51.3
+   },
+   {
+    "slot": 3,
+    "domain": "A",
+    "facet_no": 1,
+    "name": "信任",
+    "alpha": 0.8846,
+    "sd_raw": 7.721,
+    "sem_raw": 2.622,
+    "ci95_pct_width_median": 41.39,
+    "ci95_pct_width_at_p50": 47.04
+   },
+   {
+    "slot": 4,
+    "domain": "C",
+    "facet_no": 1,
+    "name": "自我效能",
+    "alpha": 0.8287,
+    "sd_raw": 5.874,
+    "sem_raw": 2.431,
+    "ci95_pct_width_median": 50.61,
+    "ci95_pct_width_at_p50": 56.56
+   },
+   {
+    "slot": 5,
+    "domain": "N",
+    "facet_no": 2,
+    "name": "愤怒",
+    "alpha": 0.9139,
+    "sd_raw": 9.143,
+    "sem_raw": 2.683,
+    "ci95_pct_width_median": 34.89,
+    "ci95_pct_width_at_p50": 41.12
+   },
+   {
+    "slot": 6,
+    "domain": "E",
+    "facet_no": 2,
+    "name": "合群",
+    "alpha": 0.8911,
+    "sd_raw": 8.825,
+    "sem_raw": 2.912,
+    "ci95_pct_width_median": 39.0,
+    "ci95_pct_width_at_p50": 45.37
+   },
+   {
+    "slot": 7,
+    "domain": "O",
+    "facet_no": 2,
+    "name": "艺术兴趣",
+    "alpha": 0.8114,
+    "sd_raw": 6.738,
+    "sem_raw": 2.927,
+    "ci95_pct_width_median": 52.74,
+    "ci95_pct_width_at_p50": 61.09
+   },
+   {
+    "slot": 8,
+    "domain": "A",
+    "facet_no": 2,
+    "name": "正直",
+    "alpha": 0.7891,
+    "sd_raw": 6.409,
+    "sem_raw": 2.943,
+    "ci95_pct_width_median": 54.75,
+    "ci95_pct_width_at_p50": 61.8
+   },
+   {
+    "slot": 9,
+    "domain": "C",
+    "facet_no": 2,
+    "name": "条理性",
+    "alpha": 0.8581,
+    "sd_raw": 8.051,
+    "sem_raw": 3.033,
+    "ci95_pct_width_median": 44.06,
+    "ci95_pct_width_at_p50": 50.3
+   },
+   {
+    "slot": 10,
+    "domain": "N",
+    "facet_no": 3,
+    "name": "抑郁",
+    "alpha": 0.916,
+    "sd_raw": 9.588,
+    "sem_raw": 2.779,
+    "ci95_pct_width_median": 34.2,
+    "ci95_pct_width_at_p50": 39.81
+   },
+   {
+    "slot": 11,
+    "domain": "E",
+    "facet_no": 3,
+    "name": "自信主张",
+    "alpha": 0.8617,
+    "sd_raw": 7.543,
+    "sem_raw": 2.804,
+    "ci95_pct_width_median": 43.4,
+    "ci95_pct_width_at_p50": 49.49
+   },
+   {
+    "slot": 12,
+    "domain": "O",
+    "facet_no": 3,
+    "name": "情绪感受性",
+    "alpha": 0.7881,
+    "sd_raw": 6.552,
+    "sem_raw": 3.016,
+    "ci95_pct_width_median": 53.67,
+    "ci95_pct_width_at_p50": 60.3
+   },
+   {
+    "slot": 13,
+    "domain": "A",
+    "facet_no": 3,
+    "name": "利他",
+    "alpha": 0.8386,
+    "sd_raw": 6.237,
+    "sem_raw": 2.506,
+    "ci95_pct_width_median": 47.89,
+    "ci95_pct_width_at_p50": 52.62
+   },
+   {
+    "slot": 14,
+    "domain": "C",
+    "facet_no": 3,
+    "name": "尽责",
+    "alpha": 0.8008,
+    "sd_raw": 5.932,
+    "sem_raw": 2.648,
+    "ci95_pct_width_median": 52.76,
+    "ci95_pct_width_at_p50": 60.1
+   },
+   {
+    "slot": 15,
+    "domain": "N",
+    "facet_no": 4,
+    "name": "自我意识",
+    "alpha": 0.8317,
+    "sd_raw": 7.709,
+    "sem_raw": 3.163,
+    "ci95_pct_width_median": 48.05,
+    "ci95_pct_width_at_p50": 55.46
+   },
+   {
+    "slot": 16,
+    "domain": "E",
+    "facet_no": 4,
+    "name": "活跃度",
+    "alpha": 0.7245,
+    "sd_raw": 5.702,
+    "sem_raw": 2.993,
+    "ci95_pct_width_median": 58.82,
+    "ci95_pct_width_at_p50": 66.66
+   },
+   {
+    "slot": 17,
+    "domain": "O",
+    "facet_no": 4,
+    "name": "冒险",
+    "alpha": 0.8166,
+    "sd_raw": 6.549,
+    "sem_raw": 2.804,
+    "ci95_pct_width_median": 50.42,
+    "ci95_pct_width_at_p50": 56.94
+   },
+   {
+    "slot": 18,
+    "domain": "A",
+    "facet_no": 4,
+    "name": "合作",
+    "alpha": 0.7737,
+    "sd_raw": 6.977,
+    "sem_raw": 3.319,
+    "ci95_pct_width_median": 53.54,
+    "ci95_pct_width_at_p50": 61.51
+   },
+   {
+    "slot": 19,
+    "domain": "C",
+    "facet_no": 4,
+    "name": "成就追求",
+    "alpha": 0.8397,
+    "sd_raw": 6.833,
+    "sem_raw": 2.736,
+    "ci95_pct_width_median": 47.62,
+    "ci95_pct_width_at_p50": 54.64
+   },
+   {
+    "slot": 20,
+    "domain": "N",
+    "facet_no": 5,
+    "name": "放纵",
+    "alpha": 0.7841,
+    "sd_raw": 7.112,
+    "sem_raw": 3.305,
+    "ci95_pct_width_median": 52.88,
+    "ci95_pct_width_at_p50": 62.9
+   },
+   {
+    "slot": 21,
+    "domain": "E",
+    "facet_no": 5,
+    "name": "寻求刺激",
+    "alpha": 0.8488,
+    "sd_raw": 8.017,
+    "sem_raw": 3.117,
+    "ci95_pct_width_median": 46.29,
+    "ci95_pct_width_at_p50": 52.42
+   },
+   {
+    "slot": 22,
+    "domain": "O",
+    "facet_no": 5,
+    "name": "智性",
+    "alpha": 0.8516,
+    "sd_raw": 7.155,
+    "sem_raw": 2.756,
+    "ci95_pct_width_median": 45.64,
+    "ci95_pct_width_at_p50": 52.63
+   },
+   {
+    "slot": 23,
+    "domain": "A",
+    "facet_no": 5,
+    "name": "谦逊",
+    "alpha": 0.7783,
+    "sd_raw": 6.904,
+    "sem_raw": 3.251,
+    "ci95_pct_width_median": 54.44,
+    "ci95_pct_width_at_p50": 61.29
+   },
+   {
+    "slot": 24,
+    "domain": "C",
+    "facet_no": 5,
+    "name": "自律",
+    "alpha": 0.8939,
+    "sd_raw": 8.262,
+    "sem_raw": 2.69,
+    "ci95_pct_width_median": 39.14,
+    "ci95_pct_width_at_p50": 44.48
+   },
+   {
+    "slot": 25,
+    "domain": "N",
+    "facet_no": 6,
+    "name": "脆弱",
+    "alpha": 0.8602,
+    "sd_raw": 7.63,
+    "sem_raw": 2.853,
+    "ci95_pct_width_median": 46.07,
+    "ci95_pct_width_at_p50": 52.97
+   },
+   {
+    "slot": 26,
+    "domain": "E",
+    "facet_no": 6,
+    "name": "快乐",
+    "alpha": 0.8436,
+    "sd_raw": 6.94,
+    "sem_raw": 2.744,
+    "ci95_pct_width_median": 46.63,
+    "ci95_pct_width_at_p50": 52.24
+   },
+   {
+    "slot": 27,
+    "domain": "O",
+    "facet_no": 6,
+    "name": "自由主义",
+    "alpha": 0.784,
+    "sd_raw": 7.434,
+    "sem_raw": 3.455,
+    "ci95_pct_width_median": 52.62,
+    "ci95_pct_width_at_p50": 59.01
+   },
+   {
+    "slot": 28,
+    "domain": "A",
+    "facet_no": 6,
+    "name": "同情",
+    "alpha": 0.785,
+    "sd_raw": 6.635,
+    "sem_raw": 3.076,
+    "ci95_pct_width_median": 54.73,
+    "ci95_pct_width_at_p50": 61.13
+   },
+   {
+    "slot": 29,
+    "domain": "C",
+    "facet_no": 6,
+    "name": "谨慎",
+    "alpha": 0.8463,
+    "sd_raw": 7.54,
+    "sem_raw": 2.956,
+    "ci95_pct_width_median": 46.5,
+    "ci95_pct_width_at_p50": 53.32
+   }
+  ],
+  "domains": [
+   {
+    "domain": "N",
+    "alpha": 0.9555,
+    "sd_raw": 38.188,
+    "sem_raw": 8.056,
+    "ci95_pct_width_median": 26.5
+   },
+   {
+    "domain": "E",
+    "alpha": 0.9434,
+    "sd_raw": 33.099,
+    "sem_raw": 7.876,
+    "ci95_pct_width_median": 28.76
+   },
+   {
+    "domain": "O",
+    "alpha": 0.9069,
+    "sd_raw": 26.422,
+    "sem_raw": 8.061,
+    "ci95_pct_width_median": 36.19
+   },
+   {
+    "domain": "A",
+    "alpha": 0.92,
+    "sd_raw": 28.153,
+    "sem_raw": 7.964,
+    "ci95_pct_width_median": 35.37
+   },
+   {
+    "domain": "C",
+    "alpha": 0.9466,
+    "sd_raw": 32.174,
+    "sem_raw": 7.438,
+    "ci95_pct_width_median": 29.78
+   }
+  ],
+  "facet_cells_whose_CI_straddles_45": 0.5454691354628076,
+  "facet_cells_whose_CI_straddles_55": 0.5632429544850103,
+  "facet_cells_whose_CI_straddles_a_band_edge": 0.6375906769013491
+ },
+ "facet_pair_ordering": {
+  "n_pairs": 435,
+  "n_respondents_sampled": 20000,
+  "critical_T_gap_median": 11.196,
+  "critical_T_gap_min": 8.084,
+  "critical_T_gap_max": 13.884,
+  "mean_reliable_pairs": 173.0,
+  "median_reliable_pairs": 176.0,
+  "share_of_all_pairs_reliable": 0.3976,
+  "within_domain_pairs": 75,
+  "within_domain_share_reliable": 0.2811,
+  "within_domain_mean_reliable_of_75": 21.08
+ },
+ "facet_spread_within_domain": {
+  "per_domain_given_domain_pct_45_55": [
+   {
+    "domain": "N",
+    "n_mid": 15444,
+    "median_facet_pct_range": 58.2,
+    "p90_facet_pct_range": 82.6,
+    "share_with_range_ge40": 0.8262,
+    "share_with_one_facet_ge70_and_one_le30": 0.6714
+   },
+   {
+    "domain": "E",
+    "n_mid": 15583,
+    "median_facet_pct_range": 59.3,
+    "p90_facet_pct_range": 83.7,
+    "share_with_range_ge40": 0.8433,
+    "share_with_one_facet_ge70_and_one_le30": 0.709
+   },
+   {
+    "domain": "O",
+    "n_mid": 16723,
+    "median_facet_pct_range": 66.2,
+    "p90_facet_pct_range": 87.3,
+    "share_with_range_ge40": 0.9052,
+    "share_with_one_facet_ge70_and_one_le30": 0.8077
+   },
+   {
+    "domain": "A",
+    "n_mid": 16582,
+    "median_facet_pct_range": 61.1,
+    "p90_facet_pct_range": 86.8,
+    "share_with_range_ge40": 0.8562,
+    "share_with_one_facet_ge70_and_one_le30": 0.7483
+   },
+   {
+    "domain": "C",
+    "n_mid": 14957,
+    "median_facet_pct_range": 57.6,
+    "p90_facet_pct_range": 82.4,
+    "share_with_range_ge40": 0.8183,
+    "share_with_one_facet_ge70_and_one_le30": 0.6751
+   }
+  ],
+  "whole_sample_max_within_domain_facet_range_median": 75.9
+ },
+ "hint_inflation_sensitivity": {
+  "forward": [
+   {
+    "effect_size_d_sd": 0.05,
+    "mean_percentile_shift_facets": 1.39,
+    "max_percentile_shift_facet": 1.43,
+    "shift_at_p50_person": 1.78,
+    "shift_at_p80_person": 1.43,
+    "implied_mean_raw_points_per_item": 0.0365
+   },
+   {
+    "effect_size_d_sd": 0.1,
+    "mean_percentile_shift_facets": 2.78,
+    "max_percentile_shift_facet": 2.86,
+    "shift_at_p50_person": 3.56,
+    "shift_at_p80_person": 2.82,
+    "implied_mean_raw_points_per_item": 0.073
+   },
+   {
+    "effect_size_d_sd": 0.2,
+    "mean_percentile_shift_facets": 5.53,
+    "max_percentile_shift_facet": 5.68,
+    "shift_at_p50_person": 7.1,
+    "shift_at_p80_person": 5.48,
+    "implied_mean_raw_points_per_item": 0.146
+   },
+   {
+    "effect_size_d_sd": 0.3,
+    "mean_percentile_shift_facets": 8.26,
+    "max_percentile_shift_facet": 8.47,
+    "shift_at_p50_person": 10.6,
+    "shift_at_p80_person": 7.95,
+    "implied_mean_raw_points_per_item": 0.2191
+   },
+   {
+    "effect_size_d_sd": 0.5,
+    "mean_percentile_shift_facets": 13.54,
+    "max_percentile_shift_facet": 14.0,
+    "shift_at_p50_person": 17.46,
+    "shift_at_p80_person": 12.3,
+    "implied_mean_raw_points_per_item": 0.3651
+   }
+  ],
+  "inverse": [
+   {
+    "target_percentile_shift_from_50": 5,
+    "T_shift_needed": 1.407,
+    "effect_size_d_needed": 0.141,
+    "mean_raw_points_per_item_needed": 0.1027
+   },
+   {
+    "target_percentile_shift_from_50": 10,
+    "T_shift_needed": 2.827,
+    "effect_size_d_needed": 0.283,
+    "mean_raw_points_per_item_needed": 0.2064
+   },
+   {
+    "target_percentile_shift_from_50": 20,
+    "T_shift_needed": 5.765,
+    "effect_size_d_needed": 0.577,
+    "mean_raw_points_per_item_needed": 0.421
+   }
+  ],
+  "facet_sd_raw_mean": 7.302
+ }
+}

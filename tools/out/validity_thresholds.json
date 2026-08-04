@@ -1,0 +1,1089 @@
+{
+  "n": 145388,
+  "site_run_cut": [
+    0,
+    6,
+    9,
+    10,
+    14,
+    9
+  ],
+  "site_claim_pct": 3.5,
+  "scale_zh": [
+    "很不符合",
+    "比较不符合",
+    "一半一半",
+    "比较符合",
+    "很符合"
+  ],
+  "n_reversed_items": 148,
+  "keying_validation": {
+    "recoded_all_item_rest_r_positive": true,
+    "recoded_min_r": 0.19822037844351567,
+    "raw_reversed_items_going_negative": 148,
+    "raw_keyed_positive_items_staying_positive": 152,
+    "reversed_items_per_30_item_cycle": [
+      0,
+      0,
+      1,
+      4,
+      7,
+      22,
+      26,
+      28,
+      30,
+      30
+    ],
+    "reversed_items_per_quartile_block": [
+      1,
+      11,
+      63,
+      73
+    ],
+    "note": "items 1-60 are 100% keyed-positive; items 211-300 are 100% reverse-keyed"
+  },
+  "raw": {
+    "overall_flag_rate": 0.0299199383718051,
+    "overall_flag_n": 4350,
+    "per_option": {
+      "1": {
+        "label_zh": "很不符合",
+        "current_cut": 6,
+        "flag_rate": 0.0299199383718051,
+        "flag_n": 4350,
+        "unique_flag_rate": 0.0299199383718051,
+        "pct_rank_of_current_cut": 97.0080061628195,
+        "max_run_percentiles": {
+          "50": 3.0,
+          "90": 5.0,
+          "95": 6.0,
+          "99": 8.0,
+          "99.5": 9.0,
+          "99.9": 9.0
+        },
+        "max_run_mean": 3.1418755330563735,
+        "max_run_max": 9,
+        "first_empty_length_above_mode": 10,
+        "histogram_4_to_16": [
+          30080,
+          10275,
+          4322,
+          2042,
+          1383,
+          925,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cut_for_top_1pct": {
+          "cut": 8,
+          "realised_rate": 0.006362285745728671
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 6,
+          "realised_rate": 0.0299199383718051
+        },
+        "response_share": 0.14857244064159353
+      },
+      "2": {
+        "label_zh": "比较不符合",
+        "current_cut": 9,
+        "flag_rate": 0.0,
+        "flag_n": 0,
+        "unique_flag_rate": 0.0,
+        "pct_rank_of_current_cut": 100.0,
+        "max_run_percentiles": {
+          "50": 4.0,
+          "90": 6.0,
+          "95": 6.0,
+          "99": 8.0,
+          "99.5": 9.0,
+          "99.9": 9.0
+        },
+        "max_run_mean": 3.818183068753955,
+        "max_run_max": 9,
+        "first_empty_length_above_mode": 10,
+        "histogram_4_to_16": [
+          42245,
+          19689,
+          8855,
+          4052,
+          2064,
+          1016,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cut_for_top_1pct": {
+          "cut": 8,
+          "realised_rate": 0.0069881971001733295
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 7,
+          "realised_rate": 0.02118469199658844
+        },
+        "response_share": 0.22289854274997478
+      },
+      "3": {
+        "label_zh": "一半一半",
+        "current_cut": 10,
+        "flag_rate": 0.0,
+        "flag_n": 0,
+        "unique_flag_rate": 0.0,
+        "pct_rank_of_current_cut": 100.0,
+        "max_run_percentiles": {
+          "50": 3.0,
+          "90": 5.0,
+          "95": 5.0,
+          "99": 7.0,
+          "99.5": 8.0,
+          "99.9": 9.0
+        },
+        "max_run_mean": 2.9415838996340824,
+        "max_run_max": 9,
+        "first_empty_length_above_mode": 10,
+        "histogram_4_to_16": [
+          23720,
+          9062,
+          3679,
+          1617,
+          746,
+          424,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cut_for_top_1pct": {
+          "cut": 7,
+          "realised_rate": 0.008047431700002751
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 6,
+          "realised_rate": 0.019169394998211683
+        },
+        "response_share": 0.17579103273080768
+      },
+      "4": {
+        "label_zh": "比较符合",
+        "current_cut": 14,
+        "flag_rate": 0.0,
+        "flag_n": 0,
+        "unique_flag_rate": 0.0,
+        "pct_rank_of_current_cut": 100.0,
+        "max_run_percentiles": {
+          "50": 4.0,
+          "90": 6.0,
+          "95": 7.0,
+          "99": 10.0,
+          "99.5": 10.0,
+          "99.9": 12.0
+        },
+        "max_run_mean": 4.470987976999477,
+        "max_run_max": 12,
+        "first_empty_length_above_mode": 13,
+        "histogram_4_to_16": [
+          49255,
+          28036,
+          15247,
+          7975,
+          3232,
+          1799,
+          796,
+          426,
+          236,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cut_for_top_1pct": {
+          "cut": 10,
+          "realised_rate": 0.004553333149916087
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 8,
+          "realised_rate": 0.02240212397171706
+        },
+        "response_share": 0.29341295934556727
+      },
+      "5": {
+        "label_zh": "很符合",
+        "current_cut": 9,
+        "flag_rate": 0.0,
+        "flag_n": 0,
+        "unique_flag_rate": 0.0,
+        "pct_rank_of_current_cut": 100.0,
+        "max_run_percentiles": {
+          "50": 3.0,
+          "90": 5.0,
+          "95": 6.0,
+          "99": 8.0,
+          "99.5": 9.0,
+          "99.9": 9.0
+        },
+        "max_run_mean": 3.132466228299447,
+        "max_run_max": 9,
+        "first_empty_length_above_mode": 10,
+        "histogram_4_to_16": [
+          30465,
+          8526,
+          4556,
+          2800,
+          1173,
+          731,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cut_for_top_1pct": {
+          "cut": 8,
+          "realised_rate": 0.005027925275813685
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 6,
+          "realised_rate": 0.032354802322062344
+        },
+        "response_share": 0.15932502453205674
+      }
+    }
+  },
+  "recoded": {
+    "overall_flag_rate": 0.002703111673590668,
+    "overall_flag_n": 393,
+    "per_option": {
+      "1": {
+        "label_zh": "很不符合",
+        "current_cut": 6,
+        "flag_rate": 0.0016851459542740804,
+        "flag_n": 245,
+        "unique_flag_rate": 0.0016851459542740804,
+        "pct_rank_of_current_cut": 99.83148540457259,
+        "max_run_percentiles": {
+          "50": 2.0,
+          "90": 3.0,
+          "95": 3.0,
+          "99": 5.0,
+          "99.5": 5.0,
+          "99.9": 7.0
+        },
+        "max_run_mean": 1.882273640190387,
+        "max_run_max": 13,
+        "first_empty_length_above_mode": 14,
+        "histogram_4_to_16": [
+          4725,
+          1022,
+          330,
+          149,
+          60,
+          34,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "cut_for_top_1pct": {
+          "cut": 5,
+          "realised_rate": 0.0039549343824799845
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 4,
+          "realised_rate": 0.010984400363166148
+        },
+        "response_share": 0.08709462495758476
+      },
+      "2": {
+        "label_zh": "比较不符合",
+        "current_cut": 9,
+        "flag_rate": 0.0003439073376069552,
+        "flag_n": 50,
+        "unique_flag_rate": 0.0003439073376069552,
+        "pct_rank_of_current_cut": 99.96560926623931,
+        "max_run_percentiles": {
+          "50": 3.0,
+          "90": 4.0,
+          "95": 5.0,
+          "99": 6.0,
+          "99.5": 7.0,
+          "99.9": 9.0
+        },
+        "max_run_mean": 3.1442141029521005,
+        "max_run_max": 13,
+        "first_empty_length_above_mode": 14,
+        "histogram_4_to_16": [
+          30668,
+          8045,
+          2457,
+          784,
+          256,
+          107,
+          32,
+          16,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "cut_for_top_1pct": {
+          "cut": 6,
+          "realised_rate": 0.008233141662310508
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 5,
+          "realised_rate": 0.025132748232316284
+        },
+        "response_share": 0.1975752469254684
+      },
+      "3": {
+        "label_zh": "一半一半",
+        "current_cut": 10,
+        "flag_rate": 0.0,
+        "flag_n": 0,
+        "unique_flag_rate": 0.0,
+        "pct_rank_of_current_cut": 100.0,
+        "max_run_percentiles": {
+          "50": 3.0,
+          "90": 5.0,
+          "95": 5.0,
+          "99": 7.0,
+          "99.5": 8.0,
+          "99.9": 9.0
+        },
+        "max_run_mean": 2.9415838996340824,
+        "max_run_max": 9,
+        "first_empty_length_above_mode": 10,
+        "histogram_4_to_16": [
+          23720,
+          9062,
+          3679,
+          1617,
+          746,
+          424,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cut_for_top_1pct": {
+          "cut": 7,
+          "realised_rate": 0.008047431700002751
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 6,
+          "realised_rate": 0.019169394998211683
+        },
+        "response_share": 0.17579103273080768
+      },
+      "4": {
+        "label_zh": "比较符合",
+        "current_cut": 14,
+        "flag_rate": 0.00012380664153850387,
+        "flag_n": 18,
+        "unique_flag_rate": 0.00012380664153850387,
+        "pct_rank_of_current_cut": 99.98761933584615,
+        "max_run_percentiles": {
+          "50": 4.0,
+          "90": 7.0,
+          "95": 8.0,
+          "99": 9.0,
+          "99.5": 10.0,
+          "99.9": 12.0
+        },
+        "max_run_mean": 4.613723278399868,
+        "max_run_max": 20,
+        "first_empty_length_above_mode": 21,
+        "histogram_4_to_16": [
+          46546,
+          30465,
+          17582,
+          9247,
+          4468,
+          2223,
+          591,
+          288,
+          182,
+          31,
+          21,
+          9,
+          4
+        ],
+        "cut_for_top_1pct": {
+          "cut": 9,
+          "realised_rate": 0.007779183976669326
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 8,
+          "realised_rate": 0.023069304206674555
+        },
+        "response_share": 0.31873625517007365
+      },
+      "5": {
+        "label_zh": "很符合",
+        "current_cut": 9,
+        "flag_rate": 0.0005502517401711282,
+        "flag_n": 80,
+        "unique_flag_rate": 0.0005502517401711282,
+        "pct_rank_of_current_cut": 99.9449748259829,
+        "max_run_percentiles": {
+          "50": 3.0,
+          "90": 5.0,
+          "95": 6.0,
+          "99": 8.0,
+          "99.5": 9.0,
+          "99.9": 9.0
+        },
+        "max_run_mean": 3.465739951027595,
+        "max_run_max": 14,
+        "first_empty_length_above_mode": 15,
+        "histogram_4_to_16": [
+          40183,
+          11779,
+          5915,
+          3406,
+          1729,
+          904,
+          51,
+          16,
+          7,
+          3,
+          3,
+          0,
+          0
+        ],
+        "cut_for_top_1pct": {
+          "cut": 8,
+          "realised_rate": 0.006768096404104878
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 7,
+          "realised_rate": 0.01866041213855339
+        },
+        "response_share": 0.22080284021606553
+      }
+    }
+  },
+  "perm": {
+    "overall_flag_rate": 0.009904531323080308,
+    "overall_flag_n": 1440,
+    "per_option": {
+      "1": {
+        "label_zh": "很不符合",
+        "current_cut": 6,
+        "flag_rate": 0.0071670289157289456,
+        "flag_n": 1042,
+        "unique_flag_rate": 0.007098247448207555,
+        "pct_rank_of_current_cut": 99.2832971084271,
+        "max_run_percentiles": {
+          "50": 3.0,
+          "90": 4.0,
+          "95": 5.0,
+          "99": 6.0,
+          "99.5": 7.0,
+          "99.9": 8.0
+        },
+        "max_run_mean": 2.699507524692547,
+        "max_run_max": 14,
+        "first_empty_length_above_mode": 15,
+        "histogram_4_to_16": [
+          19930,
+          6555,
+          2088,
+          680,
+          218,
+          89,
+          27,
+          17,
+          7,
+          3,
+          1,
+          0,
+          0
+        ],
+        "cut_for_top_1pct": {
+          "cut": 6,
+          "realised_rate": 0.0071670289157289456
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 5,
+          "realised_rate": 0.021528599334195396
+        },
+        "response_share": 0.14857244064159353
+      },
+      "2": {
+        "label_zh": "比较不符合",
+        "current_cut": 9,
+        "flag_rate": 0.0007084491154703276,
+        "flag_n": 103,
+        "unique_flag_rate": 0.0007084491154703276,
+        "pct_rank_of_current_cut": 99.92915508845297,
+        "max_run_percentiles": {
+          "50": 3.0,
+          "90": 5.0,
+          "95": 6.0,
+          "99": 7.0,
+          "99.5": 8.0,
+          "99.9": 9.0
+        },
+        "max_run_mean": 3.541750350785484,
+        "max_run_max": 17,
+        "first_empty_length_above_mode": 18,
+        "histogram_4_to_16": [
+          40169,
+          16896,
+          5822,
+          1917,
+          617,
+          199,
+          59,
+          29,
+          7,
+          5,
+          1,
+          0,
+          1
+        ],
+        "cut_for_top_1pct": {
+          "cut": 7,
+          "realised_rate": 0.006321016865215836
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 6,
+          "realised_rate": 0.019506424189066496
+        },
+        "response_share": 0.22289854274997478
+      },
+      "3": {
+        "label_zh": "一半一半",
+        "current_cut": 10,
+        "flag_rate": 0.0012105538283764823,
+        "flag_n": 176,
+        "unique_flag_rate": 0.0012105538283764823,
+        "pct_rank_of_current_cut": 99.87894461716235,
+        "max_run_percentiles": {
+          "50": 3.0,
+          "90": 5.0,
+          "95": 6.0,
+          "99": 8.0,
+          "99.5": 8.0,
+          "99.9": 11.0
+        },
+        "max_run_mean": 3.0160467163727405,
+        "max_run_max": 22,
+        "first_empty_length_above_mode": 23,
+        "histogram_4_to_16": [
+          24681,
+          10598,
+          4348,
+          1782,
+          788,
+          344,
+          156,
+          95,
+          44,
+          17,
+          8,
+          3,
+          5
+        ],
+        "cut_for_top_1pct": {
+          "cut": 8,
+          "realised_rate": 0.004649627204446034
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 6,
+          "realised_rate": 0.02232646435744353
+        },
+        "response_share": 0.17579103273080768
+      },
+      "4": {
+        "label_zh": "比较符合",
+        "current_cut": 14,
+        "flag_rate": 9.629405452994745e-05,
+        "flag_n": 14,
+        "unique_flag_rate": 9.629405452994745e-05,
+        "pct_rank_of_current_cut": 99.990370594547,
+        "max_run_percentiles": {
+          "50": 4.0,
+          "90": 6.0,
+          "95": 7.0,
+          "99": 9.0,
+          "99.5": 10.0,
+          "99.9": 11.0
+        },
+        "max_run_mean": 4.389557597600902,
+        "max_run_max": 23,
+        "first_empty_length_above_mode": 24,
+        "histogram_4_to_16": [
+          47222,
+          31863,
+          15562,
+          6619,
+          2583,
+          1020,
+          429,
+          183,
+          83,
+          31,
+          15,
+          6,
+          6
+        ],
+        "cut_for_top_1pct": {
+          "cut": 9,
+          "realised_rate": 0.005193000797865023
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 7,
+          "realised_rate": 0.029974963545822214
+        },
+        "response_share": 0.29341295934556727
+      },
+      "5": {
+        "label_zh": "很符合",
+        "current_cut": 9,
+        "flag_rate": 0.0007909868764959969,
+        "flag_n": 115,
+        "unique_flag_rate": 0.0007222054089746059,
+        "pct_rank_of_current_cut": 99.9209013123504,
+        "max_run_percentiles": {
+          "50": 3.0,
+          "90": 4.0,
+          "95": 5.0,
+          "99": 7.0,
+          "99.5": 7.0,
+          "99.9": 9.0
+        },
+        "max_run_mean": 2.8259760090241284,
+        "max_run_max": 16,
+        "first_empty_length_above_mode": 17,
+        "histogram_4_to_16": [
+          21667,
+          8072,
+          2926,
+          1047,
+          399,
+          177,
+          56,
+          29,
+          16,
+          10,
+          1,
+          2,
+          1
+        ],
+        "cut_for_top_1pct": {
+          "cut": 7,
+          "realised_rate": 0.004752799405728121
+        },
+        "cut_for_top_3.5pct": {
+          "cut": 5,
+          "realised_rate": 0.03207967645197678
+        },
+        "response_share": 0.15932502453205674
+      }
+    }
+  },
+  "observed_ceiling_raw": [
+    0,
+    9,
+    9,
+    9,
+    12,
+    9
+  ],
+  "perm_null_ceiling": [
+    0,
+    14,
+    17,
+    22,
+    23,
+    16
+  ],
+  "pre_screening_evidence": {
+    "hard_cliff_per_option_raw": {
+      "1": 9,
+      "2": 9,
+      "3": 9,
+      "4": 12,
+      "5": 9
+    },
+    "perm_null_has_no_cliff": {
+      "1": 14,
+      "2": 17,
+      "3": 22,
+      "4": 23,
+      "5": 16
+    },
+    "n_exceeding_site_cut_opt2345": 0,
+    "per_option": {
+      "1": {
+        "ceiling": 9,
+        "count_at_ceiling": 925,
+        "count_above_ceiling": 0,
+        "decay_ratio": 0.6730565216498365,
+        "estimated_removed_lower_bound": 1904.2352080787039
+      },
+      "2": {
+        "ceiling": 9,
+        "count_at_ceiling": 1016,
+        "count_above_ceiling": 0,
+        "decay_ratio": 0.5008130734559257,
+        "estimated_removed_lower_bound": 1019.309712603812
+      },
+      "3": {
+        "ceiling": 9,
+        "count_at_ceiling": 424,
+        "count_above_ceiling": 0,
+        "decay_ratio": 0.5148563934469718,
+        "estimated_removed_lower_bound": 449.9680256997368
+      },
+      "4": {
+        "ceiling": 12,
+        "count_at_ceiling": 236,
+        "count_above_ceiling": 0,
+        "decay_ratio": 0.5445832448628117,
+        "estimated_removed_lower_bound": 282.20666968853203
+      },
+      "5": {
+        "ceiling": 9,
+        "count_at_ceiling": 731,
+        "count_above_ceiling": 0,
+        "decay_ratio": 0.5210584886128364,
+        "estimated_removed_lower_bound": 795.2824011282644
+      }
+    },
+    "estimated_removed_lower_bound_total": 4451.002017199049,
+    "implied_pre_screen_removal_rate_lower_bound": 0.029705229995379622,
+    "note": "The surviving max-run distribution decays smoothly then drops to exactly zero; the permutation null does not. The published norm sample was therefore already screened for long strings, at run>9 for options 1,2,3,5 and run>12 for option 4."
+  },
+  "option1_flag_anatomy": {
+    "n_flagged": 4350,
+    "run_start_by_quartile_block": [
+      44,
+      85,
+      2572,
+      1649
+    ],
+    "median_run_start_item": 213,
+    "share_of_flagged_runs_starting_after_item_150": 0.9703448275862069,
+    "mean_share_of_run_items_that_are_reverse_keyed": 0.9084108739281153,
+    "share_of_runs_entirely_inside_reverse_keyed_items": 0.5652873563218391,
+    "excess_over_permutation_null_pp": 2.2752909456076154
+  },
+  "time_fields": {
+    "sec": {
+      "min": 0,
+      "max": 59,
+      "n_distinct": 60,
+      "mean": 29.507146394475473,
+      "chi2_vs_uniform": 50.11978980383526,
+      "df": 59,
+      "min_bin": 2308,
+      "max_bin": 2517
+    },
+    "minute": {
+      "min": 0,
+      "max": 59,
+      "n_distinct": 60,
+      "mean": 29.567192615621646,
+      "chi2_vs_uniform": 44.037582193853694,
+      "df": 59,
+      "min_bin": 2343,
+      "max_bin": 2527
+    },
+    "hour": {
+      "min": 0,
+      "max": 23,
+      "n_distinct": 24,
+      "mean": 13.286839354004456,
+      "chi2_vs_uniform": 18792.536055245277,
+      "df": 23,
+      "min_bin": 2336,
+      "max_bin": 8754
+    },
+    "hour_histogram": [
+      6460,
+      5266,
+      4152,
+      3115,
+      2615,
+      2505,
+      2336,
+      2831,
+      3503,
+      4812,
+      6453,
+      7004,
+      7373,
+      8504,
+      8754,
+      8523,
+      8613,
+      7878,
+      7343,
+      7006,
+      7375,
+      7636,
+      7812,
+      7519
+    ],
+    "verdict": "sec and minute are statistically flat on 0..59 (chi2 50.1 and 44.0 on 59 df, both p>0.7) and hour is strongly diurnal on 0..23 (chi2 18793 on 23 df, trough 06:00, peak 14:00). These are wall-clock completion timestamps, not elapsed time. There is no second timestamp in the file, so no duration can be formed. Sub-task dropped."
+  },
+  "other_indicators": {
+    "zero_variance_all_300": {
+      "n": 0,
+      "rate": 0.0
+    },
+    "max_run_any_value_raw": {
+      "percentiles": {
+        "50": 5.0,
+        "90": 7.0,
+        "95": 8.0,
+        "99": 10.0,
+        "99.5": 10.0,
+        "99.9": 12.0
+      },
+      "mean": 5.416657495804331,
+      "max": 12,
+      "rate_gt": {
+        "5": 0.3964838913803065,
+        "6": 0.20615869260186534,
+        "8": 0.042300602525655484,
+        "10": 0.004553333149916087,
+        "12": 0.0,
+        "14": 0.0,
+        "20": 0.0,
+        "30": 0.0,
+        "50": 0.0
+      },
+      "cut_for_top_1pct": [
+        10,
+        0.004553333149916087
+      ],
+      "cut_for_top_3.5pct": [
+        9,
+        0.010028337964618814
+      ],
+      "permutation_null_max": 23
+    },
+    "person_sd_across_300_items": {
+      "mean": 1.2972316372326527,
+      "sd": 0.1996261656170142,
+      "percentiles": {
+        "0.1": 0.7104491646891992,
+        "0.5": 0.7898654323628418,
+        "1": 0.8333288740125948,
+        "2.5": 0.9004582012116498,
+        "5": 0.9603975393907367,
+        "50": 1.3031306100483708,
+        "95": 1.6148005526913005,
+        "99": 1.7388449692399233
+      },
+      "bottom_1pct_cut": 0.8333288740125948,
+      "n_at_or_below_bottom_1pct": 1457,
+      "share_of_bottom_1pct_also_run_flagged": 0.0,
+      "mean_sd_of_run_flagged": 1.548981619776798,
+      "mean_sd_of_unflagged": 1.2894669750560264,
+      "cohens_d_flagged_minus_unflagged": 1.457046599200058
+    }
+  },
+  "fatigue": {
+    "n_unflagged": 141038,
+    "midpoint_rate_by_quartile_block": [
+      0.18969222585999762,
+      0.1864771049421777,
+      0.16883557560917453,
+      0.15815922451188086
+    ],
+    "midpoint_rate_by_quartile_block_unflagged": [
+      0.19150810419886838,
+      0.18843611887103712,
+      0.1709338854304041,
+      0.16013197388883374
+    ],
+    "midpoint_rate_by_30item_cycle": [
+      0.20075820104364414,
+      0.17972689171962838,
+      0.18656858429398115,
+      0.19078649315395127,
+      0.18258315679423337,
+      0.17924014820113535,
+      0.16783388817050468,
+      0.16583349382342422,
+      0.14983767573664952,
+      0.1547417943709247
+    ],
+    "extreme_rate_by_quartile_block": [
+      0.3020630771911483,
+      0.2996528828605754,
+      0.3121307581551893,
+      0.3177431424876881
+    ],
+    "paired_block4_minus_block1": {
+      "mean_diff": -0.03153300134811677,
+      "sd_diff": 0.0792502047314759,
+      "cohens_dz": -0.39789173359186,
+      "relative_change_pct": -16.623243891602446,
+      "share_of_respondents_rising": 0.28364101576471235
+    },
+    "person_sd_first150_vs_last150": {
+      "mean_first150": 1.2024577783193942,
+      "mean_last150": 1.2776181350224074,
+      "mean_diff": 0.07516035670301338,
+      "cohens_dz": 0.6654143822471656,
+      "share_lower_in_second_half": 0.25002751258700856
+    },
+    "keying_controlled": {
+      "positive_keyed_items_1_to_120_midpoint": 0.18936303576277452,
+      "positive_keyed_items_151plus_midpoint": 0.14985123551167517,
+      "reverse_keyed_items_121_210_midpoint": 0.18568432557895237,
+      "reverse_keyed_items_211_300_midpoint": 0.15728015879764992,
+      "within_facet_positive_keyed_late_minus_early_mean": -0.013338027227584832,
+      "within_facet_n_facets": 26,
+      "within_facet_n_rising": 10
+    },
+    "verdict": "Midpoint endorsement FALLS monotonically with item position (18.97% -> 15.82%), within-person dz = -0.398 in the direction OPPOSITE to the claim, and per-person response SD RISES in the second half (dz = 0.665). The decline survives holding item keying constant. The page's Masuda-based claim is refuted in these data."
+  },
+  "recommended": {
+    "A_match_johnsons_applied_screen": {
+      "cuts": [
+        0,
+        9,
+        9,
+        9,
+        12,
+        9
+      ],
+      "flag_rate_on_norm_sample": 0.0,
+      "flag_n": 0,
+      "rationale": "the exact ceiling Johnson's own cleaning left behind; flags zero of 145,388 protocols he judged valid"
+    },
+    "B_equal_tail_joint_3.5pct": {
+      "per_option_tail_q": 0.0101,
+      "cuts": [
+        0,
+        8,
+        8,
+        7,
+        9,
+        8
+      ],
+      "flag_rate_on_norm_sample": 0.03544996836052494,
+      "rationale": "equal per-option tail probability, joint rate pinned near 3.5%; every one of these flags is a protocol Johnson retained, i.e. a false positive by construction"
+    },
+    "C_equal_tail_joint_1pct": {
+      "per_option_tail_q": 0.0051,
+      "cuts": [
+        0,
+        9,
+        9,
+        8,
+        10,
+        8
+      ],
+      "flag_rate_on_norm_sample": 0.012415054887611082,
+      "rationale": "equal per-option tail probability, joint rate pinned near 1.0%; every one of these flags is a protocol Johnson retained, i.e. a false positive by construction"
+    }
+  },
+  "cut_table": {
+    "1": {
+      "label_zh": "很不符合",
+      "current": 6,
+      "observed_max": 9,
+      "p50": 3.0,
+      "p90": 5.0,
+      "p95": 6.0,
+      "p99": 8.0,
+      "p99.5": 9.0,
+      "p99.9": 9.0,
+      "cut_for_top_1pct": 8,
+      "cut_for_top_3.5pct": 6,
+      "current_cut_flag_rate": 0.0299199383718051
+    },
+    "2": {
+      "label_zh": "比较不符合",
+      "current": 9,
+      "observed_max": 9,
+      "p50": 4.0,
+      "p90": 6.0,
+      "p95": 6.0,
+      "p99": 8.0,
+      "p99.5": 9.0,
+      "p99.9": 9.0,
+      "cut_for_top_1pct": 8,
+      "cut_for_top_3.5pct": 7,
+      "current_cut_flag_rate": 0.0
+    },
+    "3": {
+      "label_zh": "一半一半",
+      "current": 10,
+      "observed_max": 9,
+      "p50": 3.0,
+      "p90": 5.0,
+      "p95": 5.0,
+      "p99": 7.0,
+      "p99.5": 8.0,
+      "p99.9": 9.0,
+      "cut_for_top_1pct": 7,
+      "cut_for_top_3.5pct": 6,
+      "current_cut_flag_rate": 0.0
+    },
+    "4": {
+      "label_zh": "比较符合",
+      "current": 14,
+      "observed_max": 12,
+      "p50": 4.0,
+      "p90": 6.0,
+      "p95": 7.0,
+      "p99": 10.0,
+      "p99.5": 10.0,
+      "p99.9": 12.0,
+      "cut_for_top_1pct": 10,
+      "cut_for_top_3.5pct": 8,
+      "current_cut_flag_rate": 0.0
+    },
+    "5": {
+      "label_zh": "很符合",
+      "current": 9,
+      "observed_max": 9,
+      "p50": 3.0,
+      "p90": 5.0,
+      "p95": 6.0,
+      "p99": 8.0,
+      "p99.5": 9.0,
+      "p99.9": 9.0,
+      "cut_for_top_1pct": 8,
+      "cut_for_top_3.5pct": 6,
+      "current_cut_flag_rate": 0.0
+    }
+  },
+  "proposed_zh_copy": {
+    "validity_warning_body": "。这个阈值取自 Johnson (2005) 的常模样本：14.5 万份通过有效性检查的问卷里，没有一份出现过比它更长的连选。如果这确实是你的真实作答，忽略即可；如果是没看题快速点选留下的，建议重测。",
+    "validity_warning_body_note_for_reverse_block": "提醒：第 211 题起全部是反向表述的题目，如果你在这一段里一路选「很不符合」，那是内容一致，不是乱答。",
+    "break_card_body_replacement": "300 题不算短。累了就歇一会儿再回来，不用一口气答完。进度已经存好了，关掉网页也不会丢。",
+    "break_card_comment_replacement": "/* 每 5 页（75 题）提示一次休息。纯 UX 提示，不作任何关于作答漂移方向的断言：\n   在 Johnson 的 14.5 万人常模样本上实测，中间档背书率随题目位置**下降**\n   （18.97% → 15.82%），与 Masuda 等 (2017) 的漂移方向相反。 */",
+    "removed_claim": "被筛掉的约占 3.5%"
+  }
+}

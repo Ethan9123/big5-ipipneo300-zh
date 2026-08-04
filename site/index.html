@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+ 大五人格测评 · IPIP-NEO-300 中文版
+ https://github.com/NeuroQuestAi/five-factor-e 的计分算法与常模移植版
+
+ 题目来源 —— International Personality Item Pool (IPIP), https://ipip.ori.org/
+   IPIP 的题目与量表处于公有领域："The items and scales are in the public domain,
+   which means that one can copy, edit, translate, or use them for any purpose
+   without asking permission and without paying a fee."
+   使用的量表为 Johnson (2014) 的 IPIP-NEO-300。
+   Goldberg, L. R., Johnson, J. A., Eber, H. W., Hogan, R., Ashton, M. C.,
+   Cloninger, C. R., & Gough, H. C. (2006). The International Personality Item
+   Pool and the future of public-domain personality measures.
+   Journal of Research in Personality, 40, 84-96.
+
+ 维度与面向释义 —— 原作者 John A. Johnson，已置于公有领域。
+
+ 中文翻译与逐题判断说明 —— 由 Claude (Anthropic) 完成，未经跨文化信效度验证。
+
+--------------------------------------------------------------------------------
+ 计分算法与常模移植自 five-factor-e，以下为其许可证全文：
+
+ MIT License
+
+ Copyright (c) 2022-2025 NeuroQuest AI
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+================================================================================
+-->
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大五人格测评 · IPIP-NEO-300 中文版</title>
+<meta name="description" content="免费、离线的 IPIP-NEO-300 中文版大五人格测评。300 道题，覆盖 5 个人格维度和 30 个子面向，每题附判断说明。作答与结果全部在你的浏览器里计算，不上传。">
+<meta name="theme-color" content="#f9f9f7">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://big5.try-board-game.uk/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="IPIP-NEO-300 中文版">
+<meta property="og:title" content="大五人格测评 · IPIP-NEO-300 中文版">
+<meta property="og:description" content="300 道题，5 个维度 + 30 个子面向，每题附判断说明。完全离线，作答不上传。">
+<meta property="og:url" content="https://big5.try-board-game.uk/">
+<meta property="og:image" content="https://big5.try-board-game.uk/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="大五人格测评 · IPIP-NEO-300 中文版">
+<meta name="twitter:description" content="300 道题，5 个维度 + 30 个子面向，每题附判断说明。完全离线，作答不上传。">
+<meta name="twitter:image" content="https://big5.try-board-game.uk/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%230b0b0b%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%227.6%22%20r%3D%223.1%22%20fill%3D%22%232a78d6%22%2F%3E%3Ccircle%20cx%3D%2223.9%22%20cy%3D%2213.3%22%20r%3D%223.1%22%20fill%3D%22%23eb6834%22%2F%3E%3Ccircle%20cx%3D%2220.9%22%20cy%3D%2222.6%22%20r%3D%223.1%22%20fill%3D%22%231baf7a%22%2F%3E%3Ccircle%20cx%3D%2211.1%22%20cy%3D%2222.6%22%20r%3D%223.1%22%20fill%3D%22%23eda100%22%2F%3E%3Ccircle%20cx%3D%228.1%22%20cy%3D%2213.3%22%20r%3D%223.1%22%20fill%3D%22%23e87ba4%22%2F%3E%3C%2Fsvg%3E">
+<style>
+:root{
+  color-scheme: light;
+  --page:#f9f9f7; --surface-1:#fcfcfb;
+  --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#6f6d67;
+  --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,0.10);
+  --s-O:#2a78d6; --s-C:#eb6834; --s-E:#1baf7a; --s-A:#eda100; --s-N:#e87ba4;
+  --accent:#2a78d6; --wash:rgba(42,120,214,0.08); --radar-fill:rgba(82,81,78,0.10);
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --page:#0d0d0d; --surface-1:#1a1a19;
+  --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#aaa79f;
+  --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,0.10);
+  --s-O:#3987e5; --s-C:#d95926; --s-E:#199e70; --s-A:#c98500; --s-N:#d55181;
+  --accent:#3987e5; --wash:rgba(57,135,229,0.14); --radar-fill:rgba(195,194,183,0.14);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--page); color:var(--text-primary);
+  font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px 80px}
+h1{font-size:26px;line-height:1.35;margin:0 0 6px;letter-spacing:-0.01em}
+h2{font-size:19px;margin:36px 0 12px;letter-spacing:-0.005em}
+h3{font-size:16px;margin:0 0 4px}
+p{margin:0 0 12px}
+.sub{color:var(--text-secondary);font-size:14.5px}
+.muted{color:var(--text-muted);font-size:13px}
+.card{background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:20px}
+hr{border:0;border-top:1px solid var(--grid);margin:28px 0}
+:where(button,a,input,select,summary):focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+button,summary{touch-action:manipulation}
+
+/* intro */
+.intro-hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(330px,.8fr);
+  grid-template-areas:"copy start" "trust start";gap:18px 26px;
+  align-items:start;margin:30px 0 24px;padding:34px;border:1px solid var(--border);border-radius:22px;
+  background:
+    radial-gradient(circle at 10% 15%,rgba(42,120,214,.13),transparent 32%),
+    radial-gradient(circle at 90% 90%,rgba(27,175,122,.11),transparent 30%),
+    var(--surface-1);box-shadow:0 18px 48px rgba(11,11,11,.07)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.15em;color:var(--accent);margin-bottom:12px}
+.intro-copy{grid-area:copy;align-self:end}
+.intro-title{font-size:clamp(32px,4.5vw,48px);line-height:1.12;letter-spacing:-.035em;margin:0 0 14px}
+.intro-lead{font-size:17px;line-height:1.7;color:var(--text-secondary);max-width:520px}
+.trait-dots{display:flex;gap:8px;margin:20px 0 18px}
+.trait-dots i{width:12px;height:12px;border-radius:50%;box-shadow:0 0 0 4px var(--surface-1)}
+.trust-list{grid-area:trust;display:grid;gap:9px;margin-top:0}
+.trust-item{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--text-secondary)}
+.trust-item b{color:var(--text-primary)}
+.trust-icon{display:grid;place-items:center;flex:none;width:23px;height:23px;border-radius:50%;
+  background:var(--wash);color:var(--accent);font-size:12px;font-weight:800}
+.start-card{grid-area:start;background:var(--page);border:1px solid var(--border);border-radius:16px;padding:20px;
+  box-shadow:0 10px 30px rgba(11,11,11,.06)}
+.start-card h2{margin:0 0 4px;font-size:20px}
+.start-card .row{gap:10px}
+.start-card .btn-primary{width:100%;font-size:16px;padding:13px 20px}
+.start-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+.start-actions .btn{flex:1;min-width:180px}
+.start-note{font-size:12.5px;color:var(--text-muted);margin:9px 0 0;text-align:center}
+.form-error{margin:10px 0 0;padding:9px 11px;border-radius:8px;background:rgba(208,59,59,.08);
+  color:#a52626;font-size:12.5px;line-height:1.45}
+:root[data-theme="dark"] .form-error{color:#ffaaa4;background:rgba(255,116,106,.12)}
+.guide-card{margin-top:18px}
+.guide-card>summary{cursor:pointer;font-weight:650;font-size:15px}
+.guide-card[open]>summary{margin-bottom:18px}
+.mode-note{margin:-5px 0 15px;font-size:12.5px;color:var(--text-muted)}
+.mode-note summary{cursor:pointer}
+.mode-note p{margin:8px 0 0;line-height:1.55}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:20;background:var(--page);border-bottom:1px solid var(--grid)}
+.topbar-in{max-width:900px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px}
+.brand{font-weight:650;font-size:14px;white-space:nowrap}
+.bar{flex:1;height:6px;background:var(--grid);border-radius:3px;overflow:hidden;position:relative}
+.bar>i{display:block;height:100%;background:var(--accent);border-radius:0 3px 3px 0;width:0;transition:width .18s ease}
+.bar>b{position:absolute;top:0;bottom:0;width:2px;background:var(--page)}
+.count{font-size:13px;color:var(--text-secondary);font-variant-numeric:tabular-nums;white-space:nowrap}
+.iconbtn{background:none;border:1px solid var(--border);color:var(--text-secondary);border-radius:8px;
+  padding:4px 9px;font-size:13px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.iconbtn:hover{background:var(--wash);color:var(--text-primary)}
+
+/* form */
+label.f{display:block;font-size:13.5px;color:var(--text-secondary);margin-bottom:6px}
+input[type=number],select{
+  font-family:inherit;font-size:15px;padding:8px 10px;border-radius:8px;
+  border:1px solid var(--axis);background:var(--surface-1);color:var(--text-primary);width:100%}
+.row{display:flex;gap:16px;flex-wrap:wrap}
+.row>div{flex:1;min-width:150px}
+.btn{
+  font-family:inherit;font-size:15px;font-weight:600;padding:11px 22px;border-radius:9px;
+  border:1px solid transparent;background:var(--accent);color:#fff;cursor:pointer}
+.btn:hover{filter:brightness(1.07)}
+.btn[disabled]{opacity:.4;cursor:not-allowed;filter:none}
+.btn.ghost{background:transparent;color:var(--text-primary);border-color:var(--axis)}
+.btn.ghost:hover{background:var(--wash);filter:none}
+
+/* questions */
+.qrow{padding:16px 0;border-bottom:1px solid var(--grid);transition:opacity .25s ease;position:relative}
+.qrow:last-child{border-bottom:0}
+.qrow.ok{opacity:.72}
+.qrow.ok:hover,.qrow.ok:focus-within{opacity:1}
+.qrow.cur{opacity:1}
+.qrow.cur::before{content:"";position:absolute;left:-14px;top:16px;bottom:16px;width:3px;border-radius:2px;background:var(--accent)}
+.qrow.unanswered.flag{background:var(--wash);margin:0 -12px;padding-left:12px;padding-right:12px;border-radius:8px;opacity:1}
+.qtext{display:flex;gap:10px;margin-bottom:10px}
+.qnum{color:var(--text-muted);font-size:13px;font-variant-numeric:tabular-nums;min-width:34px;padding-top:2px}
+.qzh{font-size:16.5px;line-height:1.5}
+.qen{display:none;color:var(--text-muted);font-size:13px;font-style:italic;margin-top:3px}
+body.show-en .qen{display:block}
+.hint{display:none;margin:9px 0 0 44px;padding:9px 12px;border-left:2px solid var(--axis);
+  background:var(--surface-1);border-radius:0 8px 8px 0;font-size:13px;line-height:1.6}
+body.show-hints .hint{display:block}
+.hint .hn{color:var(--text-secondary);margin-bottom:5px}
+.hint .he{display:flex;gap:16px;flex-wrap:wrap;color:var(--text-muted)}
+.hint .he>span{flex:1;min-width:210px}
+.hint .tg{display:inline-block;font-size:11px;padding:1px 6px;border-radius:4px;margin-right:5px;
+  border:1px solid var(--border);color:var(--text-secondary);white-space:nowrap}
+.hint .hm{margin-top:6px;padding-top:6px;border-top:1px dashed var(--grid);color:var(--text-muted)}
+.legend{border:1px solid var(--border);background:var(--surface-1);border-radius:10px;padding:12px 15px;margin:0 0 16px;font-size:13px}
+.legend summary{cursor:pointer;color:var(--text-secondary);font-size:13px}
+.legend table{margin-top:9px;font-size:12.5px}
+.legend td{padding:4px 8px;border-bottom:1px solid var(--grid);vertical-align:top}
+.legend td:first-child{white-space:nowrap;font-weight:600;color:var(--text-primary);width:1%}
+.brk{border:1px solid var(--accent);background:var(--wash);border-radius:10px;padding:13px 16px;margin:0 0 16px;font-size:13.5px;line-height:1.6}
+.brk .btns{display:flex;gap:9px;margin-top:10px;flex-wrap:wrap}
+.modecard{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0 14px}
+.modeopt{min-width:0;text-align:left;font-family:inherit;cursor:pointer;
+  border:1px solid var(--axis);background:var(--surface-1);border-radius:10px;padding:13px 15px;color:var(--text-primary)}
+.modeopt[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:var(--wash)}
+.modeopt b{display:block;font-size:15px;margin-bottom:3px}
+.modeopt span{font-size:12.5px;color:var(--text-secondary);line-height:1.5}
+.warn{border:1px solid var(--border);border-left:3px solid #ec835a;border-radius:0 10px 10px 0;
+  background:var(--surface-1);padding:13px 16px;margin:16px 0;font-size:13.5px;line-height:1.6}
+.resume{border:1px solid var(--accent);background:var(--wash);border-radius:12px;padding:16px 18px;margin:22px 0 4px}
+.resume b{font-size:16px}
+.resume .meta{color:var(--text-secondary);font-size:13.5px;margin:4px 0 12px}
+.resume .btns{display:flex;gap:10px;flex-wrap:wrap}
+.restore-toast{position:fixed;z-index:30;bottom:22px;left:50%;transform:translateX(-50%);
+  width:min(560px,calc(100% - 28px));display:flex;align-items:center;gap:11px;
+  border:1px solid rgba(42,120,214,.32);border-radius:12px;padding:11px 13px;
+  background:var(--surface-1);box-shadow:0 10px 28px rgba(0,0,0,.13);color:var(--text-primary)}
+.restore-toast .mark{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+  flex:none;background:var(--wash);color:var(--accent);font-weight:750}
+.restore-toast .copy{min-width:0;flex:1}
+.restore-toast b{display:block;font-size:13.5px}
+.restore-toast small{display:block;color:var(--text-secondary);font-size:12px;margin-top:1px}
+.restore-toast .close{border:0;background:transparent;color:var(--text-muted);font:inherit;
+  width:34px;height:34px;border-radius:8px;cursor:pointer;font-size:20px}
+.restore-toast .close:hover{background:var(--wash);color:var(--text-primary)}
+.savebar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--text-muted);
+  border-top:1px solid var(--grid);margin-top:20px;padding-top:14px}
+.savebar .dot{width:7px;height:7px;border-radius:50%;background:#0ca30c;flex:none}
+.savebar .dot.bad{background:#d03b3b}
+.savebar .spacer{flex:1}
+#copied{color:#006300}
+:root[data-theme="dark"] #copied{color:#0ca30c}
+.opts{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-left:44px}
+.opt{
+  min-width:0;text-align:center;font-family:inherit;font-size:12.5px;line-height:1.3;
+  padding:9px 4px;border-radius:8px;border:1px solid var(--axis);background:var(--surface-1);
+  color:var(--text-secondary);cursor:pointer;transition:none}
+.opt:hover{border-color:var(--accent);color:var(--text-primary)}
+.opt:active{transform:scale(.96)}
+.opt[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+#kbdHint{display:none}
+@media (hover:hover) and (pointer:fine){#kbdHint{display:inline}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(42,120,214,.45)}80%{box-shadow:0 0 0 14px rgba(42,120,214,0)}100%{box-shadow:0 0 0 0 rgba(42,120,214,0)}}
+.btn.pulse{animation:pulse 1.1s ease-out 3}
+.nav{display:flex;gap:12px;align-items:center;margin-top:24px;flex-wrap:wrap}
+.nav .spacer{flex:1}
+.page-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-top:24px}
+.page-heading h2{margin:0}
+.eta{font-size:12.5px;color:var(--text-muted);white-space:nowrap}
+
+/* charts */
+.dom{margin-bottom:22px}
+.dom-head{display:flex;align-items:baseline;gap:9px;margin-bottom:2px}
+.swatch{width:11px;height:11px;border-radius:3px;flex:none;transform:translateY(1px)}
+.pct{font-size:21px;font-weight:660;font-variant-numeric:tabular-nums;margin-left:auto}
+.lvl{font-size:12px;padding:2px 8px;border-radius:20px;border:1px solid var(--border);color:var(--text-secondary)}
+.poles{display:flex;justify-content:space-between;font-size:11.5px;color:var(--text-muted);margin-top:3px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,390px) 1fr;gap:8px 24px;align-items:center}
+@media (max-width:700px){.hero-grid{grid-template-columns:1fr}}
+.result-hero{background:
+  radial-gradient(circle at 12% 16%,rgba(42,120,214,.09),transparent 32%),
+  radial-gradient(circle at 88% 82%,rgba(232,123,164,.09),transparent 34%),
+  var(--surface-1)}
+.result-check{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:14px 0 22px;padding:14px 18px}
+.result-check-copy{flex:1;min-width:240px}
+.result-check-copy b{display:block;font-size:14px}
+.result-check-copy span{font-size:12.5px;color:var(--text-muted)}
+.result-check-actions{display:flex;gap:8px;flex-wrap:wrap}
+.reaction[aria-pressed="true"]{border-color:var(--accent);background:var(--wash);color:var(--text-primary)}
+.result-check-msg{flex-basis:100%;margin:0;font-size:12.5px;color:var(--text-secondary)}
+.result-guide{margin:0 0 24px;padding:14px 18px}
+.result-guide summary{cursor:pointer;font-weight:650;font-size:14px}
+.result-guide[open] summary{margin-bottom:9px}
+.hero-chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);border-radius:20px;
+  padding:4px 12px;margin:0 7px 8px 0;font-size:13px;color:var(--text-primary)}
+.hero-chip b{font-variant-numeric:tabular-nums;font-weight:650}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.track{position:relative;height:14px;background:var(--grid);border-radius:4px;margin:8px 0 4px}
+.track>i{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0;width:0}
+.track>u{position:absolute;top:-3px;bottom:-3px;left:50%;width:1px;background:var(--axis);text-decoration:none}
+.fbar{display:grid;grid-template-columns:96px 1fr 34px;gap:10px;align-items:center;padding:5px 0;cursor:default}
+.fbar:hover{background:var(--wash);border-radius:6px}
+.fname{font-size:13.5px;color:var(--text-secondary);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ftrack{position:relative;height:10px;background:var(--grid);border-radius:3px}
+.ftrack>i{position:absolute;left:0;top:0;bottom:0;border-radius:0 3px 3px 0}
+.ftrack>u{position:absolute;top:-2px;bottom:-2px;left:50%;width:1px;background:var(--axis)}
+.fpct{font-size:13px;font-variant-numeric:tabular-nums;text-align:right;color:var(--text-primary)}
+.scaleline{display:grid;grid-template-columns:96px 1fr 34px;gap:10px;margin-top:4px}
+.scaleline div:nth-child(2){display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);font-variant-numeric:tabular-nums}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--grid)}
+th{color:var(--text-secondary);font-weight:600;font-size:12.5px}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+#tableView{display:none}
+#tableView.on{display:block}
+
+#tip{position:fixed;pointer-events:none;opacity:0;transition:opacity .1s;background:var(--surface-1);
+  border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:12.5px;
+  box-shadow:0 6px 20px rgba(0,0,0,.14);z-index:60;max-width:250px;line-height:1.5}
+#tip b{font-weight:650}
+.hide{display:none !important}
+@media print{.topbar,.noprint{display:none !important} body{background:#fff}}
+@media (max-width:760px){
+  .intro-hero{grid-template-columns:1fr;grid-template-areas:"copy" "start" "trust";padding:24px;margin-top:20px}
+  .intro-copy{padding:2px 2px 0}
+  .hero-copy{order:-1}
+}
+@media (max-width:560px){
+  body{font-size:15px}
+  .wrap{padding:0 14px 60px}
+  .card{padding:14px}
+  .topbar-in{padding:8px 10px;gap:6px}
+  .topbar .brand{display:none}
+  .topbar .bar{min-width:48px}
+  .topbar .count{font-size:11.5px}
+  .topbar .iconbtn{min-height:40px;padding:6px 8px}
+  .intro-hero{padding:18px;border-radius:16px;gap:18px}
+  .intro-title{font-size:34px}
+  .intro-lead{font-size:15.5px}
+  .start-card{padding:16px}
+  .modeopt{padding:11px 10px}
+  .modeopt b{font-size:14px}
+  .modeopt span{font-size:11.5px}
+  .page-heading{align-items:flex-start;gap:8px}
+  .eta{white-space:normal;text-align:right;max-width:135px}
+  .qrow{padding:19px 0;scroll-margin-top:64px}
+  .qrow.ok{opacity:.78}
+  .qrow.cur::before{left:-8px}
+  .opts{margin-left:0;gap:4px}
+  .opt{font-size:11.5px;min-height:46px;padding:7px 2px;letter-spacing:-0.025em}
+  .hint{margin-left:0}
+  .qnum{min-width:26px}
+  .fbar,.scaleline{grid-template-columns:72px 1fr 28px;gap:8px}
+  .fname{font-size:12.5px}
+  .result-check{align-items:flex-start}
+  .result-check-actions{width:100%}
+  .result-check-actions .iconbtn{flex:1;min-height:42px}
+}
+@media (max-width:390px){
+  .modecard{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto !important;animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+<div class="topbar noprint"><div class="topbar-in">
+  <span class="brand">IPIP-NEO-300</span>
+  <div class="bar" role="progressbar" aria-label="测评完成进度" aria-valuemin="0" aria-valuemax="300" aria-valuenow="0"><i id="pbar"></i><b style="left:25%"></b><b style="left:50%"></b><b style="left:75%"></b></div>
+  <span class="count" id="pcount" aria-live="polite">0 / 300</span>
+  <button class="iconbtn" id="hintToggle" aria-label="切换详解模式">详解</button>
+  <button class="iconbtn" id="enToggle" aria-label="显示或隐藏英文原题" title="显示或隐藏英文原题">EN</button>
+  <button class="iconbtn" id="themeToggle" aria-label="切换深色或浅色主题">深色</button>
+</div></div>
+
+<div class="restore-toast hide noprint" id="restoreToast" role="status" aria-live="polite">
+  <span class="mark" aria-hidden="true">✓</span>
+  <span class="copy"><b id="restoreToastTitle"></b><small id="restoreToastMeta"></small></span>
+  <button class="close" type="button" id="restoreToastClose" aria-label="关闭提示">×</button>
+</div>
+
+<div class="wrap">
+
+<!-- ============ INTRO ============ -->
+<section id="intro">
+  <div id="resumeCard" class="resume hide">
+    <b id="resumeTitle"></b>
+    <div class="meta" id="resumeMeta"></div>
+    <div class="btns">
+      <button class="btn" id="resumeBtn"></button>
+      <button class="btn ghost" id="freshBtn">重新开始一次</button>
+    </div>
+  </div>
+
+  <div class="intro-hero">
+    <div class="intro-copy">
+      <div class="eyebrow">IPIP-NEO-300 中文版</div>
+      <h1 class="intro-title">看见你的人格轮廓，<br>不只得到一个标签</h1>
+      <p class="intro-lead">用 300 道题理解你的 5 个核心维度与 30 个细分倾向。结果提供百分位、生活化解释和可保存的分享卡片。</p>
+      <div class="trait-dots" aria-hidden="true">
+        <i style="background:var(--s-O)"></i><i style="background:var(--s-C)"></i>
+        <i style="background:var(--s-E)"></i><i style="background:var(--s-A)"></i>
+        <i style="background:var(--s-N)"></i>
+      </div>
+    </div>
+
+    <form class="start-card" id="startForm" novalidate>
+      <h2>准备开始</h2>
+      <p class="muted">先选择作答方式，再填写用于匹配常模的资料。</p>
+
+      <div class="modecard" aria-label="作答模式">
+        <button class="modeopt" type="button" data-mode="hints" aria-pressed="true">
+          <b>详解模式</b>
+          <span>附生活情境，题意更容易判断</span>
+        </button>
+        <button class="modeopt" type="button" data-mode="plain" aria-pressed="false">
+          <b>标准模式</b>
+          <span>贴近原版施测，百分位更可比</span>
+        </button>
+      </div>
+      <details class="mode-note">
+        <summary>两种模式有什么区别？</summary>
+        <p>详解模式会减少题意误读，但情境说明可能让分数略微上移；标准模式只显示原题译文，更接近原版常模口径。答题时仍可随时切换。</p>
+      </details>
+
+      <div class="row">
+        <div>
+          <label class="f" for="sex">性别</label>
+          <select id="sex">
+            <option value="">请选择</option>
+            <option value="M">男</option>
+            <option value="F">女</option>
+            <option value="N">不作区分 / 其他（使用男女合并常模）</option>
+          </select>
+        </div>
+        <div>
+          <label class="f" for="age">年龄</label>
+          <input type="number" id="age" min="10" max="110" inputmode="numeric" placeholder="例如 30">
+        </div>
+      </div>
+      <div class="start-actions">
+        <button class="btn btn-primary" type="submit" id="startBtn">开始测评</button>
+        <button class="iconbtn" type="button" id="importBtn">从进度文件恢复</button>
+        <input type="file" id="importFile" accept=".json" class="hide">
+      </div>
+      <p class="form-error hide" id="startError" role="alert"></p>
+      <p class="start-note">年龄和性别只用于选择对照常模，不会离开你的浏览器。</p>
+    </form>
+
+    <div class="trust-list">
+      <div class="trust-item"><span class="trust-icon">✓</span><span><b>约 30–45 分钟</b>，每题自动保存，可以分几次完成</span></div>
+      <div class="trust-item"><span class="trust-icon">30</span><span><b>30 个子面向</b>，比短测验更能看见差异</span></div>
+      <div class="trust-item"><span class="trust-icon">锁</span><span><b>本地计算</b>，作答与结果不会上传到服务器</span></div>
+    </div>
+  </div>
+
+  <div id="storageWarn" class="hide"></div>
+
+  <details class="card guide-card">
+    <summary>答题前快速说明 · 如何选得更准确</summary>
+    <div>
+      <h3>判断的是「这句话像不像你」</h3>
+      <p class="sub" style="margin-bottom:6px">每道题是一句关于你的描述。请判断<b>这句话形容你准不准</b>，而不是你同不同意这句话：</p>
+      <ul class="sub" style="margin:0 0 14px;padding-left:20px">
+        <li>描述<b>现在的你</b>，不是你希望成为的样子。</li>
+        <li>比较对象是你认识的、同性别、年龄相仿的人。</li>
+        <li>凭第一反应作答，没有“好”或“坏”的答案；意思接近或相反的题目是量表的正常设计。</li>
+      </ul>
+
+      <h3>五个选项怎么选</h3>
+      <ul class="sub" style="margin:0 0 14px;padding-left:20px">
+        <li><b>很不符合</b> —— 基本不是你，认识你的人也不会这么形容你。</li>
+        <li><b>比较不符合</b> —— 偶尔有，但不是你的常态。</li>
+        <li><b>一半一半</b> —— 真的对半开，或分场合差别很大；它不等于“我不知道”。</li>
+        <li><b>比较符合</b> —— 大体是你，但有例外。</li>
+        <li><b>很符合</b> —— 这就是你，认识你的人也会这么说。</li>
+      </ul>
+
+      <h3>可以分几次完成</h3>
+      <p class="sub" style="margin-bottom:0">长问卷越往后越容易受疲劳影响。每完成 75 题页面会提醒你休息，进度会自动保存；也可以复制续答链接或导出进度文件，在其他设备继续。</p>
+    </div>
+  </details>
+
+  <details class="card guide-card">
+    <summary style="cursor:pointer;font-weight:600;font-size:15px">关于这个测评 · 来源、局限与免责</summary>
+    <div style="margin-top:14px">
+
+    <h3>这是什么</h3>
+    <p class="sub">这是 <b>IPIP-NEO-300</b> 的中文实现。IPIP-NEO-300 是 John A. Johnson 基于 International Personality Item Pool（国际人格项目库）编制的 300 题大五人格量表，题目处于公有领域。IPIP 官方特别提醒：IPIP 是一个三千多道题的题库，包含多个不同的大五量表，所以应当称呼具体量表名（IPIP-NEO-300），而不是笼统地叫"IPIP 测验"。</p>
+
+    <h3>它不是 NEO PI-R™</h3>
+    <p class="sub">IPIP-NEO-300 是商业量表 NEO PI-R™ 的公有领域替代品，<b>两者并不等同</b>。正版 NEO PI-R™（240 题）由 Paul T. Costa, Jr. 与 Robert R. McCrae 编制，版权属于美国 Psychological Assessment Resources (PAR)，只能由专业人员订购和在授权下使用。本站与 PAR、与 NEO PI-R™ 没有任何关系。</p>
+
+    <h3>用途与免责</h3>
+    <p class="sub">本测评仅供<b>教育与自我了解</b>用途。它不是心理或医学建议，不能用于临床诊断，也不适合作为人事甄选、升学或任何会影响他人权益的决策依据。结果的准确性不作任何担保。如果你正在为情绪或心理状态困扰，请咨询专业人员，而不是依赖一个自评问卷。本测评面向成年人设计，未成年人建议在监护人陪同下使用。</p>
+    <p class="sub">借用 Johnson 本人在官方页面上的一句话：<b>如果了解你的人不同意测验结果，那多半是他们对、测验错。</b></p>
+
+    <h3>常模的局限（重要）</h3>
+    <p class="sub">百分位对照的是 Johnson 的 IPIP-NEO 英文在线样本——以欧美英语母语者为主的网络自选样本，不是中国人群常模。IPIP 官网对现成常模的态度相当保留，原文是："One should be very wary of using canned 'norms'... Most 'norms' are misleading, and therefore they should not be used."</p>
+    <p class="sub">所以：<b>把百分位当作粗略的参考刻度，不要当成精确定位</b>。更值得看的是你自己 30 个子面向之间的相对高低。如果你需要有中国样本常模的版本，华东师范大学 Zhongyang Xu 等人已经做过 IPIP-NEO-120 的普通话译本并提供了中国样本常模，登记在 IPIP 官网的翻译页上。</p>
+
+    <h3>中文翻译</h3>
+    <p class="sub">300 道题的中文翻译与逐题判断说明由 Claude (Anthropic) 完成，<b>未经过任何跨文化信效度验证</b>。IPIP 官网对所有社区译本的统一说明是：翻译的准确性未经 IPIP 项目相关人员核实。</p>
+
+    <h3>题目来源与致谢</h3>
+    <ul class="sub" style="padding-left:20px">
+      <li>题目：<a href="https://ipip.ori.org/" target="_blank" rel="noopener">International Personality Item Pool</a>（公有领域）；量表为 Johnson (2014) IPIP-NEO-300。</li>
+      <li>五个维度与 30 个面向的释义文字：原作者 <b>John A. Johnson</b>，已置于公有领域。</li>
+      <li>计分算法与常模：移植自 <a href="https://github.com/NeuroQuestAi/five-factor-e" target="_blank" rel="noopener">five-factor-e</a>（MIT License, Copyright © 2022-2025 NeuroQuest AI），该项目又基于 Dhiru Kholia 对 Johnson 原始 CGI 脚本的移植。完整许可证正文见本页源代码顶部注释。</li>
+      <li>作答有效性阈值：Johnson, J. A. (2005). Ascertaining the validity of individual protocols from Web-based personality inventories. <i>Journal of Research in Personality</i>, 39, 103–129.</li>
+      <li>引用建议：Goldberg, L. R., Johnson, J. A., Eber, H. W., Hogan, R., Ashton, M. C., Cloninger, C. R., &amp; Gough, H. C. (2006). The International Personality Item Pool and the future of public-domain personality measures. <i>Journal of Research in Personality</i>, 40, 84–96.</li>
+    </ul>
+
+    <h3>隐私</h3>
+    <p class="sub" style="margin-bottom:0">本站<b>不收集、不存储、不传输</b>你的任何作答或结果。全部计算在你的浏览器里完成，页面加载后即使断网也能用完。你可以打开浏览器的网络面板自行核实。</p>
+    </div>
+  </details>
+</section>
+
+<!-- ============ TEST ============ -->
+<section id="test" class="hide">
+  <div class="page-heading">
+    <h2 id="pageTitle"></h2>
+    <span class="eta" id="eta"></span>
+  </div>
+  <p class="muted" id="pageHint" style="margin-top:-8px">判断每句话<b>形容你准不准</b>，不是你同不同意。<span id="kbdHint"> · 键盘 1–5 可直接作答，选完自动跳下一题</span></p>
+
+  <div id="breakCard" class="hide"></div>
+
+  <details class="legend" id="legend">
+    <summary>五个选项分别是什么意思（点开看）</summary>
+    <table>
+      <tr><td>很不符合</td><td>基本不是你，认识你的人也不会这么形容你。</td></tr>
+      <tr><td>比较不符合</td><td>偶尔有，但不是常态。这一档比你想的宽，别因为"也不是完全没有过"就往中间躲。</td></tr>
+      <tr><td>一半一半</td><td>说不上准也说不上不准：真的对半开，或者分场合差别大到没法合并。<b>不等于"我不知道"</b>——想不起来就按整体印象挑个方向。</td></tr>
+      <tr><td>比较符合</td><td>大体是你，但有例外。</td></tr>
+      <tr><td>很符合</td><td>这就是你，认识你的人也会这么说。</td></tr>
+    </table>
+  </details>
+
+  <div class="card" id="qlist"></div>
+  <div class="nav">
+    <button class="btn ghost" id="prevBtn">上一页</button>
+    <button class="btn" id="nextBtn">下一页</button>
+    <span class="spacer"></span>
+    <span class="muted" id="pageStat"></span>
+  </div>
+  <div class="savebar">
+    <span class="dot" id="saveDot"></span>
+    <span id="saveState">进度已自动保存</span>
+    <span class="spacer"></span>
+    <span id="copied"></span>
+    <button class="iconbtn" id="linkBtn">复制续答链接</button>
+    <button class="iconbtn" id="saveBtn">导出进度文件</button>
+    <button class="iconbtn" id="quitBtn">暂存并返回首页</button>
+  </div>
+  <p class="muted" style="margin-top:10px">
+    换设备或换浏览器接着做：复制续答链接发给自己（微信文件传输助手就行），在新设备上打开即可；或者导出进度文件，之后在首页用「从进度文件恢复」导入。这两种方式都不受浏览器清理数据的影响。
+  </p>
+</section>
+
+<!-- ============ RESULT ============ -->
+<section id="result" class="hide">
+  <h1 style="margin-top:32px">你的大五人格结果</h1>
+  <p class="sub" id="resMeta"></p>
+  <div id="validity" class="hide"></div>
+
+  <div class="card result-hero" style="margin:20px 0">
+    <div class="hero-grid">
+      <div style="text-align:center">
+        <div id="radar"></div>
+        <p class="muted" style="margin:0">外圈 = 100，加粗一圈 = 50（人群中位数）</p>
+      </div>
+      <div class="hero-copy">
+        <div class="muted" style="letter-spacing:.14em;font-size:11.5px">你的人格画像</div>
+        <h3 id="heroLine" style="font-size:19px;line-height:1.5;margin:7px 0 13px"></h3>
+        <div class="muted" style="font-size:12.5px;margin-bottom:7px">最鲜明的子面向</div>
+        <div id="heroChips"></div>
+        <div class="hero-btns noprint">
+          <button class="btn" id="cardBtn">保存分享卡片</button>
+          <button class="btn ghost" id="resultLinkBtn">复制结果链接</button>
+          <button class="btn ghost" id="printBtn2">打印 / PDF</button>
+        </div>
+        <p class="muted" style="margin:11px 0 0">结果已保存在这个浏览器，下次打开会直接回到这里。分享卡片不含逐题作答；结果链接包含本次作答与常模资料，请只发给你信任的人。</p>
+        <p class="muted" id="resultCopied" role="status" style="margin:4px 0 0"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card result-check noprint" id="resultCheck">
+    <div class="result-check-copy">
+      <b>这份结果像你吗？</b>
+      <span>这是一次自我校验，不会改变分数，也不会上传任何内容。</span>
+    </div>
+    <div class="result-check-actions" aria-label="结果相似度">
+      <button class="iconbtn reaction" data-reaction="yes" aria-pressed="false">很像我</button>
+      <button class="iconbtn reaction" data-reaction="some" aria-pressed="false">部分符合</button>
+      <button class="iconbtn reaction" data-reaction="no" aria-pressed="false">不太像</button>
+    </div>
+    <p class="result-check-msg hide" id="resultCheckMsg" aria-live="polite"></p>
+  </div>
+
+  <details class="card result-guide noprint">
+    <summary>这些百分位怎么读？</summary>
+    <p class="muted" style="margin:0 0 8px">下面所有数字都是<b>百分位</b>：50 代表和常模人群的中位数持平，80 代表高于 80% 的人。30 和 70 附近是模糊边界，不要把相邻的“中等”和“偏高／偏低”理解成截然不同的人格。</p>
+    <p class="muted" id="modeNote" style="margin:0"></p>
+  </details>
+
+  <h2>五个维度</h2>
+  <div id="domains"></div>
+
+  <h2>30 个子面向</h2>
+  <p class="sub" style="margin-top:-6px">同一个维度的总分可以由很不一样的子面向组合而成 —— 这是 300 题版相比短版最有价值的部分。</p>
+  <div id="facets"></div>
+
+  <div class="noprint" style="margin-top:32px">
+    <button class="iconbtn" id="tableToggle">切换表格视图</button>
+    <button class="iconbtn" id="exportBtn">导出结果 JSON</button>
+    <button class="iconbtn" id="printBtn">打印 / 存为 PDF</button>
+    <button class="iconbtn" id="restartBtn">重新测一次</button>
+  </div>
+  <div id="tableView" style="margin-top:20px"></div>
+
+  <hr>
+  <p class="muted">
+    常模来自 Johnson 的 IPIP-NEO 英文在线样本（以欧美英语母语者为主的网络自选样本），按性别和年龄段（&lt;21 / ≥21）分组，<b>不是中国人群常模</b>。中文语境下分数会有系统性偏移，百分位请当作粗略的参考刻度，更值得看的是你 30 个子面向之间的相对高低。
+  </p>
+  <p class="muted">
+    引用 Johnson 官方报告的措辞：低、中、高分本身<b>无所谓好坏</b>——同一个特质水平，对很多事情无关紧要，对某些事有帮助，对另一些事有妨碍。本测评仅供教育与自我了解用途，不是心理或医学建议，不能用于临床诊断或人事甄选。对结果有疑问时，最好的验证办法是拿给了解你的人看。
+  </p>
+  <p class="muted">
+    IPIP-NEO-300 与商业量表 NEO PI-R™ 并不等同，本站与 PAR 及 NEO PI-R™ 无关。题目来自公有领域的 <a href="https://ipip.ori.org/" target="_blank" rel="noopener">IPIP</a>；维度释义原作者 John A. Johnson；计分算法移植自 <a href="https://github.com/NeuroQuestAi/five-factor-e" target="_blank" rel="noopener">five-factor-e</a>（MIT）。中文翻译由 Claude 完成，未经跨文化信效度验证。
+  </p>
+</section>
+
+</div>
+<div id="tip"></div>
+
+<script>
+const DATA = {"items":[{"id":1,"zh":"我会为各种事情操心。","en":"Worry about things."},{"id":2,"zh":"我很容易交到朋友。","en":"Make friends easily."},{"id":3,"zh":"我的想象力很丰富。","en":"Have a vivid imagination."},{"id":4,"zh":"我信任别人。","en":"Trust others."},{"id":5,"zh":"我能顺利地把任务完成。","en":"Complete tasks successfully."},{"id":6,"zh":"我容易生气。","en":"Get angry easily."},{"id":7,"zh":"我喜欢热闹的大型聚会。","en":"Love large parties."},{"id":8,"zh":"我认为艺术很重要。","en":"Believe in the importance of art."},{"id":9,"zh":"我绝不会在纳税上作假。","en":"Would never cheat on my taxes."},{"id":10,"zh":"我喜欢井井有条。","en":"Like order."},{"id":11,"zh":"我常常心情低落。","en":"Often feel blue."},{"id":12,"zh":"我会主动挑起领导的担子。","en":"Take charge."},{"id":13,"zh":"我的情绪体验很强烈。","en":"Experience my emotions intensely."},{"id":14,"zh":"我能让别人感到受欢迎。","en":"Make people feel welcome."},{"id":15,"zh":"我会尽量遵守规则。","en":"Try to follow the rules."},{"id":16,"zh":"我容易被别人震慑住。","en":"Am easily intimidated."},{"id":17,"zh":"我总是很忙。","en":"Am always busy."},{"id":18,"zh":"比起一成不变，我更喜欢多样的变化。","en":"Prefer variety to routine."},{"id":19,"zh":"我很容易满足。","en":"Am easy to satisfy."},{"id":20,"zh":"我会直奔目标。","en":"Go straight for the goal."},{"id":21,"zh":"我经常吃得过多。","en":"Often eat too much."},{"id":22,"zh":"我喜欢刺激。","en":"Love excitement."},{"id":23,"zh":"我喜欢解决复杂的问题。","en":"Like to solve complex problems."},{"id":24,"zh":"我不喜欢成为众人的焦点。","en":"Dislike being the center of attention."},{"id":25,"zh":"杂事我会马上做完。","en":"Get chores done right away."},{"id":26,"zh":"我容易惊慌失措。","en":"Panic easily."},{"id":27,"zh":"我浑身都散发着快乐。","en":"Radiate joy."},{"id":28,"zh":"我倾向于把票投给立场自由派的候选人。","en":"Tend to vote for liberal political candidates."},{"id":29,"zh":"我同情无家可归的人。","en":"Sympathize with the homeless."},{"id":30,"zh":"我会尽量避免出错。","en":"Avoid mistakes."},{"id":31,"zh":"我总担心最坏的结果。","en":"Fear for the worst."},{"id":32,"zh":"我很快就能和别人熟络起来。","en":"Warm up quickly to others."},{"id":33,"zh":"我享受天马行空的幻想。","en":"Enjoy wild flights of fantasy."},{"id":34,"zh":"我相信别人是出于善意的。","en":"Believe that others have good intentions."},{"id":35,"zh":"我在自己做的事情上很出色。","en":"Excel in what I do."},{"id":36,"zh":"我容易被惹恼。","en":"Get irritated easily."},{"id":37,"zh":"在聚会上我会和很多不同的人聊天。","en":"Talk to a lot of different people at parties."},{"id":38,"zh":"我喜欢音乐。","en":"Like music."},{"id":39,"zh":"我会守规矩。","en":"Stick to the rules."},{"id":40,"zh":"我喜欢收拾整理。","en":"Like to tidy up."},{"id":41,"zh":"我不喜欢自己。","en":"Dislike myself."},{"id":42,"zh":"我会试着带领别人。","en":"Try to lead others."},{"id":43,"zh":"我能感受到别人的情绪。","en":"Feel others' emotions."},{"id":44,"zh":"我能预先察觉到别人的需要。","en":"Anticipate the needs of others."},{"id":45,"zh":"我会信守承诺。","en":"Keep my promises."},{"id":46,"zh":"我害怕自己会做错事。","en":"Am afraid that I will do the wrong thing."},{"id":47,"zh":"我总是马不停蹄。","en":"Am always on the go."},{"id":48,"zh":"我喜欢去没去过的地方。","en":"Like to visit new places."},{"id":49,"zh":"我受不了正面冲突。","en":"Can't stand confrontations."},{"id":50,"zh":"我做事很努力。","en":"Work hard."},{"id":51,"zh":"我有些行为连自己也说不清为什么。","en":"Don't know why I do some of the things I do."},{"id":52,"zh":"我会主动寻求冒险。","en":"Seek adventure."},{"id":53,"zh":"我喜欢读有挑战性的东西。","en":"Love to read challenging material."},{"id":54,"zh":"我不喜欢谈论自己。","en":"Dislike talking about myself."},{"id":55,"zh":"我总是准备充分。","en":"Am always prepared."},{"id":56,"zh":"事情一多我就招架不住。","en":"Become overwhelmed by events."},{"id":57,"zh":"我的生活里有很多乐趣。","en":"Have a lot of fun."},{"id":58,"zh":"我认为世上没有绝对的对与错。","en":"Believe that there is no absolute right or wrong."},{"id":59,"zh":"我同情那些境况不如我的人。","en":"Feel sympathy for those who are worse off than myself."},{"id":60,"zh":"我说话字斟句酌。","en":"Choose my words with care."},{"id":61,"zh":"我害怕的东西很多。","en":"Am afraid of many things."},{"id":62,"zh":"和人在一起时我很自在。","en":"Feel comfortable around people."},{"id":63,"zh":"我喜欢做白日梦。","en":"Love to daydream."},{"id":64,"zh":"我相信别人说的话。","en":"Trust what people say."},{"id":65,"zh":"我处理事情很顺手。","en":"Handle tasks smoothly."},{"id":66,"zh":"我容易心烦。","en":"Get upset easily."},{"id":67,"zh":"我喜欢融入群体之中。","en":"Enjoy being part of a group."},{"id":68,"zh":"我能在别人不留意的地方发现美。","en":"See beauty in things that others might not notice."},{"id":69,"zh":"我会靠奉承来往上爬。","en":"Use flattery to get ahead."},{"id":70,"zh":"我希望每件事都恰到好处。","en":"Want everything to be \"just right.\""},{"id":71,"zh":"我经常情绪消沉。","en":"Am often down in the dumps."},{"id":72,"zh":"我能说服别人去做事。","en":"Can talk others into doing things."},{"id":73,"zh":"我会对某些理念投入热情。","en":"Am passionate about causes."},{"id":74,"zh":"我喜欢帮助别人。","en":"Love to help others."},{"id":75,"zh":"我会按时付账。","en":"Pay my bills on time."},{"id":76,"zh":"我很难主动接近别人。","en":"Find it difficult to approach others."},{"id":77,"zh":"我的业余时间安排得很满。","en":"Do a lot in my spare time."},{"id":78,"zh":"我对很多事情都感兴趣。","en":"Interested in many things."},{"id":79,"zh":"我讨厌自己显得咄咄逼人。","en":"Hate to seem pushy."},{"id":80,"zh":"我能把计划落实成行动。","en":"Turn plans into actions."},{"id":81,"zh":"我做过一些事后让自己后悔的事。","en":"Do things I later regret."},{"id":82,"zh":"我喜欢有刺激、有行动的场面。","en":"Love action."},{"id":83,"zh":"我的词汇量很丰富。","en":"Have a rich vocabulary."},{"id":84,"zh":"我觉得自己就是个普通人。","en":"Consider myself an average person."},{"id":85,"zh":"我会马上着手做事。","en":"Start tasks right away."},{"id":86,"zh":"我觉得自己应付不了眼前的事。","en":"Feel that I'm unable to deal with things."},{"id":87,"zh":"我会流露出孩子般的快乐。","en":"Express childlike joy."},{"id":88,"zh":"我认为对罪犯应该给予帮助而不是惩罚。","en":"Believe that criminals should receive help rather than punishment."},{"id":89,"zh":"比起竞争，我更看重合作。","en":"Value cooperation over competition."},{"id":90,"zh":"我会坚持自己选定的路。","en":"Stick to my chosen path."},{"id":91,"zh":"我容易感到压力大。","en":"Get stressed out easily."},{"id":92,"zh":"和别人相处时我举止自然。","en":"Act comfortably with others."},{"id":93,"zh":"我喜欢沉浸在思绪里。","en":"Like to get lost in thought."},{"id":94,"zh":"我相信人基本上是有道德的。","en":"Believe that people are basically moral."},{"id":95,"zh":"我对自己的立场很有把握。","en":"Am sure of my ground."},{"id":96,"zh":"我经常心情不好。","en":"Am often in a bad mood."},{"id":97,"zh":"我会把别人拉进我正在做的事里。","en":"Involve others in what I am doing."},{"id":98,"zh":"我很喜欢花。","en":"Love flowers."},{"id":99,"zh":"我会利用别人来达到自己的目的。","en":"Use others for my own ends."},{"id":100,"zh":"我喜欢秩序和规律。","en":"Love order and regularity."},{"id":101,"zh":"我看不起自己。","en":"Have a low opinion of myself."},{"id":102,"zh":"我会想办法影响别人。","en":"Seek to influence others."},{"id":103,"zh":"我喜欢审视自己和自己的生活。","en":"Enjoy examining myself and my life."},{"id":104,"zh":"我很关心别人。","en":"Am concerned about others."},{"id":105,"zh":"我说实话。","en":"Tell the truth."},{"id":106,"zh":"我害怕引起别人的注意。","en":"Am afraid to draw attention to myself."},{"id":107,"zh":"我能同时应付很多件事。","en":"Can manage many things at the same time."},{"id":108,"zh":"我喜欢开始新的事情。","en":"Like to begin new things."},{"id":109,"zh":"我说话很尖刻。","en":"Have a sharp tongue."},{"id":110,"zh":"我做事会全心投入。","en":"Plunge into tasks with all my heart."},{"id":111,"zh":"我会毫无节制地放纵一场。","en":"Go on binges."},{"id":112,"zh":"我喜欢置身喧闹的人群里。","en":"Enjoy being part of a loud crowd."},{"id":113,"zh":"我能处理大量的信息。","en":"Can handle a lot of information."},{"id":114,"zh":"我很少自吹自擂。","en":"Seldom toot my own horn."},{"id":115,"zh":"我会立刻投入工作。","en":"Get to work at once."},{"id":116,"zh":"我拿不定主意。","en":"Can't make up my mind."},{"id":117,"zh":"我一路笑着过日子。","en":"Laugh my way through life."},{"id":118,"zh":"我相信只有一种宗教是真的。","en":"Believe in one true religion."},{"id":119,"zh":"别人的痛苦会让我也难受。","en":"Suffer from others' sorrows."},{"id":120,"zh":"我常常不假思索就动手。","en":"Jump into things without thinking."},{"id":121,"zh":"我会陷在自己的烦恼里出不来。","en":"Get caught up in my problems."},{"id":122,"zh":"我能让别人高兴起来。","en":"Cheer people up."},{"id":123,"zh":"我会沉浸在自己的幻想里。","en":"Indulge in my fantasies."},{"id":124,"zh":"我相信人性本善。","en":"Believe in human goodness."},{"id":125,"zh":"我能想出好的解决办法。","en":"Come up with good solutions."},{"id":126,"zh":"我会发脾气。","en":"Lose my temper."},{"id":127,"zh":"我喜欢惊喜派对。","en":"Love surprise parties."},{"id":128,"zh":"我享受大自然的美。","en":"Enjoy the beauty of nature."},{"id":129,"zh":"我知道怎么钻规则的空子。","en":"Know how to get around the rules."},{"id":130,"zh":"我做事按计划来。","en":"Do things according to a plan."},{"id":131,"zh":"我的情绪起伏很频繁。","en":"Have frequent mood swings."},{"id":132,"zh":"我会把局面掌控住。","en":"Take control of things."},{"id":133,"zh":"我努力理解自己。","en":"Try to understand myself."},{"id":134,"zh":"我对谁都能说上几句好话。","en":"Have a good word for everyone."},{"id":135,"zh":"我会听从自己的良心。","en":"Listen to my conscience."},{"id":136,"zh":"我只有和朋友在一起才自在。","en":"Only feel comfortable with friends."},{"id":137,"zh":"我反应很快。","en":"React quickly."},{"id":138,"zh":"我更愿意守着自己熟悉的东西。","en":"Prefer to stick with things that I know."},{"id":139,"zh":"我会反驳别人。","en":"Contradict others."},{"id":140,"zh":"我做的会比别人期待的更多。","en":"Do more than what's expected of me."},{"id":141,"zh":"我很爱吃。","en":"Love to eat."},{"id":142,"zh":"我享受肆无忌惮的感觉。","en":"Enjoy being reckless."},{"id":143,"zh":"我享受思考。","en":"Enjoy thinking about things."},{"id":144,"zh":"我认为自己比别人强。","en":"Believe that I am better than others."},{"id":145,"zh":"我会把计划执行下去。","en":"Carry out my plans."},{"id":146,"zh":"我会被情绪淹没。","en":"Get overwhelmed by emotions."},{"id":147,"zh":"我热爱生活。","en":"Love life."},{"id":148,"zh":"我倾向于把票投给立场保守派的候选人。","en":"Tend to vote for conservative political candidates."},{"id":149,"zh":"我对别人的烦恼不感兴趣。","en":"Am not interested in other people's problems."},{"id":150,"zh":"我会草率地做决定。","en":"Make rash decisions."},{"id":151,"zh":"我不太容易被事情困扰。","en":"Am not easily bothered by things."},{"id":152,"zh":"我这个人不容易被了解。","en":"Am hard to get to know."},{"id":153,"zh":"我会花时间反复琢磨事情。","en":"Spend time reflecting on things."},{"id":154,"zh":"我觉得一切都会好起来。","en":"Think that all will be well."},{"id":155,"zh":"我知道该怎么把事情办成。","en":"Know how to get things done."},{"id":156,"zh":"我很少被惹恼。","en":"Rarely get irritated."},{"id":157,"zh":"我更喜欢独处。","en":"Prefer to be alone."},{"id":158,"zh":"我不喜欢艺术。","en":"Do not like art."},{"id":159,"zh":"我会靠作弊往上爬。","en":"Cheat to get ahead."},{"id":160,"zh":"我经常忘记把东西放回原处。","en":"Often forget to put things back in their proper place."},{"id":161,"zh":"我会感到绝望。","en":"Feel desperate."},{"id":162,"zh":"我会等着别人带头。","en":"Wait for others to lead the way."},{"id":163,"zh":"我很少动感情。","en":"Seldom get emotional."},{"id":164,"zh":"我看不起别人。","en":"Look down on others."},{"id":165,"zh":"我会破坏规则。","en":"Break rules."},{"id":166,"zh":"我说话会磕磕巴巴。","en":"Stumble over my words."},{"id":167,"zh":"我喜欢悠着点、不紧不慢。","en":"Like to take it easy."},{"id":168,"zh":"我不喜欢变化。","en":"Dislike changes."},{"id":169,"zh":"我喜欢来一场痛快的争斗。","en":"Love a good fight."},{"id":170,"zh":"我对自己和别人都定下很高的标准。","en":"Set high standards for myself and others."},{"id":171,"zh":"我很少放纵过度。","en":"Rarely overindulge."},{"id":172,"zh":"我会疯疯癫癫地闹一场。","en":"Act wild and crazy."},{"id":173,"zh":"我对抽象的概念不感兴趣。","en":"Am not interested in abstract ideas."},{"id":174,"zh":"我自视很高。","en":"Think highly of myself."},{"id":175,"zh":"我很难静下心来做事。","en":"Find it difficult to get down to work."},{"id":176,"zh":"在压力下我能保持冷静。","en":"Remain calm under pressure."},{"id":177,"zh":"我看生活的光明面。","en":"Look at the bright side of life."},{"id":178,"zh":"我认为纳税人的钱太多花在扶持艺术家身上了。","en":"Believe that too much tax money goes to support artists."},{"id":179,"zh":"我不太喜欢心软的人。","en":"Tend to dislike soft-hearted people."},{"id":180,"zh":"我喜欢凭一时兴起行事。","en":"Like to act on a whim."},{"id":181,"zh":"我大部分时候都很放松。","en":"Am relaxed most of the time."},{"id":182,"zh":"和别人在一起时我常常不自在。","en":"Often feel uncomfortable around others."},{"id":183,"zh":"我很少做白日梦。","en":"Seldom daydream."},{"id":184,"zh":"我不信任别人。","en":"Distrust people."},{"id":185,"zh":"我会看错形势。","en":"Misjudge situations."},{"id":186,"zh":"我很少发火。","en":"Seldom get mad."},{"id":187,"zh":"我希望别人别来打扰我。","en":"Want to be left alone."},{"id":188,"zh":"我不喜欢诗歌。","en":"Do not like poetry."},{"id":189,"zh":"我会给别人施加压力。","en":"Put people under pressure."},{"id":190,"zh":"我的房间乱七八糟。","en":"Leave a mess in my room."},{"id":191,"zh":"我觉得自己的生活没有方向。","en":"Feel that my life lacks direction."},{"id":192,"zh":"我习惯待在幕后。","en":"Keep in the background."},{"id":193,"zh":"我不太容易被自己的情绪影响。","en":"Am not easily affected by my emotions."},{"id":194,"zh":"我对别人的感受漠不关心。","en":"Am indifferent to the feelings of others."},{"id":195,"zh":"我会说话不算数。","en":"Break my promises."},{"id":196,"zh":"我不太容易觉得难为情。","en":"Am not embarrassed easily."},{"id":197,"zh":"我喜欢慢慢来。","en":"Like to take my time."},{"id":198,"zh":"我不喜欢改变这件事本身。","en":"Don't like the idea of change."},{"id":199,"zh":"我会冲人大吼。","en":"Yell at people."},{"id":200,"zh":"我对质量要求很高。","en":"Demand quality."},{"id":201,"zh":"我很容易抵挡住诱惑。","en":"Easily resist temptations."},{"id":202,"zh":"什么事我都愿意试一次。","en":"Willing to try anything once."},{"id":203,"zh":"我会避开哲学性的讨论。","en":"Avoid philosophical discussions."},{"id":204,"zh":"我对自己评价很高。","en":"Have a high opinion of myself."},{"id":205,"zh":"我会浪费时间。","en":"Waste my time."},{"id":206,"zh":"我能应付复杂的问题。","en":"Can handle complex problems."},{"id":207,"zh":"我会放声大笑。","en":"Laugh aloud."},{"id":208,"zh":"我认为法律应当被严格执行。","en":"Believe laws should be strictly enforced."},{"id":209,"zh":"我信奉以牙还牙。","en":"Believe in an eye for an eye."},{"id":210,"zh":"我做事会仓促上阵。","en":"Rush into things."},{"id":211,"zh":"我不太容易被发生的事扰乱。","en":"Am not easily disturbed by events."},{"id":212,"zh":"我会回避和别人来往。","en":"Avoid contacts with others."},{"id":213,"zh":"我的想象力不好。","en":"Do not have a good imagination."},{"id":214,"zh":"我怀疑别人另有企图。","en":"Suspect hidden motives in others."},{"id":215,"zh":"我常常搞不懂事情。","en":"Don't understand things."},{"id":216,"zh":"我不太容易被惹烦。","en":"Am not easily annoyed."},{"id":217,"zh":"我不喜欢人多的场合。","en":"Don't like crowded events."},{"id":218,"zh":"我不喜欢逛美术馆。","en":"Do not enjoy going to art museums."},{"id":219,"zh":"我会假装关心别人。","en":"Pretend to be concerned for others."},{"id":220,"zh":"我的东西随手乱放。","en":"Leave my belongings around."},{"id":221,"zh":"我很少心情低落。","en":"Seldom feel blue."},{"id":222,"zh":"我没什么话说。","en":"Have little to say."},{"id":223,"zh":"我很少注意到自己的情绪反应。","en":"Rarely notice my emotional reactions."},{"id":224,"zh":"我会让别人觉得不舒服。","en":"Make people feel uncomfortable."},{"id":225,"zh":"我会让别人替我做本该我做的事。","en":"Get others to do my duties."},{"id":226,"zh":"在陌生的场合我也很自在。","en":"Am comfortable in unfamiliar situations."},{"id":227,"zh":"我喜欢悠闲的生活节奏。","en":"Like a leisurely lifestyle."},{"id":228,"zh":"我是个习惯的动物。","en":"Am a creature of habit."},{"id":229,"zh":"我会出言侮辱别人。","en":"Insult people."},{"id":230,"zh":"我没有强烈的成功欲。","en":"Am not highly motivated to succeed."},{"id":231,"zh":"我能控制住自己的欲望。","en":"Am able to control my cravings."},{"id":232,"zh":"我会主动寻求危险。","en":"Seek danger."},{"id":233,"zh":"我很难理解抽象的概念。","en":"Have difficulty understanding abstract ideas."},{"id":234,"zh":"很多问题我都知道答案。","en":"Know the answers to many questions."},{"id":235,"zh":"我得被推一把才动得起来。","en":"Need a push to get started."},{"id":236,"zh":"我知道该怎么应对。","en":"Know how to cope."},{"id":237,"zh":"我能把朋友逗乐。","en":"Amuse my friends."},{"id":238,"zh":"我认为我们对罪犯太过纵容。","en":"Believe that we coddle criminals too much."},{"id":239,"zh":"我尽量不去想那些困苦的人。","en":"Try not to think about the needy."},{"id":240,"zh":"我会做些疯狂的事。","en":"Do crazy things."},{"id":241,"zh":"已经发生的事我不会再操心。","en":"Don't worry about things that have already happened."},{"id":242,"zh":"我对别人其实没什么兴趣。","en":"Am not really interested in others."},{"id":243,"zh":"我很少陷入沉思。","en":"Seldom get lost in thought."},{"id":244,"zh":"我对别人有戒心。","en":"Am wary of others."},{"id":245,"zh":"我贡献不了什么。","en":"Have little to contribute."},{"id":246,"zh":"我能沉住气。","en":"Keep my cool."},{"id":247,"zh":"我会避开人群。","en":"Avoid crowds."},{"id":248,"zh":"我不喜欢音乐会。","en":"Do not like concerts."},{"id":249,"zh":"我会占别人的便宜。","en":"Take advantage of others."},{"id":250,"zh":"别人邋遢我也无所谓。","en":"Am not bothered by messy people."},{"id":251,"zh":"我对自己感到安然。","en":"Feel comfortable with myself."},{"id":252,"zh":"我不喜欢引人注目。","en":"Don't like to draw attention to myself."},{"id":253,"zh":"我的情绪几乎没什么大起大落。","en":"Experience very few emotional highs and lows."},{"id":254,"zh":"我会对别人置之不理。","en":"Turn my back on others."},{"id":255,"zh":"别人要我做什么，我偏反着来。","en":"Do the opposite of what is asked."},{"id":256,"zh":"难应付的社交场合也难不倒我。","en":"Am not bothered by difficult social situations."},{"id":257,"zh":"我会让事情顺其自然地进行。","en":"Let things proceed at their own pace."},{"id":258,"zh":"我不喜欢没吃过的食物。","en":"Dislike new foods."},{"id":259,"zh":"我会报复别人。","en":"Get back at others."},{"id":260,"zh":"我做事只求过得去。","en":"Do just enough work to get by."},{"id":261,"zh":"我从不花超出自己能力的钱。","en":"Never spend more than I can afford."},{"id":262,"zh":"我绝不会去玩滑翔翼或蹦极。","en":"Would never go hang gliding or bungee jumping."},{"id":263,"zh":"我对理论性的讨论不感兴趣。","en":"Am not interested in theoretical discussions."},{"id":264,"zh":"我会夸耀自己的优点。","en":"Boast about my virtues."},{"id":265,"zh":"我很难着手开始一件事。","en":"Have difficulty starting tasks."},{"id":266,"zh":"我能很快从挫折中恢复。","en":"Readily overcome setbacks."},{"id":267,"zh":"我不太容易被逗乐。","en":"Am not easily amused."},{"id":268,"zh":"我认为应该严厉打击犯罪。","en":"Believe that we should be tough on crime."},{"id":269,"zh":"我认为人应该自己管好自己。","en":"Believe people should fend for themselves."},{"id":270,"zh":"我做事不经过思考。","en":"Act without thinking."},{"id":271,"zh":"我很容易适应新环境。","en":"Adapt easily to new situations."},{"id":272,"zh":"我和别人保持着距离。","en":"Keep others at a distance."},{"id":273,"zh":"我很难在脑子里想象出画面。","en":"Have difficulty imagining things."},{"id":274,"zh":"我认为人本质上是恶的。","en":"Believe that people are essentially evil."},{"id":275,"zh":"我看不到事情的后果。","en":"Don't see the consequences of things."},{"id":276,"zh":"我很少抱怨。","en":"Rarely complain."},{"id":277,"zh":"我会寻求安静。","en":"Seek quiet."},{"id":278,"zh":"我不喜欢看舞蹈演出。","en":"Do not enjoy watching dance performances."},{"id":279,"zh":"我会阻挠别人的计划。","en":"Obstruct others' plans."},{"id":280,"zh":"乱糟糟的我也不在意。","en":"Am not bothered by disorder."},{"id":281,"zh":"我对自己非常满意。","en":"Am very pleased with myself."},{"id":282,"zh":"我会把自己的意见憋着不说。","en":"Hold back my opinions."},{"id":283,"zh":"我不理解那些情绪化的人。","en":"Don't understand people who get emotional."},{"id":284,"zh":"我不会为别人花时间。","en":"Take no time for others."},{"id":285,"zh":"我会歪曲事实。","en":"Misrepresent the facts."},{"id":286,"zh":"我能为自己站出来。","en":"Am able to stand up for myself."},{"id":287,"zh":"我反应很慢。","en":"React slowly."},{"id":288,"zh":"我习惯依循老办法。","en":"Am attached to conventional ways."},{"id":289,"zh":"我会记仇。","en":"Hold a grudge."},{"id":290,"zh":"我在自己的事情上投入的时间和精力很少。","en":"Put little time and effort into my work."},{"id":291,"zh":"我从不挥霍。","en":"Never splurge."},{"id":292,"zh":"我不喜欢吵闹的音乐。","en":"Dislike loud music."},{"id":293,"zh":"我会避开难读的材料。","en":"Avoid difficult reading material."},{"id":294,"zh":"我会让自己成为焦点。","en":"Make myself the center of attention."},{"id":295,"zh":"我会拖着不做决定。","en":"Postpone decisions."},{"id":296,"zh":"即使场面紧张我也很镇定。","en":"Am calm even in tense situations."},{"id":297,"zh":"我很少开玩笑。","en":"Seldom joke around."},{"id":298,"zh":"奏国歌时我喜欢起立。","en":"Like to stand during the national anthem."},{"id":299,"zh":"我受不了软弱的人。","en":"Can't stand weak people."},{"id":300,"zh":"我经常临到最后才定计划。","en":"Often make last-minute plans."}],"notes":[{"note":"问的是操心面铺得多宽：多少种事挂在心上，不是担心得多凶。","lo":"事情没发生就不往那边想，多半是别人提醒了你才意识到有风险。","hi":"门锁没锁、明天的会、家里人身体，好几件事同时在心里挂着。","mid":"谁都会操心。这题问的是这算不算你平时的常态。"},{"note":"问的是从认识走到算朋友这段路顺不顺，不是你现在朋友多不多。","lo":"同事处了很久还停在点头问好，加了微信也就躺在列表里。","hi":"培训班上认识的人，散场前就约好了下回一起吃饭。","mid":"上学时容易、现在难？按你眼下这个阶段的样子答。"},{"note":"问的是脑子里会不会自动冒出画面和故事，不是你有没有创作才华。","lo":"听人描述一个地方，你脑子里基本没有图，就是听了段话。","hi":"看一条新闻，脑子自动补出现场的样子和后面会发生什么。","mid":""},{"note":"问的是你的默认设定：还不了解一个人的时候，先信还是先留一手。","lo":"新同事说的事你会自己再核一遍，钱和要紧东西不轻易交手。","hi":"同事说帮你办了你就不再跟进，朋友借钱也不太提凭据。","mid":"对熟人和生人差很多？按你跟还不熟的人打交道时来算。"},{"note":"问的是你对办成事的把握，落在结果上，不在你花了多少力气。","lo":"活儿到手你不太先打包票，走一步看一步，最后再说。","hi":"接下来的活你心里有数，到点能交，中间不太出意外。","mid":"熟的活有把握、新的没有？按你手上大多数活儿来算。"},{"note":"问的是点火的门槛——多小的事就能让你上火，不是火烧得多大。","lo":"等电梯被插队、群里话说重了，你心里过一下就没了。","hi":"地铁被挤、消息半天没回，火就窜上来；小事也点得着，就是很符合。","mid":"谁都有火大的时候。这题问的是这算不算你的常态。"},{"note":"问的是人多热闹本身勾不勾得动你，跟你会不会来事儿是两回事。","lo":"年会、大型婚宴你到场坐一会儿就想撤。","hi":"听说周末有个大局要办，你先来了劲，还想着叫上谁。","mid":""},{"note":"问的是艺术这件事在你心里的分量，不是你懂多少、去看过没有。","lo":"画展、演出这些，你觉得跟自己的日子没多大关系。","hi":"一个城市有没有这些东西，在你看来差别挺大。","mid":""},{"note":"关键在「绝不」两个字——问的是这条线在你这儿有多硬。","lo":"能少交的就少交，说不清的地方按对自己有利的算。","hi":"没人查你也照实报，说不清的地方按严的那头走。","mid":"工资代扣、轮不到你报税？就按这类能占的口子你走不走来判。"},{"note":"问的是你偏好有序这个状态，不是你眼下收拾得怎么样。","lo":"东西摊着、日程空着，你也待得挺舒服。","hi":"看到桌面清爽、文件归好，你心里就顺了。","mid":""},{"note":"问的是低落这种心情来得多不多，不是有没有具体的伤心事。","lo":"没什么事的时候心里是平的，情绪跟着眼前的事走。","hi":"有时候没发生什么，人就是提不起劲，坐在工位上发闷。","mid":"谁都有情绪不好的时候，问的是这算不算你的常态。"},{"note":"问的是没人指定时你会不会自己接过组织的活，不是问职位高低。","lo":"群里问谁来牵头，你会等一等，别人接了你就配合。","hi":"事情没人管的时候你会先开个头，把分工排出来。","mid":"有的圈子里你会带头、有的不会？按你常待的那个算。"},{"note":"问的是情绪来的时候有多浓，不是问你稳不稳、会不会失控。","lo":"高兴和难过都是淡淡的，事情过去就没什么余味。","hi":"一首歌、一个电话就能让你心里翻涌半天。","mid":"拿不准是因为你不外露？这题只问心里的浓度。"},{"note":"重点在对方的感受：新来的人在你这儿放不放松，不是你多热情。","lo":"新同事来了你点个头，具体交道等他自己找过来。","hi":"有人头一回进群或进办公室，你会先招呼、给他安排位置。","mid":""},{"note":"问的是碰上规矩时你的默认反应，尽量两个字本身就留了余地。","lo":"规定不合理你会绕过去，觉得把事办成更要紧。","hi":"没人看着也照规矩来，该排队排队、该报备报备。","mid":""},{"note":"问的是对方气场压过来时你会不会缩，不是问你服不服气。","lo":"气场强的人在场，你说话的分量跟平时一个样。","hi":"对面一强硬，你的话就轻下来；整场插不上嘴就是很符合。","mid":"对领导和对同事完全两样？按你平时打交道最多的那类算。"},{"note":"问的是日子塞得满不满，不是问你忙得累不累、值不值。","lo":"一天里总有大段空着的时候，你也不急着填上。","hi":"别人约你得先问你哪天有空；连轴转就是很符合。","mid":"有阵子忙有阵子闲？按你多数日子的样子算。"},{"note":"问的是重复和新花样你更想要哪个，不是问你能不能适应变化。","lo":"同一条通勤路线、同一家店的同一道菜，你吃得挺好。","hi":"同一件事重复久了就腻，会主动换个做法或换个地方。","mid":""},{"note":"问的是你对结果和对别人要求松不松，不是问你日子过得快不快乐。","lo":"东西不合心意你会说出来，让人再改改、再换换。","hi":"菜上错了、方案差点意思，你说「行，就这样吧」。","mid":""},{"note":"问的是做事直不直奔结果，不是问你目标定得大不大。","lo":"过程里遇到什么就做什么，不一定盯着最初那个目标。","hi":"定了要什么就挑最近的路走，不相干的先放一边。","mid":""},{"note":"问的是饱了还停不停得下来。爱吃、饭量大，跟吃过量不是一回事。","lo":"吃到差不多就停，剩下的打包，也不太惦记。","hi":"桌上还有好吃的，饱了也还想再动筷子。","mid":"过节和平时差很多？按你大部分日子的样子算。"},{"note":"问的是你对「上头」那种感觉的胃口大不大，不是问你胆子大不大。","lo":"周末在家看剧、遛个弯就挺舒服，不太想再找事。","hi":"日子一平就发闷，想找点新鲜的、心跳快点的事。","mid":""},{"note":"问的是绕来绕去的难题对你是有意思还是负担，不是问你解不解得开。","lo":"事情一复杂就想找人拿主意，或者照现成的办法走。","hi":"碰上理不清的事反倒来精神，愿意自己一层层拆开。","mid":"工作上的难题烦、感兴趣的不烦？看多数时候是哪种。"},{"note":"问的是被一屋子人看着时你舒不舒服，跟内向外向、会不会说话是两回事。","lo":"敬酒、发言、上台领奖，被大家盯着你不别扭。","hi":"全场给你唱生日歌那种时刻，你只想赶紧翻篇。","mid":"工作场合还行、私人场合受不了？看整体更偏哪边。"},{"note":"问的是琐碎小事的处理时机——顺手就办，还是先堆着攒一攒。","lo":"快递箱、要交的表先搁着，攒一批再一起清。","hi":"碗吃完就洗，报销单发下来当天就填掉。","mid":"公司的事马上办、家里的堆着？两头一起算。"},{"note":"问的是从平静到慌乱有多快，不是慌起来能有多厉害。","lo":"群里突然说出事了，你先点开看清楚，手上的活接着做。","hi":"消息一弹出来心就提起，得缓一阵才想得出先办哪件。","mid":"有的事一惊一乍，有的事很稳？按你最常碰上的那类算。"},{"note":"问的是你的好心情旁人感不感觉得到，不是问你心里乐不乐。","lo":"你高兴时表情跟平时差不多，同事得问一句才知道你今天挺好。","hi":"你一进屋，同事先感觉到今天气氛不一样，会问你什么好事。","mid":"熟人面前很放、生人面前收着？按你每天待得最久的那群人算。"},{"note":"这是西方选举语境。换成：要你选，你更认可主张改变现状的人吗。","lo":"单位选负责人，你更看重稳当、按老规矩来，别折腾。","hi":"单位选负责人，你更愿投给说要改流程、动老办法的那个。","mid":""},{"note":"问的是素不相识的人的处境会不会触动你，不是问你捐没捐钱。","lo":"路边见着睡桥洞的，你看一眼就过去了，心里没起波澜。","hi":"见着天桥底下裹被子睡的人，你走出老远还惦记着。","mid":"身边少见这种人？按你在新闻、路上碰见时的感觉来答。"},{"note":"问的是你做事时防错这根弦绷得紧不紧，不是问你实际错得多不多。","lo":"报表填完就发出去，真出岔子回头改一版也不费什么事。","hi":"邮件写完你从头看一遍，附件、抄送、称呼都对过才发。","mid":"重要的事才细抠、平常活儿就随手？按你手上多数活儿算。"},{"note":"问的是念头默认奔向哪个结局，不是那个结局真会不会发生。","lo":"没消息就当没事，等结果出来再说，中间不先铺垫最差那步。","hi":"领导说\"聊一下\"，你先冒出来的念头是不是自己哪儿出岔子了。","mid":""},{"note":"问的是升温速度——从客气到自在要多久，不问最后熟不熟得起来。","lo":"认识很久的同事，讲话还是\"您好\"\"麻烦了\"，客气壳子没脱。","hi":"刚认识的人，说上几句就能开玩笑、互相递水果了。","mid":""},{"note":"问的是你享不享受那种离谱、不着边际的念头，不问它实不实用。","lo":"念头一飘走你就拉回来，觉得没影儿的事想着没意思。","hi":"会认真琢磨中了彩票怎么过、末日来了往哪跑，还挺上头。","mid":""},{"note":"问的是你怎么解释别人的动机，不是你觉得他这事做得对不对。","lo":"领导突然夸你、同事主动帮忙，你会先想他图个什么。","hi":"消息没人回、话说得冲，你先想是不是他忙、他心情不好。","mid":""},{"note":"问的是横向比较——在你干的这行里，你把自己放在什么位置。","lo":"你觉得自己就是普通水平，做得好是因为事情本身不难。","hi":"组里有难办的活会先想到你，这个说法你自己也认。","mid":"说自己出色觉得别扭？这题只问你心里怎么估，不用说给别人。"},{"note":"恼比发火轻一级——是那种不痛快、别扭，还谈不上动气。","lo":"同事杯子放你桌上、打印机卡纸，你顺手弄了就过。","hi":"旁边键盘敲得响、群里刷屏、话被人打断，心里就一阵堵。","mid":""},{"note":"问的是搭上话的宽度——跟多少不同的人说上，不是聊得多深。","lo":"饭局上你基本守着熟人说话，生面孔不主动搭。","hi":"同一场饭局你从这桌串到那桌，聊得越开越靠很符合。","mid":""},{"note":"问的是音乐在你生活里占多少位置，不只是当背景音开着。","lo":"通勤路上放不放歌都行，多数时候是静着的。","hi":"走路做饭都得有歌，碰到对味的会一直单曲循环。","mid":"谁多少都听点。这里问的是音乐在你这儿分量重不重。"},{"note":"问的是规矩对你是默认照做，还是一个可以商量的选项。","lo":"排队、限行、公司流程，你觉得看情况可以变通。","hi":"没人看着你也按流程走，绕开的路子不太走。","mid":"有的规矩守得死、有的随意？按你多数时候的做法算。"},{"note":"问的是收拾这个过程你享不享受，不是结果整不整齐。","lo":"收拾是件任务不是乐子，需要的时候才动手。","hi":"心里烦的时候会去擦桌子、理柜子，越理越松快。","mid":""},{"note":"问的是你对自己这个人的整体感觉，不是某件事做得好不好。","lo":"对自己有不满意的地方，但整体上还把自己当个还行的人。","hi":"一个人待着容易挑自己的毛病，越想越觉得哪儿都不对。","mid":""},{"note":"侧重带这个动作本身：你会不会去给别人定方向、拉着往前走。","lo":"团队活动里你跟着安排走，让干什么就干什么。","hi":"一群人没头绪时，你会说这样吧，然后开始派活。","mid":""},{"note":"问的是别人的情绪你接不接得到，不是问你会不会去安慰。","lo":"对方不说，你一般看不出来他今天不高兴。","hi":"同事一进门你就觉出他不对劲，虽然他什么都没说。","mid":""},{"note":"问的是在对方开口之前你就看出来了，考的是提前这两个字。","lo":"别人说了你就帮，没说你一般不会主动去想。","hi":"家里人还没提，你已经把伞、药、外套准备好了。","mid":""},{"note":"问的是答应过的事最后落没落地，不是问你答应得爽不爽快。","lo":"说好的事后来变卦是有的，你觉得情况确实变了。","hi":"随口答应帮人带的东西，隔了很久你也记着给办了。","mid":""},{"note":"问的是动手之前那份怕出错的紧张，不是做错以后的后悔。","lo":"该做就做，出了问题再补，事前不太先担心。","hi":"消息发出去前反复改措辞，怕说错话、怕走岔流程。","mid":""},{"note":"问的是人待不待得住，光是心里忙、身体不动不算。","lo":"在一个地方待上大半天不动，对你不算难受。","hi":"出门办完一件顺路再办一件，一天下来跑了不少地方。","mid":""},{"note":"只问地理上的新——去陌生的地方对你是吸引还是麻烦。","lo":"出去玩宁可回熟地方，路熟店熟，心里有底。","hi":"假期想挑个没去过的城市，本地也爱往没走过的街上钻。","mid":"想去但抽不开身，也算喜欢；问的是想不想。"},{"note":"问的是当面吵起来时你身上难不难受，不是问你吵不吵得赢。","lo":"会上有人拍桌子，你照样把自己那套讲完。","hi":"屋里一吵起来你就手心冒汗，只想赶紧把事按下去。","mid":""},{"note":"问的是你搭进去的力气，不是问结果好不好、别人认不认。","lo":"到点就收工，累了就歇，把力气匀着用。","hi":"一件事没弄妥你会接着弄；累了也先把它推过去算很符合。","mid":"上班使不上劲、自己的事很拼？这题两头都算。"},{"note":"问的是事后能不能给自己一个解释，不是问这些事做得对不对。","lo":"做的每件事心里都有个由头，回头也讲得出来。","hi":"话说出口、单下完了，才发现自己也答不上为什么。","mid":""},{"note":"重点在「主动找」——碰上了敢不敢上是另一回事，这题问你会不会自己去凑。","lo":"出去玩照攻略走，路线住宿提前定好心里才踏实。","hi":"会自己报没走过的线，说改就改，往没去过的地方拐。","mid":""},{"note":"问的是读着费劲时的感觉——费劲本身让你上瘾，还是让你想合上。","lo":"看东西挑好读的，长文和专业书翻几页就想换轻松的。","hi":"愿意啃看不太懂的书，读慢点、边查边读也觉得有意思。","mid":""},{"note":"问的是话头转到你自己身上时的感觉，不是问你平时话多话少。","lo":"聊起自己的工作、经历，你能讲得挺细、挺起劲。","hi":"别人问你近况，简单带过，转手就把问题抛回去。","mid":""},{"note":"问的是事到跟前之前你有没有先铺垫好，不是问你临场发挥好不好。","lo":"开会前才翻材料，出门前才找证件，临场再接上。","hi":"汇报稿子提前写好，出差的东西头天晚上就收拾停当。","mid":""},{"note":"问的是几件事同时压过来的那一刻，一件件来时顺不顺不算数。","lo":"好几件事压在一起，你排个先后，一件件往下推。","hi":"微信、邮件、家里的事一起来，你会先愣住，哪件都动不了。","mid":""},{"note":"问的是日子里有没有让你享受的事，不是问你玩得多疯、花没花钱。","lo":"周末多半是补觉、刷手机，说不上难受，也说不上尽兴。","hi":"下班约球、周末逛吃、群里张罗聚会，总有件正等着的事。","mid":"只是这阵子特别忙？按你这一两年的日子整体来看。"},{"note":"问的是对错在你眼里是看情况，还是有条固定的线，不是问你有没有原则。","lo":"有些事在你心里就是一条线，谁做了都一样，不听苦衷。","hi":"听说谁做了件出格的事，你会先问一句“他当时什么情况”。","mid":""},{"note":"问的是看见比自己过得难的人时，你会不会跟着往心里去。","lo":"听说老同学过得紧巴，你觉得各人有各人的境遇，也就这样。","hi":"听说同事家里出事周转不开，你心里跟着不舒服一阵。","mid":""},{"note":"问的是话出口前过不过一遍，不是问你会不会说话、嘴笨不笨。","lo":"想到什么就说了，说完发现哪句不合适，再补一句解释。","hi":"群里发消息你写了删、删了写，挑个不容易被误会的说法。","mid":""},{"note":"问的是让你发怵的事情种类多不多，怕得重不重不是重点。","lo":"坐飞机、体检、当众发言，这些事你照做，心里不打鼓。","hi":"高处、打针、陌生来电、深夜独自回家，都会让你心里一紧。","mid":""},{"note":"问的是有人在场时你身上的松紧，不是你喜不喜欢社交。","lo":"饭局上一直在想该说什么、该坐哪儿，散场回家才松下来。","hi":"人多的场合你照样吃得下、聊得动，不用先给自己打气。","mid":"跟熟人松、跟生人紧？按你日常最常打交道的那类人算。"},{"note":"问的是你愿不愿意让思绪飘走，落点在\"喜欢\"，不是控不控制得住。","lo":"通勤路上要么看手机要么发呆，脑子里不演什么内容。","hi":"地铁上站着，脑子里已经在演另一种活法，到站才回神。","mid":"忙起来不做、闲下来常做？这题问的是你闲着时的样子。"},{"note":"问的是你听到一句话的第一反应：先当真，还是先打个问号。","lo":"群里转的消息、销售报的价，你都得自己去查一下来源。","hi":"朋友说这家店好吃、同事说明天不堵，你就照着安排了。","mid":"小事信、大事不信？按平常聊天里听到的那些话来算。"},{"note":"问的是过程费不费劲——同一件事，你是顺着走还是磕磕绊绊。","lo":"办个手续、走个流程，中间常要返工、补材料、重新问一遍。","hi":"一件事上手就知道先干哪步，中间不太卡壳。","mid":""},{"note":"心烦是自己心里发乱、坐不住，不冲着谁，别跟生气混一起。","lo":"事堆到一块，你也是一件件往下做，心里不翻腾。","hi":"活一多、消息一堆，心里就发毛，手上的事也接不下去。","mid":""},{"note":"问的是待在一群人里这个状态舒不舒服，不是你在里面当不当主角。","lo":"部门团建你人在场，心思在别处，盼着早点散。","hi":"跟同事一块吃饭、一块加班，人多着你心里踏实。","mid":""},{"note":"问的是你的注意力会落在哪，不是审美水平高不高。","lo":"路上的光影、墙上的锈迹，你走过去不会留意。","hi":"会为楼道里一片影子、雨后一个水洼停下来拍一张。","mid":""},{"note":"反向题。问的是好话是不是奔着换回什么去的，不是会不会夸人。","lo":"夸人是真觉得好，用不着看对方手上有什么。","hi":"见到能拍板的人，话会挑他爱听的说。","mid":""},{"note":"问的是你对到位的要求有多细，不是你会不会因此焦虑。","lo":"差不多能用就行，细节上不跟自己较劲。","hi":"图没对齐、字号不统一，你会退回去调好再发出去。","mid":"上班抠细节、在家随便？把两边合一块看整体。"},{"note":"这题侧重情绪沉下去之后要缓多久，不是一时的不痛快。","lo":"不高兴过一阵就翻篇，睡一觉第二天照常。","hi":"沉下去要缓好一阵，那期间做什么都提不起兴致。","mid":""},{"note":"问的是说服的效果：你开口之后别人真的动了没有。","lo":"提了建议别人不动，你也就不再多说，自己去做。","hi":"想让同事换个做法，聊几句他就照你说的改了。","mid":""},{"note":"问的是有没有什么事能让你心里烧起来，不管那事大小。","lo":"什么话题你都能聊两句，但很难为哪件事上头。","hi":"聊到你在意的事会认真起来，别人打岔你也要说完。","mid":"觉得自己没什么理念？球队、专业、公益上的较真也算。"},{"note":"问的是帮忙这件事本身你乐不乐意，不是问你有没有时间去帮。","lo":"被求助会看情况，顺手能帮就帮，不会特意去揽。","hi":"同事一开口你就接过来，忙完还觉得挺舒服。","mid":"帮是帮了，心里却不太情愿？按心里那份意愿判。"},{"note":"问的是钱和期限这类硬事你拖不拖，水电、房租、还款都算。","lo":"账单常放到快截止或者过了才处理，反正还能补。","hi":"提醒一到就付了，或者设成自动扣款不让它欠着。","mid":""},{"note":"问的是搭上第一句话难不难，跟熟了以后聊得多热络无关。","lo":"饭局上挪个位置，就能跟没说过话的人聊起来。","hi":"想找同事问件事先磨蹭半天；能发微信绝不当面说，就是很符合。","mid":""},{"note":"只问下班后和周末，工作再忙也不算——看你不上班时怎么过。","lo":"周末醒了没什么安排，刷刷手机一天也就过去了。","hi":"下班有球局、有课，周末排到晚上；闲下来反而难受算很符合。","mid":"带娃、做家务占满了，也算安排得满。"},{"note":"问的是兴趣摊开的宽度，不是问你在哪件事上钻得深。","lo":"圈子外的话题你听听就过去了，不太会去打听。","hi":"别人聊什么你都能搭上几句，碰到没听过的会去查。","mid":""},{"note":"问的是你在不在意自己显得逼人，不是问你实际强不强势。","lo":"该催就催、该问就问，别人觉得你强势你也不太在意。","hi":"催进度前先斟酌语气，怕对方觉得你在逼人，索性自己扛。","mid":""},{"note":"问的是从「想好了」到「开始做」这一段，不是问计划做得细不细。","lo":"打算和清单列了不少，落地的是其中一部分。","hi":"说好周末去办的事，周末就真去办了。","mid":""},{"note":"问的是过后心里那点懊悔劲儿，跟事情大小、别人怎么看没关系。","lo":"事情过了就翻篇，心里很少再回放当时那一下。","hi":"群里多发一句、酒桌上多说一句，躺床上还在过。","mid":"谁都有过后悔的时候。问的是这算不算你的常态。"},{"note":"问的是快节奏、有事在发生的场面吸不吸引你，不是问你自己动不动手。","lo":"更爱慢的东西，场面一乱一吵就想找个角落坐着。","hi":"爱看动作片、去现场看球，人多事多的场合反倒来劲。","mid":""},{"note":"这题要的是你自己的判断，不用去对学历、成绩，也不是问你话多话少。","lo":"想说的意思绕半天，最后用「那个什么」带过去。","hi":"写材料、发消息时词自己就来了，还挑得出更贴的说法。","mid":""},{"note":"问的是你觉得自己算不算人群里平常的一个，跟自信高不高、混得好不好是两码事。","lo":"心里觉得自己跟周围人不太一样，有些地方明显更行。","hi":"觉得自己就是人群里普通的一个，跟同事同学差不多。","mid":""},{"note":"问的是从「知道要做」到「真动手」中间隔多久，不是问你做得快不快。","lo":"任务接了先去倒杯水、刷会儿手机，正经开工还得等等。","hi":"领导交代完你就把文件点开，先动起来再说。","mid":"想做的事马上开、不想做的拖？按手头多数事算。"},{"note":"问的是你对自己的估计，不是实际办没办成——办成了也可能一路觉得撑不住。","lo":"活儿接过来，你想的是先从哪下手，难不难另说。","hi":"活儿一到手，先冒出来的念头是“这个我接不住”。","mid":""},{"note":"问的是高兴时放不放得开——成年人常给情绪加一层体面。","lo":"中奖、涨薪，你也就笑一下说声“挺好”，动静不大。","hi":"好消息一来你会笑出声、跟人比划，也不太顾旁人眼光。","mid":""},{"note":"问的是对犯了事的人，你先想到把人拉回来，还是让他付代价。","lo":"你觉得做了就得担着，先把责任算清楚，别的往后放。","hi":"你更关心一个人怎么走到这一步，想的是怎么让他别再犯。","mid":""},{"note":"问的是同一件事你默认是一起做成，还是分个高低出来。","lo":"项目一开始你就把功劳算法说清楚，各人靠成绩说话。","hi":"手上有资源你先想着分给同组的人，先把事做出来再说。","mid":""},{"note":"定了之后改不改道——问的是决定的稳定性，不是问你固不固执。","lo":"干着干着看见更好的路子，你会掉头，原来定的说放就放。","hi":"报了班、定了方向，中间有人劝你换，你还是按原来的走。","mid":""},{"note":"问的是压力被点着的门槛有多低，不是你最后扛不扛得住。","lo":"活儿堆到一起也一件件做，身上很少出现绷着的那股劲。","hi":"群里@你一下、临时加个活，肩颈就发紧，晚上躺下还惦记着。","mid":"压力大小分事情？按你眼下最常碰的那摊事来算。"},{"note":"问的是别人看得见的那一面：动作、语气是本来样子还是端着的。","lo":"合影时不知道手往哪儿放，说话先在心里过一遍才开口。","hi":"在别人家也能自己去倒水，坐姿语速跟一个人时差不多。","mid":""},{"note":"问的是你享不享受待在自己脑子里这件事，想的是什么不重要。","lo":"一个人闲着容易无聊，得找点事干或者找人说说话。","hi":"周末一个人坐着想事能坐很久，还觉得这段时间挺舒服。","mid":""},{"note":"问的是没人盯着的时候，你觉得大多数人会不会守规矩。","lo":"你觉得没监控、没制度，占便宜的事总归有人会做。","hi":"钱包掉了你觉得多半有人还，无人货架你觉得大家会付钱。","mid":""},{"note":"问的是你说出观点时心里稳不稳，不是你嘴上强不强硬。","lo":"会上说完想法，别人一质疑你就开始怀疑是不是自己错了。","hi":"别人不同意你也站得住，能说清自己为什么这么看。","mid":""},{"note":"问的是情绪底色能拖多久，不是某件事当场把你惹毛了。","lo":"没事的时候心情就是平的，偶尔低一下也过得快。","hi":"醒来就沉着，说不上因为啥；这样的日子越多，越靠很符合。","mid":""},{"note":"问的是做事时想不想带上人——你主动喊，不是等着被叫。","lo":"想看的电影、想跑的步，你自己去了就完事。","hi":"报了个课、发现家好吃的，顺手就在群里喊人。","mid":""},{"note":"题面是花，问的是身边这类好看的小东西勾不勾得动你。","lo":"别人送的花摆着就摆着，谢了才发现。","hi":"路过花店会往里看，家里习惯插一把。","mid":""},{"note":"反向题。问的是打交道之前，会不会先掂量这人对你有什么用。","lo":"帮忙就是帮忙，事后也没想过要人还。","hi":"认识谁、维护谁心里有本账，用得上时再联系。","mid":""},{"note":"问的是时间上的规律——固定的节奏，不只是东西摆得齐。","lo":"几点吃几点睡看当天情况，被打乱也无所谓。","hi":"起床、吃饭、周末干什么，都落在差不多的点上。","mid":""},{"note":"比不喜欢自己更重一层，问的是你心里给自己打的分低不低。","lo":"知道自己有短板，但不会因此觉得比别人低一头。","hi":"同学聚会上听人讲近况，心里会觉得自己不如人。","mid":"只在某些人面前才这样？按你平时接触最多的圈子算。"},{"note":"问的是有没有这个念头，没说动也算；不是问手段高不高明。","lo":"别人怎么想是别人的事，你不太会去动这个念头。","hi":"想让家里人改主意，你会先铺垫、找个时机再开口。","mid":""},{"note":"问的是你享不享受这种琢磨，不是问你反省得多不多、有没有结论。","lo":"日子照过就行，翻来覆去想自己那点事你觉得累。","hi":"睡前或者一个人走路时，会主动把自己的事捋一遍。","mid":"想得多但并不享受？这题问的是你乐不乐意想。"},{"note":"问的是心里挂不挂着别人的事，不一定要做出什么举动来。","lo":"各人过各人的日子，别人的近况你不太惦记。","hi":"知道朋友在办难事，过一阵心里会想起来，发消息问一句。","mid":"只惦记亲近的那几个？把你日常真来往的人合起来判。"},{"note":"问的是你说的跟事实贴不贴，不是问你说话直不直、留不留情面。","lo":"为了场面好看或者少点麻烦，有些话你会说得含糊。","hi":"哪怕答案不好听，你也照实说，不太会绕。","mid":"卡在客套话和善意的隐瞒上？按你多数场合的做法判。"},{"note":"问的是一屋子人看过来时的不适，跟爱不爱热闹是两回事。","lo":"开会被点名、生日被起哄，你照常应对，不觉得别扭。","hi":"习惯挑不显眼的位置坐，全场看过来时只想快点结束。","mid":""},{"note":"问的是几件事压在一起时你转不转得开，不是问你忙不忙。","lo":"被叫去干别的，回头得从头找线索，所以尽量一件件来。","hi":"一边回微信一边改文件，几摊事同时推着也不乱。","mid":""},{"note":"问的是「开头」这件事本身对你的吸引力，跟能不能坚持无关。","lo":"手上的事没弄完，你不太会去起新的头，先做完再说。","hi":"看到个新玩意儿就想上手，家里常有刚开的坑。","mid":""},{"note":"反向题，按字面判——问的是话里带不带刺，跟你说得对不对无关。","lo":"有意见你只说事，语气平，话也留着余地。","hi":"你说话不绕弯，一句顶回去，对方一时接不上。","mid":""},{"note":"问的是做的时候心在不在这件事上，不是问你花了多少时间。","lo":"干着这件事，手还在刷手机，心思飘到别处去。","hi":"一进状态就忘了时间；有人叫你半天才听见，算很符合。","mid":"只对感兴趣的事这样？看你手头多数事落在哪边。"},{"note":"重点在「一场」——攒着攒着来一次彻底放开，不是天天都这样。","lo":"周末假期也照平时的钟点吃睡，没什么放开一场的时候。","hi":"憋一阵子就来一晚，通宵刷剧、暴食或者大买一通。","mid":""},{"note":"问的是「吵和挤」本身让你舒服还是难受，跟合不合群、爱不爱社交是两码事。","lo":"演唱会、庙会这种地方待一会儿就想挤出去透气。","hi":"夹在人堆里跟着喊、跟着起哄，反而觉得带劲。","mid":"跟熟人挤着还行、陌生人堆里不行？按更常遇上的算。"},{"note":"问的是信息一多脑子乱不乱，跟记性好不好、脑子快不快是两回事。","lo":"几个群一起弹消息、几摊事一块儿压过来，人就懵了。","hi":"一堆材料摊开也能理出条线，几摊事并着走不觉得挤。","mid":"熟的领域行、陌生的就乱？一时想不清就按整体印象。"},{"note":"问的是嘴上讲不讲自己的好，心里怎么看自己不在这题里。","lo":"项目做成了，会在群里、饭局上说说自己出了多少力。","hi":"事办成了也不主动提，被夸就说「大家一块儿做的」。","mid":""},{"note":"跟「开始动手」不一样，这题问的是投入的深度：坐下能不能马上进状态。","lo":"人坐工位上了，还得磨蹭一阵才真的钻进去。","hi":"电脑一打开就进状态，旁边说话也不太拽得走你。","mid":""},{"note":"问的是做决定这一步卡不卡住，跟你想得多不多、聪不聪明没关系。","lo":"点菜、选房、换工作，你比完利弊就定，定了不再翻。","hi":"两个方案摆着，你来回改主意，拖到非交不可才定。","mid":"小事大事差得远？按你平时做得最多的那类决定算。"},{"note":"问的是快乐是不是你的底色，糟心事也能带着笑说出来。","lo":"你讲事情大多平铺直叙，糟心事就是糟心事，不绕弯。","hi":"加班到半夜、地铁挤成饼，你也能当段子讲给同事听。","mid":""},{"note":"反向题按字面判。问的是你心里有没有一套唯一正确的答案，不限于宗教。","lo":"你觉得各家说法各有各的道理，谁也算不上唯一的正解。","hi":"在信什么这件事上，你心里有个明确的对，别的算不上数。","mid":"你没有宗教信仰？就按有没有“唯一正解”这种感觉来答。"},{"note":"问的是别人的情绪会不会传到你身上，问的是感受，不是问你帮不帮忙。","lo":"朋友在你面前哭，你能稳稳听着、递纸巾，自己不跟着陷进去。","hi":"同事说完家里的难处，你回工位心口还堵着，半天缓不过来。","mid":"对家人和对外人差得远？按你日常打交道最多的那类人算。"},{"note":"反向题按字面判。问的是从“想到”到“动手”中间停不停一下。","lo":"冒出个念头你先搁一搁，找人聊聊再决定动不动。","hi":"想到一个点子，手上已经弄起来了，细节边做边想。","mid":""},{"note":"问的是烦心事的黏性：它会不会一直转，跟事大事小没关系。","lo":"烦完能切走，去干点别的、刷会儿手机，那个念头就散了。","hi":"一句话没说好，洗澡、通勤、躺下的时候还在脑子里重播。","mid":""},{"note":"问的是你会不会主动去暖场、去接住人，不是笑话讲得好不好。","lo":"看到同事情绪低，你不太上去搭话，等他自己缓过来。","hi":"群里冷了你甩个表情包，朋友难过你就约他出来吃个饭。","mid":""},{"note":"问的是幻想的沉浸深度——进去以后，周围的动静还进不进得来。","lo":"想着想着有人一叫，你一下就回来了，也不觉得可惜。","hi":"幻想里有细节有对白，回过神来才发现水早就开了。","mid":""},{"note":"问的是一句底层判断，跟你自己吃没吃过亏可以是两回事。","lo":"你觉得人先顾自己是本能，好不好还得看环境和代价。","hi":"你觉得人心里那点善是底子，做坏事多半是被逼到那步。","mid":"这题问的是看法不是经历，吃过亏也可以仍然信人性本善。"},{"note":"问的是卡住的时候，你脑子里出不出得来能走通的路子。","lo":"事情堵住了你先去问别人怎么办，自己想不太出新路。","hi":"方案被否了，你当场能给出另一条走得通的做法。","mid":""},{"note":"问的是火气露没露到外面——摔门、拔嗓门、当场撂重话。","lo":"再气也是闷着不说话，最多语气冷一点，不会当场炸。","hi":"急起来嗓门就上去，话直接冲出口，事后自己也知道过了。","mid":"对家里人一套、对外人一套？按你最常处的那类人算。"},{"note":"问的是没准备的热闹你受不受得住，不是喜不喜欢被人关注。","lo":"推门一屋子人喊你，你第一下是懵，得缓半天。","hi":"被人瞒着安排一场，你觉得这才叫有意思。","mid":"没碰上过这种事？就按被这么一闹，你心里是紧还是乐来判。"},{"note":"问的是自然的景色能不能让你停下来，跟爱不爱运动无关。","lo":"山看着就是山，走到观景台拍完照就往回走。","hi":"看见晚霞会站着看完，海边林子里待得越久越靠很符合。","mid":""},{"note":"反向题。问的是你看不看得见空子——知道不等于会用，别混一起。","lo":"规则写什么你就照什么做，没研究过还有别的走法。","hi":"新政策一出，你先看哪条能松动、哪条没写死。","mid":""},{"note":"问的是动手之前先不先排顺序，还是边做边想。","lo":"想到哪做到哪，活儿来了直接上手。","hi":"出门前列清单，接了活先把步骤排出来再动。","mid":"大事有计划、小事没有？按日常最多的那类事算。"},{"note":"问的是情绪变动的快慢，跟情绪是好是坏、是高是低无关。","lo":"一天下来情绪基本是条平线，早上和晚上差不多。","hi":"上午还挺高兴，一条消息过来就沉下去，晚上又好了。","mid":""},{"note":"问的是场面乱的时候你会不会伸手接过来，不是问控制欲强不强。","lo":"事情乱起来你会等有人出面，然后按他说的做。","hi":"饭局订错桌、方案临时改，你会站出来把事捋顺。","mid":""},{"note":"侧重下功夫这层：你会不会主动去弄明白自己为什么会这样。","lo":"情绪来了就过去了，为什么会这样你不太深究。","hi":"发完脾气会回头想是哪根弦被碰了，想弄清楚。","mid":""},{"note":"问的是你看人时能不能先看到好的那一面，不是问你会不会奉承。","lo":"评价一个人你会实话实说，说不出优点就不硬夸。","hi":"提起谁你都能挑出一句可取的地方来说。","mid":"题面说的是对谁都；有几个人你实在说不出，就往中间靠。"},{"note":"问的是心里那杆秤起不起作用，不是问你的标准是什么。","lo":"做决定主要看利弊和后果，心里过不过得去不太进入考虑。","hi":"有件事挺划算但心里别扭，你多半就不做了。","mid":""},{"note":"问的是你的自在要不要熟人撑着，不是问你朋友多不多。","lo":"一屋子不认识的人，你也能吃能聊，跟平时差不多。","hi":"场里没熟人你就绷着，朋友一到，整个人才松下来。","mid":"卡在「只有」这个词？按有没有熟人差多少来判。"},{"note":"问的是事情来了多久开始动，不是问你脑子聪不聪明。","lo":"消息来了先放一放，想清楚了再回、再动手。","hi":"群里刚说完你已经在办了，有人问话随口就接上。","mid":""},{"note":"反向题，按字面判——问的是「用惯了」本身算不算你的理由。","lo":"有更好的选项就换，用惯了这条对你不构成理由。","hi":"手机、常去的店能不换就不换；换了要重新适应，算很符合。","mid":""},{"note":"反向题，按字面判——问的是不同意时你当面说不说，不是问你态度冲不冲。","lo":"心里不认同也先点头，散了会私下说，或者就算了。","hi":"群里有人说得不对，你会直接回一句「我不这么看」。","mid":"对领导憋着、对家人张口就来，这种确实算一半一半。"},{"note":"问的是你会不会主动越过交差线，比的是别人给你的要求。","lo":"交代什么就做什么，做到位就交，多的不添。","hi":"领导只要一版，你顺手把备选和数据也整理上了。","mid":""},{"note":"问的是吃这件事在你心里的分量，不是问你吃得多不多、会不会做。","lo":"吃饭主要是填肚子，楼下随便扒拉一口也行。","hi":"为一家馆子能跑很远，聊着聊着话题就拐到吃上。","mid":""},{"note":"问的是「什么都不管」当下那股爽劲，后来后不后悔不在这题里。","lo":"心里总留着一根弦，玩得再高兴也惦记着明早上班。","hi":"偶尔什么都不顾一次，那种整个人松掉的感觉很受用。","mid":""},{"note":"问的是想事情这个动作本身舒不舒服，跟想没想出结果、想得对不对无关。","lo":"一个人闲下来更想刷会儿手机，脑子空着比转着舒服。","hi":"通勤路上、洗澡时脑子自己就转起来，转着还挺得劲。","mid":""},{"note":"反向题，按字面判断——问的是跟身边人横着比时，你把自己排在哪一格。","lo":"跟同事比来比去没意思，各人有各人擅长的地方。","hi":"开会听别人讲，心里常冒出「这事我来会做得更好」。","mid":"有的地方强、有的不如人，确实拉得平，中间档就对了。"},{"note":"问的是后半程——不是能不能定计划，是定完了走不走得到头。","lo":"健身卡、学习计划开头挺认真，兴头过了就搁下了。","hi":"定下的事隔很久还在做，没人盯着也没散掉。","mid":""},{"note":"问的是情绪上来时还能不能同时做事，不是问你情绪大不大。","lo":"心里翻江倒海，手上的活照样往下走，旁人看不太出来。","hi":"一难受就什么都干不动，得等这阵劲过去才回得到正事上。","mid":"谁都有被淹过的时候。问的是这算不算你的常态。"},{"note":"问的是你对过日子这件事本身的态度，不是这阵子过得顺不顺。","lo":"你把过日子当成要做的事，闹钟响了就起来，一天天照走。","hi":"通勤路上看见天好，你心里会真觉得活着这事儿挺好。","mid":""},{"note":"反向题按字面判。跟前面投自由派那题是一对，问你对守住现有做法的认可。","lo":"有人提要改老规矩，你多半觉得可以试试，先看看效果。","hi":"现在这套跑得好好的，你不赞成为了新鲜去动它。","mid":""},{"note":"反向题按字面判。问的是别人诉苦时你想不想听下去。","lo":"同事一开口说家里的事，你会放下手机，接着往下问。","hi":"饭桌上有人开始倒苦水，你听着就走神，等着换话题。","mid":""},{"note":"反向题按字面判。问的是信息还没齐就拍板，跟决定后来对不对没关系。","lo":"买台电视你也要把参数、评价、价格比完才下单。","hi":"中介说这套挺合适，你当天交了定金，细节回头再说。","mid":""},{"note":"反向题，照字面答。问的是日常那些小麻烦扰不扰得动你。","lo":"计划一变、消息一来，注意力就被拽走，得缓一阵才回得来。","hi":"出了岔子照样吃饭睡觉，事情归事情，情绪不跟着跑。","mid":""},{"note":"反向题，照字面答。问的是别人摸清你要多久，跟你话多话少无关。","lo":"相处不久，别人就知道你的脾气、爱好和碰不得的点。","hi":"同事说\"看不透你\"，你自己的事很少主动往外讲。","mid":""},{"note":"问的是你愿不愿花时间把事想透。这是琢磨，不是烦心事那种反刍。","lo":"事情做完就过去了，不太回头分析当时为什么那么选。","hi":"一部电影、一次谈话，你会来回咂摸它到底讲了什么。","mid":"想得多但都是被烦心事拽着？那和这题说的琢磨不是一回事。"},{"note":"问的是你对事情走向的预期，落点在会不会变好，不在你努不努力。","lo":"事情没定下来之前你不太说宽心话，先想好不成怎么办。","hi":"项目卡住了你也觉得总归能过去，先按能成的方向备着。","mid":"具体的事乐观、大环境悲观？按你手头这些事来答。"},{"note":"问的是路径感——事情落到你手上，你知不知道该找谁、走哪步。","lo":"接了个没做过的事，不太清楚从哪下手，得等人给个指引。","hi":"家里办证、公司走个新流程，你知道先找谁、要备什么。","mid":"工作上门儿清、生活里抓瞎？把两边合起来看整体印象。"},{"note":"反向题，照字面答。问的是烦人的事到你这儿能不能过得去。","lo":"同事说话带刺、方案临时被改，你会不痛快一阵。","hi":"别人怎么弄你多半当没发生，接着干自己的事。","mid":""},{"note":"反向题按字面答。问的是二选一时你偏哪头，不是怕不怕跟人打交道。","lo":"一个人待久了就发闷，会想找人说说话、约个饭。","hi":"周末没约反倒松口气，自己待着最自在。","mid":"有时想清静有时想找人？想整体上哪种多；真对半就是中间。"},{"note":"反向题，按字面判。问的是你整体的口味，不是某一个门类。","lo":"看到画、看到好设计，你会想多看两眼。","hi":"这些摆在你面前你没什么感觉，也不想多了解。","mid":"有的门类喜欢、有的没感觉？按整体上的口味算。"},{"note":"反向题。问的是往前走的时候，会不会挑破规矩的那条近路。","lo":"考核、竞聘你按明面上来；连想都不会想的，就是很不符合。","hi":"机会摆在那儿，规矩能绕就绕，先拿到手再说。","mid":""},{"note":"反向题按字面答。问的是用完顺手归位这一下，你做不做得成。","lo":"钥匙、指甲刀用完就回到固定那个地方。","hi":"用完顺手一放，下次要用得先想想搁哪了。","mid":""},{"note":"问的是那种再怎么弄也没用的感觉你熟不熟，这是本组最重的一题。","lo":"遇到坎会觉得难，但心里还留着总有办法这句话。","hi":"有些时候会觉得使劲也没用，索性什么都不想动。","mid":"只在那段特殊日子里有过？按现在的你来判。"},{"note":"反向题，按字面判：问的是你习惯先动手，还是先看别人。","lo":"会先出声、先动手，不太等别人给方向。","hi":"开会先听别人说，谁定了调子你再顺着往下接。","mid":""},{"note":"反向题，按字面答：问的是情绪被触动的门槛高不高。","lo":"电影、老照片、朋友一句话都容易把你带进去。","hi":"场面挺感人，旁边人眼睛都红了，你心里挺平静。","mid":""},{"note":"反向题，按字面判：问的是你心里给周围人打的分高不高。","lo":"各人有各人的长处，你不太会在心里排高低。","hi":"听人讲话时心里会评判，觉得不少人水平一般。","mid":"谁心里都冒过这种念头；问的是这算不算你的常态。"},{"note":"反向题，按字面判：问的是你会不会主动去越那条线。","lo":"规矩在那儿你就照着走，觉得别扭也先照做。","hi":"觉得规矩是死的，情况不对就自己变通，先做了再说。","mid":"插队、闯灯这种事谁都有过；问的是这算不算常态。"},{"note":"问的是紧张会不会跑到嘴上，不是问你口才好不好、话多不多。","lo":"当众讲话时，你的语速和平时聊天没两样。","hi":"一被叫起来发言，话就打结、重复，得停一下才顺。","mid":""},{"note":"反向题，按字面判——问的是你愿不愿意松着来，不是问你赶不赶得动。","lo":"慢下来你反而不踏实，一闲着就想找点事干。","hi":"能不赶就不赶，宁可少排一件，留出喘气的空。","mid":"想归想，现实不由你？这题问的是你想要哪种。"},{"note":"反向题，按字面判——问的是变化落到你头上时的第一反应。","lo":"部门重组、换办公地点，你觉得没什么，跟着走就是。","hi":"一听说要调岗、要搬家，心里先沉一下；缓不过来算很符合。","mid":"好变化谁都乐意；这题看的是没得选的那些变化。"},{"note":"反向题，按字面判——问的是争起来你觉得过瘾还是累，不是问你赢不赢。","lo":"争完一场只觉得累，事说清就行，不想再来一遍。","hi":"有人杠上来你反而来劲，辩个痛快心里才舒服。","mid":""},{"note":"关键在「和别人」——标准是只对自己，还是也套在同事身上。","lo":"差不多就行，别人怎么做你也不去评。","hi":"自己这关先过不去，同事交上来的你也想再抠一遍。","mid":"对自己高、对别人不高？这题两头都问，只占一头就在中间。"},{"note":"反向题，按字面判断——不限吃喝，玩、买、熬夜都算，问的是「过头」这事常不常有。","lo":"兴头上来就刹不住，事后常觉得那阵子有点过。","hi":"该吃吃该玩玩，到某个点自己就停了，不太过线。","mid":""},{"note":"问的是在别人面前你放得开到哪一步，跟情绪稳不稳、爱不爱说话无关。","lo":"聚会上大家起哄玩游戏，你多半坐着看，不太下场。","hi":"唱歌能站起来蹦，团建做傻动作也不觉得难为情。","mid":"跟死党和跟同事像两个人？按平时接触多的那边算。"},{"note":"反向题，按字面判断——问的是兴趣不是能力，看不懂和不想看是两回事。","lo":"别人聊那些「虚」的东西，你听得进去，也搭得上腔。","hi":"一提概念、模型这类词就走神，只想知道具体怎么办。","mid":""},{"note":"反向题，按字面判断——这题不跟人比，只问你给自己这个人打的分。","lo":"说起自己的本事习惯往低了说，被夸先摆手。","hi":"心里对自己这个人是满意的，觉得确实拿得出手。","mid":""},{"note":"反向题，按字面判断——卡的是「收心坐下」这一步，跟能力和忙不忙无关。","lo":"事情摆面前，你能把心思收回来，坐下就干。","hi":"手机一响心就散了，坐半天还在东摸摸西看看。","mid":""},{"note":"反向题按字面判。问的是压力正压着的当口你什么样，事后如何不算。","lo":"方案临时被改，你手心出汗、语速变快，得缓一阵才顺。","hi":"交付前一天出岔子，你还是照顺序问细节、记下来、一条条回。","mid":""},{"note":"一件事有好有坏，问的是你先看到哪一面，不是会不会自我安慰。","lo":"项目黄了，你先想的是损失多少、后面怎么收场。","hi":"项目黄了，你先说的是“至少把那套流程摸熟了”。","mid":""},{"note":"反向题按字面判。问的是公家的钱花在文艺上，你觉得值不值。","lo":"公家出钱养剧团、办美术馆、办音乐节，你觉得是正常事。","hi":"你觉得这笔钱放到修路、看病上更实在。","mid":"从没想过这事？真没偏向就选中间，有一点偏向就按那点来。"},{"note":"反向题按字面判。问的是“心软”这种性子在你眼里顺眼还是碍事。","lo":"那种见不得别人难的人，你觉得挺好相处，愿意来往。","hi":"有人一遇事就掉眼泪、一求就答应，你打交道时会有点别扭。","mid":""},{"note":"反向题按字面判。问的是当下的兴致在你的行动里占多大分量。","lo":"周末怎么过你提前定好，临时被拉去玩会觉得别扭。","hi":"下班路上突然想吃火锅，你调头就去，明天的事明天说。","mid":"玩的事上随性、正事上很稳？按占你日子更多的那头算。"},{"note":"反向题，照字面答。问的是你平时的默认档位是松的还是绷的。","lo":"没具体事也觉得心里悬着，坐下来还是想找点事做。","hi":"没事的时候人是松的，肩膀不端着，说话也不赶。","mid":"最近正忙？这题问的是你平时的样子，不是眼下这一阵。"},{"note":"反向题，照字面答。重点在\"常常\"——这别扭是偶尔冒头还是老跟着你。","lo":"不管跟谁待着，你都能照常做自己的事，不用刻意调整。","hi":"电梯里碰上领导、饭桌上被点名，你都不知道手脚往哪摆。","mid":"只在个别场合别扭、平时都还行？那\"常常\"就对不上。"},{"note":"反向题，照字面答。问的是空闲下来时，你脑子是不是基本不跑题。","lo":"排队、等电梯这种空当，脑子自己就开始演别的去了。","hi":"没事的时候脑子基本是空的，或者就在想手头要办的事。","mid":""},{"note":"反向题，照字面答。这句是明确的\"不信\"，比平时留个心眼要重。","lo":"该交代的事就交代出去，不会背着人再自己留一套方案。","hi":"合作前先想对方会怎么反悔，要紧的事只放在自己手里。","mid":""},{"note":"反向题，照字面答。问的是你对局面的判断准不准，事后回看偏不偏。","lo":"会上谁是什么立场、事情往哪走，你当时的判断基本对得上。","hi":"你以为稳了的黄了，以为没戏的成了，回头看常有出入。","mid":"看走眼的时候人人都有。问的是它在你这儿算不算常事。"},{"note":"反向题。问的是火有没有发出来；憋在心里没露的，也算很少发火。","lo":"碰上不讲理的事，你当场就把话说重了。","hi":"再窝火也不当面爆，等事情过去自己慢慢消掉。","mid":""},{"note":"反向题。问的是有人凑过来、来搭话时，你想不想被找。","lo":"同事过来说句话、家人推门进来，你都不介意。","hi":"戴上耳机就是信号，被人一叫那股劲就断了。","mid":"忙的时候和闲的时候不一样？按平常的多数时候算。"},{"note":"反向题。问的是要慢慢咂摸的文字合不合你的胃口。","lo":"读到写得好的句子，你会截下来存着。","hi":"那种绕来绕去的表达，你看几行就想跳过。","mid":"没怎么读过、说不上喜欢也说不上不喜欢，这就是中间档。"},{"note":"反向题。问的是会不会用压力逼人让步，不是你说话强不强势。","lo":"对方不松口，你把话放那儿，等他自己想明白。","hi":"谈不拢就加码——催时间、抬条件，让对方顶不住。","mid":""},{"note":"反向题。问的是没人来看的私人空间，平时是什么样子。","lo":"床铺台面平时空着；一直这样是很不符合，多数时候齐整是比较不符合。","hi":"衣服堆椅背上、桌上摞着东西，你住着不别扭。","mid":"忙起来乱、闲下来收？按大部分日子屋里的样子算。"},{"note":"问的是眼下有没有奔头，不是问你有没有一个明确的人生规划。","lo":"说不上什么大目标，但知道这阵子在忙什么、为什么忙。","hi":"通勤路上会冒出我这是在干嘛，说不清劲该往哪儿使。","mid":""},{"note":"反向题。问的是你更愿意站台前还是做支撑，两边都是在干活。","lo":"该你说的时候你会站到前面去讲，不往后躲。","hi":"活你照干，但让你上台发言、当代表就想推给别人。","mid":""},{"note":"反向题。问的是情绪起来后会不会牵动你做事，不是问情绪浓不浓。","lo":"心里堵着的时候，干活和说话都会跟着走样。","hi":"心里再不痛快，该开的会照开，节奏不太变。","mid":"上班压得住、回家压不住？按你多数时候的样子算。"},{"note":"反向题。问的是别人的心情你在不在乎，不是问你察不察觉得到。","lo":"对方语气一变你就留意到了，会想是不是自己说重了。","hi":"别人心情如何是他自己的事，你更看事情办没办成。","mid":""},{"note":"反向题。和信守承诺是一体两面，这题问的是失约那一头。","lo":"答应了就往下排期，实在办不了会提前跟人说一声。","hi":"当时是真心答应的，后来事一多就搁下了。","mid":""},{"note":"反向题，按字面判——问的是尴尬散得快不快，不是问你出不出洋相。","lo":"说错话、走错门，脸先热一下，过后还会再想起来。","hi":"出了洋相当没事，话接着往下说，过后也不惦记。","mid":""},{"note":"反向题，按字面判——问的是做一件事你愿意磨多久，不是问你手脚快不快。","lo":"一件事上手就想弄完，拖着没做完心里挂着。","hi":"吃饭、走路、做事都不催自己，慢点完成也没关系。","mid":""},{"note":"反向题，按字面判——问的是你反感「改变」这个念头，还是只嫌麻烦。","lo":"有人提改方案，你先听怎么改，对改本身不反感。","hi":"就算新方案更省事，一说要改你也先问句为什么非改。","mid":""},{"note":"反向题，按字面判——问的是情绪会不会升到音量上，不问在不在理。","lo":"再急再气，你的音量也就那样，顶多把话说重些。","hi":"急起来嗓门就上去了；家里外头都这样就是很符合。","mid":"在家吼、在外面不吼，家里那份也算数。"},{"note":"只问成品——东西做成什么样你才肯撒手，不管别人怎么做。","lo":"能用就行，细节上的毛刺你不太去磨。","hi":"发出去前还要再看一遍格式、错字、数对不对。","mid":""},{"note":"反向题，按字面判断——问的是忍住这一下要不要使劲，不是最后忍没忍住。","lo":"购物车里那件、桌上那包零食，摆在眼前很难不动。","hi":"想买的放两天劲就过了，零食搁手边也想不起来拆。","mid":"对吃能忍、对买忍不住？按占你日子多的那样算。"},{"note":"重点在「试一次」——只问开不开这个口子，不问你会不会一直做下去。","lo":"点菜、订行程都挑熟的，没底的事先看别人试了怎样。","hi":"没吃过的菜、没玩过的项目，赶上了就先上了再说。","mid":"吃的敢试、玩命的不敢？大部分事情上你是哪种。"},{"note":"反向题，按字面判断——问的不是懂不懂，是这类话题起来时你躲不躲。","lo":"饭桌上聊到人活着图个啥，你会接着往下聊。","hi":"话头一往「人生意义」上拐，你就岔开或起身去添茶。","mid":""},{"note":"反向题，按字面判断——偏具体的评语：办事、待人这些方面你给自己什么评价。","lo":"复盘先想自己哪儿没做好，给自己的评语一向保守。","hi":"让你说说自己，你能干脆讲出哪几方面做得不错。","mid":""},{"note":"反向题，按字面判断——问的是你自己怎么看那段没产出的时间，别人怎么看不算。","lo":"一天下来，觉得时间大致花在了自己想花的地方。","hi":"晚上躺下常想「这一天怎么就过去了」，有点空落。","mid":"谁都有虚度的时候。问的是这算不算你日子的底色。"},{"note":"反向题按字面判。问的是没标准答案、头绪多的事，你觉得自己拆不拆得开。","lo":"一件事牵扯好几方又没先例，你更想找人商量或往后放。","hi":"条件不清的跨部门活儿到手，你会先拆成几块再一块块啃。","mid":"熟的领域游刃有余、生的领域发怵？按你干得最多的那摊算。"},{"note":"问的是笑出来时的动静大小，跟你觉不觉得好笑是两回事。","lo":"你觉得好笑也就抿抿嘴、鼻子哼一下，很少发出声。","hi":"你笑出声是常事，赶上特别逗的还得擦擦眼睛。","mid":""},{"note":"反向题按字面判。问的是规矩执行时留不留余地，不是问你守不守法。","lo":"你觉得情况不同就得看具体人具体事，不能一刀切。","hi":"你觉得写在纸上的规矩就得照着来，开一次口子就没边了。","mid":"大事上想从严、小事上想通融？按你常碰上的那类事算。"},{"note":"反向题按字面判。问的是被亏待之后要不要还回去这条准则。","lo":"有人使过绊子，后来他求到你头上，你没往心里去，照办。","hi":"谁抢过你的功劳你记着，等有机会也让他尝尝这滋味。","mid":""},{"note":"反向题按字面判。问的是准备到什么程度就开始，不是问你手脚快不快。","lo":"上台讲之前你要把稿子过顺、设备试好，心里才踏实。","hi":"会前才想起要材料，你现打开文档，边开会边往里补。","mid":""},{"note":"反向题，照字面答。问的是状况当场发生时你乱不乱，不问事后。","lo":"电脑突然崩了、航班取消，当场手忙脚乱，得先缓过那一阵。","hi":"单子出错、行程改了，你当场接着往下安排，节奏没断。","mid":""},{"note":"反向题，照字面答。问的是行动上躲不躲，心里想不想躲是另一回事。","lo":"有人约你就去，同事喊帮忙、朋友喊聚会，一般都接住。","hi":"远远看见熟人会放慢脚步，聚会临到跟前找个理由推掉。","mid":""},{"note":"反向题，照字面答。这是你对自己的判断，别人怎么评价你不算数。","lo":"让你编个故事、想个新点子，你能顺着往下接得上。","hi":"让你凭空想个新玩法，脑子里是空的，更愿意照现成的来。","mid":""},{"note":"反向题，照字面答。问的是你会不会去猜话背后还压着一层意思。","lo":"别人说什么你就听什么，不太在心里再翻译一遍。","hi":"同事忽然请你吃饭、领导忽然关心你，你先琢磨后面是什么。","mid":""},{"note":"反向题，照字面答。问的是理解上吃不吃力，不是你知识够不够。","lo":"会上的新说法、通知里的规定，听一遍你大致就明白了。","hi":"讲完了你还没串起来，回去得再问一遍或者自己重看。","mid":""},{"note":"反向题。重点在别人的举动——被催、被打断、被反复问，你烦不烦。","lo":"被人一遍遍催进度、话说一半被打断，你会烦起来。","hi":"别人来回改主意、临时加活，你也照常接着办。","mid":""},{"note":"反向题。问的是人挤、声杂这个密度让你难受不难受。","lo":"商场、夜市、演唱会，人越多你越来劲。","hi":"地铁一挤、餐厅一吵，你就想找个空一点的地方。","mid":""},{"note":"反向题。问的是专门腾出时间去看展这件事，你愿不愿意。","lo":"出差旅游有空档，你会翻翻附近有什么展。","hi":"有人约你看展，你宁可在楼下喝咖啡等他。","mid":""},{"note":"反向题。问的是场面上的关心跟心里想的一不一致，客套本身不算。","lo":"不上心的事你就不接话，寒暄也说得少。","hi":"同事家里有事，你嘴上问得周到，心里没往上放。","mid":"谁都说过客套话。看你有没有特意装出上心的样子。"},{"note":"反向题。问的是东西的落点——顺手一撂，还是各有各的位置。","lo":"包挂门口、杯子回原位，闭着眼也摸得着。","hi":"外套搭沙发、快递堆门口，用完就在原地放着。","mid":""},{"note":"反向题，照字面答就行：问的是低落这个状态离你远不远。","lo":"心情往下走是常有的事，你对那个状态挺熟。","hi":"大多数时候心里是平的，不高兴一会儿也就过去了。","mid":""},{"note":"反向题，问的是你在场时开口的量，跟心里有没有想法是两回事。","lo":"群里、饭桌上你总能接上话，话头断了你会续。","hi":"一桌人聊得热闹，你多半在听，问到你才说两句。","mid":"跟熟人话多、生人话少？按你平时待得最多的场合算。"},{"note":"反向题，问的是你对自己情绪的察觉度，不是情绪本身强弱。","lo":"心跳快了、说话冲了，你当下就知道自己在什么状态。","hi":"常常是别人说你今天火气大，你才回过神来。","mid":""},{"note":"反向题，问的是你在场时别人紧不紧绷，跟你是不是有意的无关。","lo":"你在场时气氛比较松，别人跟你说话不用绕弯子。","hi":"你说话直，一句话下去，饭桌上会冷一下。","mid":""},{"note":"反向题，问的是分内的活会不会流到别人手上，不是问会不会求助。","lo":"自己那份自己做完，宁可晚点下班也不往外递。","hi":"手上的事忙不过来，顺手就让同事或家里人搭把手。","mid":""},{"note":"反向题，按字面判——问的是陌生环境里你是松是紧，不是问你会不会应付。","lo":"第一次去的场合先靠边站着；连问路都难开口，算很不符合。","hi":"新公司报到、陌生饭局，你很快就能坐下来聊起来。","mid":"有的新场合放得开、有的不行，就按整体印象来。"},{"note":"反向题，按字面判——问的不是某件事，是你想过的整体日子。","lo":"日子太闲你会觉得空，宁可日程排得满一点。","hi":"想要的日子是通勤不挤、下班没事、周末在家待着。","mid":""},{"note":"反向题，按字面判——问的是你的日子有多少按固定套路走。","lo":"起床时间、吃什么、走哪条路，每天都不太一样。","hi":"固定的早饭、固定的座位、固定那家店，打乱了会别扭。","mid":"上下班点是公司定的，不算；看你自己定的那些。"},{"note":"反向题，按字面判——问的是吵到头上时，你会不会往人格上说。","lo":"再气也只说这件事怎么了，不去点对方是什么人。","hi":"上头时那种戳人痛处的话你说得出口；张口就来算很符合。","mid":"谁都有过上头的时候；问的是这算不算你的常态。"},{"note":"反向题，按字面判——问的是「想出头」这股劲在不在，不问你有没有本事。","lo":"心里有个想去的位置，会盯着晋升和结果。","hi":"升不升、拿不拿第一没那么要紧，日子过顺就行。","mid":""},{"note":"反向题，按字面判断——念头从心里冒出来之后，你拉不拉得回来。","lo":"想抽根烟、想点份宵夜，念头一起手就跟着动了。","hi":"心里也馋，但能跟自己说改天，然后真就放下了。","mid":""},{"note":"比「冒险」再重一档——问的是危险本身勾不勾你，不是碰上了怕不怕。","lo":"有风险的事能绕就绕，安全这条线上不太想赌。","hi":"明知道有点悬也想上去试，那点危险感本身就吸引你。","mid":""},{"note":"反向题，按字面判断——这题量的是吃力程度，喜不喜欢是另一回事。","lo":"讲原理、讲模型的内容，你听一遍大致跟得上。","hi":"培训里一上概念图就掉队，得有人举个例子才转过来。","mid":""},{"note":"反向题，按字面判断——问的是你自己觉得懂多少，不是实际考出来懂多少。","lo":"别人来问，你常说「这个我也不太清楚，得查查」。","hi":"群里有人抛问题你多半接得上，同事习惯先来问你。","mid":"自己那行内知道、出了行就抓瞎？摊平了看是哪种。"},{"note":"反向题，按字面判断——问的是劲从哪儿来：自己起的，还是外面催出来的。","lo":"没人催你也自己排上了，离交期还早就先做起来。","hi":"领导问一句、家里念一句，你才真的动。","mid":""},{"note":"反向题按字面判。问的是心里有没有现成的招，知不知道下一步先干哪件。","lo":"出了状况你先僵一下，得问一圈“这种事一般怎么办”。","hi":"摊上事心里有条线：先通知谁、先补哪一步，照着走。","mid":""},{"note":"问的是你主动把气氛搞热的那一面，不是问你人缘好不好。","lo":"别人抛梗你跟着笑，自己不太起头，冷场了也等别人开口。","hi":"冷场时你会讲件事，几句下来一桌人就笑开了。","mid":"老友面前话痨、生人面前沉默？按你相处最多的那圈人算。"},{"note":"反向题按字面判。问的是眼下的处理在你看来罚得够不够重。","lo":"看到判决的新闻，你不太会冒出“这也判太轻了”的念头。","hi":"看到判决的新闻，你常觉得这么处理太轻，起不到作用。","mid":""},{"note":"反向题按字面判。问的是你会不会主动把这类事挡在视线外，跟心硬不硬是两回事。","lo":"灾情、重病筹款这类内容，你会点进去看完，也会跟人说起。","hi":"刷到求助的视频你划走，觉得看了也帮不上，白堵得慌。","mid":""},{"note":"反向题按字面判。问的是你做不做后果不好说的事，不是问你有没有胆量。","lo":"别人起哄让你干件出格的事，你笑笑说算了，还按常规来。","hi":"半夜说走就走上山看日出、说辞职就辞职，这类事你干得出来。","mid":"年轻时干过、现在收心了？按你现在的样子答。"},{"note":"反向题，照字面答。问的是事情过去以后，你还回不回头去翻。","lo":"很久以前饭局上说错的一句话，现在想起还会在心里过一遍。","hi":"事儿结了就翻篇，别人提起旧账你也接不上，细节早忘了。","mid":""},{"note":"反向题，照字面答。问的是你对别人的事好不好奇，跟会不会应酬无关。","lo":"同事换了发型、朋友换了工作，你会想知道后来怎么样了。","hi":"别人讲自己家里的事，你听着，过后不会记也不会问。","mid":""},{"note":"反向题，照字面答。问的是你会不会掉进想事情里，就是出神那种。","lo":"洗着碗、走着路，想着想着人就不在这儿了。","hi":"手上做什么，注意力就在什么上，不太往里陷。","mid":""},{"note":"反向题，照字面答。问的是那层防备一直开着，还是碰上事才打开。","lo":"刚认识的人也能聊到家里的事，不太先掂量哪些能说。","hi":"说话前先过一遍这话传出去会怎样，微信上也留着分寸。","mid":""},{"note":"反向题，照字面答。问的是你觉得自己在场，对事情有没有用处。","lo":"讨论的时候你觉得自己能补上一块，别人也接得住你的话。","hi":"开会你多半听着，觉得自己想说的别人早都想到了。","mid":""},{"note":"反向题。问的是火起来之后压不压得住，不是有没有火。","lo":"情绪一上来就藏不住，话和脸色当场都变了。","hi":"心里再急，开会时语气照旧，事后才慢慢缓过来。","mid":"在外面沉得住、回家沉不住？按你最常待的场合算。"},{"note":"反向题。这题问的是实际动作——躲不躲开，跟心里喜不喜欢分开看。","lo":"该去的场合你照去，人堵着也就跟着人流慢慢挪。","hi":"看见排长队、看见人堆，你会绕开另找条路。","mid":""},{"note":"反向题。问的是现场这个形式——买票、坐定、从头听到尾。","lo":"有喜欢的演出你愿意跑一趟，赶上了也会跟人一起去。","hi":"同样的曲子在家听更自在，不想为这个专门跑。","mid":""},{"note":"反向题。问的是别人吃亏的口子露出来时，你会不会顺手接着。","lo":"账算错了、钱多找了，你会当场退回去。","hi":"对方没算清、忘了要，你就当没这回事过去了。","mid":"谁都碰上过一两回。问的是这算不算你的常态。"},{"note":"反向题。问的是你对别人的容忍度，跟你自己整不整齐是两回事。","lo":"同事桌上堆成山、室友碗不洗，你看着心里堵。","hi":"别人怎么摊是别人的事，你不说也不动手。","mid":"对家里人受不了、对同事无所谓？按你天天见的那些人算。"},{"note":"反向题。问的是跟自己相处时松不松，不是对现状满不满意。","lo":"一个人待着容易翻旧账，想起自己说错做错的地方。","hi":"独处时不别扭，缺点也知道，但跟自己处得来。","mid":""},{"note":"反向题。问的是被一群人看着时你自不自在，不是问你有没有本事。","lo":"敬酒、发言、拍合照站中间，你都不怵。","hi":"生日被同事起哄唱歌，你只想赶紧把这段翻过去。","mid":""},{"note":"反向题。问的是波幅大不大，跟你开不开心、情绪好坏没关系。","lo":"一天里能从很兴奋走到很低落，落差自己都感觉得到。","hi":"好事坏事情绪都在一个区间里，起落不明显。","mid":""},{"note":"反向题。重点在不搭理这个动作：有人凑过来时你接不接。","lo":"有人来问事，你会停下手上的活先应一声。","hi":"消息看到了先放着，有人来搭话你也未必接。","mid":""},{"note":"反向题。问的是被要求这件事本身会不会激起你的反劲。","lo":"别人提要求你就按要求做，不会因为是别人说的就抵触。","hi":"越被催越不想动，家里人让你干什么你偏要拖一拖。","mid":"只在家里人面前这样、在外不会？把两头合起来判。"},{"note":"反向题，按字面判——问的是场面难堪时你顶不顶得住，不是问你人缘好不好。","lo":"饭桌上冷场、被追问私事，你浑身不自在，想早点走。","hi":"场面僵住时你身上不太紧，话还能接得下去。","mid":""},{"note":"反向题，按字面判——问的是你催不催进度，不是问你负不负责。","lo":"事情卡住了你就去催、去问，想让它快点往前走。","hi":"该来的会来，你不去催，等对方那边有动静再说。","mid":"工作上催、私事随缘？按你花时间最多的那摊事算。"},{"note":"反向题，按字面判——吃是最日常的一处，看你对没吃过的怎么办。","lo":"菜单上没见过的先点来试，出差爱找本地人吃的馆子。","hi":"点菜就那几样，同事夹来没吃过的，你笑笑放边上。","mid":""},{"note":"反向题，按字面判——问的是吃了亏你会不会真做点什么，不只是心里想想。","lo":"被坑了就当认了，之后离远点，不会去回敬。","hi":"谁给你使过绊子，轮到你手上时你会让他也不好过。","mid":""},{"note":"反向题，按字面判——问的是你把线画在哪：交得掉就行，还是要自己满意。","lo":"达到要求还会再往上做一点，交出去要自己看得过。","hi":"到了能交的标准就停手，剩下的力气留给别的事。","mid":""},{"note":"反向题，按字面判断——问花钱有没有踩过自己的线，跟你挣多挣少无关。","lo":"先刷着后面再说，月底一对账常发现超了。","hi":"想买什么先看看卡里剩多少，超出的先放着。","mid":""},{"note":"反向题，按字面判断——拿极限项目当尺子，量你对身体上的惊险接不接得住。","lo":"玻璃栈道、跳伞蹦极这类，你不排斥，甚至有点想试。","hi":"朋友喊你去蹦极，你直接摆手，站旁边帮着拍照。","mid":""},{"note":"反向题，按字面判断——比起「怎么做」，「为什么这样」勾不勾得住你。","lo":"会想知道这套做法背后的道理，不满足于照流程走完。","hi":"开会讲背景讲框架时容易走神，只等着说具体怎么干。","mid":""},{"note":"反向题，按字面判断——不是顺口提一句，是带着劲把自己的长处讲出来。","lo":"简历、自我介绍都写得平，长处得靠别人替你说。","hi":"聊到自己擅长什么，你讲得挺足，也不绕着说。","mid":""},{"note":"反向题，按字面判断——难的是「起头」那一下，跟拖多久、动起来顺不顺是两回事。","lo":"想到就顺手开个头，起步这一下对你不算费劲。","hi":"文档新建好了盯着空白页发呆，最难的是敲第一行。","mid":""},{"note":"反向题按字面判。问的是翻篇的快慢，不是难不难受——一样难受，时间不同。","lo":"被批评过一次，之后一段时间开会都没劲，心里还在过那段。","hi":"方案被毙了当下也堵，睡一觉起来就开始琢磨下一版。","mid":""},{"note":"反向题按字面判。问的是被逗笑的门槛高低，跟你有没有幽默感无关。","lo":"同事随口一句你就笑了，短视频刷着刷着也能笑出声。","hi":"群里刷屏的梗你多半看看就过，得真戳到点上才笑。","mid":""},{"note":"反向题按字面判。问的是你主张用重手段压下去，还是从别处想办法。","lo":"你更认可从源头上想办法，光加重处罚你觉得治不了根。","hi":"你认可从重从快，觉得下手狠些后面的人才不敢试。","mid":""},{"note":"反向题按字面判。问的是碰上难处，是各自扛过去还是旁人搭把手。","lo":"你觉得人总有过不去的坎，那会儿有人拉一把是正常的。","hi":"亲戚开口借钱，你头一个反应是他那摊事得他自己理。","mid":"对家里人一套、对外人另一套？按你更常遇上的那种算。"},{"note":"反向题按字面判。这条问整体做事风格：凭手感，还是习惯先过脑子。","lo":"大事小事你都习惯先在脑子里过一遍，再开口、再动手。","hi":"你做事多半靠当时的感觉，被问“你怎么想的”常答不上。","mid":""},{"note":"反向题，照字面答。问的是换个地方后，你多快能过回日常。","lo":"换了工位、搬了家，得过一阵才睡得踏实、才知道东西放哪。","hi":"到新公司没几天就摸清了饭点、打印机在哪、有事找谁。","mid":""},{"note":"反向题，照字面答。问的是你留不留那道界，跟见面多不多无关。","lo":"同事问起收入、家里的事，你也就照实说了，没设什么线。","hi":"天天一起吃饭的同事，也不知道你住哪儿、家里几口人。","mid":"这道界是你有意留的，还是只是没那么亲近？问的是前者。"},{"note":"反向题，照字面答。问的是\"看见\"的本事：闭上眼睛有没有图像。","lo":"看小说时人物长相、屋子布局，你脑子里是有画面的。","hi":"别人说\"想象一下海边\"，你脑子里是词，不是景。","mid":"画面模糊算不算有？能看出个轮廓就算有，全是文字才算难。"},{"note":"反向题，照字面答。问的是\"本质\"这两个字，不是人会不会做坏事。","lo":"你觉得人做坏事是被环境推的，本性上不是坏的。","hi":"你觉得人心底那点自私是底色，规矩只是把它压住了。","mid":""},{"note":"反向题，照字面答。问的是你做决定时，能不能预见后面会牵出什么。","lo":"答应一件事之前，你已经想到它会牵出哪些后续麻烦。","hi":"话说出口、字签下去，连锁反应常常是事后才发现的。","mid":""},{"note":"反向题。问的是不满会不会说出口——吐槽念叨，跟发火不是一回事。","lo":"地铁挤、活儿多、饭不合口，你会顺口就说出来。","hi":"不顺心的事你多半不提，自己消化掉就算了。","mid":""},{"note":"反向题。问的是你会不会主动去找安静，不只是能忍住吵。","lo":"屋里开着电视、群里叮叮响，你照样待得住。","hi":"午休躲楼梯间，周末专挑人少的地方去。","mid":""},{"note":"反向题。问的是没台词、光靠身体动作的表演对不对你路子。","lo":"刷到舞台片段你会看完，有现场也愿意去。","hi":"看不太出在演什么，坐一会儿就走神了。","mid":""},{"note":"反向题。问的是会不会主动去挡，跟单纯不配合不是一回事。","lo":"别人的方案你不认同，也就提个意见，不去拦。","hi":"不想让这事成，你会在流程上卡一卡、话里带一带。","mid":""},{"note":"反向题。问的是环境一乱你心里起不起反应，跟收不收拾分开。","lo":"桌上一堆没归位，你得先收完才坐得下来干活。","hi":"周围摊着东西，你照样打开电脑就进入状态。","mid":""},{"note":"反向题，问的是自我评价的高度；满意不等于骄傲或不想进步。","lo":"回头看自己先看到不足，被夸两句会觉得有点心虚。","hi":"说起自己走过的路能坦然认可，觉得自己这人还不错。","mid":"题面写的是非常满意；你只是觉得还行，就往中间靠。"},{"note":"反向题，问的是心里有不同看法时说不说出口，跟嘴笨不笨无关。","lo":"觉得方案有问题，当场就会提，哪怕领导在场。","hi":"心里不认同，会先应下来，回头跟朋友私下说。","mid":"对领导和对同事两个样？按你多数场合的做法判。"},{"note":"反向题。问的是别人闹情绪时你想不想得通他，不是问你察不察觉。","lo":"同事在工位上崩溃，你大概明白他为什么到这一步。","hi":"看到有人为这点事发火，你第一反应是至于吗。","mid":""},{"note":"反向题，问的是你愿不愿意把时间分给别人，不是问你时间够不够。","lo":"朋友说想聊聊，你会把周末的安排挪一挪。","hi":"时间先归自己和手上的事，别人的事往后排。","mid":""},{"note":"反向题，问的是讲述时会不会往对自己有利的方向拧，只说一半也算。","lo":"讲事情尽量还原原样，对自己不利的部分也照说。","hi":"汇报时会挑着讲，把话往自己这边带一点。","mid":""},{"note":"反向题，按字面判——问的是被冒犯时你当场出不出声，不是问事后怎么想。","lo":"功劳被说成别人的，你当场没接话，回头自己消化。","hi":"活儿被推给你、话被说歪了，你当场就把话摆回去。","mid":"想说但没说出口，也算没站出来；按当场的样子判。"},{"note":"反向题，按字面判——问的是你要不要缓一下才反应过来，跟做事快慢无关。","lo":"事情一来你立刻就动，话也随口就接，用不着缓。","hi":"别人都笑完了你才反应过来，急事也得缓一下才动。","mid":""},{"note":"反向题，按字面判——问的是做事的路子，老办法是不是你的默认项。","lo":"有更快的做法你就换掉，不管以前一直是怎么做的。","hi":"照着以前的流程和模板走，稳妥，不用重新试错。","mid":""},{"note":"反向题，按字面判——问的是这件事在心里搁多久，不是问你记性好不好。","lo":"过了那阵就淡了，再见面照样一起吃饭说笑。","hi":"谁哪回怎么对你的隔很久还清楚；现在想起还堵算很符合。","mid":""},{"note":"反向题，按字面判——问的是实际花出去的时间精力，不是问你想不想投入。","lo":"手头这摊事占了你大半时间，下了班还惦记着。","hi":"该干的事只占你一小块时间，其他都放在别处。","mid":""},{"note":"反向题，按字面判断——问的是花钱时那股大手大脚的劲，不是最后超没超支。","lo":"心情好或过节，一下就买件贵的、请一大桌。","hi":"贵东西要琢磨很久，看见打折也不顺手多拿。","mid":""},{"note":"反向题，按字面判断——拿音量当尺子，看强刺激对你是享受还是负担。","lo":"开车、跑步爱把音量拧大，低音一起来人就精神。","hi":"商场酒吧音乐一大就头疼，在家听歌音量压得很低。","mid":"自己放的不嫌吵、别人放的嫌？按大多数时候的感觉。"},{"note":"反向题，按字面判断——问的是碰上硬材料时的动作：绕开，还是坐下来啃。","lo":"合同、说明书这类难读的东西，你会坐下来一行行看。","hi":"长文档先翻摘要，密密麻麻的条款就想找人给讲讲。","mid":"工作上躲不掉、私下就不碰？两边掺起来看。"},{"note":"反向题，按字面判断——注意是「主动去当」焦点，被动被人看着不算。","lo":"聚会你多半在边上聊天，话头递到手里也很快传出去。","hi":"饭局上你张罗气氛、讲段子，场子容易围着你转。","mid":""},{"note":"反向题，按字面判断——拖的是「拿主意」，不是拖着不干活。","lo":"事摆到面前就定下来，定完不太来回翻。","hi":"换不换工作、买不买房，想很久还挂着，等情况自己变。","mid":"小事定得快、大事拖很久？大小事掺一块儿看。"},{"note":"反向题按字面判。这题问有人在场、气氛绷着时的你，不是独自扛事时。","lo":"饭桌上两人呛起来，你插不上话，只想找个由头出去透气。","hi":"会上气氛僵住，你还能喝口水，接着把下一项念完。","mid":""},{"note":"反向题按字面判。问的是说话带不带玩笑这个习惯，不是你逗不逗得笑人。","lo":"你聊天常掺着调侃，正事说完还要补句不着调的。","hi":"你说话基本就事论事，别人的玩笑接得住，自己不起头。","mid":""},{"note":"反向题按字面判。问的是集体仪式在你心里有没有分量，不是问你爱不爱国。","lo":"场合到了你也跟着站，心里没什么起伏，跟着流程走完。","hi":"升旗、奏国歌的时候，你会自然站直，心里是有感觉的。","mid":""},{"note":"反向题按字面判。这里的“软弱”指扛不住事，跟上面说的“心软”不是一回事。","lo":"同事被说两句就红了眼，你没什么感觉，照常跟他共事。","hi":"有人一遇事就往后缩、等着别人顶上，你心里会冒火。","mid":""},{"note":"反向题按字面判。问的是计划定得早还是晚，不是问你拖不拖延、办不办得成。","lo":"出去玩的车票住处你早早订好，行程也排出来了。","hi":"周末干嘛你到周六早上才琢磨，聚会也是当天群里喊人。","mid":"工作上排得死、私事全靠临时？按你自己说了算的那头来。"}],"reversed":[69,99,109,118,120,129,138,139,144,148,149,150,151,152,156,157,158,159,160,162,163,164,165,167,168,169,171,173,174,175,176,178,179,180,181,182,183,184,185,186,187,188,189,190,192,193,194,195,196,197,198,199,201,203,204,205,206,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,233,234,235,236,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300],"norms":{"M_lt21":{"id":1,"ns":[0,164.2,197.6,217.8,197.1,204.2,33.4,34.2,28.1,28.0,29.1,27.9,26.8,26.2,29.4,29.9,24.1,7.7,8.3,9.2,7.4,6.4,6.3,33.9,29.8,34.0,29.6,33.9,36.5,8.0,8.9,7.4,5.6,8.1,7.1,40.6,37.3,36.1,35.7,39.6,28.5,6.8,7.0,6.8,6.4,7.1,8.0,32.5,34.7,37.5,31.2,28.1,33.2,7.6,6.7,6.6,6.9,7.1,6.5,38.3,30.5,38.1,36.2,29.2,31.9,5.6,7.7,5.9,6.7,8.0,7.2]},"M_gte21":{"id":2,"ns":[0,161.8,192.8,218.4,202.8,215.3,38.7,31.9,26.6,27.3,30.8,27.6,27.0,25.6,27.8,31.1,22.6,8.0,9.3,9.8,7.6,7.3,7.4,33.1,27.3,34.6,30.6,30.8,36.4,8.1,8.1,7.5,6.0,7.6,7.0,39.1,38.3,35.4,35.8,40.9,28.8,6.6,6.8,6.7,6.6,6.7,8.1,33.6,36.2,37.6,33.7,28.5,33.2,7.6,6.4,6.4,6.9,6.9,6.8,39.7,33.0,39.7,38.2,31.3,33.4,5.7,7.8,5.8,6.7,8.4,7.3]},"F_lt21":{"id":3,"ns":[0,180.0,203.9,228.7,208.6,203.5,37.5,35.0,26.8,29.1,31.0,31.3,29.8,27.9,30.6,29.9,27.6,7.9,9.1,9.6,7.7,6.4,7.6,34.8,31.7,34.0,30.5,34.0,38.9,8.5,9.2,8.1,5.6,8.2,7.0,41.5,42.5,39.4,36.3,39.0,30.0,6.9,5.7,6.5,6.3,7.1,7.2,33.9,37.4,39.5,32.5,29.9,35.4,7.4,6.1,6.5,7.6,7.0,6.7,37.6,30.6,38.9,37.2,29.0,30.2,5.8,8.3,6.0,7.0,8.0,7.7]},"F_gte21":{"id":4,"ns":[0,172.5,196.2,226.3,217.3,220.7,36.8,31.7,26.8,25.3,29.8,30.7,28.8,26.5,29.1,31.1,25.3,7.8,8.8,9.4,7.5,7.3,7.5,35.1,28.5,34.2,32.0,28.6,37.8,8.1,8.5,7.4,5.9,7.8,6.9,38.5,42.3,39.4,35.9,39.8,30.3,7.4,5.7,6.2,6.7,7.0,7.5,34.5,39.6,40.5,35.5,31.0,36.3,7.4,5.7,5.9,6.8,6.7,6.3,39.9,34.1,41.5,39.4,32.6,33.3,5.6,8.5,5.4,6.2,8.3,7.3]},"N_lt21":{"id":0,"ns":[0.0,172.1,200.75,223.25,202.85,203.85,35.45,34.6,27.45,28.55,30.05,29.6,28.3,27.05,30.0,29.9,25.85,7.8,8.7,9.4,7.55,6.4,6.95,34.35,30.75,34.0,30.05,33.95,37.7,8.25,9.05,7.75,5.6,8.15,7.05,41.05,39.9,37.75,36.0,39.3,29.25,6.85,6.35,6.65,6.35,7.1,7.6,33.2,36.05,38.5,31.85,29.0,34.3,7.5,6.4,6.55,7.25,7.05,6.6,37.95,30.55,38.5,36.7,29.1,31.05,5.7,8.0,5.95,6.85,8.0,7.45]},"N_gte21":{"id":0,"ns":[0.0,167.15,194.5,222.35,210.05,218.0,37.75,31.8,26.7,26.3,30.3,29.15,27.9,26.05,28.45,31.1,23.95,7.9,9.05,9.6,7.55,7.3,7.45,34.1,27.9,34.4,31.3,29.7,37.1,8.1,8.3,7.45,5.95,7.7,6.95,38.8,40.3,37.4,35.85,40.35,29.55,7.0,6.25,6.45,6.65,6.85,7.8,34.05,37.9,39.05,34.6,29.75,34.75,7.5,6.05,6.15,6.85,6.8,6.55,39.8,33.55,40.6,38.8,31.95,33.35,5.65,8.15,5.6,6.45,8.35,7.3]}},"domains":[{"key":"O","name":"开放性","en":"Openness to Experience","desc":"对新体验、想象、艺术与抽象观念的开放程度。","high":"好奇、爱想象、喜欢新鲜事物和抽象思考，对艺术和内心世界敏感。","low":"务实、偏好熟悉与具体，对传统和既定做法更自在。","plo":"务实 · 重熟悉","phi":"好奇 · 爱探索"},{"key":"C","name":"尽责性","en":"Conscientiousness","desc":"自我约束、计划性与目标坚持的程度。","high":"有条理、可靠、自律，做事有计划并能坚持到底。","low":"随性、灵活、不喜欢被计划和规则束缚，容易临时起意。","plo":"随性 · 看当下","phi":"有序 · 按计划"},{"key":"E","name":"外向性","en":"Extraversion","desc":"从社交与外部刺激中获取能量的程度。","high":"热情、健谈、爱热闹，在人群中会更有活力。","low":"安静、内敛，偏好独处或小圈子，社交后需要恢复。","plo":"安静 · 独处充电","phi":"活跃 · 人群充电"},{"key":"A","name":"宜人性","en":"Agreeableness","desc":"对他人的信任、体谅与合作倾向。","high":"友善、体贴、愿意让步，倾向相信别人的善意。","low":"直率、竞争性强，更以自身立场和判断为先。","plo":"直率 · 立场为先","phi":"温和 · 他人为先"},{"key":"N","name":"神经质","en":"Neuroticism","desc":"体验负面情绪的倾向，也就是情绪稳定性的反面。","high":"情绪敏感、起伏较大，容易焦虑、烦躁或自责。","low":"情绪平稳、抗压，不容易被事情扰乱。","plo":"平稳 · 不易扰动","phi":"敏感 · 感受强烈"}],"facets":{"N":[["焦虑","anxiety","容易紧张、担忧，常预感不好的事"],["愤怒","anger","被冒犯时容易生气、感到不甘"],["抑郁","depression","容易情绪低落、对自己评价偏低"],["自我意识","self_consciousness","在意他人目光，容易害羞和尴尬"],["放纵","immoderation","难以抵抗即时的欲望和冲动"],["脆弱","vulnerability","压力下容易慌乱、失去应对能力"]],"E":[["友善","friendliness","喜欢也容易亲近他人"],["合群","gregariousness","喜欢人多热闹的场合"],["自信主张","assertiveness","愿意带头、表达立场、影响别人"],["活跃度","activity_level","生活节奏快、忙碌，闲不下来"],["寻求刺激","excitement_seeking","追求兴奋、冒险和强烈体验"],["快乐","cheerfulness","容易感到愉悦，常处在好心情里"]],"O":[["想象力","imagination","爱幻想，内心世界丰富"],["艺术兴趣","artistic_interests","对美、艺术与自然之美有感受力"],["情绪感受性","emotionality","能清晰察觉并重视自己的情绪"],["冒险","adventurousness","喜欢新鲜、变化和没试过的事"],["智性","intellect","喜欢抽象思考、复杂问题和智力挑战"],["自由主义","liberalism","倾向挑战传统权威与既有规范"]],"A":[["信任","trust","倾向认为别人是善意而可靠的"],["正直","morality","待人坦率，不用手段和算计"],["利他","altruism","主动关心并帮助他人"],["合作","cooperation","回避冲突，愿意让步妥协"],["谦逊","modesty","不张扬，不认为自己高人一等"],["同情","sympathy","对他人的处境和苦难有恻隐之心"]],"C":[["自我效能","self_efficacy","相信自己有能力把事情办成"],["条理性","orderliness","喜欢整齐、有组织、有计划"],["尽责","dutifulness","守规则、守承诺，有责任感"],["成就追求","achievement_striving","目标定得高，肯投入，追求做到好"],["自律","self_discipline","能开始并坚持完成任务，不拖延"],["谨慎","cautiousness","三思而后行，不冲动做决定"]]}};
+
+/* ---------- state ---------- */
+const PER_PAGE = 15, NPAGES = 300 / PER_PAGE;
+let answers = new Array(301).fill(0);
+let page = 0, sex = "", age = 0, mode = "hints";
+/* 锚点对齐 IPIP-NEO 原版：Very Inaccurate / Moderately Inaccurate /
+   Neither Inaccurate nor Accurate / Moderately Accurate / Very Accurate。
+   中间档必须是描述性的（说不上准也说不上不准），不能带「我不知道」的语义。 */
+const SCALE = ["很不符合","比较不符合","一半一半","比较符合","很符合"];
+const KEY = "ipipneo300_zh_v1";
+const $ = s => document.querySelector(s);
+
+/* ================= 第 1 层：本地存储 =================
+   MDN 推荐的可用性检测：无痕模式下部分浏览器给一个配额为 0 的空对象，
+   此时 setItem 抛 QuotaExceededError 而存储其实不可用。          */
+function storageAvailable(type){
+  let s;
+  try {
+    s = window[type];
+    const x = "__probe__";
+    s.setItem(x, x); s.removeItem(x);
+    return true;
+  } catch(e){
+    return e instanceof DOMException && e.name === "QuotaExceededError" && s && s.length !== 0;
+  }
+}
+
+const store = (() => {
+  const okL = storageAvailable("localStorage");
+  const okS = storageAvailable("sessionStorage");
+  let mem = null;
+  return {
+    durable: okL,           // 关掉浏览器后还在
+    anyStorage: okL || okS, // 至少本次会话内不会丢
+    save(o){
+      const s = JSON.stringify(o);
+      mem = s;
+      if (okL) { try { localStorage.setItem(KEY, s); } catch(e){} }
+      if (okS) { try { sessionStorage.setItem(KEY, s); } catch(e){} }
+    },
+    load(){
+      for (const get of [
+        () => okL && localStorage.getItem(KEY),
+        () => okS && sessionStorage.getItem(KEY),
+        () => mem,
+      ]) { try { const s = get(); if (s) return JSON.parse(s); } catch(e){} }
+      return null;
+    },
+    clear(){
+      mem = null;
+      if (okL) { try { localStorage.removeItem(KEY); } catch(e){} }
+      if (okS) { try { sessionStorage.removeItem(KEY); } catch(e){} }
+    }
+  };
+})();
+
+let done = false;
+const snapshot = () => ({v:1, answers, sex, age, page, mode, done, savedAt: Date.now()});
+
+function persist(){
+  store.save(snapshot());
+  syncHash(false);
+  markSaved();
+}
+
+/* ================= 第 2 层：网址片段（可收藏 / 可发给自己） =================
+   每 2 题打包成 1 个 36 进制字符（取值 0–5，6×6=36），300 题 = 150 字符。
+   片段按 RFC 3986 不会发送给服务器。                                    */
+const A36 = "0123456789abcdefghijklmnopqrstuvwxyz";
+const HASH_LEN = 9 + 150;
+
+function encodeState(){
+  let body = "";
+  for (let i = 1; i <= 300; i += 2) body += A36[(answers[i]||0) * 6 + (answers[i+1]||0)];
+  return "1" + (sex || "X") + String(age || 0).padStart(3,"0") +
+         (mode === "hints" ? "H" : "P") + String(page).padStart(2,"0") + (done ? "D" : "-") + body;
+}
+
+function decodeState(str){
+  if (!str || str[0] !== "1" || str.length !== HASH_LEN) return null;
+  const a = new Array(301).fill(0);
+  const body = str.slice(9);
+  for (let k = 0; k < 150; k++){
+    const v = A36.indexOf(body[k]);
+    if (v < 0) return null;
+    a[k*2+1] = Math.floor(v / 6); a[k*2+2] = v % 6;
+  }
+  if (a.slice(1).some(v => v > 5)) return null;
+  const s = str[1], ag = +str.slice(2,5), pg = +str.slice(6,8);
+  if (!/^[MFNX]$/.test(s) || !Number.isFinite(ag) || !Number.isFinite(pg)) return null;
+  return {answers:a, sex: s === "X" ? "" : s, age: ag, mode: str[5] === "H" ? "hints" : "plain",
+          page: Math.min(Math.max(pg,0), NPAGES-1), done: str[8] === "D", savedAt: 0};
+}
+
+/* Safari 的 replaceState 限制是 100 次 / 10 秒，这里节流到最多 1 次 / 2 秒 */
+let hashTimer = 0, lastHashWrite = 0;
+function syncHash(force){
+  clearTimeout(hashTimer);
+  const write = () => {
+    lastHashWrite = Date.now();
+    try { history.replaceState(null, "", "#p=" + encodeState()); } catch(e){ /* 超限则静默跳过 */ }
+  };
+  if (force || Date.now() - lastHashWrite > 2000) write();
+  else hashTimer = setTimeout(write, 2000);
+}
+
+/* 页面被隐藏 / 关闭前，强制落一次盘，不等节流 */
+["visibilitychange","pagehide","beforeunload"].forEach(ev =>
+  addEventListener(ev, () => {
+    if (ev === "visibilitychange" && document.visibilityState !== "hidden") return;
+    if (sex) { store.save(snapshot()); syncHash(true); }
+  }, {capture:true}));
+
+function markSaved(){
+  const d = $("#saveDot"), t = $("#saveState");
+  if (!d) return;
+  d.classList.toggle("bad", !store.durable);
+  const now = new Date();
+  const hhmm = String(now.getHours()).padStart(2,"0") + ":" + String(now.getMinutes()).padStart(2,"0");
+  t.textContent = store.durable
+    ? "进度已保存 · " + hhmm + "（关掉网页也不会丢）"
+    : "⚠ 这个浏览器不允许长期保存（可能是无痕模式）——请复制续答链接或导出进度文件";
+}
+
+function applyMode(){
+  document.body.classList.toggle("show-hints", mode === "hints");
+  document.querySelectorAll(".modeopt").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
+  const t = document.querySelector("#hintToggle");
+  if (t){ t.textContent = mode === "hints" ? "详解 开" : "详解 关"; }
+}
+
+/* ================= SCORING (port of five-factor-e, MIT) ================= */
+const REV = new Set(DATA.reversed);
+const CUB = [210.335958661391, 16.7379362643389, 0.405936512733332, 0.00270624341822222];
+const cubic = t => CUB[0] - CUB[1]*t + CUB[2]*t*t - CUB[3]*t*t*t;
+const clampPct = (t, p) => t < 32 ? 1 : (t > 73 ? 99 : p);
+const level = p => { const v = Math.trunc(p); return v < 45 ? "低" : (v <= 55 ? "中等" : "高"); };
+const OCEAN = ["O","C","E","A","N"];
+
+function normVec(sex, age){
+  const s = (sex === "M" || sex === "F") ? sex : "N";
+  return DATA.norms[s + "_" + (age < 21 ? "lt21" : "gte21")].ns;
+}
+
+function score(ans, sex, age){
+  const a = ans.slice();
+  for (const q of DATA.reversed) a[q] = 6 - a[q];
+
+  const ss = new Array(31).fill(0);            // facet raw sums, 1..30
+  for (let j = 0; j < 30; j++)
+    for (let i = 0; i < 10; i++)
+      ss[1+j] += a[1 + i*30 + j];
+
+  const b5 = {N:[0],E:[0],O:[0],A:[0],C:[0]};  // facet raw by domain, 1..6
+  for (let i = 1; i <= 6; i++){
+    b5.N[i] = ss[5*i-4]; b5.E[i] = ss[5*i-3]; b5.O[i] = ss[5*i-2];
+    b5.A[i] = ss[5*i-1]; b5.C[i] = ss[5*i];
+  }
+
+  const dom = {};
+  for (const k of OCEAN) dom[k] = b5[k].slice(1,7).reduce((x,y)=>x+y, 0);
+
+  const ns = normVec(sex, age);
+  const DI = {N:1, E:2, O:3, A:4, C:5};
+  const FO = {N:[10,16], E:[22,28], O:[34,40], A:[46,52], C:[58,64]};
+
+  const out = {};
+  for (const k of OCEAN){
+    const t = 10 * (dom[k] - ns[DI[k]]) / ns[DI[k]+5] + 50;
+    const p = clampPct(t, cubic(t));
+    const facets = [];
+    for (let i = 1; i <= 6; i++){
+      const ft = 50 + 10 * (b5[k][i] - ns[i+FO[k][0]]) / ns[i+FO[k][1]];
+      const fp = clampPct(ft, cubic(ft));
+      facets.push({i, raw:b5[k][i], t:ft, pct:fp, level:level(fp)});
+    }
+    out[k] = {raw:dom[k], t, pct:p, level:level(p), facets};
+  }
+  return out;
+}
+
+/* ================= TEST UI ================= */
+/* 每 5 页（75 题）提示一次休息。依据 Masuda 等 (2017)：大五问卷上题目位置越靠后，
+   中间档背书率越高；分次施测能重置这个漂移。只提示，不强制。 */
+let breakDismissed = -1;
+function renderBreak(){
+  const box = $("#breakCard");
+  const on = page > 0 && page % 5 === 0 && breakDismissed !== page;
+  box.className = on ? "brk" : "hide";
+  if (!on){ box.innerHTML = ""; return; }
+  box.innerHTML =
+    "<b>已经答了 " + (page * PER_PAGE) + " 题，要不要歇一下？</b><br>" +
+    "研究发现，连着答长问卷时越往后越容易往中间档靠——这是疲劳，不是你对后面的题真的更没想法。" +
+    "歇一会儿再回来，这个漂移会被重置。进度已经存好了，关掉网页也不会丢。" +
+    '<div class="btns"><button class="iconbtn" id="brkGo">先歇会儿，回首页</button>' +
+    '<button class="iconbtn" id="brkOn">不用，接着答</button></div>';
+  $("#brkGo").addEventListener("click", () => { breakDismissed = page; persist(); show("intro"); checkResume(); });
+  $("#brkOn").addEventListener("click", () => { breakDismissed = page; renderBreak(); });
+}
+
+function renderPage(){
+  const start = page * PER_PAGE;
+  renderBreak();
+  $("#legend").open = page === 0 && matchMedia("(min-width:561px)").matches;
+  $("#pageTitle").textContent = "第 " + (page+1) + " 页 / 共 " + NPAGES + " 页";
+  $("#pageStat").textContent = "题目 " + (start+1) + "–" + (start+PER_PAGE);
+  const box = $("#qlist");
+  box.innerHTML = "";
+  for (let n = start; n < start + PER_PAGE; n++){
+    const q = DATA.items[n];
+    const row = document.createElement("div");
+    row.className = "qrow" + (answers[q.id] ? " ok" : " unanswered");
+    row.dataset.qid = q.id;
+    row.setAttribute("role", "group");
+    row.setAttribute("aria-labelledby", "qtext-" + q.id);
+    const opts = SCALE.map((lab, k) =>
+      '<button class="opt" data-v="' + (k+1) + '" aria-label="第 ' + q.id + ' 题，' + lab + '" aria-pressed="' +
+      (answers[q.id] === k+1) + '">' + lab + '</button>').join("");
+    const h = DATA.notes[q.id - 1];
+    row.innerHTML =
+      '<div class="qtext"><span class="qnum" aria-hidden="true">' + q.id + '</span><span>' +
+        '<span class="qzh" id="qtext-' + q.id + '">' + q.zh + '</span>' +
+        '<span class="qen">' + q.en + '</span>' +
+      '</span></div>' +
+      '<div class="hint"><div class="hn">' + h.note + '</div><div class="he">' +
+        '<span><i class="tg">偏「不符合」的人</i>' + h.lo + '</span>' +
+        '<span><i class="tg">偏「符合」的人</i>' + h.hi + '</span>' +
+      '</div>' +
+      (h.mid ? '<div class="hm"><i class="tg">卡在中间时</i>' + h.mid + '</div>' : '') +
+      '</div>' +
+      '<div class="opts">' + opts + '</div>';
+    box.appendChild(row);
+  }
+  $("#prevBtn").disabled = page === 0;
+  $("#nextBtn").textContent = page === NPAGES - 1 ? "提交并查看结果" : "下一页";
+  $("#nextBtn").classList.remove("pulse");
+  clearTimeout(autoAdvT);
+  const first = [...box.querySelectorAll(".qrow")].find(r => !answers[+r.dataset.qid]);
+  if (first) first.classList.add("cur");
+  window.scrollTo({top:0});
+  updateProgress();
+}
+
+function updateProgress(){
+  let n = 0;
+  for (let i = 1; i <= 300; i++) if (answers[i]) n++;
+  $("#pbar").style.width = (n / 300 * 100) + "%";
+  document.querySelector(".bar").setAttribute("aria-valuenow", n);
+  $("#pcount").textContent = n + " / 300 · " + Math.round(n / 3) + "%";
+  const rem = 300 - n;
+  $("#eta").textContent = rem
+    ? "剩余约 " + Math.max(1, Math.ceil(rem * .10)) + "–" + Math.max(1, Math.ceil(rem * .15)) + " 分钟"
+    : "已完成";
+  return n;
+}
+
+/* 焦点模式：选完一题自动滑到下一题；整页答完自动翻页（末页则提示提交） */
+const smoothB = () => (matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) ? "auto" : "smooth";
+let scrollT = 0, autoAdvT = 0;
+
+$("#qlist").addEventListener("click", e => {
+  const btn = e.target.closest(".opt");
+  if (!btn) return;
+  const row = btn.closest(".qrow");
+  const qid = +row.dataset.qid;
+  const pageStart = page * PER_PAGE;
+  let answeredBefore = 0;
+  for (let n = pageStart; n < pageStart + PER_PAGE; n++) if (answers[DATA.items[n].id]) answeredBefore++;
+
+  answers[qid] = +btn.dataset.v;
+  row.querySelectorAll(".opt").forEach(b => b.setAttribute("aria-pressed", b === btn));
+  row.classList.remove("unanswered", "flag");
+  row.classList.add("ok");
+  updateProgress();
+  persist();
+
+  document.querySelectorAll(".qrow.cur").forEach(r => r.classList.remove("cur"));
+  const next = [...document.querySelectorAll(".qrow")].find(r => !answers[+r.dataset.qid]);
+  if (next){
+    next.classList.add("cur");
+    clearTimeout(scrollT);
+    scrollT = setTimeout(() => next.scrollIntoView({behavior: smoothB(), block: "center"}), 160);
+    return;
+  }
+  /* 本页刚好答完（不是改已答的题）才自动前进 */
+  if (answeredBefore < PER_PAGE){
+    if (page < NPAGES - 1){
+      const scheduled = page;
+      clearTimeout(autoAdvT);
+      autoAdvT = setTimeout(() => {
+        if (page !== scheduled) return;
+        for (let n = pageStart; n < pageStart + PER_PAGE; n++) if (!answers[DATA.items[n].id]) return;
+        page++; persist(); renderPage();
+      }, 650);
+    } else {
+      const nb = $("#nextBtn");
+      nb.classList.add("pulse");
+      clearTimeout(scrollT);
+      scrollT = setTimeout(() => nb.scrollIntoView({behavior: smoothB(), block: "center"}), 160);
+    }
+  }
+});
+
+/* 桌面端键盘 1–5 直接作答 */
+addEventListener("keydown", e => {
+  if ($("#test").classList.contains("hide")) return;
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const tag = (document.activeElement || {}).tagName || "";
+  if (/INPUT|SELECT|TEXTAREA/.test(tag)) return;
+  const m = /^(?:Numpad)?([1-5])$/.exec(e.code) || (/^[1-5]$/.test(e.key) ? [0, e.key] : null);
+  if (!m) return;
+  const cur = document.querySelector(".qrow.cur") || document.querySelector(".qrow:not(.ok)");
+  if (!cur) return;
+  const opt = cur.querySelectorAll(".opt")[+m[1] - 1];
+  if (opt){ e.preventDefault(); opt.click(); }
+});
+
+$("#nextBtn").addEventListener("click", () => {
+  const start = page * PER_PAGE;
+  const missing = [];
+  for (let n = start; n < start + PER_PAGE; n++) if (!answers[DATA.items[n].id]) missing.push(DATA.items[n].id);
+  if (missing.length){
+    document.querySelectorAll(".qrow.unanswered").forEach(r => r.classList.add("flag"));
+    const first = document.querySelector(".qrow.flag");
+    if (first) first.scrollIntoView({behavior:"smooth", block:"center"});
+    $("#pageHint").textContent = "这一页还有 " + missing.length + " 题没答（已高亮）。";
+    return;
+  }
+  $("#pageHint").textContent = "请判断每句话和平时的你有多符合。";
+  if (page === NPAGES - 1){ showResult(); return; }
+  page++; persist(); renderPage();
+});
+$("#prevBtn").addEventListener("click", () => { if (page > 0){ page--; persist(); renderPage(); } });
+$("#quitBtn").addEventListener("click", () => { persist(); show("intro"); checkResume(); });
+
+/* ================= RESULT UI ================= */
+const COLOR = k => getComputedStyle(document.documentElement).getPropertyValue("--s-" + k).trim();
+const TENDENCY = {
+  O:{lo:"熟悉与具体",hi:"好奇与探索"},
+  C:{lo:"灵活与随性",hi:"有序与计划"},
+  E:{lo:"安静与独处充电",hi:"活跃与人群充电"},
+  A:{lo:"直率与立场优先",hi:"温和与合作"},
+  N:{lo:"情绪平稳与抗压",hi:"感受敏锐与情绪起伏"}
+};
+function tendencyTag(d, p){
+  if (p <= 30) return "偏向" + d.plo.split(" · ")[0];
+  if (p < 45) return "略偏" + d.plo.split(" · ")[0];
+  if (p < 55) return "居中";
+  if (p < 70) return "略偏" + d.phi.split(" · ")[0];
+  return "偏向" + d.phi.split(" · ")[0];
+}
+function tendencyPhrase(d, p){ return p < 50 ? TENDENCY[d.key].lo : TENDENCY[d.key].hi; }
+
+/* Johnson (2005) 判定无效作答的连续同选项上限，对应选项 1–5 */
+const RUN_CUT = [0, 6, 9, 10, 14, 9];
+function longestRuns(a){
+  const best = [0,0,0,0,0,0];
+  let cur = 0, prev = 0;
+  for (let i = 1; i <= 300; i++){
+    if (a[i] === prev) cur++; else { cur = 1; prev = a[i]; }
+    if (cur > best[prev]) best[prev] = cur;
+  }
+  return best;
+}
+
+function showResult(){
+  const res = score(answers, sex, age);
+  window.__res = res;
+  const sexLabel = {M:"男", F:"女", N:"男女合并常模"}[sex] || sex;
+  $("#resMeta").textContent = "对照常模：" + sexLabel + " · " + age + " 岁（" + (age < 21 ? "21 岁以下" : "21 岁及以上") +
+    "组）· " + (mode === "hints" ? "详解模式" : "标准模式");
+  document.querySelectorAll(".reaction").forEach(b => b.setAttribute("aria-pressed", "false"));
+  $("#resultCheckMsg").className = "result-check-msg hide";
+  $("#resultCheckMsg").textContent = "";
+
+  /* 作答有效性检查 */
+  const runs = longestRuns(answers), flags = [];
+  for (let v = 1; v <= 5; v++) if (runs[v] > RUN_CUT[v]) flags.push("连续 " + runs[v] + " 次「" + SCALE[v-1] + "」（阈值 " + RUN_CUT[v] + "）");
+  const box = $("#validity");
+  if (flags.length){
+    box.className = "warn";
+    box.innerHTML = "<b>作答有效性提示</b><br>" + flags.join("；") +
+      "。Johnson (2005) 用这个阈值筛掉「没读题就连点」的作答，被筛掉的约占 3.5%。如果这确实是你的真实作答，忽略即可；如果是快速点选留下的，建议重测。";
+  } else { box.className = "hide"; box.innerHTML = ""; }
+  const modeNote = $("#modeNote");
+  modeNote.className = mode === "hints" ? "muted" : "hide";
+  modeNote.innerHTML = mode === "hints"
+    ? "你用的是详解模式。情境说明会让分数整体略微上移（Schmit 等, 1995），下面的百分位请当作偏乐观的估计；想要更贴近原版常模口径的话，可以用标准模式再测一次对照着看。" : "";
+
+  /* --- domains --- */
+  const dbox = $("#domains"); dbox.innerHTML = "";
+  for (const d of DATA.domains){
+    const r = res[d.key];
+    const el = document.createElement("div");
+    el.className = "dom";
+    el.innerHTML =
+      '<div class="dom-head"><span class="swatch" style="background:' + COLOR(d.key) + '"></span>' +
+        '<h3>' + d.name + '</h3><span class="muted">' + d.en + '</span>' +
+        '<span class="pct">' + Math.round(r.pct) + '</span></div>' +
+      '<div class="track" data-tip="' + d.name + '|' + r.raw + '|' + r.t.toFixed(1) + '|' + Math.round(r.pct) + '">' +
+        '<i style="background:' + COLOR(d.key) + ';width:' + Math.max(1.2, r.pct) + '%"></i><u></u></div>' +
+      '<div class="poles"><span>← ' + d.plo + '</span><span>' + d.phi + ' →</span></div>' +
+      '<p class="sub" style="margin:6px 0 0"><span class="lvl">' + tendencyTag(d, r.pct) + '</span> ' +
+        (r.level === "低" ? d.low : r.level === "高" ? d.high : d.desc) + '</p>';
+    dbox.appendChild(el);
+  }
+
+  drawRadar(res);
+  renderHero(res);
+
+  /* --- facets --- */
+  const fbox = $("#facets"); fbox.innerHTML = "";
+  for (const d of DATA.domains){
+    const r = res[d.key], meta = DATA.facets[d.key];
+    const el = document.createElement("div");
+    el.className = "card"; el.style.margin = "0 0 14px";
+    let rows = "";
+    r.facets.forEach((f, idx) => {
+      const m = meta[idx];
+      rows +=
+        '<div class="fbar" data-tip="' + m[0] + '|' + f.raw + '|' + f.t.toFixed(1) + '|' + Math.round(f.pct) + '|' + m[2] + '">' +
+          '<span class="fname">' + m[0] + '</span>' +
+          '<span class="ftrack"><i style="background:' + COLOR(d.key) + ';width:' + Math.max(1.2, f.pct) + '%"></i><u></u></span>' +
+          '<span class="fpct">' + Math.round(f.pct) + '</span></div>';
+    });
+    el.innerHTML =
+      '<div class="dom-head" style="margin-bottom:8px"><span class="swatch" style="background:' + COLOR(d.key) + '"></span>' +
+        '<h3>' + d.name + '</h3><span class="muted">总分百分位 ' + Math.round(r.pct) + '</span></div>' +
+      rows +
+      '<div class="scaleline"><span></span><div><span>0</span><span>50</span><span>100</span></div><span></span></div>';
+    fbox.appendChild(el);
+  }
+
+  buildTable(res);
+  show("result");
+  done = true;
+  store.save(snapshot());   // 结果也留着：下次打开还能直接看，不用重答
+  syncHash(true);
+}
+
+/* --- radar: single series, vertices carry domain color, values direct-labeled --- */
+function drawRadar(res){
+  const W = 380, R = 116, cx = W/2, cy = 160;
+  const pts = DATA.domains.map((d, i) => {
+    const ang = -Math.PI/2 + i * 2*Math.PI/5;
+    const v = Math.max(2, Math.min(100, res[d.key].pct));
+    return {d, ang, v, x: cx + Math.cos(ang)*R*v/100, y: cy + Math.sin(ang)*R*v/100,
+            ax: cx + Math.cos(ang)*R, ay: cy + Math.sin(ang)*R};
+  });
+  const ring = f => DATA.domains.map((_, i) => {
+    const a = -Math.PI/2 + i*2*Math.PI/5;
+    return (cx + Math.cos(a)*R*f).toFixed(1) + "," + (cy + Math.sin(a)*R*f).toFixed(1);
+  }).join(" ");
+  let s = '<svg viewBox="0 0 ' + W + ' 330" width="100%" style="max-width:400px" role="img" aria-label="五维度百分位轮廓图">';
+  [0.25, 0.75, 1].forEach(f => s += '<polygon points="' + ring(f) + '" fill="none" stroke="var(--grid)" stroke-width="1"/>');
+  s += '<polygon points="' + ring(0.5) + '" fill="none" stroke="var(--axis)" stroke-width="1.5"/>';
+  pts.forEach(p => s += '<line x1="' + cx + '" y1="' + cy + '" x2="' + p.ax.toFixed(1) + '" y2="' + p.ay.toFixed(1) + '" stroke="var(--grid)" stroke-width="1"/>');
+  s += '<polygon points="' + pts.map(p => p.x.toFixed(1) + "," + p.y.toFixed(1)).join(" ") +
+       '" fill="var(--radar-fill)" stroke="var(--text-secondary)" stroke-width="2" stroke-linejoin="round"/>';
+  pts.forEach(p => {
+    s += '<circle cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="5" fill="' + COLOR(p.d.key) +
+         '" stroke="var(--surface-1)" stroke-width="2"/>';
+    const lx = cx + Math.cos(p.ang)*(R+30), ly = cy + Math.sin(p.ang)*(R+30);
+    const anchor = Math.abs(lx-cx) < 12 ? "middle" : (lx > cx ? "start" : "end");
+    s += '<text x="' + lx.toFixed(1) + '" y="' + (ly-1).toFixed(1) + '" text-anchor="' + anchor +
+         '" font-size="13" fill="var(--text-secondary)" font-family="inherit">' + p.d.name + '</text>';
+    s += '<text x="' + lx.toFixed(1) + '" y="' + (ly+15).toFixed(1) + '" text-anchor="' + anchor +
+         '" font-size="14" font-weight="650" fill="var(--text-primary)" font-family="inherit">' + Math.round(p.v) + '</text>';
+  });
+  $("#radar").innerHTML = s + '</svg>';
+}
+
+/* --- 画像摘要：使用中性的倾向描述，不把高低写成好坏 --- */
+function renderHero(res){
+  const doms = DATA.domains.map(d => ({d, pct: res[d.key].pct, dev: Math.abs(res[d.key].pct - 50)}))
+    .sort((a, b) => b.dev - a.dev);
+  const strong = doms.filter(x => x.dev >= 15).slice(0, 3);
+  $("#heroLine").textContent = strong.length
+    ? "你更偏向" + strong.map(x => tendencyPhrase(x.d, x.pct)).join("、")
+    : "五个维度都落在人群的中间地带";
+
+  const chips = [];
+  for (const d of DATA.domains)
+    res[d.key].facets.forEach((f, i) => chips.push({
+      key: d.key, name: DATA.facets[d.key][i][0], pct: Math.round(f.pct), dev: Math.abs(f.pct - 50)
+    }));
+  chips.sort((a, b) => b.dev - a.dev);
+  const top = chips.filter(c => c.dev >= 25).slice(0, 6);
+  $("#heroChips").innerHTML = (top.length ? top : chips.slice(0, 4)).map(c =>
+    '<span class="hero-chip"><span class="swatch" style="background:' + COLOR(c.key) + '"></span>' +
+    c.name + ' <b>' + c.pct + '</b><span class="muted">' + (c.pct >= 50 ? "↑" : "↓") + '</span></span>').join("");
+}
+
+/* --- 分享卡片：纯前端 canvas 生成 PNG，只含分数概览 --- */
+function saveCard(){
+  const res = window.__res; if (!res) return;
+  const W = 1080, H = 1400;
+  const c = document.createElement("canvas"); c.width = W; c.height = H;
+  const x = c.getContext("2d");
+  const F = '-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif';
+  const ink = "#0b0b0b", sub = "#52514e", mut = "#898781", grid = "#e1e0d9", axis = "#c3c2b7";
+  const DC = {O:"#2a78d6", C:"#eb6834", E:"#1baf7a", A:"#eda100", N:"#e87ba4"};
+  const rr = (x0, y0, w, h, r) => { x.beginPath();
+    if (x.roundRect) x.roundRect(x0, y0, w, h, r); else x.rect(x0, y0, w, h); };
+
+  x.fillStyle = "#f9f9f7"; x.fillRect(0, 0, W, H);
+  x.textBaseline = "top";
+
+  x.fillStyle = mut; x.font = "500 26px " + F;
+  x.fillText("大 五 人 格 测 评 · I P I P - N E O - 3 0 0", 72, 64);
+  x.fillStyle = ink; x.font = "700 58px " + F;
+  x.fillText("我的人格画像", 72, 104);
+  x.fillStyle = sub; x.font = "400 30px " + F;
+  x.fillText($("#heroLine").textContent, 72, 182);
+
+  /* 雷达 */
+  const cx = W / 2, cy = 520, R = 218;
+  const P = i => -Math.PI / 2 + i * 2 * Math.PI / 5;
+  const ring = f => { x.beginPath();
+    for (let i = 0; i < 5; i++){ const a = P(i), px = cx + Math.cos(a) * R * f, py = cy + Math.sin(a) * R * f;
+      i ? x.lineTo(px, py) : x.moveTo(px, py); }
+    x.closePath(); };
+  [0.25, 0.75, 1].forEach(f => { ring(f); x.strokeStyle = grid; x.lineWidth = 2; x.stroke(); });
+  ring(0.5); x.strokeStyle = axis; x.lineWidth = 3; x.stroke();
+  for (let i = 0; i < 5; i++){ const a = P(i);
+    x.beginPath(); x.moveTo(cx, cy); x.lineTo(cx + Math.cos(a) * R, cy + Math.sin(a) * R);
+    x.strokeStyle = grid; x.lineWidth = 2; x.stroke(); }
+  x.beginPath();
+  DATA.domains.forEach((d, i) => { const a = P(i), v = Math.max(2, Math.min(100, res[d.key].pct)) / 100;
+    const px = cx + Math.cos(a) * R * v, py = cy + Math.sin(a) * R * v;
+    i ? x.lineTo(px, py) : x.moveTo(px, py); });
+  x.closePath();
+  x.fillStyle = "rgba(82,81,78,.10)"; x.fill();
+  x.strokeStyle = sub; x.lineWidth = 4; x.lineJoin = "round"; x.stroke();
+  DATA.domains.forEach((d, i) => { const a = P(i), v = Math.max(2, Math.min(100, res[d.key].pct)) / 100;
+    const px = cx + Math.cos(a) * R * v, py = cy + Math.sin(a) * R * v;
+    x.beginPath(); x.arc(px, py, 10, 0, 7); x.fillStyle = DC[d.key]; x.fill();
+    x.strokeStyle = "#fff"; x.lineWidth = 4; x.stroke();
+    const lx = cx + Math.cos(a) * (R + 56), ly = cy + Math.sin(a) * (R + 56);
+    x.textAlign = Math.abs(lx - cx) < 20 ? "center" : (lx > cx ? "left" : "right");
+    x.fillStyle = sub; x.font = "500 28px " + F; x.fillText(d.name, lx, ly - 20);
+    x.fillStyle = ink; x.font = "700 32px " + F; x.fillText(String(Math.round(res[d.key].pct)), lx, ly + 14);
+  });
+  x.textAlign = "left";
+
+  /* 维度条 */
+  let y = 830;
+  x.fillStyle = mut; x.font = "500 24px " + F;
+  x.fillText("百分位 · 对照 " + ({M:"男性",F:"女性",N:"合并"}[sex] || "") + "常模，50 = 人群中位数", 72, y); y += 52;
+  for (const d of DATA.domains){
+    const p = Math.round(res[d.key].pct);
+    x.fillStyle = ink; x.font = "600 30px " + F; x.fillText(d.name, 72, y);
+    x.fillStyle = mut; x.font = "400 24px " + F; x.fillText(levelWord(p), 202, y + 3);
+    rr(300, y + 6, 620, 18, 9); x.fillStyle = grid; x.fill();
+    rr(300, y + 6, Math.max(10, 620 * p / 100), 18, 9); x.fillStyle = DC[d.key]; x.fill();
+    x.fillStyle = "#fff"; x.fillRect(300 + 310 - 1.5, y + 3, 3, 24);
+    x.fillStyle = ink; x.font = "700 30px " + F; x.textAlign = "right"; x.fillText(String(p), 1008, y);
+    x.textAlign = "left";
+    y += 74;
+  }
+
+  /* 页脚 */
+  y = H - 148;
+  x.strokeStyle = grid; x.lineWidth = 2;
+  x.beginPath(); x.moveTo(72, y); x.lineTo(W - 72, y); x.stroke();
+  x.fillStyle = ink; x.font = "600 30px " + F;
+  x.fillText("big5.try-board-game.uk", 72, y + 28);
+  x.fillStyle = mut; x.font = "400 24px " + F;
+  x.fillText("300 题 · 30 个子面向 · 免费 · 作答只留在你自己的浏览器", 72, y + 74);
+  x.textAlign = "right";
+  x.fillText(new Date().toLocaleDateString("zh-CN"), W - 72, y + 28);
+  x.textAlign = "left";
+
+  c.toBlob(b => {
+    const u = URL.createObjectURL(b), a = document.createElement("a");
+    a.href = u; a.download = "大五人格画像-IPIP300.png"; a.click();
+    URL.revokeObjectURL(u);
+  }, "image/png");
+}
+
+function buildTable(res){
+  let h = '<table><thead><tr><th>维度 / 子面向</th><th class="n">原始分</th><th class="n">T 分</th><th class="n">百分位</th><th>水平</th></tr></thead><tbody>';
+  for (const d of DATA.domains){
+    const r = res[d.key];
+    h += '<tr><td><b>' + d.name + '</b></td><td class="n">' + r.raw + '</td><td class="n">' + r.t.toFixed(1) +
+         '</td><td class="n"><b>' + Math.round(r.pct) + '</b></td><td>' + r.level + '</td></tr>';
+    r.facets.forEach((f, i) => {
+      h += '<tr><td style="padding-left:24px;color:var(--text-secondary)">' + DATA.facets[d.key][i][0] +
+           '</td><td class="n">' + f.raw + '</td><td class="n">' + f.t.toFixed(1) +
+           '</td><td class="n">' + Math.round(f.pct) + '</td><td>' + f.level + '</td></tr>';
+    });
+  }
+  $("#tableView").innerHTML = h + '</tbody></table>';
+}
+
+/* --- hover tooltip --- */
+const tip = $("#tip");
+document.addEventListener("mousemove", e => {
+  const el = e.target.closest("[data-tip]");
+  if (!el){ tip.style.opacity = 0; return; }
+  const p = el.dataset.tip.split("|");
+  tip.innerHTML = '<b>' + p[0] + '</b><br>原始分 ' + p[1] + ' · T 分 ' + p[2] + ' · 百分位 ' + p[3] +
+                  (p[4] ? '<br><span style="color:var(--text-secondary)">' + p[4] + '</span>' : '');
+  tip.style.opacity = 1;
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  tip.style.left = Math.min(e.clientX + 14, innerWidth - w - 10) + "px";
+  tip.style.top  = Math.max(8, e.clientY - h - 12) + "px";
+});
+
+/* ================= nav / io ================= */
+function show(id){
+  ["intro","test","result"].forEach(s => $("#"+s).classList.toggle("hide", s !== id));
+  const inTest = id === "test";
+  document.querySelector(".bar").classList.toggle("hide", !inTest);
+  $("#pcount").classList.toggle("hide", !inTest);
+  $("#enToggle").classList.toggle("hide", !inTest);
+  $("#hintToggle").classList.toggle("hide", !inTest);
+  window.scrollTo({top:0});
+}
+
+document.querySelectorAll(".modeopt").forEach(b =>
+  b.addEventListener("click", () => { mode = b.dataset.mode; applyMode(); }));
+$("#hintToggle").addEventListener("click", () => {
+  mode = mode === "hints" ? "plain" : "hints"; applyMode(); persist();
+});
+
+$("#startForm").addEventListener("submit", e => {
+  e.preventDefault();
+  sex = $("#sex").value; age = parseInt($("#age").value, 10);
+  const err = $("#startError");
+  if (!sex){
+    err.textContent = "请选择性别，或选择「不作区分 / 其他」使用男女合并常模。";
+    err.className = "form-error";
+    $("#sex").focus();
+    return;
+  }
+  if (!(age >= 10 && age <= 110)){
+    err.textContent = "请填写 10–110 之间的年龄，用于匹配相应的对照常模。";
+    err.className = "form-error";
+    $("#age").focus();
+    return;
+  }
+  err.className = "form-error hide";
+  err.textContent = "";
+  answers = new Array(301).fill(0); page = 0; done = false;
+  persist(); show("test"); renderPage();
+});
+["sex","age"].forEach(id => $("#" + id).addEventListener("input", () => {
+  $("#startError").className = "form-error hide";
+  $("#startError").textContent = "";
+}));
+
+const answeredCount = s => s && Array.isArray(s.answers) ? s.answers.slice(1).filter(Boolean).length : 0;
+
+function validSaved(s){
+  if (!s || !Array.isArray(s.answers) || s.answers.length !== 301) return null;
+  if (s.answers.slice(1).some(v => !Number.isInteger(v) || v < 0 || v > 5)) return null;
+  if (!["M","F","N"].includes(s.sex) || !(+s.age >= 10 && +s.age <= 110)) return null;
+  return {
+    ...s,
+    age:+s.age,
+    page:Math.min(Math.max(+s.page || 0, 0), NPAGES - 1),
+    mode:s.mode === "plain" ? "plain" : "hints",
+    done:!!s.done,
+    savedAt:+s.savedAt || 0
+  };
+}
+
+function naturalResumePage(s){
+  const savedPage = Math.min(Math.max(+s.page || 0, 0), NPAGES - 1);
+  const pageHasMissing = p => {
+    const start = p * PER_PAGE + 1;
+    for (let q = start; q < start + PER_PAGE; q++) if (!s.answers[q]) return true;
+    return false;
+  };
+  if (pageHasMissing(savedPage)) return savedPage;
+  for (let p = savedPage + 1; p < NPAGES; p++) if (pageHasMissing(p)) return p;
+  for (let p = 0; p < savedPage; p++) if (pageHasMissing(p)) return p;
+  return savedPage;
+}
+
+let restoreToastTimer = 0;
+function announceRestore(title, meta){
+  clearTimeout(restoreToastTimer);
+  $("#restoreToastTitle").textContent = title;
+  $("#restoreToastMeta").textContent = meta;
+  $("#restoreToast").classList.remove("hide");
+  restoreToastTimer = setTimeout(() => $("#restoreToast").classList.add("hide"), 6500);
+}
+$("#restoreToastClose").addEventListener("click", () => {
+  clearTimeout(restoreToastTimer);
+  $("#restoreToast").classList.add("hide");
+});
+
+/* 恢复一份存档：本地存储与网址片段取「答得更多」的那份 */
+function bestSaved(){
+  const local = validSaved(store.load());
+  const m = /[#&]p=([0-9A-Za-z-]+)/.exec(location.hash || "");
+  const fromUrl = validSaved(m ? decodeState(m[1]) : null);
+  const count = s => s ? answeredCount(s) : -1;
+  if (!local && !fromUrl) return null;
+  if (!fromUrl) return local;
+  if (!local) return fromUrl;
+  /* 同样完整时优先尊重当前网址，行为与 TYPES 的结果链接一致。 */
+  return count(fromUrl) >= count(local) ? fromUrl : local;
+}
+
+function applySaved(s){
+  answers = s.answers.slice(); sex = s.sex || ""; age = s.age || 0;
+  page = Math.min(s.page || 0, NPAGES - 1); mode = s.mode || mode; done = !!s.done;
+  applyMode();
+}
+
+$("#resumeBtn").addEventListener("click", () => {
+  const s = bestSaved(); if (!s) return;
+  applySaved(s);
+  if (done){ showResult(); return; }
+  persist(); show("test"); renderPage();
+});
+$("#freshBtn").addEventListener("click", () => {
+  store.clear();
+  try { history.replaceState(null, "", location.pathname + location.search); } catch(e){}
+  answers = new Array(301).fill(0); page = 0; done = false;
+  $("#resumeCard").classList.add("hide");
+  $("#sex").focus();
+});
+
+function checkResume(){
+  const s = bestSaved();
+  const n = s ? s.answers.filter(Boolean).length : 0;
+  const card = $("#resumeCard");
+  card.classList.toggle("hide", !(s && n > 0));
+  if (s && n > 0){
+    $("#sex").value = s.sex || ""; $("#age").value = s.age || "";
+    if (s.mode){ mode = s.mode; applyMode(); }
+    const when = s.savedAt ? new Date(s.savedAt).toLocaleString("zh-CN",
+        {month:"numeric", day:"numeric", hour:"2-digit", minute:"2-digit"}) : "";
+    if (s.done){
+      $("#resumeTitle").textContent = "你上次已经做完了一次测评";
+      $("#resumeMeta").textContent = "结果还在，可以直接查看。" + (when ? "完成于 " + when : "");
+      $("#resumeBtn").textContent = "查看上次的结果";
+    } else {
+      $("#resumeTitle").textContent = "你有一份没做完的作答";
+      $("#resumeMeta").textContent = "已答 " + n + " / 300 题，停在第 " + ((s.page||0)+1) + " 页。" +
+        (when ? "上次保存 " + when + "。" : "");
+      $("#resumeBtn").textContent = "接着上次继续答";
+    }
+  }
+  /* 存储不可用时立刻讲清楚，别等用户答到一半才发现 */
+  const w = $("#storageWarn");
+  if (!store.durable){
+    w.className = "warn";
+    w.innerHTML = "<b>这个浏览器不会长期保存进度</b><br>可能是无痕/隐私模式，或者你关闭了网站数据存储。" +
+      (store.anyStorage ? "本次会话内还能续答，但<b>关掉浏览器后进度会丢失</b>。" : "进度<b>刷新页面就会丢失</b>。") +
+      "建议答题过程中随时用页面底部的「复制续答链接」或「导出进度文件」自己留一份。";
+  } else { w.className = "hide"; w.innerHTML = ""; }
+}
+
+$("#linkBtn").addEventListener("click", async () => {
+  syncHash(true);
+  const url = location.href;
+  const tip = $("#copied");
+  try {
+    await navigator.clipboard.writeText(url);
+    tip.textContent = "已复制，发给自己保存即可";
+  } catch(e){
+    tip.textContent = "复制失败，请手动复制地址栏的完整网址";
+  }
+  setTimeout(() => { tip.textContent = ""; }, 4000);
+});
+
+$("#resultLinkBtn").addEventListener("click", async () => {
+  syncHash(true);
+  const tip = $("#resultCopied");
+  try {
+    await navigator.clipboard.writeText(location.href);
+    tip.textContent = "结果链接已复制。";
+  } catch(e){
+    tip.textContent = "复制失败，请手动复制地址栏中的完整网址。";
+  }
+  setTimeout(() => { tip.textContent = ""; }, 4000);
+});
+
+function download(name, obj){
+  const b = new Blob([JSON.stringify(obj, null, 1)], {type:"application/json"});
+  const u = URL.createObjectURL(b), a = document.createElement("a");
+  a.href = u; a.download = name; a.click(); URL.revokeObjectURL(u);
+}
+$("#saveBtn").addEventListener("click", () => download("ipipneo300-进度.json", snapshot()));
+$("#importBtn").addEventListener("click", () => $("#importFile").click());
+$("#importFile").addEventListener("change", e => {
+  const f = e.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = () => { try {
+    const s = JSON.parse(r.result);
+    if (!Array.isArray(s.answers) || s.answers.length !== 301) throw 0;
+    applySaved(s);
+    persist();
+    if (done && sex && age){ showResult(); return; }
+    show("test"); renderPage();
+  } catch(err){ alert("这个文件读不出来，请确认是本工具导出的进度文件。"); } };
+  r.readAsText(f);
+});
+$("#exportBtn").addEventListener("click", () => {
+  const r = window.__res, out = {instrument:"IPIP-NEO-300", lang:"zh-CN", sex, age,
+    mode: mode === "hints" ? "contextualized (详解模式)" : "standard (标准模式)",
+    domains:{}, answers:answers.slice(1)};
+  for (const d of DATA.domains) out.domains[d.key] = {
+    name:d.name, raw:r[d.key].raw, t:+r[d.key].t.toFixed(2), percentile:Math.round(r[d.key].pct),
+    facets: r[d.key].facets.map((f,i) => ({name:DATA.facets[d.key][i][0], key:DATA.facets[d.key][i][1],
+      raw:f.raw, t:+f.t.toFixed(2), percentile:Math.round(f.pct)}))
+  };
+  download("大五人格结果-IPIP-NEO-300.json", out);
+});
+$("#tableToggle").addEventListener("click", () => $("#tableView").classList.toggle("on"));
+$("#printBtn").addEventListener("click", () => window.print());
+$("#printBtn2").addEventListener("click", () => window.print());
+$("#cardBtn").addEventListener("click", saveCard);
+document.querySelectorAll(".reaction").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".reaction").forEach(x => x.setAttribute("aria-pressed", x === b));
+  const messages = {
+    yes:"很好。可以继续看 30 个子面向，确认这些倾向在生活中具体体现在哪里。",
+    some:"很正常：五个总分会压缩细节。优先看下方 30 个子面向，通常能找到更贴近你的组合。",
+    no:"先检查作答有效性、疲劳和常模局限。结果不是诊断；如果整体明显不符，可以休息后换一种作答模式再测一次。"
+  };
+  const msg = $("#resultCheckMsg");
+  msg.textContent = messages[b.dataset.reaction];
+  msg.className = "result-check-msg";
+}));
+$("#restartBtn").addEventListener("click", () => {
+  store.clear();
+  try { history.replaceState(null, "", location.pathname + location.search); } catch(e){}
+  answers = new Array(301).fill(0); page = 0; done = false;
+  show("intro"); checkResume(); updateProgress();
+});
+$("#enToggle").addEventListener("click", () => document.body.classList.toggle("show-en"));
+$("#themeToggle").addEventListener("click", () => {
+  const d = document.documentElement.getAttribute("data-theme") === "dark";
+  document.documentElement.setAttribute("data-theme", d ? "light" : "dark");
+  $("#themeToggle").textContent = d ? "深色" : "浅色";
+  if (window.__res) drawRadar(window.__res);
+});
+if (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches){
+  document.documentElement.setAttribute("data-theme","dark"); $("#themeToggle").textContent = "浅色";
+}
+
+function boot(){
+  applyMode();
+  const s = bestSaved(), n = answeredCount(s);
+  if (s && n > 0){
+    applySaved(s);
+    if (done && n === 300){
+      showResult();
+      announceRestore("已回到你的上次结果", "300 / 300 题 · 结果仍保存在这个浏览器");
+      return;
+    }
+    done = false;
+    page = naturalResumePage(s);
+    persist();
+    show("test");
+    renderPage();
+    announceRestore("已自动恢复上次作答", "已答 " + n + " / 300 题 · 从第 " + (page + 1) + " 页继续");
+    return;
+  }
+  show("intro");
+  checkResume();
+  updateProgress();
+}
+boot();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1d52221ac891465292b60591675773e4","r":1}' crossorigin="anonymous"></script>
+</body>
+</html>

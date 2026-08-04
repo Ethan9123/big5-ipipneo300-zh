@@ -1,0 +1,278 @@
+{
+ "n_balanced_facets": 15,
+ "corr_imbalance_vs_abs_r": 0.5595,
+ "corr_signed_keying_dev_vs_r": 0.741,
+ "mean_abs_r_balanced_facets": 0.0478,
+ "mean_abs_r_imbalanced_facets": 0.0981,
+ "max_abs_r": 0.1959,
+ "facets": [
+  {
+   "scale": "A2 正直",
+   "n_reverse_of_10": 8,
+   "imbalance": 3,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": -0.1959,
+   "printed_pct_pts_at_median_per_1sd": -6.95
+  },
+  {
+   "scale": "N4 自我意识",
+   "n_reverse_of_10": 4,
+   "imbalance": 1,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": 0.1646,
+   "printed_pct_pts_at_median_per_1sd": 5.84
+  },
+  {
+   "scale": "N3 抑郁",
+   "n_reverse_of_10": 3,
+   "imbalance": 2,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": 0.1484,
+   "printed_pct_pts_at_median_per_1sd": 5.27
+  },
+  {
+   "scale": "O4 冒险",
+   "n_reverse_of_10": 6,
+   "imbalance": 1,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": -0.1303,
+   "printed_pct_pts_at_median_per_1sd": -4.63
+  },
+  {
+   "scale": "O6 自由主义",
+   "n_reverse_of_10": 7,
+   "imbalance": 2,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": -0.1127,
+   "printed_pct_pts_at_median_per_1sd": -4.01
+  },
+  {
+   "scale": "O1 想象力",
+   "n_reverse_of_10": 4,
+   "imbalance": 1,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": 0.1116,
+   "printed_pct_pts_at_median_per_1sd": 3.97
+  },
+  {
+   "scale": "A4 合作",
+   "n_reverse_of_10": 7,
+   "imbalance": 2,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": -0.1103,
+   "printed_pct_pts_at_median_per_1sd": -3.92
+  },
+  {
+   "scale": "E5 寻求刺激",
+   "n_reverse_of_10": 2,
+   "imbalance": 3,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": 0.1046,
+   "printed_pct_pts_at_median_per_1sd": 3.72
+  },
+  {
+   "scale": "E2 合群",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": -0.1022,
+   "printed_pct_pts_at_median_per_1sd": -3.64
+  },
+  {
+   "scale": "E1 友善",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": -0.0968,
+   "printed_pct_pts_at_median_per_1sd": -3.44
+  },
+  {
+   "scale": "N5 放纵",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": 0.0914,
+   "printed_pct_pts_at_median_per_1sd": 3.25
+  },
+  {
+   "scale": "C2 条理性",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": 0.0873,
+   "printed_pct_pts_at_median_per_1sd": 3.11
+  },
+  {
+   "scale": "C4 成就追求",
+   "n_reverse_of_10": 3,
+   "imbalance": 2,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": 0.0863,
+   "printed_pct_pts_at_median_per_1sd": 3.07
+  },
+  {
+   "scale": "A6 同情",
+   "n_reverse_of_10": 6,
+   "imbalance": 1,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": -0.0851,
+   "printed_pct_pts_at_median_per_1sd": -3.03
+  },
+  {
+   "scale": "C6 谨慎",
+   "n_reverse_of_10": 7,
+   "imbalance": 2,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": -0.0719,
+   "printed_pct_pts_at_median_per_1sd": -2.56
+  },
+  {
+   "scale": "A1 信任",
+   "n_reverse_of_10": 4,
+   "imbalance": 1,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": -0.0642,
+   "printed_pct_pts_at_median_per_1sd": -2.29
+  },
+  {
+   "scale": "E6 快乐",
+   "n_reverse_of_10": 2,
+   "imbalance": 3,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": 0.0623,
+   "printed_pct_pts_at_median_per_1sd": 2.22
+  },
+  {
+   "scale": "N1 焦虑",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": 0.061,
+   "printed_pct_pts_at_median_per_1sd": 2.17
+  },
+  {
+   "scale": "E4 活跃度",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": -0.0547,
+   "printed_pct_pts_at_median_per_1sd": -1.95
+  },
+  {
+   "scale": "N2 愤怒",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": 0.0408,
+   "printed_pct_pts_at_median_per_1sd": 1.45
+  },
+  {
+   "scale": "C3 尽责",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": -0.0319,
+   "printed_pct_pts_at_median_per_1sd": -1.13
+  },
+  {
+   "scale": "O3 情绪感受性",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": 0.0308,
+   "printed_pct_pts_at_median_per_1sd": 1.1
+  },
+  {
+   "scale": "N6 脆弱",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": 0.027,
+   "printed_pct_pts_at_median_per_1sd": 0.96
+  },
+  {
+   "scale": "O2 艺术兴趣",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": -0.0258,
+   "printed_pct_pts_at_median_per_1sd": -0.92
+  },
+  {
+   "scale": "O5 智性",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": 0.0231,
+   "printed_pct_pts_at_median_per_1sd": 0.82
+  },
+  {
+   "scale": "A3 利他",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": -0.021,
+   "printed_pct_pts_at_median_per_1sd": -0.75
+  },
+  {
+   "scale": "C5 自律",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": -0.0138,
+   "printed_pct_pts_at_median_per_1sd": -0.49
+  },
+  {
+   "scale": "A5 谦逊",
+   "n_reverse_of_10": 6,
+   "imbalance": 1,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": -0.0136,
+   "printed_pct_pts_at_median_per_1sd": -0.48
+  },
+  {
+   "scale": "C1 自我效能",
+   "n_reverse_of_10": 4,
+   "imbalance": 1,
+   "index_items_used": 150,
+   "r_with_balanced_acq_index": 0.0101,
+   "printed_pct_pts_at_median_per_1sd": 0.36
+  },
+  {
+   "scale": "E3 自信主张",
+   "n_reverse_of_10": 5,
+   "imbalance": 0,
+   "index_items_used": 140,
+   "r_with_balanced_acq_index": -0.0091,
+   "printed_pct_pts_at_median_per_1sd": -0.33
+  }
+ ],
+ "acq_index_sd_in_response_units": 0.1462,
+ "domains": [
+  {
+   "domain": "N",
+   "n_reverse_of_60": 27,
+   "r_with_balanced_acq_index": -0.0022
+  },
+  {
+   "domain": "E",
+   "n_reverse_of_60": 24,
+   "r_with_balanced_acq_index": -0.0714
+  },
+  {
+   "domain": "O",
+   "n_reverse_of_60": 32,
+   "r_with_balanced_acq_index": -0.0018
+  },
+  {
+   "domain": "A",
+   "n_reverse_of_60": 36,
+   "r_with_balanced_acq_index": -0.1067
+  },
+  {
+   "domain": "C",
+   "n_reverse_of_60": 29,
+   "r_with_balanced_acq_index": 0.0518
+  }
+ ]
+}

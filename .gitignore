@@ -1,0 +1,27 @@
+# Credentials -- never commit. .env holds the Cloudflare API token.
+.env
+.env.*
+*.pem
+*.key
+
+# Derived from the Kaggle IPIP-NEO-300 dataset. Large and fully regenerable:
+#   python tools/fetch_dataset.py && python tools/prep.py
+tools/out/scored.npz
+tools/out/meta.csv
+tools/out/sample_rows.json
+
+# Installed packages / caches
+tools/pylib/
+__pycache__/
+*.pyc
+.wrangler/
+
+# site/index.html is the captured production page (the "before"); index.optimized.html is
+# an intermediate. dist/ IS tracked on purpose: it is what ships, it is only 0.8 MB, and
+# committing it means the repo is deployable as-is -- point Cloudflare Pages at `dist`
+# with no build step, and the deployed artifact finally has a version history.
+site/index.optimized.html
+
+# Scratch
+*.log
+tools/out/*.before_*.json

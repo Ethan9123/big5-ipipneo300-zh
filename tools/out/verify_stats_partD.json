@@ -1,0 +1,278 @@
+{
+ "n": 145388,
+ "rail": {
+  "cells_respondent_x_scale": 5088580,
+  "n_low_rail_T_lt32": 203169,
+  "n_high_rail_T_gt73": 24345,
+  "n_any_rail": 227514,
+  "pct_low": 3.9926,
+  "pct_high": 0.4784,
+  "pct_any": 4.4711,
+  "respondents_with_ge1_railed": 77359,
+  "pct_respondents_with_ge1_railed": 53.2087,
+  "mean_railed_scales_per_respondent": 1.5649,
+  "domains_only_pct": 4.5806,
+  "facets_only_pct": 4.4528,
+  "displayed_round_eq1_or_99_pct": 6.51,
+  "cubic_at_T32": 1.722802913172515,
+  "cubic_at_T73": 98.92759189402409,
+  "cubic_min_over_data": 0.3251671084405672,
+  "cubic_max_over_data": 348.72111654548513,
+  "per_scale_worst8": [
+   [
+    "O2",
+    7.1877,
+    7.1877,
+    0.0
+   ],
+   [
+    "O5",
+    6.5315,
+    6.5315,
+    0.0
+   ],
+   [
+    "C4",
+    6.147,
+    6.147,
+    0.0
+   ],
+   [
+    "A1",
+    6.1449,
+    6.0982,
+    0.0468
+   ],
+   [
+    "C1",
+    5.7928,
+    5.7928,
+    0.0
+   ],
+   [
+    "O1",
+    5.5954,
+    5.5954,
+    0.0
+   ],
+   [
+    "C3",
+    5.3959,
+    5.3959,
+    0.0
+   ],
+   [
+    "C",
+    5.3746,
+    4.7287,
+    0.6459
+   ]
+  ],
+  "per_scale_best5": [
+   [
+    "N3",
+    1.3027,
+    0.1424,
+    1.1603
+   ],
+   [
+    "N2",
+    2.928,
+    2.2079,
+    0.7201
+   ],
+   [
+    "C2",
+    3.0002,
+    2.7499,
+    0.2504
+   ],
+   [
+    "E5",
+    3.1179,
+    2.3853,
+    0.7325
+   ],
+   [
+    "N1",
+    3.5285,
+    2.8015,
+    0.727
+   ]
+  ],
+  "pooled_N_norms_pct_any": 4.5153
+ },
+ "meta_columns": [
+  "case",
+  "country",
+  "sex",
+  "age",
+  "year"
+ ],
+ "country": {
+  "n_rows": 145388,
+  "n_distinct_labels": 224,
+  "blank": 140,
+  "top25": [
+   [
+    "USA",
+    100608,
+    69.1997
+   ],
+   [
+    "Canada",
+    10382,
+    7.1409
+   ],
+   [
+    "UK",
+    7680,
+    5.2824
+   ],
+   [
+    "Australia",
+    4978,
+    3.4239
+   ],
+   [
+    "Netherlands",
+    1853,
+    1.2745
+   ],
+   [
+    "India",
+    1218,
+    0.8378
+   ],
+   [
+    "Thailand",
+    1156,
+    0.7951
+   ],
+   [
+    "Singapore",
+    1149,
+    0.7903
+   ],
+   [
+    "Philippines",
+    1088,
+    0.7483
+   ],
+   [
+    "Finland",
+    992,
+    0.6823
+   ],
+   [
+    "New Zealand",
+    911,
+    0.6266
+   ],
+   [
+    "Ireland",
+    904,
+    0.6218
+   ],
+   [
+    "Sweden",
+    738,
+    0.5076
+   ],
+   [
+    "Germany",
+    574,
+    0.3948
+   ],
+   [
+    "Norway",
+    520,
+    0.3577
+   ],
+   [
+    "China",
+    484,
+    0.3329
+   ],
+   [
+    "South Afric",
+    406,
+    0.2793
+   ],
+   [
+    "France",
+    398,
+    0.2738
+   ],
+   [
+    "Malaysia",
+    394,
+    0.271
+   ],
+   [
+    "Hong Kong",
+    356,
+    0.2449
+   ],
+   [
+    "Denmark",
+    319,
+    0.2194
+   ],
+   [
+    "Brazil",
+    305,
+    0.2098
+   ],
+   [
+    "Mexico",
+    304,
+    0.2091
+   ],
+   [
+    "Belgium",
+    303,
+    0.2084
+   ],
+   [
+    "Greece",
+    288,
+    0.1981
+   ]
+  ],
+  "label_probe": {
+   "USA": 100608,
+   "US": 0,
+   "United States": 0,
+   "CAN": 0,
+   "Canada": 10382,
+   "GBR": 0,
+   "UK": 7680,
+   "United Kingdom": 0,
+   "AUS": 0,
+   "Australia": 4978,
+   "NZL": 0,
+   "New Zealand": 911,
+   "IRL": 0,
+   "Ireland": 904,
+   "CN": 0,
+   "CHN": 0,
+   "China": 484,
+   "HK": 0,
+   "HKG": 0,
+   "Hong Kong": 356,
+   "TW": 0,
+   "TWN": 0,
+   "Taiwan": 128,
+   "SG": 0,
+   "SGP": 0,
+   "Singapore": 1149,
+   "NL": 0,
+   "NLD": 0,
+   "Netherlands": 1853,
+   "IN": 0,
+   "IND": 0,
+   "India": 1218
+  }
+ }
+}

@@ -1,0 +1,324 @@
+{
+ "file": "C:\\Users\\kids1\\Downloads\\bigfive\\tools\\out\\profiles_ordered.json",
+ "n_profiles": 243,
+ "covers_243": true,
+ "placeholder_profiles": 243,
+ "rules": {
+  "type_name": {
+   "hits": 0,
+   "profiles": 0,
+   "examples": []
+  },
+  "determinism": {
+   "hits": 0,
+   "profiles": 0,
+   "examples": []
+  },
+  "flattery": {
+   "hits": 0,
+   "profiles": 0,
+   "examples": []
+  },
+  "clinical": {
+   "hits": 0,
+   "profiles": 0,
+   "examples": []
+  },
+  "diagnosis_hint": {
+   "hits": 0,
+   "profiles": 0,
+   "examples": []
+  },
+  "judge_others": {
+   "hits": 0,
+   "profiles": 0,
+   "examples": []
+  },
+  "english_term": {
+   "hits": 0,
+   "profiles": 0,
+   "examples": []
+  },
+  "introvert_label": {
+   "hits": 0,
+   "profiles": 0,
+   "examples": []
+  }
+ },
+ "cost_audit": {
+  "N低": {
+   "group_size": 81,
+   "weak_count": 81,
+   "weak_ratio": 1.0,
+   "worst10": [
+    {
+     "cell": "O中C中E中A中N低",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E中A低N低",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E中A高N低",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E低A中N低",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E低A低N低",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E低A高N低",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E高A中N低",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E高A低N低",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E高A高N低",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C低E中A中N低",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    }
+   ]
+  },
+  "A高": {
+   "group_size": 81,
+   "weak_count": 81,
+   "weak_ratio": 1.0,
+   "worst10": [
+    {
+     "cell": "O中C中E中A高N中",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E中A高N低",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E中A高N高",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E低A高N中",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E低A高N低",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E低A高N高",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E高A高N中",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E高A高N低",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C中E高A高N高",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    },
+    {
+     "cell": "O中C低E中A高N中",
+     "score": 6,
+     "cons": [
+      "占位缺点一",
+      "占位缺点二",
+      "占位缺点三"
+     ],
+     "has_cost_keyword": false,
+     "praise_words": [],
+     "vague_items": 3,
+     "cons_missing_or_empty": false
+    }
+   ]
+  }
+ }
+}

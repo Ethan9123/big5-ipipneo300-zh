@@ -1,0 +1,471 @@
+{
+ "per_page": 15,
+ "n_pages": 20,
+ "printed_median_bias": [
+  {
+   "scale": "N5 放纵",
+   "printed_median": 59.22,
+   "bias_vs_50": 9.22,
+   "share_pinned_1": 0.0222,
+   "share_pinned_99": 0.055
+  },
+  {
+   "scale": "E5 寻求刺激",
+   "printed_median": 58.64,
+   "bias_vs_50": 8.64,
+   "share_pinned_1": 0.0239,
+   "share_pinned_99": 0.0301
+  },
+  {
+   "scale": "E1 友善",
+   "printed_median": 58.31,
+   "bias_vs_50": 8.31,
+   "share_pinned_1": 0.0403,
+   "share_pinned_99": 0.0073
+  },
+  {
+   "scale": "A3 利他",
+   "printed_median": 57.76,
+   "bias_vs_50": 7.76,
+   "share_pinned_1": 0.0421,
+   "share_pinned_99": 0.0044
+  },
+  {
+   "scale": "E6 快乐",
+   "printed_median": 57.49,
+   "bias_vs_50": 7.49,
+   "share_pinned_1": 0.0453,
+   "share_pinned_99": 0.0046
+  },
+  {
+   "scale": "E2 合群",
+   "printed_median": 57.44,
+   "bias_vs_50": 7.44,
+   "share_pinned_1": 0.0285,
+   "share_pinned_99": 0.0327
+  },
+  {
+   "scale": "A4 合作",
+   "printed_median": 56.69,
+   "bias_vs_50": 6.69,
+   "share_pinned_1": 0.0386,
+   "share_pinned_99": 0.0148
+  },
+  {
+   "scale": "E",
+   "printed_median": 56.49,
+   "bias_vs_50": 6.49,
+   "share_pinned_1": 0.0366,
+   "share_pinned_99": 0.0235
+  },
+  {
+   "scale": "A5 谦逊",
+   "printed_median": 55.58,
+   "bias_vs_50": 5.58,
+   "share_pinned_1": 0.0268,
+   "share_pinned_99": 0.0368
+  },
+  {
+   "scale": "A",
+   "printed_median": 55.2,
+   "bias_vs_50": 5.2,
+   "share_pinned_1": 0.0436,
+   "share_pinned_99": 0.0177
+  },
+  {
+   "scale": "O2 艺术兴趣",
+   "printed_median": 53.66,
+   "bias_vs_50": 3.66,
+   "share_pinned_1": 0.0719,
+   "share_pinned_99": 0.0
+  },
+  {
+   "scale": "A2 正直",
+   "printed_median": 53.5,
+   "bias_vs_50": 3.5,
+   "share_pinned_1": 0.0528,
+   "share_pinned_99": 0.007
+  },
+  {
+   "scale": "N3 抑郁",
+   "printed_median": 46.67,
+   "bias_vs_50": -3.33,
+   "share_pinned_1": 0.0014,
+   "share_pinned_99": 0.0421
+  },
+  {
+   "scale": "C3 尽责",
+   "printed_median": 53.29,
+   "bias_vs_50": 3.29,
+   "share_pinned_1": 0.054,
+   "share_pinned_99": 0.0016
+  },
+  {
+   "scale": "A6 同情",
+   "printed_median": 53.19,
+   "bias_vs_50": 3.19,
+   "share_pinned_1": 0.042,
+   "share_pinned_99": 0.015
+  },
+  {
+   "scale": "E4 活跃度",
+   "printed_median": 46.82,
+   "bias_vs_50": -3.18,
+   "share_pinned_1": 0.0393,
+   "share_pinned_99": 0.022
+  },
+  {
+   "scale": "O1 想象力",
+   "printed_median": 52.58,
+   "bias_vs_50": 2.58,
+   "share_pinned_1": 0.056,
+   "share_pinned_99": 0.0
+  },
+  {
+   "scale": "A1 信任",
+   "printed_median": 52.34,
+   "bias_vs_50": 2.34,
+   "share_pinned_1": 0.061,
+   "share_pinned_99": 0.0143
+  },
+  {
+   "scale": "C2 条理性",
+   "printed_median": 52.31,
+   "bias_vs_50": 2.31,
+   "share_pinned_1": 0.0275,
+   "share_pinned_99": 0.0189
+  },
+  {
+   "scale": "E3 自信主张",
+   "printed_median": 51.9,
+   "bias_vs_50": 1.9,
+   "share_pinned_1": 0.047,
+   "share_pinned_99": 0.0135
+  },
+  {
+   "scale": "N6 脆弱",
+   "printed_median": 51.87,
+   "bias_vs_50": 1.87,
+   "share_pinned_1": 0.0116,
+   "share_pinned_99": 0.0516
+  },
+  {
+   "scale": "O",
+   "printed_median": 48.13,
+   "bias_vs_50": -1.87,
+   "share_pinned_1": 0.0419,
+   "share_pinned_99": 0.0153
+  },
+  {
+   "scale": "N1 焦虑",
+   "printed_median": 51.78,
+   "bias_vs_50": 1.78,
+   "share_pinned_1": 0.028,
+   "share_pinned_99": 0.0292
+  },
+  {
+   "scale": "O4 冒险",
+   "printed_median": 48.31,
+   "bias_vs_50": -1.69,
+   "share_pinned_1": 0.0492,
+   "share_pinned_99": 0.0129
+  },
+  {
+   "scale": "C4 成就追求",
+   "printed_median": 48.98,
+   "bias_vs_50": -1.02,
+   "share_pinned_1": 0.0615,
+   "share_pinned_99": 0.003
+  },
+  {
+   "scale": "C6 谨慎",
+   "printed_median": 49.08,
+   "bias_vs_50": -0.92,
+   "share_pinned_1": 0.0462,
+   "share_pinned_99": 0.0171
+  },
+  {
+   "scale": "C1 自我效能",
+   "printed_median": 50.64,
+   "bias_vs_50": 0.64,
+   "share_pinned_1": 0.0579,
+   "share_pinned_99": 0.007
+  },
+  {
+   "scale": "C",
+   "printed_median": 50.57,
+   "bias_vs_50": 0.57,
+   "share_pinned_1": 0.0473,
+   "share_pinned_99": 0.0247
+  },
+  {
+   "scale": "O3 情绪感受性",
+   "printed_median": 49.48,
+   "bias_vs_50": -0.52,
+   "share_pinned_1": 0.0428,
+   "share_pinned_99": 0.006
+  },
+  {
+   "scale": "N",
+   "printed_median": 50.48,
+   "bias_vs_50": 0.48,
+   "share_pinned_1": 0.0265,
+   "share_pinned_99": 0.0411
+  },
+  {
+   "scale": "N4 自我意识",
+   "printed_median": 49.53,
+   "bias_vs_50": -0.47,
+   "share_pinned_1": 0.0339,
+   "share_pinned_99": 0.0296
+  },
+  {
+   "scale": "N2 愤怒",
+   "printed_median": 50.0,
+   "bias_vs_50": -0.0,
+   "share_pinned_1": 0.0221,
+   "share_pinned_99": 0.0319
+  },
+  {
+   "scale": "O5 智性",
+   "printed_median": 50.0,
+   "bias_vs_50": -0.0,
+   "share_pinned_1": 0.0653,
+   "share_pinned_99": 0.0
+  },
+  {
+   "scale": "C5 自律",
+   "printed_median": 50.0,
+   "bias_vs_50": -0.0,
+   "share_pinned_1": 0.0315,
+   "share_pinned_99": 0.0229
+  },
+  {
+   "scale": "O6 自由主义",
+   "printed_median": 50.0,
+   "bias_vs_50": -0.0,
+   "share_pinned_1": 0.031,
+   "share_pinned_99": 0.0292
+  }
+ ],
+ "keying_balance_counts_n_reverse_of_10": {
+  "2": 2,
+  "3": 2,
+  "4": 4,
+  "5": 15,
+  "6": 3,
+  "7": 3,
+  "8": 1
+ },
+ "facet_acquiescence": [
+  {
+   "scale": "A2 正直",
+   "n_reverse_keyed_of_10": 8,
+   "r_with_acquiescence": -0.3961,
+   "pct_pts_at_median_per_1sd_acq": -13.93
+  },
+  {
+   "scale": "E5 寻求刺激",
+   "n_reverse_keyed_of_10": 2,
+   "r_with_acquiescence": 0.3654,
+   "pct_pts_at_median_per_1sd_acq": 12.87
+  },
+  {
+   "scale": "C6 谨慎",
+   "n_reverse_keyed_of_10": 7,
+   "r_with_acquiescence": -0.3478,
+   "pct_pts_at_median_per_1sd_acq": -12.27
+  },
+  {
+   "scale": "A4 合作",
+   "n_reverse_keyed_of_10": 7,
+   "r_with_acquiescence": -0.3227,
+   "pct_pts_at_median_per_1sd_acq": -11.39
+  },
+  {
+   "scale": "N5 放纵",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": 0.2485,
+   "pct_pts_at_median_per_1sd_acq": 8.8
+  },
+  {
+   "scale": "C3 尽责",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": -0.2147,
+   "pct_pts_at_median_per_1sd_acq": -7.61
+  },
+  {
+   "scale": "N2 愤怒",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": 0.2001,
+   "pct_pts_at_median_per_1sd_acq": 7.1
+  },
+  {
+   "scale": "E6 快乐",
+   "n_reverse_keyed_of_10": 2,
+   "r_with_acquiescence": 0.199,
+   "pct_pts_at_median_per_1sd_acq": 7.06
+  },
+  {
+   "scale": "A6 同情",
+   "n_reverse_keyed_of_10": 6,
+   "r_with_acquiescence": -0.1989,
+   "pct_pts_at_median_per_1sd_acq": -7.06
+  },
+  {
+   "scale": "O1 想象力",
+   "n_reverse_keyed_of_10": 4,
+   "r_with_acquiescence": 0.1958,
+   "pct_pts_at_median_per_1sd_acq": 6.95
+  },
+  {
+   "scale": "O6 自由主义",
+   "n_reverse_keyed_of_10": 7,
+   "r_with_acquiescence": -0.1638,
+   "pct_pts_at_median_per_1sd_acq": -5.82
+  },
+  {
+   "scale": "N3 抑郁",
+   "n_reverse_keyed_of_10": 3,
+   "r_with_acquiescence": 0.1611,
+   "pct_pts_at_median_per_1sd_acq": 5.72
+  },
+  {
+   "scale": "A5 谦逊",
+   "n_reverse_keyed_of_10": 6,
+   "r_with_acquiescence": -0.1557,
+   "pct_pts_at_median_per_1sd_acq": -5.53
+  },
+  {
+   "scale": "N6 脆弱",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": 0.1163,
+   "pct_pts_at_median_per_1sd_acq": 4.14
+  },
+  {
+   "scale": "E3 自信主张",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": 0.1036,
+   "pct_pts_at_median_per_1sd_acq": 3.69
+  },
+  {
+   "scale": "N1 焦虑",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": 0.1033,
+   "pct_pts_at_median_per_1sd_acq": 3.67
+  },
+  {
+   "scale": "N4 自我意识",
+   "n_reverse_keyed_of_10": 4,
+   "r_with_acquiescence": 0.0972,
+   "pct_pts_at_median_per_1sd_acq": 3.46
+  },
+  {
+   "scale": "C5 自律",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": -0.0968,
+   "pct_pts_at_median_per_1sd_acq": -3.44
+  },
+  {
+   "scale": "O4 冒险",
+   "n_reverse_keyed_of_10": 6,
+   "r_with_acquiescence": -0.0937,
+   "pct_pts_at_median_per_1sd_acq": -3.33
+  },
+  {
+   "scale": "A3 利他",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": -0.0834,
+   "pct_pts_at_median_per_1sd_acq": -2.97
+  },
+  {
+   "scale": "A1 信任",
+   "n_reverse_keyed_of_10": 4,
+   "r_with_acquiescence": -0.0793,
+   "pct_pts_at_median_per_1sd_acq": -2.82
+  },
+  {
+   "scale": "C4 成就追求",
+   "n_reverse_keyed_of_10": 3,
+   "r_with_acquiescence": 0.0641,
+   "pct_pts_at_median_per_1sd_acq": 2.28
+  },
+  {
+   "scale": "E2 合群",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": 0.058,
+   "pct_pts_at_median_per_1sd_acq": 2.06
+  },
+  {
+   "scale": "O2 艺术兴趣",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": -0.0536,
+   "pct_pts_at_median_per_1sd_acq": -1.91
+  },
+  {
+   "scale": "C1 自我效能",
+   "n_reverse_keyed_of_10": 4,
+   "r_with_acquiescence": -0.0505,
+   "pct_pts_at_median_per_1sd_acq": -1.8
+  },
+  {
+   "scale": "O5 智性",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": -0.0384,
+   "pct_pts_at_median_per_1sd_acq": -1.37
+  },
+  {
+   "scale": "C2 条理性",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": -0.0281,
+   "pct_pts_at_median_per_1sd_acq": -1.0
+  },
+  {
+   "scale": "O3 情绪感受性",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": 0.0277,
+   "pct_pts_at_median_per_1sd_acq": 0.98
+  },
+  {
+   "scale": "E4 活跃度",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": 0.0246,
+   "pct_pts_at_median_per_1sd_acq": 0.87
+  },
+  {
+   "scale": "E1 友善",
+   "n_reverse_keyed_of_10": 5,
+   "r_with_acquiescence": -0.0115,
+   "pct_pts_at_median_per_1sd_acq": -0.41
+  }
+ ],
+ "domain_acquiescence": [
+  {
+   "domain": "N",
+   "n_reverse_keyed_of_60": 27,
+   "r_with_acquiescence": 0.1991
+  },
+  {
+   "domain": "E",
+   "n_reverse_keyed_of_60": 24,
+   "r_with_acquiescence": 0.1707
+  },
+  {
+   "domain": "O",
+   "n_reverse_keyed_of_60": 32,
+   "r_with_acquiescence": -0.0348
+  },
+  {
+   "domain": "A",
+   "n_reverse_keyed_of_60": 36,
+   "r_with_acquiescence": -0.2954
+  },
+  {
+   "domain": "C",
+   "n_reverse_keyed_of_60": 29,
+   "r_with_acquiescence": -0.1486
+  }
+ ],
+ "acq_index_mean": 3.092,
+ "acq_index_sd": 0.1501
+}

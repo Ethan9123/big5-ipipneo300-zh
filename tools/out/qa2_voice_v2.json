@@ -1,0 +1,7599 @@
+{
+ "n_profiles": 243,
+ "n_units": 3645,
+ "n_chars": 176971,
+ "selftest_missed": [],
+ "rule_summary": [
+  {
+   "rule": "det.tiansheng",
+   "name": "决定论·天生",
+   "section": "2决定论",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "det.zhuding",
+   "name": "决定论·注定",
+   "section": "2决定论",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "det.nijiushi",
+   "name": "决定论·你就是",
+   "section": "2决定论",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "det.niyongyuan",
+   "name": "决定论·你永远/这辈子",
+   "section": "2决定论",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "det.biran",
+   "name": "决定论·必然",
+   "section": "2决定论",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "det.yidinghui",
+   "name": "决定论·一定会",
+   "section": "2决定论",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "det.gaibuliao",
+   "name": "决定论·改不了",
+   "section": "2决定论",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "det.benxing",
+   "name": "决定论·本性/骨子里(扩展)",
+   "section": "2决定论",
+   "severity": "medium",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "hits": 31,
+   "cells": [
+    "O中C低E中A中N低",
+    "O中C低E中A高N中",
+    "O中C低E低A中N低",
+    "O中C低E高A中N低",
+    "O中C低E高A低N低",
+    "O中C低E高A高N低",
+    "O中C高E中A中N高",
+    "O中C高E中A低N中",
+    "O低C中E中A中N中",
+    "O低C中E低A高N低",
+    "O低C低E低A中N中",
+    "O低C高E低A中N低",
+    "O高C中E中A高N中",
+    "O高C中E高A中N中",
+    "O高C中E高A高N中",
+    "O高C低E中A中N中",
+    "O高C低E中A中N低",
+    "O高C低E中A高N中",
+    "O高C低E中A高N低",
+    "O高C低E高A中N中",
+    "O高C低E高A低N低",
+    "O高C低E高A高N低",
+    "O高C高E中A中N中",
+    "O高C高E高A中N中"
+   ]
+  },
+  {
+   "rule": "astro.wanmei",
+   "name": "吹捧·完美",
+   "section": "3吹捧",
+   "severity": "medium",
+   "hits": 2,
+   "cells": [
+    "O中C高E低A高N高",
+    "O高C高E低A低N高"
+   ]
+  },
+  {
+   "rule": "astro.tianfu",
+   "name": "吹捧·天赋/天赋异禀",
+   "section": "3吹捧",
+   "severity": "medium",
+   "hits": 1,
+   "cells": [
+    "O中C中E中A高N高"
+   ]
+  },
+  {
+   "rule": "astro.duyi",
+   "name": "吹捧·独一无二",
+   "section": "3吹捧",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "astro.shangtian",
+   "name": "吹捧·上天/命运",
+   "section": "3吹捧",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "astro.mingzhong",
+   "name": "吹捧·命中注定",
+   "section": "3吹捧",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "astro.meili",
+   "name": "吹捧·魅力四射",
+   "section": "3吹捧",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "astro.yushengjulai",
+   "name": "吹捧·与生俱来",
+   "section": "3吹捧",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "astro.chaofan",
+   "name": "吹捧·卓越/正能量(扩展)",
+   "section": "3吹捧",
+   "severity": "low",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "clin.yiyu",
+   "name": "临床·抑郁症",
+   "section": "4临床",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "clin.jiaolvzheng",
+   "name": "临床·焦虑症",
+   "section": "4临床",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "clin.qiangpo",
+   "name": "临床·强迫症",
+   "section": "4临床",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "clin.zaoyu",
+   "name": "临床·躁郁/双相",
+   "section": "4临床",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "clin.adhd",
+   "name": "临床·ADHD/多动",
+   "section": "4临床",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "clin.zibi",
+   "name": "临床·自闭/亚斯伯格",
+   "section": "4临床",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "clin.renge",
+   "name": "临床·人格障碍",
+   "section": "4临床",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "clin.jibing",
+   "name": "临床·心理疾病/病态",
+   "section": "4临床",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "clin.zhengzhuang",
+   "name": "临床·症状/障碍/确诊",
+   "section": "4临床",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "clin.yiliao",
+   "name": "临床暗示·就医/服药/治疗",
+   "section": "4临床",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "clin.bare_yiyu",
+   "name": "临床边缘·裸『抑郁』",
+   "section": "4临床",
+   "severity": "medium",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "hits": 80,
+   "cells": [
+    "O中C中E中A高N低",
+    "O中C中E低A高N低",
+    "O中C低E中A中N低",
+    "O中C低E低A中N低",
+    "O中C低E低A高N低",
+    "O中C低E高A低N低",
+    "O中C低E高A低N高",
+    "O中C高E低A低N低",
+    "O中C高E高A高N低",
+    "O低C中E中A中N中",
+    "O低C中E中A中N高",
+    "O低C中E中A低N高",
+    "O低C中E低A低N高",
+    "O低C中E低A高N高",
+    "O低C中E高A低N高",
+    "O低C中E高A高N高",
+    "O低C低E中A中N低",
+    "O低C低E中A高N低",
+    "O低C低E低A中N低",
+    "O低C低E低A低N低",
+    "O低C低E低A高N低",
+    "O低C低E高A中N低",
+    "O低C低E高A低N低",
+    "O低C低E高A高N低",
+    "O低C高E中A高N高",
+    "O低C高E低A高N低",
+    "O低C高E低A高N高",
+    "O低C高E高A中N低",
+    "O低C高E高A高N高",
+    "O高C中E中A中N中",
+    "O高C中E中A中N低",
+    "O高C中E中A低N低",
+    "O高C中E中A高N中",
+    "O高C中E中A高N高",
+    "O高C中E低A中N低",
+    "O高C中E低A低N低",
+    "O高C中E低A高N低",
+    "O高C中E高A中N低",
+    "O高C中E高A高N中",
+    "O高C低E中A中N低",
+    "O高C低E中A高N中",
+    "O高C低E中A高N高",
+    "O高C低E低A中N低",
+    "O高C低E低A低N中",
+    "O高C低E低A高N低",
+    "O高C低E高A中N低",
+    "O高C高E中A中N高",
+    "O高C高E中A低N低",
+    "O高C高E中A高N中",
+    "O高C高E低A中N中",
+    "O高C高E低A中N高",
+    "O高C高E低A高N低",
+    "O高C高E高A高N中"
+   ]
+  },
+  {
+   "rule": "oth.shaixuan",
+   "name": "评判他人·筛选/筛掉人",
+   "section": "5评判他人",
+   "severity": "high",
+   "hits": 6,
+   "cells": [
+    "O中C中E中A低N高",
+    "O中C中E低A低N低",
+    "O中C中E高A低N高",
+    "O中C高E中A低N低",
+    "O低C高E高A低N低",
+    "O高C中E低A低N低"
+   ]
+  },
+  {
+   "rule": "oth.pingjia",
+   "name": "评判他人·评价/评判他人",
+   "section": "5评判他人",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "oth.shitan",
+   "name": "评判他人·试探/考验对方",
+   "section": "5评判他人",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "oth.paichu",
+   "name": "评判他人·排除/远离某类人",
+   "section": "5评判他人",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "oth.zhaopin",
+   "name": "评判他人·招聘/择偶场景",
+   "section": "5评判他人",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "oth.shibie",
+   "name": "评判他人·识别/判断对方(扩展)",
+   "section": "5评判他人",
+   "severity": "low",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "hits": 21,
+   "cells": [
+    "O中C中E中A中N中",
+    "O中C中E中A低N高",
+    "O中C中E低A中N中",
+    "O中C中E低A低N低",
+    "O中C中E高A低N高",
+    "O中C低E高A低N高",
+    "O中C高E中A中N低",
+    "O中C高E中A低N低",
+    "O中C高E低A低N低",
+    "O低C低E中A中N中",
+    "O低C高E高A低N中",
+    "O低C高E高A低N低",
+    "O高C中E低A中N低",
+    "O高C中E低A低N低",
+    "O高C低E中A低N中",
+    "O高C低E高A中N高"
+   ]
+  },
+  {
+   "rule": "en.terms",
+   "name": "英文术语·五大维度英文名",
+   "section": "6英文残留",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "en.bigfive",
+   "name": "英文术语·Big Five / MBTI",
+   "section": "6英文残留",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "en.any_latin",
+   "name": "英文残留·任意拉丁字母串(≥2)",
+   "section": "6英文残留",
+   "severity": "medium",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "lab.zhe",
+   "name": "身份标签·内向者/外向者",
+   "section": "7身份标签",
+   "severity": "high",
+   "hits": 0,
+   "cells": []
+  },
+  {
+   "rule": "lab.deren",
+   "name": "身份标签·内向的人/外向的人(扩展)",
+   "section": "7身份标签",
+   "severity": "medium",
+   "hits": 1,
+   "cells": [
+    "O中C中E中A中N中"
+   ]
+  },
+  {
+   "rule": "lab.xingge",
+   "name": "身份标签·把读者归类(扩展)",
+   "section": "7身份标签",
+   "severity": "low",
+   "hits": 0,
+   "cells": []
+  }
+ ],
+ "hits": [
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C低E低A低N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "，低神经质让规矩缺席也不产生焦虑，于是内部几乎没有纠正机制：",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C低E低A低N低",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "反馈对你几乎不起作用——你不焦虑，也不太在意评价，于是最有效",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C低E低A中N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "性让你的计划性很弱，但因为不焦虑，这件事在你身上不构成痛苦，",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C低E低A中N低",
+   "field": "friends",
+   "frag": "焦虑",
+   "ctx": "你消失了。因为你既不解释也不焦虑，误会往往就这么放着。",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O低C低E低A中N中",
+   "field": "practice[1]",
+   "frag": "永远",
+   "ctx": "发出去，别等想个好由头，由头永远等不到。",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C低E低A高N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "你脾气好、要求低、也不太焦虑，是很多人愿意靠近的类型。但",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C低E中A中N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "都还好的人——事情堆着你也不焦虑，别人急你也不急。代价是辨识",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C低E中A中N低",
+   "field": "love",
+   "frag": "焦虑",
+   "ctx": "事经常落空，而你落空之后既不焦虑也不太解释，对方要重复提醒你",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O低C低E中A中N中",
+   "field": "summary",
+   "frag": "排除",
+   "ctx": "来的代价，而是缺少一个能替你排除选项的默认设置。",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C低E中A高N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "你脾气好、不焦虑，是相处成本很低的一类人。高",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C低E中A高N低",
+   "field": "love",
+   "frag": "焦虑",
+   "ctx": "么；二是承诺经常落空而你并不焦虑，对方的不满会因此累积。你要",
+   "negated": true,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C低E高A低N低",
+   "field": "love",
+   "frag": "焦虑",
+   "ctx": "二是你答应的事经常落空。你不焦虑，所以不容易察觉对方的积累。",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C低E高A中N低",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "但细节和收尾是你的洼地，你不焦虑，所以自己不会补。批评对你作",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C低E高A高N低",
+   "field": "lead",
+   "frag": "焦虑",
+   "ctx": "热情、好说话、不焦虑，答应一堆忘一堆还不觉得严重",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C低E高A高N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "热情、几乎不拒绝人，也不容易焦虑。但这几条组合起来有一个明显",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C中E低A低N高",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "程里很稳，一旦要临时改方案，焦虑和抵触会一起上来。同事的印象",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O低C中E低A高N低",
+   "field": "summary",
+   "frag": "永远",
+   "ctx": "静的流失——你并不冷漠，只是永远在等对方先开口，而且等不到也",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C中E低A高N高",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "接下来，接下来之后为完不成而焦虑。你对细节和风险的察觉比别人",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C中E中A低N高",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "里能保持产出，一旦频繁变动，焦虑加抵触会明显拖慢你。团队对你",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O低C中E中A中N中",
+   "field": "summary",
+   "frag": "永远",
+   "ctx": "，选择时反复权衡，而默认选项永远是维持原样。",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C中E中A中N中",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "目里你会慢半拍，且这段时间的焦虑会真实影响产出。被批评会难受",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O低C中E中A中N中",
+   "field": "cons[0]",
+   "frag": "永远",
+   "ctx": "默认选项永远是维持原样",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C中E中A中N高",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "消耗你。流程一变，适应成本和焦虑成本会同时出现，那段时间产出",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C中E中A中N高",
+   "field": "cons[1]",
+   "frag": "焦虑",
+   "ctx": "变动期焦虑与效率同时恶化",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C中E高A低N高",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "境里你能保持产出，频繁变动时焦虑和抵触会一起上来。你的名声大",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C中E高A高N高",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "多半接住，接住之后为完不成而焦虑。变动期消耗尤其大。",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O低C高E低A中N低",
+   "field": "work",
+   "frag": "永远",
+   "ctx": "你是那种不出声但进度永远对得上的人。你能接受别人的方",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C高E低A高N低",
+   "field": "lead",
+   "frag": "焦虑",
+   "ctx": "好，但从不主动联系，也不为此焦虑",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C高E低A高N低",
+   "field": "life",
+   "frag": "焦虑",
+   "ctx": "为一个人待着而觉得空。你很少焦虑，睡眠一般不受事情影响。要留",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C高E低A高N高",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "任务，接下之后又会为完不成而焦虑，靠加班硬顶。批评你能记很久",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C高E中A高N高",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "就是一个稳定的循环，接下来、焦虑、透支完成、因为完成得不错所",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C高E中A高N高",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "。你不拒绝任务，接下之后开始焦虑，再靠超时工作补上。这套模式",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C高E中A高N高",
+   "field": "cons[1]",
+   "frag": "焦虑",
+   "ctx": "答应之后靠焦虑和加班硬扛",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "oth.shaixuan",
+   "name": "评判他人·筛选/筛掉人",
+   "section": "5评判他人",
+   "severity": "high",
+   "cell": "O低C高E高A低N低",
+   "field": "friends",
+   "frag": "筛掉一部分人",
+   "ctx": "里从不缺席。但你的直接会持续筛掉一部分人，而你几乎不知道是哪一部分。",
+   "negated": false,
+   "note": "建议读者筛人"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O低C高E高A低N低",
+   "field": "friends",
+   "frag": "筛掉",
+   "ctx": "里从不缺席。但你的直接会持续筛掉一部分人，而你几乎不知道是哪",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O低C高E高A低N中",
+   "field": "friends",
+   "frag": "筛选",
+   "ctx": "的表达方式没有问题，其实只是筛选完成了。",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C高E高A中N低",
+   "field": "life",
+   "frag": "焦虑",
+   "ctx": "是你缺少减速信号：不难受、不焦虑，所以很少主动停。你的休息需",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C高E高A高N高",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "答应的事全部做到，于是接单、焦虑、透支完成成了固定循环。别人",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C高E高A高N高",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "。你几乎不拒绝，接下之后开始焦虑，再靠超时补上。批评能跟你很",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O低C高E高A高N高",
+   "field": "cons[2]",
+   "frag": "焦虑",
+   "ctx": "接单后靠焦虑和加班硬扛",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C低E低A中N低",
+   "field": "lead",
+   "frag": "焦虑",
+   "ctx": "性、有底线，几乎不为计划落空焦虑",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C低E低A中N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "，也不在情绪，而在动力：没有焦虑推着，尽责性又偏低，很多该做",
+   "negated": true,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O中C低E低A中N低",
+   "field": "life",
+   "frag": "永远",
+   "ctx": "事——它们既不带来焦虑，也就永远排不上号。",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C低E低A中N低",
+   "field": "life",
+   "frag": "焦虑",
+   "ctx": "截止日期的事——它们既不带来焦虑，也就永远排不上号。",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C低E低A中N低",
+   "field": "cons[0]",
+   "frag": "焦虑",
+   "ctx": "没有焦虑就没有动力",
+   "negated": true,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O中C低E低A中N低",
+   "field": "cons[1]",
+   "frag": "永远",
+   "ctx": "没截止日期的事永远不做",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C低E低A高N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "在等待里。低神经质让你不为此焦虑，这既让你活得轻松，也让你少",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C低E低A高N低",
+   "field": "life",
+   "frag": "焦虑",
+   "ctx": "出去的劲，而低神经质意味着连焦虑也不来推你。",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C低E低A高N低",
+   "field": "friends",
+   "frag": "焦虑",
+   "ctx": "的事，却不会主动去问。因为不焦虑，朋友很久没联系你也不会在意",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C低E中A中N低",
+   "field": "lead",
+   "frag": "焦虑",
+   "ctx": "里三个在中间，再加上随性和不焦虑",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C低E中A中N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "是低神经质加低尽责性让你既不焦虑也不推进，很多事就这么挂着，",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O中C低E中A中N低",
+   "field": "life",
+   "frag": "永远",
+   "ctx": "西，它们不会给你压力，所以也永远排不进日程。",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C低E中A中N低",
+   "field": "friends",
+   "frag": "焦虑",
+   "ctx": "半年没收到你的消息了，而你不焦虑，更不会去查。",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O中C低E中A中N低",
+   "field": "cons[1]",
+   "frag": "永远",
+   "ctx": "没人催的事永远不做",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O中C低E中A高N中",
+   "field": "work",
+   "frag": "永远",
+   "ctx": "你来者不拒，手上并行的事永远比能做完的多。被催时你道歉得",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O中C低E中A高N中",
+   "field": "cons[2]",
+   "frag": "永远",
+   "ctx": "并行任务永远超载",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O中C低E高A低N低",
+   "field": "life",
+   "frag": "永远",
+   "ctx": "那些安静的、没人催的事，它们永远排在下一个饭局后面。",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C低E高A低N低",
+   "field": "life",
+   "frag": "焦虑",
+   "ctx": "事，最后只到了一件。你不为此焦虑，睡得也好。真正堆积的是那些",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C低E高A低N高",
+   "field": "life",
+   "frag": "焦虑",
+   "ctx": "，过后才发现排不下，然后一边焦虑一边继续答应。真正的清理通常",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O中C低E高A低N高",
+   "field": "friends",
+   "frag": "试探",
+   "ctx": "口。你可能在几天后用一个玩笑试探性地和好，如果对方没接住，你",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O中C低E高A中N低",
+   "field": "cons[2]",
+   "frag": "永远",
+   "ctx": "无人催的事永远不做",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O中C低E高A高N低",
+   "field": "work",
+   "frag": "永远",
+   "ctx": "你不拒绝任何加进来的活，手上永远挂着一堆半成品。被催时态度极",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "oth.shaixuan",
+   "name": "评判他人·筛选/筛掉人",
+   "section": "5评判他人",
+   "severity": "high",
+   "cell": "O中C中E低A低N低",
+   "field": "friends",
+   "frag": "筛掉很多人",
+   "ctx": "说「我不这么看」。这套组合会筛掉很多人，留下的往往结实。但要清楚：",
+   "negated": false,
+   "note": "建议读者筛人"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O中C中E低A低N低",
+   "field": "friends",
+   "frag": "筛掉",
+   "ctx": "说「我不这么看」。这套组合会筛掉很多人，留下的往往结实。但要",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O中C中E低A中N中",
+   "field": "summary",
+   "frag": "排除",
+   "ctx": "为没有哪个倾向强到能替你直接排除选项。",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C中E低A高N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "在等别人先来。低神经质让你不焦虑，也让你不着急，于是很多关系",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "oth.shaixuan",
+   "name": "评判他人·筛选/筛掉人",
+   "section": "5评判他人",
+   "severity": "high",
+   "cell": "O中C中E中A低N高",
+   "field": "friends",
+   "frag": "挑人",
+   "ctx": "账你都不说，只是越来越谨慎地挑人。久了社交半径缩小，而你会归",
+   "negated": false,
+   "note": "建议读者筛人"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O中C中E中A低N高",
+   "field": "friends",
+   "frag": "挑人",
+   "ctx": "账你都不说，只是越来越谨慎地挑人。久了社交半径缩小，而你会归",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O中C中E中A低N高",
+   "field": "love",
+   "frag": "试探",
+   "ctx": "情反复推演，然后用更硬的话去试探。最该练的一句是「我现在情绪",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O中C中E中A中N中",
+   "field": "summary",
+   "frag": "排除",
+   "ctx": "为没有哪个倾向强到能帮你直接排除选项。",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "lab.deren",
+   "name": "身份标签·内向的人/外向的人(扩展)",
+   "section": "7身份标签",
+   "severity": "medium",
+   "cell": "O中C中E中A中N中",
+   "field": "friends",
+   "frag": "外向的人",
+   "ctx": "个具体标签。要留意的是：中等外向的人最容易高估自己社交上的主动性",
+   "negated": false,
+   "note": "规格要求写『外向性分数偏低的人』"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C中E中A高N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "答应，低神经质让你答应之后不焦虑，于是没有任何内部信号提醒你",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "astro.tianfu",
+   "name": "吹捧·天赋/天赋异禀",
+   "section": "3吹捧",
+   "severity": "medium",
+   "cell": "O中C中E中A高N高",
+   "field": "love",
+   "frag": "天赋",
+   "ctx": "时间察觉对方情绪的变化，这是天赋也是负担。你倾向于先让步再委",
+   "negated": false,
+   "note": "天赋叙事"
+  },
+  {
+   "rule": "oth.shaixuan",
+   "name": "评判他人·筛选/筛掉人",
+   "section": "5评判他人",
+   "severity": "high",
+   "cell": "O中C中E高A低N高",
+   "field": "friends",
+   "frag": "挑人",
+   "ctx": "，但两笔账都不说，只是越来越挑人。久了你会觉得「大家都变了」",
+   "negated": false,
+   "note": "建议读者筛人"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O中C中E高A低N高",
+   "field": "friends",
+   "frag": "挑人",
+   "ctx": "，但两笔账都不说，只是越来越挑人。久了你会觉得「大家都变了」",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O中C中E高A低N高",
+   "field": "love",
+   "frag": "试探",
+   "ctx": "演一整晚，然后你用更硬的话去试探，试探完又后悔。最该练的一句",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O中C中E高A低N高",
+   "field": "love",
+   "frag": "试探",
+   "ctx": "晚，然后你用更硬的话去试探，试探完又后悔。最该练的一句是「我",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O中C高E低A低N低",
+   "field": "friends",
+   "frag": "筛选",
+   "ctx": "你的朋友数量不多，筛选严格，聚会你不发起也不太维系",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C高E低A低N低",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "队友的紧张，觉得「这有什么可焦虑的」。往上走时卡住你的通常不",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "astro.wanmei",
+   "name": "吹捧·完美",
+   "section": "3吹捧",
+   "severity": "medium",
+   "cell": "O中C高E低A高N高",
+   "field": "practice[0]",
+   "frag": "完美",
+   "ctx": "两遍就直接发出去，允许它不够完美。",
+   "negated": false,
+   "note": "『完美』式吹捧（完美主义为术语，白名单）"
+  },
+  {
+   "rule": "oth.shaixuan",
+   "name": "评判他人·筛选/筛掉人",
+   "section": "5评判他人",
+   "severity": "high",
+   "cell": "O中C高E中A低N低",
+   "field": "friends",
+   "frag": "筛掉了一批人",
+   "ctx": "能在场也能不在场。你说话直，筛掉了一批人，留下的都不介意被你当面反驳",
+   "negated": false,
+   "note": "建议读者筛人"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O中C高E中A低N低",
+   "field": "friends",
+   "frag": "筛掉",
+   "ctx": "能在场也能不在场。你说话直，筛掉了一批人，留下的都不介意被你",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O中C高E中A低N中",
+   "field": "cons[2]",
+   "frag": "永远",
+   "ctx": "休息永远排在下一轮之后",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O中C高E中A中N低",
+   "field": "life",
+   "frag": "试探",
+   "ctx": "大部分精力交给了责任，很少去试探自己真正的偏好。",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O中C高E中A中N低",
+   "field": "cons[2]",
+   "frag": "试探",
+   "ctx": "很少试探自己真正想要什么",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O中C高E中A中N高",
+   "field": "life",
+   "frag": "永远",
+   "ctx": "要被当成任务安排进去，否则它永远排在最后一位。",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O中C高E中A中N高",
+   "field": "cons[2]",
+   "frag": "永远",
+   "ctx": "休息永远排在清单最后",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O中C高E高A高N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "处：你没有内置的刹车。因为不焦虑、不记账、不勉强，你会一直答",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C低E低A低N中",
+   "field": "life",
+   "frag": "焦虑",
+   "ctx": "头，半成品继续积累，你不为此焦虑，只是偶尔烦。",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C低E低A中N低",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "不主动汇报，又没有内在的截止焦虑，你的进度经常在别人来问的那",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C低E低A高N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "系，神经质低让你不为这两件事焦虑——于是形成一个别人很难理解",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C低E低A高N低",
+   "field": "life",
+   "frag": "焦虑",
+   "ctx": "都属于堆着但不慌的状态。你不焦虑是真的轻松，也是真的缺信号：",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O高C低E中A低N中",
+   "field": "friends",
+   "frag": "筛选",
+   "ctx": "你的朋友数量中等，质量偏筛选。你不哄人，意见照实说；说完",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C低E中A中N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "停下来这件事没有代价感——不焦虑、不自责、不失眠。你因此比多",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O高C低E中A中N低",
+   "field": "love",
+   "frag": "永远",
+   "ctx": "的是琐事：答应的事忘了、家务永远差最后一步，而你没有不安提醒",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C低E中A中N低",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "付期问题就明显了——没有内在焦虑推你，也没有强烈的责任感绑你",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C低E中A中N低",
+   "field": "practice[1]",
+   "frag": "焦虑",
+   "ctx": "开问进度，用外部约束替代内部焦虑。",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O高C低E中A中N中",
+   "field": "life",
+   "frag": "永远",
+   "ctx": "正的固定模式只有一个——手上永远有三四件开了头没做完的事，它",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O高C低E中A高N低",
+   "field": "work",
+   "frag": "永远",
+   "ctx": "那个什么都答应的人，因此手上永远有超出产能的活。低神经质让你",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C低E中A高N中",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "的处理方式是先扛下来，再私下焦虑。",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C低E中A高N中",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "活总比能做的多；期限临近时的焦虑是你的主要动力，但常常来得太",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O高C低E中A高N中",
+   "field": "cons[0]",
+   "frag": "永远",
+   "ctx": "坏消息永远最后才说",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C低E中A高N高",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "少，交付又不稳，中间的空档由焦虑填满。别人一句中性的反馈，你",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O高C低E高A低N低",
+   "field": "friends",
+   "frag": "永远",
+   "ctx": "一直在补进来。你的社交账面上永远好看，实际的深度关系可能很薄",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C低E高A中N低",
+   "field": "life",
+   "frag": "焦虑",
+   "ctx": "方向。你睡得着，不为拖着的事焦虑，第二天照样精神。这份稳定省",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C低E高A中N低",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "力影响。执行是短板：没有内在焦虑，也没有强责任心，进度全靠外",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O高C低E高A中N中",
+   "field": "summary",
+   "frag": "永远",
+   "ctx": "你回血；回到自己这里，你手上永远有一堆没结束的事。神经质中等",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O高C低E高A中N高",
+   "field": "practice[1]",
+   "frag": "试探",
+   "ctx": "天是不是有事，别用加倍热情去试探。",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O高C低E高A高N低",
+   "field": "friends",
+   "frag": "永远",
+   "ctx": "的好处。但你答应的忙有一部分永远停在口头，你不记得，也不内疚",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O高C低E高A高N低",
+   "field": "work",
+   "frag": "永远",
+   "ctx": "拒绝，也不衡量产能，于是手上永远堆着别人的事和自己没动的活。",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O高C低E高A高N低",
+   "field": "cons[1]",
+   "frag": "永远",
+   "ctx": "自己的事永远排最后",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C中E低A低N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "另一部分停在半途，你对此不太焦虑。塑造你外部形象的其实是低外",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "oth.shaixuan",
+   "name": "评判他人·筛选/筛掉人",
+   "section": "5评判他人",
+   "severity": "high",
+   "cell": "O高C中E低A低N低",
+   "field": "friends",
+   "frag": "筛掉了大部分人",
+   "ctx": "对话一开始就进入内容本身，这筛掉了大部分人，也留下极少数很合得来的。风",
+   "negated": false,
+   "note": "建议读者筛人"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O高C中E低A低N低",
+   "field": "friends",
+   "frag": "筛掉",
+   "ctx": "对话一开始就进入内容本身，这筛掉了大部分人，也留下极少数很合",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C中E低A中N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "你几乎不为进度、评价和落后而焦虑。综合结果是一个很难被推动、",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O高C中E低A中N低",
+   "field": "friends",
+   "frag": "试探",
+   "ctx": "舒服，低神经质让你不追问、不试探、不担心自己是不是被冷落。所",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C中E低A中N低",
+   "field": "pros[1]",
+   "frag": "焦虑",
+   "ctx": "不焦虑、不试探、不内耗",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "oth.raw_shai",
+   "name": "评判他人·裸『筛/试探/挑人』(供人判)",
+   "section": "5评判他人",
+   "severity": "low",
+   "cell": "O高C中E低A中N低",
+   "field": "pros[1]",
+   "frag": "试探",
+   "ctx": "不焦虑、不试探、不内耗",
+   "negated": false,
+   "note": "裸词，需看上下文是不是针对他人"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C中E低A高N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "里起放大作用——关系变淡你不焦虑，也就没有动力去修补，等你注",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C中E中A低N低",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "少数敢说真话的人，而且说完不焦虑，这在多数团队里稀缺。高开放",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C中E中A中N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "质和中等尽责的组合——你缺少焦虑这个推进器，也缺少纪律这个替",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C中E中A中N中",
+   "field": "friends",
+   "frag": "焦虑",
+   "ctx": "经质让你对疏远有感知但不至于焦虑。结果是关系普遍稳定、普遍中",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O高C中E中A高N中",
+   "field": "life",
+   "frag": "永远",
+   "ctx": "过去。高开放性让你的个人计划永远排着队，中等尽责性把它们维持",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C中E中A高N中",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "中等神经质让你在超负荷时开始焦虑但仍然不推。你的方案被质疑时",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C中E中A高N高",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "环里：不答应会内疚，答应了会焦虑，两头都难受，而你通常选内疚",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C中E中A高N高",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "更少的那一头。高开放性让你在焦虑时想得极细，你能提前预演出这",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C中E中A高N高",
+   "field": "cons[0]",
+   "frag": "焦虑",
+   "ctx": "答应与焦虑构成闭环",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C中E高A中N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "顺，隐藏的问题在结尾：你缺少焦虑这个收尾的推力，很多事停在还",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C中E高A中N低",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "和深度：兴趣转移得快，而没有焦虑逼你把最后两成做完。给关键项",
+   "negated": true,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O高C中E高A中N中",
+   "field": "life",
+   "frag": "永远",
+   "ctx": "绪会自己来收。高开放性让计划永远排到明年，中等尽责性能保住其",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C中E高A高N中",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "最常见的循环是：热情地承诺、焦虑地执行、抱歉地收尾，而每一步",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O高C中E高A高N中",
+   "field": "cons[1]",
+   "frag": "永远",
+   "ctx": "没人催的事永远排最后",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "astro.wanmei",
+   "name": "吹捧·完美",
+   "section": "3吹捧",
+   "severity": "medium",
+   "cell": "O高C高E低A低N高",
+   "field": "work",
+   "frag": "完美",
+   "ctx": "，你自己知道你只是不敢交出不完美的东西。",
+   "negated": false,
+   "note": "『完美』式吹捧（完美主义为术语，白名单）"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C高E低A中N中",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "花一倍时间，然后为进度落后而焦虑。",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C高E低A中N高",
+   "field": "life",
+   "frag": "焦虑",
+   "ctx": "你的作息容易被焦虑打乱：越是重要的事越容易在开",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C高E低A高N低",
+   "field": "summary",
+   "frag": "焦虑",
+   "ctx": "位置。神经质低让你不至于因此焦虑，你只是安静地接受了这个模式",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C高E中A低N低",
+   "field": "life",
+   "frag": "焦虑",
+   "ctx": "入过深而忘了吃饭，而不是因为焦虑睡不着。",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O高C高E中A中N中",
+   "field": "love",
+   "frag": "永远",
+   "ctx": "多半出在时间分配上——你手上永远有一件「再花两小时就更好」的",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C高E中A中N高",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "返工，然后为额外花掉的时间再焦虑一次。",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C高E中A高N中",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "擅长拒绝，答应之后又会为排期焦虑。被抢功时你通常不争，但会记",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  },
+  {
+   "rule": "det.yongyuan_bare",
+   "name": "决定论·裸『永远』(扩展/需人判)",
+   "section": "2决定论",
+   "severity": "low",
+   "cell": "O高C高E高A中N中",
+   "field": "love",
+   "frag": "永远",
+   "ctx": "阶段的难点在时间分配：你手上永远有更紧要的事。对方最常见的抱",
+   "negated": false,
+   "note": "『永远』修饰读者=违规；修饰事务状态(『手上永远有半成品』)=可接受"
+  },
+  {
+   "rule": "clin.bare_jiaolv",
+   "name": "临床边缘·裸『焦虑』(日常词，计数供判断)",
+   "section": "4临床",
+   "severity": "low",
+   "cell": "O高C高E高A高N中",
+   "field": "work",
+   "frag": "焦虑",
+   "ctx": "乎不拒绝。答应之后你会为排期焦虑，然后靠加班兑现。被抢功你通",
+   "negated": false,
+   "note": "中文日常情绪词，非临床名；仅统计密度"
+  }
+ ],
+ "label_tagged": [
+  {
+   "cell": "O低C中E中A中N低",
+   "field": "work",
+   "frag": "你是可靠的执行者",
+   "ctx": "你是可靠的执行者：交办的事能完成，进度大致守"
+  },
+  {
+   "cell": "O中C高E高A低N低",
+   "field": "work",
+   "frag": "你是推动者",
+   "ctx": "你是推动者，能把停滞的事重新启动，也乐"
+  },
+  {
+   "cell": "O中C高E高A高N低",
+   "field": "friends",
+   "frag": "你是关系里的组织者",
+   "ctx": "你是关系里的组织者和黏合剂：主动、热心、记得别"
+  },
+  {
+   "cell": "O高C低E高A低N高",
+   "field": "love",
+   "frag": "你会是热烈的追求者",
+   "ctx": "你会是热烈的追求者和难缠的伴侣。高神经质让你把"
+  },
+  {
+   "cell": "O高C中E低A高N低",
+   "field": "friends",
+   "frag": "你是很好的倾听者",
+   "ctx": "你是很好的倾听者，不评判、不打断、不急着给建"
+  }
+ ],
+ "label_coined": [
+  {
+   "cell": "O中C中E高A中N高",
+   "field": "work",
+   "frag": "是推进型的人",
+   "ctx": "你在会上敢说、对外能扛，是推进型的人。但你对评价异常在意：一句中"
+  }
+ ],
+ "label_tokens": {
+  "一家": 4,
+  "关系": 464,
+  "联系": 140,
+  "或者": 20,
+  "是家": 1,
+  "类型": 5,
+  "典型": 24,
+  "大家": 19,
+  "听者": 2,
+  "维系": 21,
+  "人家": 1,
+  "失控": 22,
+  "动型": 2,
+  "来者": 6,
+  "积型": 1,
+  "几家": 2,
+  "换家": 1,
+  "两者": 18,
+  "搬家": 3,
+  "套系": 3,
+  "在家": 5,
+  "回家": 30,
+  "三者": 2,
+  "可控": 16,
+  "加派": 3,
+  "行者": 1,
+  "到家": 7,
+  "哪家": 1,
+  "伏控": 1,
+  "作者": 2,
+  "前者": 2,
+  "交型": 1,
+  "成型": 2,
+  "烈型": 1,
+  "被派": 6,
+  "后者": 5,
+  "分派": 1,
+  "动控": 1,
+  "和家": 1,
+  "力型": 1,
+  "绪系": 1,
+  "进型": 1,
+  "把家": 1,
+  "掌控": 1,
+  "动者": 2,
+  "织者": 2,
+  "求者": 2,
+  "起者": 3,
+  "这家": 1,
+  "付者": 1,
+  "个系": 2,
+  "觉家": 1,
+  "被系": 1,
+  "调者": 1
+ },
+ "cost": {
+  "N低": {
+   "n": 81,
+   "pass_cons": 73,
+   "pass_body": 80,
+   "fake": 0,
+   "rows": [
+    {
+     "cell": "O低C低E低A低N低",
+     "cons": [
+      "缺少内在动力，全靠外部推",
+      "容易被读成冷淡不在意",
+      "对别人的难处反应迟钝"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "缺少内在动力，全靠外部推",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "容易被读成冷淡不在意",
+       "families": [
+        "被读成冷/无温度"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "对别人的难处反应迟钝",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感",
+      "被读成冷/无温度"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E低A中N低",
+     "cons": [
+      "执行力弱，长期欠着小承诺",
+      "存在感低，容易被忽略",
+      "对他人情绪回应偏淡"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "对他人情绪回应偏淡",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E低A高N低",
+     "cons": [
+      "从不发起，关系靠别人维持",
+      "不提要求，偏好长期被忽略",
+      "承诺落空还不太自责"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "承诺落空还不太自责",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "缺少内部警报/痛感",
+      "低估风险/高估自己"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E中A低N低",
+     "cons": [
+      "无人推动就没有进度",
+      "表达太直，容易伤人",
+      "对他人情绪反应迟钝"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "对他人情绪反应迟钝",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E中A中N低",
+     "cons": [
+      "没人推就没有进度",
+      "辨识度低，容易被忽略",
+      "承诺兑现率很不稳定"
+     ],
+     "n_matched": 0,
+     "matched": [],
+     "families": [],
+     "fake": [],
+     "body_families": [],
+     "passed": false,
+     "passed_with_body": false
+    },
+    {
+     "cell": "O低C低E中A高N低",
+     "cons": [
+      "什么都答应，超过能做的量",
+      "失约却没有心理负担",
+      "偏好不表达，长期被忽略"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "失约却没有心理负担",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E高A低N低",
+     "cons": [
+      "说话带刺，自己感觉不到",
+      "只管开局，不管收尾",
+      "对别人的积累毫无察觉"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "说话带刺，自己感觉不到",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "对别人的积累毫无察觉",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E高A中N低",
+     "cons": [
+      "只管开局，收尾丢给别人",
+      "随口答应，转头就忘",
+      "落空没压力，自己发现不了"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "落空没压力，自己发现不了",
+       "families": [
+        "共情/情绪信号迟钝",
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E高A高N低",
+     "cons": [
+      "什么都答应，长期超载",
+      "落空没有内疚，改不动",
+      "收到的反馈被态度打了折"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "落空没有内疚，改不动",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E低A低N低",
+     "cons": [
+      "关系断了没有痛感，所以不修",
+      "直接的措辞常被听成攻击",
+      "环境一变调整得比别人慢"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "关系断了没有痛感，所以不修",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E低A中N低",
+     "cons": [
+      "存在感低，功劳容易被算给别人",
+      "不主动，关系全靠对方推进",
+      "太稳，没有信号提醒你该变"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "太稳，没有信号提醒你该变",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E低A高N低",
+     "cons": [
+      "从不主动，关系全靠别人维系",
+      "过载了也没有情绪信号叫停",
+      "不表达需求，被当成默认承接方"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "过载了也没有情绪信号叫停",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E中A低N低",
+     "cons": [
+      "否定得太快，被听成人身否定",
+      "察觉不到对方的低落",
+      "不复盘，同类摩擦反复发生"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "察觉不到对方的低落",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "不复盘，同类摩擦反复发生",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E中A中N低",
+     "cons": [
+      "辨识度低，容易被当成背景板",
+      "缺少不适感提醒，问题一拖多年",
+      "对他人情绪的分辨率不高"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "缺少不适感提醒，问题一拖多年",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "对他人情绪的分辨率不高",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E中A高N低",
+     "cons": [
+      "让步没有刹车，界限长期模糊",
+      "很少争取，功劳被算给别人",
+      "察觉不到身边人的低落"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "让步没有刹车，界限长期模糊",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "察觉不到身边人的低落",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E高A低N低",
+     "cons": [
+      "杀伤力大且自己毫无察觉",
+      "否定太快，被听成否定人",
+      "从不复盘，同类摩擦反复上演"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "杀伤力大且自己毫无察觉",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "从不复盘，同类摩擦反复上演",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E高A中N低",
+     "cons": [
+      "对身边人的低落分辨率低",
+      "生活热闹但内容多年不变",
+      "遇到必须重构的事明显慢"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "对身边人的低落分辨率低",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E高A高N低",
+     "cons": [
+      "界限模糊且没有刹车",
+      "陪得住场面，接不住深处",
+      "很少表达主张和需求"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "界限模糊且没有刹车",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "陪得住场面，接不住深处",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E低A低N低",
+     "cons": [
+      "表达关心的方式常被读成冷漠",
+      "对他人情绪信号反应迟钝",
+      "新方法出现时抗拒期偏长"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "表达关心的方式常被读成冷漠",
+       "families": [
+        "被读成冷/无温度"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "对他人情绪信号反应迟钝",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "被读成冷/无温度"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E低A中N低",
+     "cons": [
+      "偏好从不出口，被默认成随便",
+      "存在感低，长期被低估贡献",
+      "路线固化，缺少备选方案"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "存在感低，长期被低估贡献",
+       "families": [
+        "低估风险/高估自己"
+       ]
+      }
+     ],
+     "families": [
+      "低估风险/高估自己"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "低估风险/高估自己"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E低A高N低",
+     "cons": [
+      "从不主动发起，关系自然衰减",
+      "不拒绝，杂活持续流向自己",
+      "不提要求，需求被默认为零"
+     ],
+     "n_matched": 0,
+     "matched": [],
+     "families": [],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝"
+     ],
+     "passed": false,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E中A低N低",
+     "cons": [
+      "表达方式让人难以接受意见",
+      "把倾诉当问题处理，安慰缺席",
+      "对自身和关系的损耗无感"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "把倾诉当问题处理，安慰缺席",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "对自身和关系的损耗无感",
+       "families": [
+        "共情/情绪信号迟钝",
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E中A中N低",
+     "cons": [
+      "察觉不到自己的疲劳累积",
+      "对他人低落缺乏反应",
+      "适应新流程的速度被自己高估"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "察觉不到自己的疲劳累积",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "对他人低落缺乏反应",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "适应新流程的速度被自己高估",
+       "families": [
+        "低估风险/高估自己"
+       ]
+      }
+     ],
+     "families": [
+      "低估风险/高估自己",
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E中A高N低",
+     "cons": [
+      "没有过载信号，只能靠外部提醒",
+      "极少表达偏好，被默认无所谓",
+      "不争取，贡献长期被低估"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "没有过载信号，只能靠外部提醒",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "不争取，贡献长期被低估",
+       "families": [
+        "低估风险/高估自己"
+       ]
+      }
+     ],
+     "families": [
+      "低估风险/高估自己",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E高A低N低",
+     "cons": [
+      "说话不留缓冲，持续误伤他人",
+      "强势让人不敢报坏消息",
+      "方向错时带着整队一起偏"
+     ],
+     "n_matched": 0,
+     "matched": [],
+     "families": [],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": false,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E高A中N低",
+     "cons": [
+      "把自己的抗压水平当成别人的默认",
+      "用安排事情代替情绪支持",
+      "转向慢，还会带着一群人一起慢"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "把自己的抗压水平当成别人的默认",
+       "families": [
+        "低估风险/高估自己"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "用安排事情代替情绪支持",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "低估风险/高估自己",
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感",
+      "低估风险/高估自己"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E高A高N低",
+     "cons": [
+      "没有过载感，负荷只增不减",
+      "极少表达需求，被默认没有需要",
+      "对他人低落反应迟钝"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "没有过载感，负荷只增不减",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "对他人低落反应迟钝",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E低A低N低",
+     "cons": [
+      "承诺常落空且不自责",
+      "直白伤到人毫无察觉",
+      "关系全靠对方来维系"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "承诺常落空且不自责",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "直白伤到人毫无察觉",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E低A中N低",
+     "cons": [
+      "没有焦虑就没有动力",
+      "没截止日期的事永远不做",
+      "小承诺兑现率低"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "没有焦虑就没有动力",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E低A高N低",
+     "cons": [
+      "从不主动，关系安静过期",
+      "答应了做不到，内疚不足",
+      "让步不说，对方无从知晓"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "答应了做不到，内疚不足",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "缺少内部警报/痛感",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E中A低N低",
+     "cons": [
+      "平静常被读成冷酷",
+      "延期不留痕，反复发生",
+      "对他人情绪反应迟钝"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "平静常被读成冷酷",
+       "families": [
+        "被读成冷/无温度"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "对他人情绪反应迟钝",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "被读成冷/无温度"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E中A中N低",
+     "cons": [
+      "缺少默认设置，选择反复",
+      "没人催的事永远不做",
+      "小承诺遗忘率高"
+     ],
+     "n_matched": 0,
+     "matched": [],
+     "families": [],
+     "fake": [],
+     "body_families": [
+      "低估风险/高估自己"
+     ],
+     "passed": false,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E中A高N低",
+     "cons": [
+      "答应了做不到，毫无痛感",
+      "承诺含金量在悄悄下降",
+      "从不提要求，需求隐形"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "答应了做不到，毫无痛感",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E高A低N低",
+     "cons": [
+      "直率在近距离变成伤害",
+      "承诺多，兑现率低",
+      "毫无余震，难以自我修正"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "毫无余震，难以自我修正",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E高A中N低",
+     "cons": [
+      "口头承诺兑现率低",
+      "落空毫无成本，难自纠",
+      "无人催的事永远不做"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "落空毫无成本，难自纠",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E高A高N低",
+     "cons": [
+      "答应了做不到，毫无痛感",
+      "从不提需求，别人读不到你",
+      "半成品长期挂着不收尾"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "答应了做不到，毫无痛感",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "从不提需求，别人读不到你",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E低A低N低",
+     "cons": [
+      "情绪信号少到被误读为冷漠",
+      "几乎不主动维系关系",
+      "对别人的低落反应迟钝"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "情绪信号少到被误读为冷漠",
+       "families": [
+        "共情/情绪信号迟钝",
+        "缺少内部警报/痛感",
+        "被读成冷/无温度"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "对别人的低落反应迟钝",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感",
+      "被读成冷/无温度"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E低A中N低",
+     "cons": [
+      "不表态导致存在感低",
+      "对他人情绪反应慢",
+      "很少主动争取自己那份"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "对他人情绪反应慢",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E低A高N低",
+     "cons": [
+      "在意关系却从不主动",
+      "不提要求导致长期失衡",
+      "被动等待，机会容易错过"
+     ],
+     "n_matched": 0,
+     "matched": [],
+     "families": [],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝"
+     ],
+     "passed": false,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E中A低N低",
+     "cons": [
+      "常被读成冷酷而不自知",
+      "把安慰当成解决问题",
+      "很少复盘人际影响"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "常被读成冷酷而不自知",
+       "families": [
+        "缺少内部警报/痛感",
+        "被读成冷/无温度"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "把安慰当成解决问题",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "很少复盘人际影响",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感",
+      "被读成冷/无温度"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E中A中N低",
+     "cons": [
+      "因为不抱怨而被持续加码",
+      "低估别人的紧张程度",
+      "自己的需要很少被人知道"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "低估别人的紧张程度",
+       "families": [
+        "共情/情绪信号迟钝",
+        "低估风险/高估自己"
+       ]
+      }
+     ],
+     "families": [
+      "低估风险/高估自己",
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "低估风险/高估自己"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E中A高N低",
+     "cons": [
+      "超载了也没有内部警报",
+      "被默认为总是有空",
+      "不提要求导致长期不对等"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "超载了也没有内部警报",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E高A低N低",
+     "cons": [
+      "说话伤人而不自知",
+      "靠魅力盖过关系损耗",
+      "很少复盘自己的人际影响"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "说话伤人而不自知",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "靠魅力盖过关系损耗",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "很少复盘自己的人际影响",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E高A中N低",
+     "cons": [
+      "节奏太快，容易压到别人",
+      "对他人的紧张感知不足",
+      "把安慰直接跳成建议"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "对他人的紧张感知不足",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E高A高N低",
+     "cons": [
+      "答应太快，超载没有警报",
+      "把伴侣的时间排在最后",
+      "不提要求导致长期不对等"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "答应太快，超载没有警报",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E低A低N低",
+     "cons": [
+      "把直接当成不必修饰的理由",
+      "对他人情绪反应迟钝",
+      "关系靠别人单方面维持"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "对他人情绪反应迟钝",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感",
+      "低估风险/高估自己",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E低A中N低",
+     "cons": [
+      "很少表达在乎让人没把握",
+      "成果沉默被别人代领",
+      "不检查自己过得开不开心"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "不检查自己过得开不开心",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E低A高N低",
+     "cons": [
+      "关系启动完全依赖对方",
+      "需求不上台面被误判底线",
+      "活往你这边流却不争取"
+     ],
+     "n_matched": 0,
+     "matched": [],
+     "families": [],
+     "fake": [],
+     "body_families": [
+      "缺少内部警报/痛感"
+     ],
+     "passed": false,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E中A低N低",
+     "cons": [
+      "就事论事被听成不留情面",
+      "别人绕开你导致信息断层",
+      "对疲劳信号觉察偏慢"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "对疲劳信号觉察偏慢",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E中A中N低",
+     "cons": [
+      "辨识度低机会想不到你",
+      "维系要靠提醒才发生",
+      "很少试探自己真正想要什么"
+     ],
+     "n_matched": 0,
+     "matched": [],
+     "families": [],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝"
+     ],
+     "passed": false,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E中A高N低",
+     "cons": [
+      "缺少一个该停了的报警器",
+      "边界模糊别人不知底线",
+      "贡献和位置长期脱节"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "缺少一个该停了的报警器",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E高A低N低",
+     "cons": [
+      "同一句话在别人那更重",
+      "身边逐渐只剩好消息",
+      "关系损耗到很晚才发现"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "关系损耗到很晚才发现",
+       "families": [
+        "共情/情绪信号迟钝",
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感",
+      "低估风险/高估自己"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E高A中N低",
+     "cons": [
+      "按自己的节奏给别人排期",
+      "对疲劳信号觉察偏慢",
+      "细腻的关系维系不足"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "对疲劳信号觉察偏慢",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E高A高N低",
+     "cons": [
+      "没有内置刹车会一直答应",
+      "关系广但真正深的不多",
+      "贡献和资源长期脱节"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "没有内置刹车会一直答应",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E低A低N低",
+     "cons": [
+      "项目常停在最有意思那段",
+      "没人催就没有推进力",
+      "别人受伤时你察觉不到"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "别人受伤时你察觉不到",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E低A中N低",
+     "cons": [
+      "进度不主动暴露，别人只能来问",
+      "关系变淡毫无察觉",
+      "缺少自我纠正的痛感"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "关系变淡毫无察觉",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "缺少自我纠正的痛感",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E低A高N低",
+     "cons": [
+      "答应得快，兑现率低",
+      "从不主动发起联系",
+      "别人失望了你还没察觉"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "别人失望了你还没察觉",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E中A低N低",
+     "cons": [
+      "对方受伤时你毫无察觉",
+      "关系账在需要时才发现",
+      "想法很多，成品很少"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "对方受伤时你毫无察觉",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "关系账在需要时才发现",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E中A中N低",
+     "cons": [
+      "缺少推动自己的内部信号",
+      "重要的事别人不敢交给你",
+      "关系全靠对方维护"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "缺少推动自己的内部信号",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E中A高N低",
+     "cons": [
+      "承诺量远超实际产能",
+      "对方失望的信号接不到",
+      "不会提延期和砍范围"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "对方失望的信号接不到",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E高A低N低",
+     "cons": [
+      "许出去的事经常没下文",
+      "伤到人自己毫无察觉",
+      "被质疑时先反驳后思考"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "伤到人自己毫无察觉",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E高A中N低",
+     "cons": [
+      "关系广但普遍偏薄",
+      "进度全靠别人来推",
+      "对方的暗示接不到"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "对方的暗示接不到",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E高A高N低",
+     "cons": [
+      "答应的事有一半停在口头",
+      "自己的事永远排最后",
+      "对方的不满几个月才发现"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "对方的不满几个月才发现",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E低A低N低",
+     "cons": [
+      "表达太省，容易被当成不在乎",
+      "说重话时没有任何缓冲",
+      "很少察觉自己踩到了谁"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "表达太省，容易被当成不在乎",
+       "families": [
+        "被读成冷/无温度"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "很少察觉自己踩到了谁",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "被读成冷/无温度"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E低A中N低",
+     "cons": [
+      "从不发起，关系逐渐变淡",
+      "想法常被更能说的人先说",
+      "被忽略时的反应只是算了"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "被忽略时的反应只是算了",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E低A高N低",
+     "cons": [
+      "从不发起，社交圈自然收缩",
+      "需求不提，别人以为你都行",
+      "被占了位置也没有情绪"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "被占了位置也没有情绪",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E中A低N低",
+     "cons": [
+      "低估直白带来的关系成本",
+      "对方的情绪你接不住",
+      "冲突从不修复，关系停在浅层"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "低估直白带来的关系成本",
+       "families": [
+        "低估风险/高估自己"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "对方的情绪你接不住",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "低估风险/高估自己",
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "低估风险/高估自己"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E中A中N低",
+     "cons": [
+      "缺推进器，停在差不多就行",
+      "对伴侣的情绪信号反应慢",
+      "关系不深，因为从不涉险"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "对伴侣的情绪信号反应慢",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E中A高N低",
+     "cons": [
+      "日程里别人的事多过自己的",
+      "没画过边界，对方无从校准",
+      "方案一被否就撤回"
+     ],
+     "n_matched": 0,
+     "matched": [],
+     "families": [],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": false,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E高A低N低",
+     "cons": [
+      "争赢的每一次都被别人记账",
+      "对方受伤时反应迟钝",
+      "承诺速度快过交付速度"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "对方受伤时反应迟钝",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E高A中N低",
+     "cons": [
+      "最后两成经常没有下文",
+      "对伴侣的细微情绪反应慢",
+      "朋友多，能说心事的少"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "对伴侣的细微情绪反应慢",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E高A高N低",
+     "cons": [
+      "答应太多，承诺互相重叠",
+      "负荷信号弱，崩得很突然",
+      "方案一被质疑就先让步"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "负荷信号弱，崩得很突然",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E低A低N低",
+     "cons": [
+      "表达方式常被读成冷酷",
+      "关系靠别人单向维持",
+      "低估别人的情绪成本"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "表达方式常被读成冷酷",
+       "families": [
+        "被读成冷/无温度"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "低估别人的情绪成本",
+       "families": [
+        "共情/情绪信号迟钝",
+        "低估风险/高估自己"
+       ]
+      }
+     ],
+     "families": [
+      "低估风险/高估自己",
+      "共情/情绪信号迟钝",
+      "被读成冷/无温度"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E低A中N低",
+     "cons": [
+      "需求不说别人默认没有",
+      "存在感低于实际贡献",
+      "对疲劳信号反应迟钝"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "对疲劳信号反应迟钝",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E低A高N低",
+     "cons": [
+      "从不主动发起联系",
+      "默默接下不属于自己的活",
+      "对他人情绪反应迟钝"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "对他人情绪反应迟钝",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "低估风险/高估自己"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E中A低N低",
+     "cons": [
+      "直接的表达常伤到人",
+      "对他人情绪缺乏察觉",
+      "关系变冷了才后知后觉"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "对他人情绪缺乏察觉",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "关系变冷了才后知后觉",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "被读成冷/无温度"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E中A中N低",
+     "cons": [
+      "低估别人的情绪成本",
+      "很少向人袒露困难",
+      "不休息直到身体报警"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "低估别人的情绪成本",
+       "families": [
+        "共情/情绪信号迟钝",
+        "低估风险/高估自己"
+       ]
+      }
+     ],
+     "families": [
+      "低估风险/高估自己",
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E中A高N低",
+     "cons": [
+      "从不为自己争取",
+      "对人际暗流不敏感",
+      "时间被别人排满而不自知"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "对人际暗流不敏感",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "时间被别人排满而不自知",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "低估风险/高估自己"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E高A低N低",
+     "cons": [
+      "说话不留余地伤人不自知",
+      "按自己的强度要求别人",
+      "把别人的沉默当成同意"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "说话不留余地伤人不自知",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "按自己的强度要求别人",
+       "families": [
+        "低估风险/高估自己"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "把别人的沉默当成同意",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "低估风险/高估自己",
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E高A中N低",
+     "cons": [
+      "把自己的耐受当默认标准",
+      "很少示弱也很少求助",
+      "对他人疲态察觉不到"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "把自己的耐受当默认标准",
+       "families": [
+        "低估风险/高估自己"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "很少示弱也很少求助",
+       "families": [
+        "缺少内部警报/痛感"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "对他人疲态察觉不到",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "低估风险/高估自己",
+      "共情/情绪信号迟钝",
+      "缺少内部警报/痛感"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "低估风险/高估自己"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E高A高N低",
+     "cons": [
+      "从不为自己争取",
+      "对人际暗流不敏感",
+      "不累到极限不停下"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "对人际暗流不敏感",
+       "families": [
+        "共情/情绪信号迟钝"
+       ]
+      }
+     ],
+     "families": [
+      "共情/情绪信号迟钝"
+     ],
+     "fake": [],
+     "body_families": [
+      "共情/情绪信号迟钝",
+      "低估风险/高估自己"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    }
+   ]
+  },
+  "A高": {
+   "n": 81,
+   "pass_cons": 80,
+   "pass_body": 81,
+   "fake": 0,
+   "rows": [
+    {
+     "cell": "O低C低E低A高N低",
+     "cons": [
+      "从不发起，关系靠别人维持",
+      "不提要求，偏好长期被忽略",
+      "承诺落空还不太自责"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "不提要求，偏好长期被忽略",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E低A高N中",
+     "cons": [
+      "越久没联系越不敢开口",
+      "内疚变成回避，越拖越远",
+      "用变安静来表达不满"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "越久没联系越不敢开口",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "用变安静来表达不满",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E低A高N高",
+     "cons": [
+      "答应超出能力，卡住又不说",
+      "反刍无人稀释，自己消化",
+      "委屈存着，等对方来猜"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "答应超出能力，卡住又不说",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "反刍无人稀释，自己消化",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "委屈存着，等对方来猜",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E中A高N低",
+     "cons": [
+      "什么都答应，超过能做的量",
+      "失约却没有心理负担",
+      "偏好不表达，长期被忽略"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "什么都答应，超过能做的量",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "偏好不表达，长期被忽略",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E中A高N中",
+     "cons": [
+      "答应超出能力，事后才慌",
+      "用道歉替代实际改动",
+      "不满不说，攒着慢慢疏远"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "答应超出能力，事后才慌",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "不满不说，攒着慢慢疏远",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E中A高N高",
+     "cons": [
+      "卡住就躲，越躲越差",
+      "拒绝不了，长期超载",
+      "反刍不求证，全靠自己消化"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "拒绝不了，长期超载",
+       "families": [
+        "拒绝困难/过度答应",
+        "替别人扛/超载"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "反刍不求证，全靠自己消化",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E高A高N低",
+     "cons": [
+      "什么都答应，长期超载",
+      "落空没有内疚，改不动",
+      "收到的反馈被态度打了折"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "什么都答应，长期超载",
+       "families": [
+        "拒绝困难/过度答应",
+        "替别人扛/超载"
+       ]
+      }
+     ],
+     "families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E高A高N中",
+     "cons": [
+      "怕让人失望，越怕越超载",
+      "用热情替代实际兑现",
+      "卡住了也拖着不说"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "怕让人失望，越怕越超载",
+       "families": [
+        "替别人扛/超载",
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C低E高A高N高",
+     "cons": [
+      "来者不拒，长期超载",
+      "委屈攒着，突然爆发一次",
+      "反刍量大，恢复时间不足"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "来者不拒，长期超载",
+       "families": [
+        "拒绝困难/过度答应",
+        "替别人扛/超载"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "委屈攒着，突然爆发一次",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E低A高N低",
+     "cons": [
+      "从不主动，关系全靠别人维系",
+      "过载了也没有情绪信号叫停",
+      "不表达需求，被当成默认承接方"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "过载了也没有情绪信号叫停",
+       "families": [
+        "替别人扛/超载"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "不表达需求，被当成默认承接方",
+       "families": [
+        "替别人扛/超载",
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E低A高N中",
+     "cons": [
+      "拒绝之后长时间过意不去",
+      "有情绪不说，攒到不相干的时刻爆",
+      "怕添麻烦，需要时也不开口"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "拒绝之后长时间过意不去",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "有情绪不说，攒到不相干的时刻爆",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "怕添麻烦，需要时也不开口",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E低A高N高",
+     "cons": [
+      "几乎无法拒绝，日程被别人填满",
+      "拒绝或冲突后反刍时间极长",
+      "委屈不说，只加倍付出"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "几乎无法拒绝，日程被别人填满",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "拒绝或冲突后反刍时间极长",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "委屈不说，只加倍付出",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E中A高N低",
+     "cons": [
+      "让步没有刹车，界限长期模糊",
+      "很少争取，功劳被算给别人",
+      "察觉不到身边人的低落"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "让步没有刹车，界限长期模糊",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "很少争取，功劳被算给别人",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让"
+     ],
+     "fake": [],
+     "body_families": [
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E中A高N中",
+     "cons": [
+      "委屈攒着不说，最后以疏远收场",
+      "拒绝之后长时间过意不去",
+      "用客气代替表达不满"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "委屈攒着不说，最后以疏远收场",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "拒绝之后长时间过意不去",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E中A高N高",
+     "cons": [
+      "只推演不核对，结论总对自己不利",
+      "被反驳一次就撤回意见",
+      "付出很多还觉得自己不够"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "被反驳一次就撤回意见",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "付出很多还觉得自己不够",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E高A高N低",
+     "cons": [
+      "界限模糊且没有刹车",
+      "陪得住场面，接不住深处",
+      "很少表达主张和需求"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "界限模糊且没有刹车",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让"
+     ],
+     "fake": [],
+     "body_families": [
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E高A高N中",
+     "cons": [
+      "难拒绝，一边烦一边答应",
+      "小疙瘩不说破，一直挂着",
+      "很少为自己争取"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "难拒绝，一边烦一边答应",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "小疙瘩不说破，一直挂着",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C中E高A高N高",
+     "cons": [
+      "社交量大，要处理的情绪也成倍多",
+      "让步记得住却说不出口",
+      "几乎没有自己的恢复时间"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "让步记得住却说不出口",
+       "families": [
+        "拒绝困难/过度答应",
+        "憋着/事后独自消化",
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E低A高N低",
+     "cons": [
+      "从不主动发起，关系自然衰减",
+      "不拒绝，杂活持续流向自己",
+      "不提要求，需求被默认为零"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "不拒绝，杂活持续流向自己",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "不提要求，需求被默认为零",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E低A高N中",
+     "cons": [
+      "想联系却卡在怕打扰上",
+      "不满自己消化，期待对方察觉",
+      "拒绝之后仍反复自我审查"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "想联系却卡在怕打扰上",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "不满自己消化，期待对方察觉",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "拒绝之后仍反复自我审查",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E低A高N高",
+     "cons": [
+      "把对方的沉默默认成负面信号",
+      "不敢开口确认，独自加倍消耗",
+      "接下超量任务再靠透支完成"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "不敢开口确认，独自加倍消耗",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "接下超量任务再靠透支完成",
+       "families": [
+        "拒绝困难/过度答应",
+        "替别人扛/超载"
+       ]
+      }
+     ],
+     "families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E中A高N低",
+     "cons": [
+      "没有过载信号，只能靠外部提醒",
+      "极少表达偏好，被默认无所谓",
+      "不争取，贡献长期被低估"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "没有过载信号，只能靠外部提醒",
+       "families": [
+        "替别人扛/超载"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "极少表达偏好，被默认无所谓",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "不争取，贡献长期被低估",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E中A高N中",
+     "cons": [
+      "帮完还要反复确认对方满意",
+      "该坚持标准时因怕伤和气退让",
+      "用排满日程掩盖真正的疲劳"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "该坚持标准时因怕伤和气退让",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E中A高N高",
+     "cons": [
+      "不好意思拒绝，长期超量接单",
+      "答应之后靠焦虑和加班硬扛",
+      "把方向变更归咎于自己没预判"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "不好意思拒绝，长期超量接单",
+       "families": [
+        "拒绝困难/过度答应",
+        "替别人扛/超载"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "答应之后靠焦虑和加班硬扛",
+       "families": [
+        "拒绝困难/过度答应",
+        "替别人扛/超载"
+       ]
+      }
+     ],
+     "families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E高A高N低",
+     "cons": [
+      "没有过载感，负荷只增不减",
+      "极少表达需求，被默认没有需要",
+      "对他人低落反应迟钝"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "没有过载感，负荷只增不减",
+       "families": [
+        "替别人扛/超载"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "极少表达需求，被默认没有需要",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E高A高N中",
+     "cons": [
+      "精力大量花在维护别人的满意",
+      "该坚持标准时怕伤和气而退让",
+      "不满自己消化，最后突然疏远"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "精力大量花在维护别人的满意",
+       "families": [
+        "替别人扛/超载"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "该坚持标准时怕伤和气而退让",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "不满自己消化，最后突然疏远",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "憋着/事后独自消化",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O低C高E高A高N高",
+     "cons": [
+      "社交越多消耗越大，且不喊停",
+      "把冷淡默认成自己做错了什么",
+      "接单后靠焦虑和加班硬扛"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "接单后靠焦虑和加班硬扛",
+       "families": [
+        "拒绝困难/过度答应",
+        "替别人扛/超载"
+       ]
+      }
+     ],
+     "families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E低A高N低",
+     "cons": [
+      "从不主动，关系安静过期",
+      "答应了做不到，内疚不足",
+      "让步不说，对方无从知晓"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "让步不说，对方无从知晓",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E低A高N中",
+     "cons": [
+      "愧疚多，行为不变",
+      "攒委屈到很晚才说",
+      "任务来者不拒，交付不稳"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "攒委屈到很晚才说",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "任务来者不拒，交付不稳",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E低A高N高",
+     "cons": [
+      "独自把误会想成结论",
+      "越拖越不敢回消息",
+      "委屈只收不说，直到抽身"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "独自把误会想成结论",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "委屈只收不说，直到抽身",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E中A高N低",
+     "cons": [
+      "答应了做不到，毫无痛感",
+      "承诺含金量在悄悄下降",
+      "从不提要求，需求隐形"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "从不提要求，需求隐形",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E中A高N中",
+     "cons": [
+      "道歉替代了改变",
+      "拖久了开始躲人",
+      "并行任务永远超载"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "并行任务永远超载",
+       "families": [
+        "替别人扛/超载"
+       ]
+      }
+     ],
+     "families": [
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E中A高N高",
+     "cons": [
+      "自责吃掉下一次的力气",
+      "因羞愧而不敢联系",
+      "接活不设限，报忧不敢开口"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "接活不设限，报忧不敢开口",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      }
+     ],
+     "families": [
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E高A高N低",
+     "cons": [
+      "答应了做不到，毫无痛感",
+      "从不提需求，别人读不到你",
+      "半成品长期挂着不收尾"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "从不提需求，别人读不到你",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E高A高N中",
+     "cons": [
+      "愧疚够多但不够久",
+      "拖久了绕开对方",
+      "长期超载，自己的事排最后"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "长期超载，自己的事排最后",
+       "families": [
+        "替别人扛/超载"
+       ]
+      }
+     ],
+     "families": [
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C低E高A高N高",
+     "cons": [
+      "用新关系稀释旧的愧疚",
+      "接活不设限，报忧不敢开口",
+      "自责吃掉下一次的力气"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "接活不设限，报忧不敢开口",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      }
+     ],
+     "families": [
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E低A高N低",
+     "cons": [
+      "在意关系却从不主动",
+      "不提要求导致长期失衡",
+      "被动等待，机会容易错过"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "不提要求导致长期失衡",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E低A高N中",
+     "cons": [
+      "想维系关系却总在等对方先动",
+      "难以拒绝，事后自己消化",
+      "在心里记账，攒到一次爆发"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "难以拒绝，事后自己消化",
+       "families": [
+        "拒绝困难/过度答应",
+        "憋着/事后独自消化"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "在心里记账，攒到一次爆发",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E低A高N高",
+     "cons": [
+      "答应之后独自后悔、独自扛",
+      "让步不说，最后变成委屈",
+      "一次否定要消化好几天"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "答应之后独自后悔、独自扛",
+       "families": [
+        "拒绝困难/过度答应",
+        "替别人扛/超载",
+        "憋着/事后独自消化"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "让步不说，最后变成委屈",
+       "families": [
+        "憋着/事后独自消化",
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E中A高N低",
+     "cons": [
+      "超载了也没有内部警报",
+      "被默认为总是有空",
+      "不提要求导致长期不对等"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "超载了也没有内部警报",
+       "families": [
+        "替别人扛/超载"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "被默认为总是有空",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "不提要求导致长期不对等",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E中A高N中",
+     "cons": [
+      "习惯性道歉，削弱自己立场",
+      "记账不说，最后一次爆发",
+      "谈判和争取时先松口"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "习惯性道歉，削弱自己立场",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "记账不说，最后一次爆发",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "谈判和争取时先松口",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "憋着/事后独自消化"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E中A高N高",
+     "cons": [
+      "让步后独自委屈，不说",
+      "一次否定要消化好几天",
+      "靠揽活来安抚不安"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "让步后独自委屈，不说",
+       "families": [
+        "憋着/事后独自消化",
+        "不提要求/无边界/先退让"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "靠揽活来安抚不安",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E高A高N低",
+     "cons": [
+      "答应太快，超载没有警报",
+      "把伴侣的时间排在最后",
+      "不提要求导致长期不对等"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "答应太快，超载没有警报",
+       "families": [
+        "拒绝困难/过度答应",
+        "替别人扛/超载"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "把伴侣的时间排在最后",
+       "families": [
+        "替别人扛/超载"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "不提要求导致长期不对等",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E高A高N中",
+     "cons": [
+      "当场说不出拒绝",
+      "委屈攒着，最后一次翻出来",
+      "谈钱谈分工时先松口"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "当场说不出拒绝",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "委屈攒着，最后一次翻出来",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "谈钱谈分工时先松口",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C中E高A高N高",
+     "cons": [
+      "社交后耗尽，回家逐句复盘",
+      "让步不说，还担心让得不够",
+      "靠揽活安抚不安"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "让步不说，还担心让得不够",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "靠揽活安抚不安",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E低A高N低",
+     "cons": [
+      "关系启动完全依赖对方",
+      "需求不上台面被误判底线",
+      "活往你这边流却不争取"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "需求不上台面被误判底线",
+       "families": [
+        "憋着/事后独自消化",
+        "不提要求/无边界/先退让"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "活往你这边流却不争取",
+       "families": [
+        "拒绝困难/过度答应",
+        "替别人扛/超载",
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E低A高N中",
+     "cons": [
+      "想联系又犹豫最后放弃",
+      "拒绝一次内疚一整天",
+      "不满攒到很晚才开口"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "拒绝一次内疚一整天",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "不满攒到很晚才开口",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E低A高N高",
+     "cons": [
+      "排练一整段对话最后不说",
+      "把批评当成对自己的否定",
+      "安静过劳直到身体报警"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "排练一整段对话最后不说",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E中A高N低",
+     "cons": [
+      "缺少一个该停了的报警器",
+      "边界模糊别人不知底线",
+      "贡献和位置长期脱节"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "边界模糊别人不知底线",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "贡献和位置长期脱节",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E中A高N中",
+     "cons": [
+      "先答应后算账循环不结算",
+      "被批评后过度修正",
+      "不满记在心里不说出口"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "不满记在心里不说出口",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E中A高N高",
+     "cons": [
+      "委屈内化直到一次爆发",
+      "把含糊批评当整体否定",
+      "补漏而牺牲自己的休息"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "委屈内化直到一次爆发",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "补漏而牺牲自己的休息",
+       "families": [
+        "替别人扛/超载"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E高A高N低",
+     "cons": [
+      "没有内置刹车会一直答应",
+      "关系广但真正深的不多",
+      "贡献和资源长期脱节"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "没有内置刹车会一直答应",
+       "families": [
+        "拒绝困难/过度答应",
+        "不提要求/无边界/先退让"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "贡献和资源长期脱节",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E高A高N中",
+     "cons": [
+      "接单速度快过完成速度",
+      "让步记在心里不说",
+      "被批评后过度修正"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "接单速度快过完成速度",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "让步记在心里不说",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O中C高E高A高N高",
+     "cons": [
+      "几乎不拒绝直到耗尽",
+      "把含糊批评当整体否定",
+      "看起来很好所以没人来拦"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "几乎不拒绝直到耗尽",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      }
+     ],
+     "families": [
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E低A高N低",
+     "cons": [
+      "答应得快，兑现率低",
+      "从不主动发起联系",
+      "别人失望了你还没察觉"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "答应得快，兑现率低",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      }
+     ],
+     "families": [
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E低A高N中",
+     "cons": [
+      "做不到时躲着不说",
+      "用内疚代替实际的兑现",
+      "欠着的事越久越不敢碰"
+     ],
+     "n_matched": 0,
+     "matched": [],
+     "families": [],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": false,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E低A高N高",
+     "cons": [
+      "想联系又不敢，长期回避",
+      "把中性反应默认读成负面",
+      "欠着的事越拖越不敢面对"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "想联系又不敢，长期回避",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      }
+     ],
+     "families": [
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E中A高N低",
+     "cons": [
+      "承诺量远超实际产能",
+      "对方失望的信号接不到",
+      "不会提延期和砍范围"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "承诺量远超实际产能",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "不会提延期和砍范围",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      }
+     ],
+     "families": [
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E中A高N中",
+     "cons": [
+      "坏消息永远最后才说",
+      "道歉很快，改变很慢",
+      "不满憋到变形才出口"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "不满憋到变形才出口",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E中A高N高",
+     "cons": [
+      "答应量远超能力，然后躲",
+      "中性反馈也当成否定",
+      "委屈憋着不说，越积越重"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "答应量远超能力，然后躲",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "委屈憋着不说，越积越重",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E高A高N低",
+     "cons": [
+      "答应的事有一半停在口头",
+      "自己的事永远排最后",
+      "对方的不满几个月才发现"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "答应的事有一半停在口头",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "自己的事永远排最后",
+       "families": [
+        "替别人扛/超载"
+       ]
+      }
+     ],
+     "families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E高A高N中",
+     "cons": [
+      "用热情掩盖没办成的事",
+      "先补容易的，难的一直拖",
+      "预警总是晚一步才发出"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "先补容易的，难的一直拖",
+       "families": [
+        "替别人扛/超载"
+       ]
+      }
+     ],
+     "families": [
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C低E高A高N高",
+     "cons": [
+      "承诺量约等于产能的两倍",
+      "夜里逐条清算自己",
+      "又觉得付出多又觉得不够好"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "承诺量约等于产能的两倍",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "夜里逐条清算自己",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E低A高N低",
+     "cons": [
+      "从不发起，社交圈自然收缩",
+      "需求不提，别人以为你都行",
+      "被占了位置也没有情绪"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "需求不提，别人以为你都行",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "被占了位置也没有情绪",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E低A高N中",
+     "cons": [
+      "消息越拖越难开口",
+      "没生气的生气，账本不公开",
+      "让出发言权，想法被转述"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "没生气的生气，账本不公开",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "让出发言权，想法被转述",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "憋着/事后独自消化"
+     ],
+     "fake": [],
+     "body_families": [
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E低A高N高",
+     "cons": [
+      "开口前先演一遍最坏版本",
+      "替别人认下不属于你的责任",
+      "所有不确定都自己扛"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 1,
+       "text": "替别人认下不属于你的责任",
+       "families": [
+        "替别人扛/超载"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "所有不确定都自己扛",
+       "families": [
+        "替别人扛/超载"
+       ]
+      }
+     ],
+     "families": [
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "替别人扛/超载",
+      "憋着/事后独自消化"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E中A高N低",
+     "cons": [
+      "日程里别人的事多过自己的",
+      "没画过边界，对方无从校准",
+      "方案一被否就撤回"
+     ],
+     "n_matched": 3,
+     "matched": [
+      {
+       "i": 0,
+       "text": "日程里别人的事多过自己的",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "没画过边界，对方无从校准",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "方案一被否就撤回",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E中A高N中",
+     "cons": [
+      "拒绝之后长时间内疚",
+      "被默认答应，没人再问你",
+      "私下记账，账本从不公开"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "拒绝之后长时间内疚",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "私下记账，账本从不公开",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E中A高N高",
+     "cons": [
+      "答应与焦虑构成闭环",
+      "替别人认下全部责任",
+      "休息时也在预演明天"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "答应与焦虑构成闭环",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "替别人认下全部责任",
+       "families": [
+        "替别人扛/超载"
+       ]
+      }
+     ],
+     "families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E高A高N低",
+     "cons": [
+      "答应太多，承诺互相重叠",
+      "负荷信号弱，崩得很突然",
+      "方案一被质疑就先让步"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "答应太多，承诺互相重叠",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      },
+      {
+       "i": 2,
+       "text": "方案一被质疑就先让步",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让",
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E高A高N中",
+     "cons": [
+      "察觉超载也照样答应",
+      "没人催的事永远排最后",
+      "把不安藏在加倍的殷勤里"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "察觉超载也照样答应",
+       "families": [
+        "替别人扛/超载"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "没人催的事永远排最后",
+       "families": [
+        "替别人扛/超载"
+       ]
+      }
+     ],
+     "families": [
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C中E高A高N高",
+     "cons": [
+      "一条已读不回占掉一整晚",
+      "冲突里先认错，剩下的自己扛",
+      "翻聊天记录不是找信息是找证据"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "冲突里先认错，剩下的自己扛",
+       "families": [
+        "替别人扛/超载"
+       ]
+      }
+     ],
+     "families": [
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E低A高N低",
+     "cons": [
+      "从不主动发起联系",
+      "默默接下不属于自己的活",
+      "对他人情绪反应迟钝"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "默默接下不属于自己的活",
+       "families": [
+        "拒绝困难/过度答应"
+       ]
+      }
+     ],
+     "families": [
+      "拒绝困难/过度答应"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E低A高N中",
+     "cons": [
+      "拒绝不出口导致超载",
+      "不满攒到很满才说",
+      "主动性长期偏低"
+     ],
+     "n_matched": 2,
+     "matched": [
+      {
+       "i": 0,
+       "text": "拒绝不出口导致超载",
+       "families": [
+        "拒绝困难/过度答应",
+        "替别人扛/超载",
+        "憋着/事后独自消化"
+       ]
+      },
+      {
+       "i": 1,
+       "text": "不满攒到很满才说",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E低A高N高",
+     "cons": [
+      "把别人的需求排在自己前面",
+      "一条消息反复推敲很久",
+      "超载了也说不出口"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "超载了也说不出口",
+       "families": [
+        "拒绝困难/过度答应",
+        "替别人扛/超载",
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化",
+      "拒绝困难/过度答应",
+      "替别人扛/超载"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E中A高N低",
+     "cons": [
+      "从不为自己争取",
+      "对人际暗流不敏感",
+      "时间被别人排满而不自知"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "从不为自己争取",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让"
+     ],
+     "fake": [],
+     "body_families": [
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E中A高N中",
+     "cons": [
+      "当场答应事后后悔",
+      "委屈攒到一次性爆发",
+      "用疏远代替把话说开"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "委屈攒到一次性爆发",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E中A高N高",
+     "cons": [
+      "为达标和不得罪人双重加压",
+      "小事在脑内反复重播",
+      "需求攒到临界才说"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "需求攒到临界才说",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化"
+     ],
+     "fake": [],
+     "body_families": [
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E高A高N低",
+     "cons": [
+      "从不为自己争取",
+      "对人际暗流不敏感",
+      "不累到极限不停下"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 0,
+       "text": "从不为自己争取",
+       "families": [
+        "不提要求/无边界/先退让"
+       ]
+      }
+     ],
+     "families": [
+      "不提要求/无边界/先退让"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E高A高N中",
+     "cons": [
+      "当场答应事后懊恼",
+      "委屈攒着一次性爆发",
+      "用降低投入代替讲开"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 1,
+       "text": "委屈攒着一次性爆发",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化",
+      "不提要求/无边界/先退让"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    },
+    {
+     "cell": "O高C高E高A高N高",
+     "cons": [
+      "三头加压全由自己承担",
+      "散场后反复重放细节",
+      "需求攒到临界才说"
+     ],
+     "n_matched": 1,
+     "matched": [
+      {
+       "i": 2,
+       "text": "需求攒到临界才说",
+       "families": [
+        "憋着/事后独自消化"
+       ]
+      }
+     ],
+     "families": [
+      "憋着/事后独自消化"
+     ],
+     "fake": [],
+     "body_families": [
+      "拒绝困难/过度答应",
+      "替别人扛/超载",
+      "憋着/事后独自消化"
+     ],
+     "passed": true,
+     "passed_with_body": true
+    }
+   ]
+  }
+ },
+ "c_low": {
+  "n": 81,
+  "hard": [],
+  "hard_all": [
+   {
+    "cell": "O中C低E低A低N中",
+    "field": "love",
+    "frag": "没用",
+    "ctx": "什么都不讲」，而你觉得讲了也没用。这句「讲了也没用」本身，就",
+    "negated": false
+   },
+   {
+    "cell": "O中C低E低A低N中",
+    "field": "love",
+    "frag": "没用",
+    "ctx": "觉得讲了也没用。这句「讲了也没用」本身，就是最该被检验的假设",
+    "negated": false
+   },
+   {
+    "cell": "O中C低E低A高N中",
+    "field": "love",
+    "frag": "没用",
+    "ctx": "通常不是那件小事，是「说了也没用」这个印象。",
+    "negated": false
+   },
+   {
+    "cell": "O中C低E中A中N高",
+    "field": "summary",
+    "frag": "懒",
+    "ctx": "力最后都落回自己身上。你不是懒，你是把大部分力气花在了对自",
+    "negated": true
+   },
+   {
+    "cell": "O高C低E高A低N高",
+    "field": "summary",
+    "frag": "懒",
+    "ctx": "尾都变成一次自我攻击。你不是懒，你是启动成本极低而维持成本",
+    "negated": true
+   }
+  ],
+  "spec_ok": [],
+  "soft": []
+ }
+}

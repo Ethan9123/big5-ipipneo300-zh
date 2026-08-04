@@ -1,0 +1,52 @@
+{
+ "domains_only": [
+  {
+   "items_per_facet": 1,
+   "n_items": 30,
+   "domain_r_min": 0.8263,
+   "domain_r_median": 0.8894,
+   "alpha_min": 0.6507,
+   "alpha_median": 0.7273,
+   "median_abs_pct_error": 8.39,
+   "p90_abs_pct_error": 24.14,
+   "share_gt10": 0.4308
+  },
+  {
+   "items_per_facet": 2,
+   "n_items": 60,
+   "domain_r_min": 0.8821,
+   "domain_r_median": 0.9378,
+   "alpha_min": 0.7816,
+   "alpha_median": 0.8379,
+   "median_abs_pct_error": 6.47,
+   "p90_abs_pct_error": 18.75,
+   "share_gt10": 0.3284
+  },
+  {
+   "items_per_facet": 3,
+   "n_items": 90,
+   "domain_r_min": 0.9091,
+   "domain_r_median": 0.9575,
+   "alpha_min": 0.837,
+   "alpha_median": 0.8859,
+   "median_abs_pct_error": 5.42,
+   "p90_abs_pct_error": 15.77,
+   "share_gt10": 0.2581
+  },
+  {
+   "items_per_facet": 4,
+   "n_items": 120,
+   "domain_r_min": 0.9431,
+   "domain_r_median": 0.9657,
+   "alpha_min": 0.86,
+   "alpha_median": 0.9097,
+   "median_abs_pct_error": 4.69,
+   "p90_abs_pct_error": 13.59,
+   "share_gt10": 0.2027
+  }
+ ],
+ "ci95_width_at_p50_full300_median": 53.02,
+ "ci95_width_at_p50_short120_median": 60.19,
+ "alpha_short120_facets_min": 0.6907,
+ "alpha_short120_facets_median": 0.7885
+}

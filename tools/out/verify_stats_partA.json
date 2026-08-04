@@ -1,0 +1,253 @@
+{
+ "n": 145388,
+ "facet_raw_matches_cache": true,
+ "domain_raw_matches_cache": true,
+ "sanity_max_abs_err_vs_csv_domain_pct": 2.2737367544323206e-13,
+ "facet_alpha": {
+  "N1": 0.864879289650924,
+  "E1": 0.8900793476807886,
+  "O1": 0.8548176768817173,
+  "A1": 0.8846384936408128,
+  "C1": 0.8287320257712121,
+  "N2": 0.9138731472281547,
+  "E2": 0.8911211298051245,
+  "O2": 0.8113508287412128,
+  "A2": 0.7890831792516481,
+  "C2": 0.85810950440727,
+  "N3": 0.9159989529625713,
+  "E3": 0.8617463964996271,
+  "O3": 0.788146472510005,
+  "A3": 0.8385972940684981,
+  "C3": 0.8008086463316887,
+  "N4": 0.8316504983439452,
+  "E4": 0.7245103300531079,
+  "O4": 0.8166302389394373,
+  "A4": 0.7737213051004278,
+  "C4": 0.8396633833704097,
+  "N5": 0.7840798762055864,
+  "E5": 0.8488404125413903,
+  "O5": 0.8516183852734209,
+  "A5": 0.7782931583915441,
+  "C5": 0.8939488886723483,
+  "N6": 0.8601950712767535,
+  "E6": 0.8436161806430481,
+  "O6": 0.7840001050367501,
+  "A6": 0.7850465675786555,
+  "C6": 0.8462916812568304
+ },
+ "facet_alpha_min": [
+  "E4",
+  0.7245103300531079
+ ],
+ "facet_alpha_max": [
+  "N3",
+  0.9159989529625713
+ ],
+ "facet_alpha_mean": 0.8351362822704971,
+ "facet_alpha_median": 0.841639782006729,
+ "domain_alpha": {
+  "N": 0.9554921070768181,
+  "E": 0.943386051062139,
+  "O": 0.9069139018185189,
+  "A": 0.9199772337383121,
+  "C": 0.9465595913318376
+ },
+ "facet_alpha_ddof0_spotcheck": {
+  "N1": 0.864879289650924,
+  "E1": 0.8900793476807887,
+  "O1": 0.8548176768817173,
+  "A1": 0.8846384936408128,
+  "C1": 0.8287320257712121
+ },
+ "cit_lowest12": [
+  {
+   "item": 103,
+   "facet": "O3",
+   "r_corrected": 0.19822,
+   "r_uncorrected": 0.36284,
+   "reversed": false,
+   "text": {
+    "id": 103,
+    "zh": "我喜欢审视自己和自己的生活。",
+    "en": "Enjoy examining myself and my life."
+   }
+  },
+  {
+   "item": 234,
+   "facet": "A5",
+   "r_corrected": 0.260754,
+   "r_uncorrected": 0.392735,
+   "reversed": true,
+   "text": {
+    "id": 234,
+    "zh": "很多问题我都知道答案。",
+    "en": "Know the answers to many questions."
+   }
+  },
+  {
+   "item": 248,
+   "facet": "O2",
+   "r_corrected": 0.262445,
+   "r_uncorrected": 0.421311,
+   "reversed": true,
+   "text": {
+    "id": 248,
+    "zh": "我不喜欢音乐会。",
+    "en": "Do not like concerts."
+   }
+  },
+  {
+   "item": 257,
+   "facet": "E4",
+   "r_corrected": 0.264346,
+   "r_uncorrected": 0.422415,
+   "reversed": true,
+   "text": {
+    "id": 257,
+    "zh": "我会让事情顺其自然地进行。",
+    "en": "Let things proceed at their own pace."
+   }
+  },
+  {
+   "item": 19,
+   "facet": "A4",
+   "r_corrected": 0.265291,
+   "r_uncorrected": 0.408799,
+   "reversed": false,
+   "text": {
+    "id": 19,
+    "zh": "我很容易满足。",
+    "en": "Am easy to satisfy."
+   }
+  },
+  {
+   "item": 137,
+   "facet": "E4",
+   "r_corrected": 0.276278,
+   "r_uncorrected": 0.434759,
+   "reversed": false,
+   "text": {
+    "id": 137,
+    "zh": "我反应很快。",
+    "en": "React quickly."
+   }
+  },
+  {
+   "item": 73,
+   "facet": "O3",
+   "r_corrected": 0.29061,
+   "r_uncorrected": 0.433363,
+   "reversed": false,
+   "text": {
+    "id": 73,
+    "zh": "我会对某些理念投入热情。",
+    "en": "Am passionate about causes."
+   }
+  },
+  {
+   "item": 90,
+   "facet": "C6",
+   "r_corrected": 0.294458,
+   "r_uncorrected": 0.419715,
+   "reversed": false,
+   "text": {
+    "id": 90,
+    "zh": "我会坚持自己选定的路。",
+    "en": "Stick to my chosen path."
+   }
+  },
+  {
+   "item": 258,
+   "facet": "O4",
+   "r_corrected": 0.310979,
+   "r_uncorrected": 0.468602,
+   "reversed": true,
+   "text": {
+    "id": 258,
+    "zh": "我不喜欢没吃过的食物。",
+    "en": "Dislike new foods."
+   }
+  },
+  {
+   "item": 133,
+   "facet": "O3",
+   "r_corrected": 0.312816,
+   "r_uncorrected": 0.42645,
+   "reversed": false,
+   "text": {
+    "id": 133,
+    "zh": "我努力理解自己。",
+    "en": "Try to understand myself."
+   }
+  },
+  {
+   "item": 38,
+   "facet": "O2",
+   "r_corrected": 0.315297,
+   "r_uncorrected": 0.396011,
+   "reversed": false,
+   "text": {
+    "id": 38,
+    "zh": "我喜欢音乐。",
+    "en": "Like music."
+   }
+  },
+  {
+   "item": 197,
+   "facet": "E4",
+   "r_corrected": 0.323043,
+   "r_uncorrected": 0.480735,
+   "reversed": true,
+   "text": {
+    "id": 197,
+    "zh": "我喜欢慢慢来。",
+    "en": "Like to take my time."
+   }
+  }
+ ],
+ "cit_min": 0.19822037844351584,
+ "cit_max": 0.7975496908655766,
+ "cit_mean": 0.5361749436363552,
+ "cit_median": 0.5411069979570442,
+ "cit_n_negative": 0,
+ "cit_n_below_0.20": 1,
+ "cit_n_below_0.30": 8,
+ "cit_correction_gap_mean": 0.10548080789141603,
+ "cit_min_uncorrected": 0.3628398657930837,
+ "cit_domain_min": 0.009529034258390709,
+ "cit_domain_n_negative": 0,
+ "cit_domain_lowest8": [
+  {
+   "item": 227,
+   "r": 0.009529
+  },
+  {
+   "item": 257,
+   "r": 0.039235
+  },
+  {
+   "item": 167,
+   "r": 0.066399
+  },
+  {
+   "item": 141,
+   "r": 0.117446
+  },
+  {
+   "item": 54,
+   "r": 0.11884
+  },
+  {
+   "item": 234,
+   "r": 0.140381
+  },
+  {
+   "item": 197,
+   "r": 0.140539
+  },
+  {
+   "item": 24,
+   "r": 0.145341
+  }
+ ]
+}
