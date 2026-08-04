@@ -13,7 +13,10 @@ $Root    = Split-Path $PSScriptRoot -Parent
 $EnvFile = Join-Path $Root '.env'
 $Dist    = Join-Path $Root 'dist'
 $Project = 'big5-ipipneo300-zh'
-$Account = '2e115e963a4c1ed4a66f037002153513'
+# Account id is the first path segment of your Pages dashboard URL:
+#   https://dash.cloudflare.com/<ACCOUNT_ID>/pages/view/<project>
+# Put CLOUDFLARE_ACCOUNT_ID=... in .env beside the token, or set it in the shell.
+$Account = $env:CLOUDFLARE_ACCOUNT_ID
 
 if (-not (Test-Path $EnvFile)) {
   Write-Host "缺少 $EnvFile" -ForegroundColor Red
@@ -26,6 +29,14 @@ if (-not (Test-Path (Join-Path $Dist 'index.html'))) {
 }
 
 $env:WRANGLER_SEND_METRICS = 'false'
+if (-not $Account) {
+  $m = Select-String -Path $EnvFile -Pattern '^CLOUDFLARE_ACCOUNT_ID=(.+)$'
+  if ($m) { $Account = $m.Matches[0].Groups[1].Value.Trim() }
+}
+if (-not $Account) {
+  Write-Host '缺少 CLOUDFLARE_ACCOUNT_ID（放进 .env 或设为环境变量）' -ForegroundColor Red
+  exit 1
+}
 $env:CLOUDFLARE_ACCOUNT_ID = $Account
 
 # Re-run the corpus gate and the packaging pre-flight before anything leaves the machine.

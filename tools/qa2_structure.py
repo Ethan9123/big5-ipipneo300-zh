@@ -12,7 +12,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, "tools", "out", "profiles_raw.json")
 ORDERED = os.path.join(ROOT, "tools", "out", "profiles_ordered.json")
 SITE = os.path.join(ROOT, "site")
-SCRATCH = r"~\AppData\Local\Temp\claude\C--Users-kids1-Downloads-bigfive\3f3dea16-3b73-4559-8359-8360df8000b2\scratchpad"
+SCRATCH = r"~\AppData\Local\Temp\claude\<project>\3f3dea16-3b73-4559-8359-8360df8000b2\scratchpad"
 os.makedirs(SCRATCH, exist_ok=True)
 OUTJSON = os.path.join(SCRATCH, "qa2_structure_report.json")
 

@@ -1,4 +1,4 @@
-画像文件：C:\Users\kids1\Downloads\bigfive\tools\out\profiles_ordered.json
+画像文件：<path>
 条目数：243
 含占位标记（占位/TODO/真实文案 等）的画像：243 / 243
 结构问题：243 条

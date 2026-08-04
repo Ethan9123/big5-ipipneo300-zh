@@ -16,7 +16,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-SCRATCH = r"~\AppData\Local\Temp\claude\C--Users-kids1-Downloads-bigfive\3f3dea16-3b73-4559-8359-8360df8000b2\scratchpad"
+SCRATCH = r"~\AppData\Local\Temp\claude\<project>\3f3dea16-3b73-4559-8359-8360df8000b2\scratchpad"
 os.makedirs(SCRATCH, exist_ok=True)
 
 SEED = 20260803
