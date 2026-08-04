@@ -16,7 +16,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-SCRATCH = r"C:\Users\kids1\AppData\Local\Temp\claude\C--Users-kids1-Downloads-bigfive\3f3dea16-3b73-4559-8359-8360df8000b2\scratchpad"
+SCRATCH = r"~\AppData\Local\Temp\claude\C--Users-kids1-Downloads-bigfive\3f3dea16-3b73-4559-8359-8360df8000b2\scratchpad"
 os.makedirs(SCRATCH, exist_ok=True)
 
 SEED = 20260803
@@ -858,3 +858,4 @@ w("")
 w(f"宽松 rewriteList（仅单字段 >0.5）: {sorted(rewrite)}")
 open(os.path.join(OUT, "qa2_distinct_report.txt"), "w", encoding="utf-8").write("\n".join(L))
 print("\n".join(L))
+

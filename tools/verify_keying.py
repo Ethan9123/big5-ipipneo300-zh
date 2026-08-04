@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """Independently verify the site's 148-item reverse-keyed list against IPIP's own key.
 
 This is the one check nothing else in the project could make. Johnson's published dataset
@@ -22,9 +22,15 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ipip  # noqa: E402
 
-KEY_HTML = (r"C:\Users\kids1\AppData\Local\Temp\claude"
-            r"\C--Users-kids1-Downloads-bigfive\3f3dea16-3b73-4559-8359-8360df8000b2"
-            r"\scratchpad\newNEOFacetsKey.htm")
+KEY_URL = "https://ipip.ori.org/newNEOFacetsKey.htm"
+KEY_HTML = os.path.join(ipip.OUT, "newNEOFacetsKey.htm")
+
+if not os.path.exists(KEY_HTML):
+    import urllib.request
+    print("fetching %s" % KEY_URL)
+    os.makedirs(ipip.OUT, exist_ok=True)
+    with urllib.request.urlopen(KEY_URL, timeout=30) as r:
+        io.open(KEY_HTML, "w", encoding="utf-8").write(r.read().decode("utf-8", "replace"))
 
 raw = io.open(KEY_HTML, encoding="utf-8", errors="replace").read()
 text = re.sub(r"<[^>]+>", "\n", raw)

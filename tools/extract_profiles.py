@@ -12,9 +12,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ipip  # noqa: E402
 
-JOURNAL = (r"C:\Users\kids1\.claude\projects\C--Users-kids1-Downloads-bigfive"
-           r"\3f3dea16-3b73-4559-8359-8360df8000b2\subagents\workflows"
-           r"\wf_63077d4b-d49\journal.jsonl")
+JOURNAL = os.environ.get("CLAUDE_WORKFLOW_JOURNAL", "")
 
 LV = ["低", "中", "高"]
 KEYS = ["O", "C", "E", "A", "N"]

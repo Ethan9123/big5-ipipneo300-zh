@@ -10,9 +10,10 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ipip  # noqa: E402
 
-KEY_HTML = (r"C:\Users\kids1\AppData\Local\Temp\claude"
-            r"\C--Users-kids1-Downloads-bigfive\3f3dea16-3b73-4559-8359-8360df8000b2"
-            r"\scratchpad\newNEOFacetsKey.htm")
+# same local copy verify_keying.py downloads; run that first if it is missing
+KEY_HTML = os.path.join(ipip.OUT, "newNEOFacetsKey.htm")
+if not os.path.exists(KEY_HTML):
+    sys.exit("run tools/verify_keying.py first -- it fetches the IPIP key")
 raw = io.open(KEY_HTML, encoding="utf-8", errors="replace").read()
 text = html.unescape(re.sub(r"<[^>]+>", "\n", raw))
 text = text.replace("\u00a0", "\n").replace("\u0096", "-").replace("\u2013", "-")
@@ -67,3 +68,4 @@ for qid in UNMATCHED:
                 break
         print("     %.2f  [%s %s keyed]  %s"
               % (difflib.SequenceMatcher(None, en, b).ratio(), where, sign, b))
+

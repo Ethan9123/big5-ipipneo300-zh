@@ -1,5 +1,5 @@
-﻿import sys, numpy as np, collections
-sys.path.insert(0, r"C:\Users\kids1\Downloads\bigfive\tools")
+import sys, numpy as np, collections
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'tools'))
 import ipip
 Z = ipip.load()
 items = np.ascontiguousarray(Z["items"].astype(np.uint8))

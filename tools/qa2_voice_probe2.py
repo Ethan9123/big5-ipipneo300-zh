@@ -2,7 +2,7 @@
 """qa2_voice_probe2.py -- 只读探查 cons 语料，为代价判定设计关键词。"""
 import json, re, io, sys, collections
 sys.stdout.reconfigure(encoding='utf-8')
-RAW = r"C:\Users\kids1\Downloads\bigfive\tools\out\profiles_raw.json"
+RAW = os.path.join(os.path.dirname(os.path.abspath(__file__)), "out", "profiles_raw.json")
 data = json.load(io.open(RAW, encoding='utf-8'))
 
 LEV = {"低": 0, "中": 1, "高": 2}
@@ -21,3 +21,4 @@ for name, (dim, lev) in groups.items():
     print("  distinct cons items:", len(cnt), "total:", sum(cnt.values()))
     for k, v in cnt.most_common():
         print("   %2d  %s" % (v, k))
+

@@ -15,8 +15,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ipip  # noqa: E402
 
 RUN = sys.argv[1] if len(sys.argv) > 1 else "wf_bc76ce5b-de3"
-JOURNAL = (r"C:\Users\kids1\.claude\projects\C--Users-kids1-Downloads-bigfive"
-           r"\3f3dea16-3b73-4559-8359-8360df8000b2\subagents\workflows\%s\journal.jsonl" % RUN)
+JOURNAL = os.environ.get("CLAUDE_WORKFLOW_JOURNAL") or os.path.join(
+    os.path.expanduser("~"), ".claude", "projects", "<project>", "<session>",
+    "subagents", "workflows", RUN, "journal.jsonl")
 RAW = os.path.join(ipip.OUT, "profiles_raw.json")
 SHIP = os.path.join(ipip.OUT, "profiles_ordered.json")
 LV = ["低", "中", "高"]
@@ -123,3 +124,4 @@ for cell, field, frag in GUARD:
     print("   %-16s %-9s %s" % (cell, field, "保留" if ok else "已被覆盖 —— 需复查"))
 if lost:
     print("\n注意：%d 处被返工覆盖，verify_corpus.py 的红线检查会判断新措辞是否仍然安全。" % lost)
+

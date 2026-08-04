@@ -3,7 +3,7 @@
 import json, re, io, os, sys, collections
 
 sys.stdout.reconfigure(encoding='utf-8')
-RAW = r"C:\Users\kids1\Downloads\bigfive\tools\out\profiles_raw.json"
+RAW = os.path.join(os.path.dirname(os.path.abspath(__file__)), "out", "profiles_raw.json")
 data = json.load(io.open(RAW, encoding='utf-8'))
 TEXT = ["lead", "summary", "life", "friends", "love", "work"]
 LIST = ["pros", "cons", "practice"]
@@ -55,3 +55,4 @@ tally(r"(筛选|筛掉|排除|试探|评价|考验|识别|挑人|挑选)" + CJK 
 tally(CJK + r"{0,3}(治疗|就医|看医生|心理咨询|咨询师|专业帮助|吃药|确诊|诊断)" + CJK + r"{0,3}", "clinical-hint")
 tally(r"(内向|外向|宜人|尽责|开放|神经质)" + CJK + r"{0,2}", "dim words")
 tally(r"(天赋|异禀|独一无二|上天|命中注定|魅力四射|与生俱来|得天独厚|上帝)", "astro")
+

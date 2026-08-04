@@ -2,11 +2,14 @@
 """Pull one agent's full return value out of the workflow journal."""
 import io
 import json
+import os
 import sys
 
-PATH = (r"C:\Users\kids1\.claude\projects\C--Users-kids1-Downloads-bigfive"
-        r"\3f3dea16-3b73-4559-8359-8360df8000b2\subagents\workflows"
-        r"\wf_42de793d-2cc\journal.jsonl")
+# Point this at a workflow run's journal.jsonl:
+#   set CLAUDE_WORKFLOW_JOURNAL=...\subagents\workflows\<run-id>\journal.jsonl
+PATH = os.environ.get("CLAUDE_WORKFLOW_JOURNAL", "")
+if not PATH or not os.path.exists(PATH):
+    sys.exit("set CLAUDE_WORKFLOW_JOURNAL to a workflow journal.jsonl path")
 
 want = sys.argv[1] if len(sys.argv) > 1 else None
 field = sys.argv[2] if len(sys.argv) > 2 else None

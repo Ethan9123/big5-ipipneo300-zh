@@ -18,7 +18,7 @@ import json, re, io, os, sys, collections
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-ROOT = r"C:\Users\kids1\Downloads\bigfive"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, "tools", "out", "profiles_raw.json")
 OUT_JSON = os.path.join(ROOT, "tools", "out", "qa2_voice_v2.json")
 OUT_TXT = os.path.join(ROOT, "tools", "out", "qa2_voice_v2.txt")

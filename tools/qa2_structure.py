@@ -8,11 +8,11 @@ import json, os, re, gzip, io, shutil, sys, unicodedata, statistics, tempfile
 
 sys.stdout.reconfigure(encoding="utf-8")
 
-ROOT = r"C:\Users\kids1\Downloads\bigfive"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, "tools", "out", "profiles_raw.json")
 ORDERED = os.path.join(ROOT, "tools", "out", "profiles_ordered.json")
 SITE = os.path.join(ROOT, "site")
-SCRATCH = r"C:\Users\kids1\AppData\Local\Temp\claude\C--Users-kids1-Downloads-bigfive\3f3dea16-3b73-4559-8359-8360df8000b2\scratchpad"
+SCRATCH = r"~\AppData\Local\Temp\claude\C--Users-kids1-Downloads-bigfive\3f3dea16-3b73-4559-8359-8360df8000b2\scratchpad"
 os.makedirs(SCRATCH, exist_ok=True)
 OUTJSON = os.path.join(SCRATCH, "qa2_structure_report.json")
 
@@ -576,3 +576,4 @@ P("5. 打包与体积")
 for k, v in pack.items():
     P("  %-40s %s" % (k, v))
 P("\n报告 JSON: %s" % OUTJSON)
+
