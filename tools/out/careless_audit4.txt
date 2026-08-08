@@ -1,0 +1,43 @@
+
+==============================================================================
+0  keying layout: where do the same-keyed stretches sit?
+==============================================================================
+  longest same-keyed stretches (start,end,reversed,len): [(1, 68, False, 68), (238, 300, True, 63), (70, 98, False, 29), (208, 231, True, 24), (178, 190, True, 13), (100, 108, False, 9)]
+  reverse items in 238-300: 63 of 63
+  reverse items in 1-237  : 85 of 237
+
+==============================================================================
+1  three run-rule variants, evaluated on the same criterion
+==============================================================================
+  shipped rule (any run)                       flag rate 2.99%
+  keying-aware (run must cross a keying change) flag rate 1.31%
+  positional  (run must sit inside items 1-237) flag rate 1.92%
+  option mix, shipped rule : opt1 2.99%  opt2 0.00%  opt3 0.00%  opt4 0.00%  opt5 0.00%
+  option mix, keying-aware : opt1 1.31%  opt2 0.00%  opt3 0.00%  opt4 0.00%  opt5 0.00%
+
+==============================================================================
+2  verify the sentence already on the page ('97% of flagged runs start after item 150')
+==============================================================================
+  flagged runs sampled: 4614 ; 96.7% start after item 150 ; 38.6% start after item 237
+  median start position = 217
+
+==============================================================================
+3  same criterion as before: half-form discrepancy on held-out facets
+==============================================================================
+  base mean discrepancy = 0.5431 SD units
+  shipped run rule                               n=  4350  rate 2.99%  extremity-adj gap +0.0575
+  keying-aware run rule                          n=  1911  rate 1.31%  extremity-adj gap +0.0412
+  positional run rule (1-237)                    n=  2786  rate 1.92%  extremity-adj gap +0.0515
+  released by keying-aware rule (was flagged)    n=  2439  rate 1.68%  extremity-adj gap +0.0712
+  released by positional rule (was flagged)      n=  1564  rate 1.08%  extremity-adj gap +0.0686
+  shipped flag rate by profile-differentiation decile (D1=flattest): D1 0.94%  D2 1.60%  D3 2.02%  D4 2.32%  D5 2.77%  D6 3.28%  D7 3.25%  D8 3.92%  D9 4.30%  D10 5.52%
+  keying-aware flag rate by profile-differentiation decile (D1=flattest): D1 0.49%  D2 0.81%  D3 1.04%  D4 1.11%  D5 1.35%  D6 1.56%  D7 1.42%  D8 1.56%  D9 1.57%  D10 2.22%
+
+==============================================================================
+4  page text: correct character counts (zh field)
+==============================================================================
+  stems (zh): n=300 mean 10.1 SD 2.6 min 5 max 21 TOTAL 3017
+  notes     : n=300 mean 118.9 SD 12.7 min 95 max 149 TOTAL 35663
+  hints mode on-screen total = 38680 chars -> 97-129 min at 300-400 char/min, 64 min at 600
+  standard mode total = 3017 chars -> 8-10 min at 300-400 char/min
+  ratio note:stem chars = 11.8 : 1

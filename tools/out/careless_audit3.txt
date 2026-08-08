@@ -1,0 +1,55 @@
+
+==============================================================================
+A  strictly non-circular criterion: half-form discrepancy on HELD-OUT facets
+==============================================================================
+  index  = even-odd consistency computed on the 15 setA facets
+  criterion = mean |z(halfA) - z(halfB)| over the 15 setB facets (no cut points, no tiers)
+  overall mean discrepancy = 0.5431 SD units
+  r(EO_setA, discrepancy_setB) = -0.099
+  r(extremity_setB, discrepancy_setB) = 0.221   <- the confound
+
+==============================================================================
+B  do the flags mark worse protocols, before and after controlling for extremity?
+==============================================================================
+  RUN_CUT (shipped, 2.99%)               n=  4350  raw gap +0.0634   extremity-stratified gap +0.0575
+       by extremity quintile (1=most average person): Q1 +0.0959  Q2 +0.0604  Q3 +0.0579  Q4 +0.0401  Q5 +0.0333
+  RUN_CUT items 1-237 only (1.92%)       n=  2786  raw gap +0.0574   extremity-stratified gap +0.0515
+       by extremity quintile (1=most average person): Q1 +0.0886  Q2 +0.0534  Q3 +0.0513  Q4 +0.0352  Q5 +0.0292
+  even-odd worst 1.8% (setA-built)       n=  2617  raw gap +0.0384   extremity-stratified gap +0.0680
+       by extremity quintile (1=most average person): Q1 +0.0432  Q2 +0.0483  Q3 +0.0658  Q4 +0.0734  Q5 +0.1095
+  even-odd worst 5% (setA-built)         n=  7270  raw gap +0.0327   extremity-stratified gap +0.0561
+       by extremity quintile (1=most average person): Q1 +0.0390  Q2 +0.0445  Q3 +0.0543  Q4 +0.0574  Q5 +0.0852
+  (positive gap = flagged protocols really are less consistent; ~0 = the flag is noise)
+
+==============================================================================
+C  how much does filtering buy, in the units the site actually shows?
+==============================================================================
+  the site shows facet tiers cut at percentile 30/70.
+  two-parallel-form facet tier agreement over setB facets:
+     everyone: 0.6307
+     after removing the worst 1.8% by even-odd: 0.6318  (+0.1026 pp)
+     after removing the worst 5.0% by even-odd: 0.6333  (+0.2536 pp)
+     after removing the worst 10.0% by even-odd: 0.6354  (+0.4656 pp)
+     after removing RUN_CUT-flagged: 0.6306  (-0.0176 pp)
+  reference noise floor already on the page: single-domain retest 83-88%%, five-domain 47.2%%,
+  facet percentile 95%% CI ~53 points wide.
+
+==============================================================================
+D  who gets told their answers may be invalid (composite at 1.8%)
+==============================================================================
+  domain z of composite-flagged: N +0.456  E -0.144  O -0.560  A -0.227  C -0.299
+  domain z of everyone else    : N -0.008  E +0.003  O +0.010  A +0.004  C +0.006
+  mean age 22.1 vs 24.8 ; %female 55.5 vs 58.3
+  composite flag rate by decile of profile differentiation (D1 = flattest profile):
+     D1 5.74%  D2 3.70%  D3 2.62%  D4 2.00%  D5 1.49%  D6 0.94%  D7 0.67%  D8 0.53%  D9 0.25%  D10 0.06%
+  same for RUN_CUT:
+     D1 0.94%  D2 1.60%  D3 2.02%  D4 2.32%  D5 2.77%  D6 3.28%  D7 3.25%  D8 3.92%  D9 4.30%  D10 5.52%
+
+==============================================================================
+E  page-text constants behind the 'reading arithmetic' proposal
+==============================================================================
+  notes: n=300 mean 119.0 SD 12.8 min 95 max 149 TOTAL 35685 chars
+  items[0] = {"id": 1, "zh": "我会为各种事情操心。", "en": "Worry about things."}
+  stems: n=300 mean 23.1 TOTAL 6927 chars
+  hints mode total on-screen chars = 42612 ; at 300-400 chars/min silent reading = 107-142 minutes
+  standard mode (stems only) = 6927 chars = 17.3-23.1 minutes of reading

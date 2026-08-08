@@ -1,0 +1,92 @@
+N = 145388, items = 300, reversed = 148, usable cohort rows = 145388
+
+==============================================================================
+0  reproduce the shipped RUN_CUT flag
+==============================================================================
+  RUN_CUT flag rate on the norm sample: 2.992%  (n=4350)
+  by option: opt1 2.992%  opt2 0.000%  opt3 0.000%  opt4 0.000%  opt5 0.000%
+
+==============================================================================
+1  build even-odd consistency and psychometric synonym/antonym indices
+==============================================================================
+  even-odd (30 facet pairs, 5+5 items): mean r = 0.750, median = 0.771, SD = 0.118, NaN = 0
+  Meade & Craig (2012) reported mean even-odd .79 in their careful class; ours = 0.750
+  item-pair correlations (keyed space): max = 0.855, min = -0.743
+  synonym pairs: n=30, r range 0.624 .. 0.855 (mean 0.699)
+  antonym pairs: n=30, r range -0.743 .. -0.356 (mean -0.465)
+  psych-synonym index: mean 0.711, SD 0.147, NaN 0
+  psych-antonym  index: mean -0.486, SD 0.200, NaN 0
+
+==============================================================================
+2  is the index itself reliable enough to judge one person? (split-facet reproduction)
+==============================================================================
+  EO computed on 15 facets vs the other 15 facets: r = 0.299  (Spearman-Brown -> 0.460)
+    at a 1.8% flag rate: both halves flag 162, either flags 5072 -> reproduction 3.2%
+    at a 3.0% flag rate: both halves flag 414, either flags 8310 -> reproduction 5.0%
+    at a 5.0% flag rate: both halves flag 1058, either flags 13482 -> reproduction 7.8%
+    at a 10.0% flag rate: both halves flag 3301, either flags 25777 -> reproduction 12.8%
+  synonym index on 15 pairs vs the other 15: r = 0.246 (SB -> 0.395)
+    at a 1.8% flag rate: reproduction 4.4%
+    at a 3.0% flag rate: reproduction 5.6%
+    at a 5.0% flag rate: reproduction 7.4%
+
+==============================================================================
+3  what kind of person does the index flag? (profile flatness confound)
+==============================================================================
+  r(EO, profile SD across 30 z-scored facets) = 0.396
+  r(SYN, profile SD) = 0.346
+  EO flag rate at overall 1.8%, by decile of profile differentiation (1 = flattest):
+     D1 5.72%  D2 3.97%  D3 2.50%  D4 2.16%  D5 1.38%  D6 0.98%  D7 0.63%  D8 0.47%  D9 0.16%  D10 0.05%
+  EO flag rate at overall 5.0%, by decile of profile differentiation (1 = flattest):
+     D1 14.09%  D2 9.84%  D3 7.41%  D4 6.09%  D5 4.55%  D6 3.12%  D7 2.27%  D8 1.56%  D9 0.87%  D10 0.21%
+
+  domain z-scores of EO-flagged vs rest (order N,E,O,A,C):
+     flagged: N +0.465  E -0.191  O -0.669  A -0.333  C -0.326
+     rest   : N -0.009  E +0.003  O +0.012  A +0.006  C +0.006
+  mean age flagged 21.6 vs rest 24.9 ; % female flagged 51.7 vs rest 58.4
+  overlap with RUN_CUT: 51 of 2617 EO-flagged are also RUN_CUT-flagged (1.9%)
+
+==============================================================================
+4  non-circular payoff: does flagging actually raise the reproducibility of what we show?
+==============================================================================
+  criterion = mean two-parallel-form facet tier agreement over the 15 held-out facets
+  overall mean agreement (cohort rows): 0.6307
+  r(EO on held-in facets, agreement on held-out facets) = 0.170
+    drop worst 2% by EO -> agreement 0.6318 (was 0.6307), gain +0.0010 ; dropped group agreement 0.5748
+    drop worst 3% by EO -> agreement 0.6323 (was 0.6307), gain +0.0016 ; dropped group agreement 0.5799
+    drop worst 5% by EO -> agreement 0.6333 (was 0.6307), gain +0.0025 ; dropped group agreement 0.5825
+    drop worst 10% by EO -> agreement 0.6354 (was 0.6307), gain +0.0047 ; dropped group agreement 0.5888
+    drop worst 20% by EO -> agreement 0.6394 (was 0.6307), gain +0.0087 ; dropped group agreement 0.5961
+  same, using RUN_CUT as the filter:
+    drop RUN_CUT-flagged (2.99%) -> agreement 0.6306, gain -0.0002 ; dropped group 0.6364
+
+==============================================================================
+5  the '97% detection' number: how much of it is the straw man?
+==============================================================================
+  thresholds fixed at EO<=0.430, SYN<=0.319, ANT>=-0.023 -> composite flags 4.69% of the REAL sample
+  (RUN_CUT flags 2.99% of the real sample)
+
+  detection rate of each synthetic 'careless' scenario at those fixed thresholds:
+    scenario                            EO+SYN+ANT  EO only  RUN_CUT
+    S1 全300题均匀随机                          100.0%    99.1%     0.3%
+    S2 后100题均匀随机                           52.5%    35.4%     1.6%
+    S3 全300题按自己的按键习惯随机                    100.0%    99.0%     1.1%
+    S4 30% 的题走神（按自己习惯乱答）                   59.8%    28.6%     2.3%
+    S4 50% 的题走神（按自己习惯乱答）                   93.1%    72.0%     1.7%
+    S4 70% 的题走神（按自己习惯乱答）                   99.4%    94.5%     1.1%
+    S5 连续60题直线作答                           17.7%     4.0%   100.0%
+
+==============================================================================
+6  positive predictive value at plausible base rates
+==============================================================================
+  Meade & Craig (2012) even-odd: sensitivity .644 at their operating point.
+  Take specificity from our own data: at a 1.8% flag rate on a sample assumed b% careless,
+  the implied numbers are:
+    base 3%, sens 0.64 -> IMPOSSIBLE: a 1.8% overall flag rate is below base*sens = 1.9%
+    base 3%, sens 0.90 -> IMPOSSIBLE: a 1.8% overall flag rate is below base*sens = 2.7%
+    base 5%, sens 0.64 -> IMPOSSIBLE: a 1.8% overall flag rate is below base*sens = 3.2%
+    base 5%, sens 0.90 -> IMPOSSIBLE: a 1.8% overall flag rate is below base*sens = 4.5%
+    base 11%, sens 0.64 -> IMPOSSIBLE: a 1.8% overall flag rate is below base*sens = 7.1%
+    base 11%, sens 0.90 -> IMPOSSIBLE: a 1.8% overall flag rate is below base*sens = 9.9%
+    base 15%, sens 0.64 -> IMPOSSIBLE: a 1.8% overall flag rate is below base*sens = 9.7%
+    base 15%, sens 0.90 -> IMPOSSIBLE: a 1.8% overall flag rate is below base*sens = 13.5%

@@ -265,6 +265,50 @@ for f in SPEC_LIST:
     if near > 30:
         warnings.append("%s 近似重复 %d 对" % (f, near))
 
+# ---------------------------------------------------------------- 8 style / AI tells
+hr("8  文风：机器写作特征（详见 tools/ai_tells.py）")
+PROSE = ["summary", "life", "friends", "love", "work"]
+blob = "".join(p[f] for p in profiles for f in PROSE)
+sents = [s for s in re.split(r"[。！？；]", blob) if len(s.strip()) >= 2]
+slen = sorted(len(s) for s in sents)
+import statistics  # noqa: E402
+mean_l = statistics.mean(slen)
+cv = statistics.pstdev(slen) / mean_l
+short_pct = 100.0 * sum(1 for x in slen if x <= 8) / len(slen)
+dash = 1000.0 * blob.count("——") / len(blob)
+colon = 1000.0 * blob.count("：") / len(blob)
+para_sents = [s for p in profiles for f in PROSE
+              for s in re.split(r"[。！？]", p[f]) if s.strip()]
+you_start = 100.0 * sum(1 for s in para_sents if s.strip().startswith("你")) / len(para_sents)
+nfy = sum(1 for p in profiles
+          if re.search(r"不是[^，。]{1,14}，\s*(而)?是", "".join(p[f] for f in PROSE)))
+nfy_pct = 100.0 * nfy / len(profiles)
+
+# (measured value, label, warn-above/below, block-above/below, direction)
+STYLE = [
+    (cv,        "句长变异系数      ", 0.60, 0.50, "min"),
+    (short_pct, "≤8 字短句占比 (%) ", 12.0, 6.0, "min"),
+    (mean_l,    "平均句长 (字)     ", 26.0, 30.0, "max"),
+    (dash,      "破折号 (/千字)    ", 1.0, 2.0, "max"),
+    (colon,     "冒号 (/千字)      ", 1.5, 3.0, "max"),
+    (you_start, "「你」开头句 (%)  ", 20.0, 30.0, "max"),
+    (nfy_pct,   "「不是X是Y」覆盖(%)", 15.0, 30.0, "max"),
+]
+for val, label, warn, block, direction in STYLE:
+    if direction == "min":
+        bad, warned = val < block, val < warn
+        target = "≥ %.2f" % warn
+    else:
+        bad, warned = val > block, val > warn
+        target = "≤ %.2f" % warn
+    mark = " x" if bad else (" !" if warned else "  ")
+    print("  %s %8.2f   目标 %-8s%s" % (label, val, target, mark))
+    if bad:
+        blockers.append("文风 %s = %.2f（阻断线 %.2f）" % (label.strip(), val, block))
+    elif warned:
+        warnings.append("文风 %s = %.2f（目标 %s）" % (label.strip(), val, target))
+print("  （参考：人写的中文散文变异系数 0.6-0.8，短句占比 15-25%）")
+
 # ---------------------------------------------------------------- verdict
 hr("结论")
 if blockers:

@@ -259,6 +259,33 @@ sub("x.font = \"700 30px \" + F; x.textAlign = \"right\"; x.fillText(String(p), 
     "x.font = \"700 30px \" + F; x.textAlign = \"right\"; x.fillText(fmtPct(p), 1008, y);",
     "share card: format the tail")
 
+# ------------------------------------------------------------------ 9a. break card copy
+# The rest prompt cited Masuda et al. (2017) for three claims the paper does not make.
+# Verified: that paper is "Respondents with low motivation tend to choose middle category:
+# survey questions on happiness in Japan" (Behaviormetrika) -- a BETWEEN-person finding
+# about motivation in Japanese wellbeing surveys. No item position, no fatigue over the
+# course of a questionnaire, no Big Five, no split administration.
+# And the direction is wrong here anyway: in the norm sample the midpoint rate FALLS with
+# position (positive items 19.02% -> 14.99%, reversed 21.54% -> 15.23%) while extreme
+# responding rises. The slopes match across both keyings (-1.11 vs -1.13 %/block), so it
+# is a position effect, not a keying artefact.
+# The break feature stays; only the unsupported mechanism goes.
+sub("/* 每 5 页（75 题）提示一次休息。依据 Masuda 等 (2017)：大五问卷上题目位置越靠后，\n"
+    "   中间档背书率越高；分次施测能重置这个漂移。只提示，不强制。 */",
+    "/* 每 5 页（75 题）提示一次休息。只提示，不强制。\n"
+    "   这里原本引 Masuda 等 (2017) 说「越往后越容易往中间档靠」，那是误引：该文讲的是\n"
+    "   低动机受访者更爱选中间档（人与人之间的差异），不涉及题目位置、疲劳或分次施测。\n"
+    "   而且方向相反——在 Johnson 的常模样本上，中间档比例随位置下降（正向题 19.0%→15.0%，\n"
+    "   反向题 21.5%→15.2%），走极端的比例上升。正反向题的斜率几乎相同（-1.11 与 -1.13\n"
+    "   每 30 题），所以这是位置效应而非键控假象。既然机制说不清楚，就不说。 */",
+    "break card: drop the misattributed Masuda citation")
+
+sub('"研究发现，连着答长问卷时越往后越容易往中间档靠——这是疲劳，不是你对后面的题真的更没想法。" +\n'
+    '    "歇一会儿再回来，这个漂移会被重置。进度已经存好了，关掉网页也不会丢。" +',
+    '"长问卷答到后面，注意力和刚开始不会一样。要不要歇，你自己判断。" +\n'
+    '    "进度已经存好了，关掉网页也不会丢，明天再接着答也可以。" +',
+    "break card: replace the unsupported mechanism with a plain prompt")
+
 # ------------------------------------------------------------------ 9b. combination profile
 # 3^5 = 243 cells over the 低<=30 / 中 / 高>=70 bands. All 243 are occupied in the norm
 # sample (rarest has 24 people), but the cell only reproduces on a parallel form 47.2% of
