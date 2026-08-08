@@ -94,6 +94,25 @@ const PCT = decodePctTables(PCT_PAYLOAD);
    30/70 恰好切出 30% / 40% / 30%。                                    */
 const level = p => p <= 30 ? "低" : (p < 70 ? "中等" : "高");
 
+/* 各量表的 Cronbach α（145,388 份常模样本实测），用于置信区间。
+   SEM = SD·√(1−α)；95% 区间 = 原始分 ±1.96·SEM，再过同一张经验百分位表——
+   区间在原始分空间是对称的，映到百分位后两端自动变窄，与查表逻辑自洽。 */
+const ALPHA = {"O":0.907,"O1":0.855,"O2":0.811,"O3":0.788,"O4":0.817,"O5":0.852,"O6":0.784,"C":0.947,"C1":0.829,"C2":0.858,"C3":0.801,"C4":0.84,"C5":0.894,"C6":0.846,"E":0.943,"E1":0.89,"E2":0.891,"E3":0.862,"E4":0.725,"E5":0.849,"E6":0.844,"A":0.92,"A1":0.885,"A2":0.789,"A3":0.839,"A4":0.774,"A5":0.778,"A6":0.785,"N":0.956,"N1":0.865,"N2":0.914,"N3":0.916,"N4":0.832,"N5":0.784,"N6":0.86};
+
+function ci95(g, scale, raw){
+  const half = 1.96 * PCT.norms[g][scale].sd * Math.sqrt(1 - ALPHA[scale]);
+  return [PCT.lookup(g, scale, Math.round(raw - half)),
+          PCT.lookup(g, scale, Math.round(raw + half))];
+}
+
+/* 轨道上的浅色区段 */
+function ciBand(ci, color){
+  if (!ci) return "";
+  const l = Math.max(0, Math.min(100, ci[0]));
+  const w = Math.max(0.8, Math.min(100, ci[1]) - l);
+  return '<s style="left:' + l.toFixed(1) + '%;width:' + w.toFixed(1) + '%;background:' + color + '"></s>';
+}
+
 function cohortKey(sex, age){
   const s = (sex === "M" || sex === "F") ? sex : "N";
   return s + "_" + (age < 21 ? "lt21" : "gte21");
@@ -127,9 +146,9 @@ function score(ans, sex, age){
       const sc = k + i;
       const ft = PCT.tscore(g, sc, b5[k][i]);
       const fp = PCT.lookup(g, sc, b5[k][i]);
-      facets.push({i, raw:b5[k][i], t:ft, pct:fp, level:level(fp)});
+      facets.push({i, raw:b5[k][i], t:ft, pct:fp, level:level(fp), ci:ci95(g, sc, b5[k][i])});
     }
-    out[k] = {raw:dom[k], t, pct:p, level:level(p), facets};
+    out[k] = {raw:dom[k], t, pct:p, level:level(p), ci:ci95(g, k, dom[k]), facets};
   }
   return out;
 }
@@ -239,6 +258,35 @@ for old, new, what in [
      "JSON export: domain precision"),
 ]:
     sub(old, new, what)
+
+# ------------------------------------------------------------------ 8c. confidence bands
+# The one survivor of the paradata research round: put a 95% interval on every printed
+# percentile. Effect size dwarfs every validity-detector proposal (facet intervals are
+# tens of points wide), the derivation is short enough to print (SEM = SD*sqrt(1-alpha),
+# both inputs already ship in the page), and it extends the site's existing honesty about
+# the 47.2% cell-reproduction rate to every individual number.
+sub("'|' + r.t.toFixed(1) + '|' + fmtPct(r.pct) + '\">' +",
+    "'|' + r.t.toFixed(1) + '|' + fmtPct(r.pct) + '（95% 区间 ' + fmtPct(r.ci[0]) + '–' + fmtPct(r.ci[1]) + '）\">' +",
+    "CI in the domain tooltip")
+sub("'<i style=\"background:' + COLOR(d.key) + ';width:' + Math.max(1.2, r.pct) + '%\"></i><u></u></div>' +",
+    "'<i style=\"background:' + COLOR(d.key) + ';width:' + Math.max(1.2, r.pct) + '%\"></i>' + ciBand(r.ci, COLOR(d.key)) + '<u></u></div>' +",
+    "CI band on the domain track")
+sub("'|' + f.t.toFixed(1) + '|' + fmtPct(f.pct) + '|' + m[2] + '\">' +",
+    "'|' + f.t.toFixed(1) + '|' + fmtPct(f.pct) + '（95% 区间 ' + fmtPct(f.ci[0]) + '–' + fmtPct(f.ci[1]) + '）|' + m[2] + '\">' +",
+    "CI in the facet tooltip")
+sub("'<span class=\"ftrack\"><i style=\"background:' + COLOR(d.key) + ';width:' + Math.max(1.2, f.pct) + '%\"></i><u></u></span>' +",
+    "'<span class=\"ftrack\"><i style=\"background:' + COLOR(d.key) + ';width:' + Math.max(1.2, f.pct) + '%\"></i>' + ciBand(f.ci, COLOR(d.key)) + '<u></u></span>' +",
+    "CI band on the facet track")
+sub(".ftrack>u{position:absolute;top:-2px;bottom:-2px;left:50%;width:1px;background:var(--axis)}",
+    ".ftrack>u{position:absolute;top:-2px;bottom:-2px;left:50%;width:1px;background:var(--axis)}\n"
+    ".track>s,.ftrack>s{position:absolute;top:0;bottom:0;opacity:.22;border-radius:3px;pointer-events:none}",
+    "CI band styles")
+sub("「低／中等／高」切在 30 和 70，但这两处是模糊边界，不要把相邻的两档理解成截然不同的人格。",
+    "「低／中等／高」切在 30 和 70，但这两处是模糊边界，不要把相邻的两档理解成截然不同的人格。"
+    "横条上颜色较浅的一段是 <b>95% 置信区间</b>：同一个人换一天再测，分数大概率落在这段里。"
+    "区间由量表信度算出（SEM = SD·√(1−α)，α 为常模样本实测值），子面向只有 10 道题，区间普遍不窄。"
+    "这不是这份测评独有的毛病，是所有短量表共同的物理现实。看方向，别抠精确值。",
+    "explain the CI band in the guide")
 
 # ------------------------------------------------------------------ 9. broken share card
 # saveCard() calls levelWord(p), which is never defined anywhere in the page. Clicking
