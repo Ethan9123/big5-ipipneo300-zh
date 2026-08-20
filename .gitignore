@@ -10,6 +10,12 @@ tools/out/scored.npz
 tools/out/meta.csv
 tools/out/sample_rows.json
 
+# Johnson's raw IPIP-NEO data from OSF (~190 MB). Public and re-downloadable:
+#   IPIP120.dat  https://osf.io/download/q9jrh/
+#   IPIP300.dat  https://osf.io/download/jdu2v/
+# tools/verify_china_gap.py and china_gap_replicate.py fetch/expect them here.
+tools/refs/*.dat
+
 # Installed packages / caches
 tools/pylib/
 __pycache__/
