@@ -259,6 +259,43 @@ for old, new, what in [
 ]:
     sub(old, new, what)
 
+# ------------------------------------------------------------------ 8b. China gap
+# Two copy fixes, both from re-deriving the numbers off Johnson's raw OSF files
+# (IPIP120.dat n=410,376 and IPIP300.dat) rather than trusting a summary.
+#
+# (1) The page pointed readers at a Mandarin IPIP-NEO-120 "with Chinese norms". Checked:
+#     that is a one-paragraph registration notice on IPIP's translations page -- no paper,
+#     no item text, no norm values, nothing downloadable. Sending users to look for it is
+#     misleading, so the pointer goes.
+# (2) In its place, the actual measured gap. Greater China n=3,676 vs USA n=296,766:
+#     mean |d| = 0.207, SD ratio 0.861 (Chinese respondents are ~14% less spread out).
+#     But the correction is NOT stable: estimating the same gap from the 300-item file
+#     (n=983) disagrees by 0.136 SD on average -- 66% of the signal -- with 5/30 facets
+#     flipping sign and 20/30 disagreements exceeding sampling error (r = 0.741).
+#     So: disclose the direction, refuse to "correct" the scores. Only 3 facets replicate
+#     at |d|>0.3 with a consistent sign, and those are named.
+sub(
+    "如果你需要有中国样本常模的版本，华东师范大学 Zhongyang Xu 等人已经做过 IPIP-NEO-120 的普通话译本"
+    "并提供了中国样本常模，登记在 IPIP 官网的翻译页上。",
+    "这个偏差有多大，可以直接量出来。Johnson 公开了原始作答数据，其中用英文作答的"
+    "大中华区被试有 3,676 人。拿他们和 296,766 名美国被试比：30 个子面向的平均差距是 "
+    "0.21 个标准差，而且这批人的分数<b>比美国样本集中约 14%</b>——极端选项选得少。"
+    "两者叠加的后果是<b>高分被压低</b>：一个在自己人群里排到第 84 百分位的人，"
+    "在本站大约只会看到 77。"
+    "<br><br>"
+    "那为什么不直接换一套常模？因为<b>这个修正量本身不可靠</b>。用 Johnson 另一份数据"
+    "（同一批年份、同一个网站、300 题版）独立估一遍，两次结果平均差 0.14 个标准差，"
+    "相当于要修正的偏差的三分之二；30 个面向里有 5 个连方向都相反，20 个的分歧超出抽样误差。"
+    "拿一个误差和它本身一样大的修正量去改你的分数，只会让结果更不可信。"
+    "<br><br>"
+    "两份数据都稳定指向同一方向的只有三个面向：<b>寻求刺激、想象力、放纵</b>——"
+    "中文用户在这三项上的分数会被系统性显示得偏低。其余 27 个面向，"
+    "我们只能告诉你偏差存在，说不准偏多少。"
+    "<br><br>"
+    "还有一层这些数字碰不到：上面那 3,676 人都是<b>用英文作答</b>的，"
+    "他们是英语能力筛出来的人群。用中文作答会不会另有偏移，没有任何数据能回答。",
+    "replace the misleading Mandarin-norms pointer with the measured, non-correctable gap")
+
 # ------------------------------------------------------------------ 8c. confidence bands
 # The one survivor of the paradata research round: put a 95% interval on every printed
 # percentile. Effect size dwarfs every validity-detector proposal (facet intervals are

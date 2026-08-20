@@ -1,0 +1,154 @@
+{
+ "ranking": [
+  {
+   "facet": "O2",
+   "name": "艺术兴趣",
+   "mean_abs_shift": 12.519010416953256
+  },
+  {
+   "facet": "O1",
+   "name": "想象力",
+   "mean_abs_shift": 12.091057370622059
+  },
+  {
+   "facet": "A3",
+   "name": "利他",
+   "mean_abs_shift": 12.017380120780258
+  },
+  {
+   "facet": "O5",
+   "name": "智性",
+   "mean_abs_shift": 11.586297060280078
+  },
+  {
+   "facet": "A2",
+   "name": "正直",
+   "mean_abs_shift": 10.187080976421713
+  },
+  {
+   "facet": "O3",
+   "name": "情绪感受性",
+   "mean_abs_shift": 10.020731446199138
+  },
+  {
+   "facet": "C3",
+   "name": "尽责",
+   "mean_abs_shift": 9.984501079869041
+  },
+  {
+   "facet": "C1",
+   "name": "自我效能",
+   "mean_abs_shift": 8.970158888629047
+  },
+  {
+   "facet": "E6",
+   "name": "快乐",
+   "mean_abs_shift": 8.858451622554817
+  },
+  {
+   "facet": "C4",
+   "name": "成就追求",
+   "mean_abs_shift": 8.656407344485102
+  },
+  {
+   "facet": "A1",
+   "name": "信任",
+   "mean_abs_shift": 8.511918053759596
+  },
+  {
+   "facet": "O4",
+   "name": "冒险",
+   "mean_abs_shift": 8.428784610834457
+  },
+  {
+   "facet": "A6",
+   "name": "同情",
+   "mean_abs_shift": 8.367815913280326
+  },
+  {
+   "facet": "A4",
+   "name": "合作",
+   "mean_abs_shift": 8.292765283242083
+  },
+  {
+   "facet": "E1",
+   "name": "友善",
+   "mean_abs_shift": 7.615983286103393
+  },
+  {
+   "facet": "O6",
+   "name": "自由主义",
+   "mean_abs_shift": 7.417027148045231
+  },
+  {
+   "facet": "A5",
+   "name": "谦逊",
+   "mean_abs_shift": 7.1346918143175495
+  },
+  {
+   "facet": "C2",
+   "name": "条理性",
+   "mean_abs_shift": 7.001483540594823
+  },
+  {
+   "facet": "E3",
+   "name": "自信主张",
+   "mean_abs_shift": 6.81967517951963
+  },
+  {
+   "facet": "E5",
+   "name": "寻求刺激",
+   "mean_abs_shift": 6.811263814757751
+  },
+  {
+   "facet": "E2",
+   "name": "合群",
+   "mean_abs_shift": 6.7498407193165875
+  },
+  {
+   "facet": "N3",
+   "name": "抑郁",
+   "mean_abs_shift": 6.744097243238782
+  },
+  {
+   "facet": "C5",
+   "name": "自律",
+   "mean_abs_shift": 6.681841881723388
+  },
+  {
+   "facet": "C6",
+   "name": "谨慎",
+   "mean_abs_shift": 6.455678890279803
+  },
+  {
+   "facet": "N2",
+   "name": "愤怒",
+   "mean_abs_shift": 6.192155776267643
+  },
+  {
+   "facet": "N6",
+   "name": "脆弱",
+   "mean_abs_shift": 5.86402543538669
+  },
+  {
+   "facet": "N1",
+   "name": "焦虑",
+   "mean_abs_shift": 5.273077069634358
+  },
+  {
+   "facet": "N4",
+   "name": "自我意识",
+   "mean_abs_shift": 5.251797538311277
+  },
+  {
+   "facet": "N5",
+   "name": "放纵",
+   "mean_abs_shift": 5.086372324400914
+  },
+  {
+   "facet": "E4",
+   "name": "活跃度",
+   "mean_abs_shift": 4.905875515861006
+  }
+ ]
+}

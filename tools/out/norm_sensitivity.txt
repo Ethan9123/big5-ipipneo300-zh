@@ -1,0 +1,66 @@
+
+==============================================================================
+0  sample
+==============================================================================
+  whole sample 145388; Greater China 2117 = 1.46% (Macau n=15 not counted)
+  Greater China : female 57.5%, under 21 44.4%, median age 21
+  whole sample  : female 58.3%, under 21 43.1%, median age 22
+  -> demographically near-identical, so what follows is not an age/sex artefact.
+
+==============================================================================
+1  swap the reference population: how far does the percentile move?
+==============================================================================
+  n = 63510 (person x facet) values: median 5.19  mean 5.97  p90 12.00  %>10 = 21.9%
+  domains: 开放性 10.19   尽责性 2.04   外向性 9.64   宜人性 5.87   神经质 1.89
+  largest six facets:
+     O5  智性     13.52
+     C1  自我效能   10.13
+     E5  寻求刺激    9.92
+     N5  放纵      9.62
+     O1  想象力     9.21
+     C6  谨慎      8.99
+
+==============================================================================
+2  null: same size, matched on the site's own sex x age cohorts
+==============================================================================
+  50 draws: median shift  mean 0.550  max 0.785
+  Greater China / null = 5.19 / 0.550 = 9.4x
+
+==============================================================================
+3  direction: a raw score at self-percentile q is displayed as ...
+==============================================================================
+  self-percentile      10     25     50     75     84     90
+  facet mean shown   12.7   26.9   47.7   69.7   79.4   85.7
+  domain mean shown  10.6  23.6  43.8  66.7  76.0  83.5
+  -> the distribution is narrower; both tails are pushed toward the middle.
+
+==============================================================================
+4  reliability: Greater China vs USA, same English items, 10-item scales
+==============================================================================
+  scale        a_GC   a_US   mean inter-item r (GC/US)   true-var ratio   SEM ratio
+  O6  自由主义    0.509  0.801       0.094 / 0.288            0.239          0.97
+  A4  合作      0.663  0.787       0.164 / 0.270            0.542          1.01
+  E4  活跃度     0.672  0.724       0.170 / 0.208            0.766          0.99
+  A6  同情      0.710  0.792       0.197 / 0.275            0.617          0.98
+  O3  情绪感受性   0.713  0.792       0.199 / 0.276            0.622          0.98
+  A2  正直      0.731  0.793       0.214 / 0.276            0.746          1.02
+  30 facets: median true-variance ratio 0.786 ; median SEM ratio 0.98
+  -> alpha falls but SD falls with it, so SEM barely moves. What changes is
+     discrimination between people, not measurement error.
+
+==============================================================================
+5  O6 Liberalism: corrected item-rest correlations, item by item
+==============================================================================
+  # 28  GC +0.219   US +0.607   我倾向于把票投给立场自由派的候选人。
+  # 58  GC +0.229   US +0.402   我认为世上没有绝对的对与错。
+  # 88  GC +0.185   US +0.469   我认为对罪犯应该给予帮助而不是惩罚。
+  #118  GC +0.178   US +0.442   我相信只有一种宗教是真的。
+  #148  GC +0.292   US +0.624   我倾向于把票投给立场保守派的候选人。
+  #178  GC +0.105   US +0.367   我认为纳税人的钱太多花在扶持艺术家身上了。
+  #208  GC +0.304   US +0.471   我认为法律应当被严格执行。
+  #238  GC +0.201   US +0.486   我认为我们对罪犯太过纵容。
+  #268  GC +0.329   US +0.558   我认为应该严厉打击犯罪。
+  #298  GC +0.162   US +0.398   奏国歌时我喜欢起立。
+  GC max 0.329 ; US min 0.367 -- the two ranges do not overlap.
+
+wrote out/norm_sensitivity.json

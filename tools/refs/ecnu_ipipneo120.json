@@ -1,0 +1,930 @@
+{
+ "source": "East China Normal University, School of Psychology and Cognitive Science. Zhongyang Xu, Jing Qian, Kunning Chen, Lianxin Zhu, Jianlong Ao; supervisor Ya Zhang. Mandarin Chinese translation of Johnson's (2014) IPIP-NEO-120. Hosted by IPIP; not peer reviewed.",
+ "urls": {
+  "items": "https://ipip.ori.org/Mandarin%20translation%20of%20IPIP-NEO-120.htm",
+  "reliability": "https://ipip.ori.org/ChineseIPIP-120reliability.htm",
+  "norms": "https://ipip.ori.org/ChineseIPIP-120norms.htm",
+  "index": "https://ipip.ori.org/newTranslations.htm"
+ },
+ "fetched": "2026-08-21",
+ "sha256": {
+  "items": "e515a617e872471be8cf6733c3d5e4480e59d23c3f72668c04a31a6514609bfd",
+  "reliability": "2f4c3bea43e0fbd3f1109c3716b6ca7cc1c384f4d331a1f14a65b984b040c579",
+  "norms": "ea158404faa6967d9c22e526c70adbe417a079035734e4216f53761ed09c228b"
+ },
+ "sample": {
+  "n": 131,
+  "pct_male": 30,
+  "pct_female": 70,
+  "age_mean": 20.4,
+  "age_sd": 3.3
+ },
+ "note": "item_total values are UNCORRECTED item-total correlations as published (they exceed what a corrected item-rest could reach for 4-item scales).",
+ "items": [
+  {
+   "i": 1,
+   "en": "Worry about things.",
+   "zh": "为很多事情感到担心",
+   "item_total": 0.83,
+   "item_total_matched_text": "脆弱性为很多事情感到担心"
+  },
+  {
+   "i": 2,
+   "en": "Make friends easily.",
+   "zh": "很容易交到朋友",
+   "item_total": 0.741,
+   "item_total_matched_text": "愉快很容易交到朋友"
+  },
+  {
+   "i": 3,
+   "en": "Have a vivid imagination.",
+   "zh": "有丰富的想象力",
+   "item_total": 0.697,
+   "item_total_matched_text": "自由主义有丰富的想象力"
+  },
+  {
+   "i": 4,
+   "en": "Trust others.",
+   "zh": "信任其他人",
+   "item_total": 0.841,
+   "item_total_matched_text": "同情心信任其他人"
+  },
+  {
+   "i": 5,
+   "en": "Complete tasks successfully.",
+   "zh": "能成功完成任务",
+   "item_total": 0.808,
+   "item_total_matched_text": "谨慎能成功完成任务"
+  },
+  {
+   "i": 6,
+   "en": "Get angry easily.",
+   "zh": "很容易生气",
+   "item_total": 0.896
+  },
+  {
+   "i": 7,
+   "en": "Love large parties.",
+   "zh": "喜欢参加大型聚会",
+   "item_total": 0.784
+  },
+  {
+   "i": 8,
+   "en": "Believe in the importance of art.",
+   "zh": "认为艺术是很重要的",
+   "item_total": 0.675
+  },
+  {
+   "i": 9,
+   "en": "Use others for my own ends.",
+   "zh": "会利用他人来达成自己的目的",
+   "item_total": 0.606
+  },
+  {
+   "i": 10,
+   "en": "Like to tidy up.",
+   "zh": "喜欢整洁",
+   "item_total": 0.774
+  },
+  {
+   "i": 11,
+   "en": "Often feel blue.",
+   "zh": "时常感到忧郁",
+   "item_total": 0.83
+  },
+  {
+   "i": 12,
+   "en": "Take charge.",
+   "zh": "承担责任",
+   "item_total": 0.776
+  },
+  {
+   "i": 13,
+   "en": "Experience my emotions intensely.",
+   "zh": "能强烈感受到自己的情绪",
+   "item_total": 0.743
+  },
+  {
+   "i": 14,
+   "en": "Love to help others.",
+   "zh": "乐于帮助他人",
+   "item_total": 0.803
+  },
+  {
+   "i": 15,
+   "en": "Keep my promises.",
+   "zh": "信守承诺",
+   "item_total": 0.716
+  },
+  {
+   "i": 16,
+   "en": "Find it difficult to approach others.",
+   "zh": "感觉自己很难接近别人",
+   "item_total": 0.633
+  },
+  {
+   "i": 17,
+   "en": "Am always busy.",
+   "zh": "总是很忙碌",
+   "item_total": 0.741
+  },
+  {
+   "i": 18,
+   "en": "Prefer variety to routine.",
+   "zh": "相比墨守成规，我更喜欢有变化。",
+   "item_total": 0.719
+  },
+  {
+   "i": 19,
+   "en": "Love a good fight.",
+   "zh": "喜欢和别人比试",
+   "item_total": 0.65
+  },
+  {
+   "i": 20,
+   "en": "Work hard.",
+   "zh": "工作努力",
+   "item_total": 0.775
+  },
+  {
+   "i": 21,
+   "en": "Go on binges.",
+   "zh": "大吃大喝寻欢作乐",
+   "item_total": 0.67
+  },
+  {
+   "i": 22,
+   "en": "Love excitement.",
+   "zh": "喜欢追求刺激",
+   "item_total": 0.818
+  },
+  {
+   "i": 23,
+   "en": "Love to read challenging material.",
+   "zh": "喜欢阅读有挑战性的材料",
+   "item_total": 0.707
+  },
+  {
+   "i": 24,
+   "en": "Believe that I am better than others.",
+   "zh": "相信自己比别人更好",
+   "item_total": 0.756
+  },
+  {
+   "i": 25,
+   "en": "Am always prepared.",
+   "zh": "我总是有所准备",
+   "item_total": 0.757
+  },
+  {
+   "i": 26,
+   "en": "Panic easily.",
+   "zh": "容易慌张",
+   "item_total": 0.798
+  },
+  {
+   "i": 27,
+   "en": "Radiate joy.",
+   "zh": "我的快乐会感染周围的人",
+   "item_total": 0.553
+  },
+  {
+   "i": 28,
+   "en": "View myself as predominantly liberal politically.",
+   "zh": "认为自己在政治方面非常自由开放",
+   "item_total": 0.751
+  },
+  {
+   "i": 29,
+   "en": "Sympathize with the homeless.",
+   "zh": "同情流浪汉",
+   "item_total": 0.716
+  },
+  {
+   "i": 30,
+   "en": "Jump into things without thinking.",
+   "zh": "会不经过思考就开始行动",
+   "item_total": 0.821
+  },
+  {
+   "i": 31,
+   "en": "Fear for the worst.",
+   "zh": "担心会发生最糟糕的情况",
+   "item_total": 0.745
+  },
+  {
+   "i": 32,
+   "en": "Feel comfortable around people.",
+   "zh": "和其他人待在一起时，我觉得很自在",
+   "item_total": 0.746
+  },
+  {
+   "i": 33,
+   "en": "Enjoy wild flights of fantasy.",
+   "zh": "喜欢天马行空地幻想",
+   "item_total": 0.845
+  },
+  {
+   "i": 34,
+   "en": "Believe that others have good intentions.",
+   "zh": "相信他人的出发点是好的",
+   "item_total": 0.745
+  },
+  {
+   "i": 35,
+   "en": "Excel in what I do.",
+   "zh": "在自己所从事的领域出类拔萃",
+   "item_total": 0.836
+  },
+  {
+   "i": 36,
+   "en": "Get irritated easily.",
+   "zh": "容易被激怒",
+   "item_total": 0.903
+  },
+  {
+   "i": 37,
+   "en": "Talk to a lot of different people at parties.",
+   "zh": "在聚会上，我会和很多不同的人交谈",
+   "item_total": 0.785
+  },
+  {
+   "i": 38,
+   "en": "See beauty in things that others might not notice.",
+   "zh": "我能发现别人看不到的美",
+   "item_total": 0.582
+  },
+  {
+   "i": 39,
+   "en": "Cheat to get ahead.",
+   "zh": "为了领先别人，我会采用作弊的方式",
+   "item_total": 0.732
+  },
+  {
+   "i": 40,
+   "en": "Often forget to put things back in their proper place.",
+   "zh": "经常忘记把东西放回原处",
+   "item_total": 0.853
+  },
+  {
+   "i": 41,
+   "en": "Dislike myself.",
+   "zh": "不喜欢自己",
+   "item_total": 0.834
+  },
+  {
+   "i": 42,
+   "en": "Try to lead others.",
+   "zh": "我会尝试去领导他人",
+   "item_total": 0.801
+  },
+  {
+   "i": 43,
+   "en": "Feel others' emotions.",
+   "zh": "能感受到他人的情绪",
+   "item_total": 0.689
+  },
+  {
+   "i": 44,
+   "en": "Am concerned about others.",
+   "zh": "关心他人",
+   "item_total": 0.82
+  },
+  {
+   "i": 45,
+   "en": "Tell the truth.",
+   "zh": "我会实话实说",
+   "item_total": 0.456
+  },
+  {
+   "i": 46,
+   "en": "Am afraid to draw attention to myself.",
+   "zh": "害怕引起他人的注意",
+   "item_total": 0.586
+  },
+  {
+   "i": 47,
+   "en": "Am always on the go.",
+   "zh": "总是在奔波",
+   "item_total": 0.63
+  },
+  {
+   "i": 48,
+   "en": "Prefer to stick with things that I know.",
+   "zh": "我更喜欢做自己熟悉的事情",
+   "item_total": 0.742
+  },
+  {
+   "i": 49,
+   "en": "Yell at people.",
+   "zh": "会冲人大喊大叫",
+   "item_total": 0.74
+  },
+  {
+   "i": 50,
+   "en": "Do more than what's expected of me.",
+   "zh": "我会超出预期地完成任务或工作",
+   "item_total": 0.725
+  },
+  {
+   "i": 51,
+   "en": "Rarely overindulge.",
+   "zh": "很少过度放纵自己",
+   "item_total": 0.815
+  },
+  {
+   "i": 52,
+   "en": "Seek adventure.",
+   "zh": "喜欢冒险",
+   "item_total": 0.768
+  },
+  {
+   "i": 53,
+   "en": "Avoid philosophical discussions.",
+   "zh": "会避免参与关于哲学的讨论",
+   "item_total": 0.695
+  },
+  {
+   "i": 54,
+   "en": "Think highly of myself.",
+   "zh": "觉得自己很了不起",
+   "item_total": 0.845
+  },
+  {
+   "i": 55,
+   "en": "Carry out my plans.",
+   "zh": "能执行自己制定的计划",
+   "item_total": 0.819
+  },
+  {
+   "i": 56,
+   "en": "Become overwhelmed by events.",
+   "zh": "感到被各种事情压得喘不过气来",
+   "item_total": 0.786
+  },
+  {
+   "i": 57,
+   "en": "Have a lot of fun.",
+   "zh": "我的生活很快乐",
+   "item_total": 0.775
+  },
+  {
+   "i": 58,
+   "en": "Believe that there is no absolute right or wrong.",
+   "zh": "相信没有绝对的对错之分",
+   "item_total": 0.505
+  },
+  {
+   "i": 59,
+   "en": "Feel sympathy for those who are worse off than myself .",
+   "zh": "我同情那些处境不如自己的人",
+   "item_total": 0.728
+  },
+  {
+   "i": 60,
+   "en": "Make rash decisions.",
+   "zh": "会做出草率的决定",
+   "item_total": 0.88
+  },
+  {
+   "i": 61,
+   "en": "Am afraid of many things.",
+   "zh": "对很多事情感到害怕",
+   "item_total": 0.85
+  },
+  {
+   "i": 62,
+   "en": "Avoid contacts with others.",
+   "zh": "避免和他人接触",
+   "item_total": 0.81,
+   "item_total_matched_text": "避免与他人接触"
+  },
+  {
+   "i": 63,
+   "en": "Love to daydream.",
+   "zh": "喜欢做白日梦",
+   "item_total": 0.769
+  },
+  {
+   "i": 64,
+   "en": "Trust what people say.",
+   "zh": "相信他人说的话",
+   "item_total": 0.803
+  },
+  {
+   "i": 65,
+   "en": "Handle tasks smoothly.",
+   "zh": "能轻松完成任务",
+   "item_total": 0.773
+  },
+  {
+   "i": 66,
+   "en": "Lose my temper.",
+   "zh": "发脾气",
+   "item_total": 0.877
+  },
+  {
+   "i": 67,
+   "en": "Prefer to be alone.",
+   "zh": "更喜欢一个人独处",
+   "item_total": 0.662
+  },
+  {
+   "i": 68,
+   "en": "Do not like poetry.",
+   "zh": "不喜欢诗歌",
+   "item_total": 0.731
+  },
+  {
+   "i": 69,
+   "en": "Take advantage of others.",
+   "zh": "占别人的便宜",
+   "item_total": 0.692
+  },
+  {
+   "i": 70,
+   "en": "Leave a mess in my room.",
+   "zh": "我的房间很乱",
+   "item_total": 0.91
+  },
+  {
+   "i": 71,
+   "en": "Am often down in the dumps.",
+   "zh": "经常情绪低落",
+   "item_total": 0.852
+  },
+  {
+   "i": 72,
+   "en": "Take control of things.",
+   "zh": "掌控局面",
+   "item_total": 0.851
+  },
+  {
+   "i": 73,
+   "en": "Rarely notice my emotional reactions.",
+   "zh": "很少察觉到自己的情绪反应",
+   "item_total": 0.723
+  },
+  {
+   "i": 74,
+   "en": "Am indifferent to the feelings of others.",
+   "zh": "对他人的感受漠不关心",
+   "item_total": 0.771
+  },
+  {
+   "i": 75,
+   "en": "Break rules.",
+   "zh": "破坏规则",
+   "item_total": 0.603
+  },
+  {
+   "i": 76,
+   "en": "Only feel comfortable with friends.",
+   "zh": "只有和朋友在一起的时候我才会感到自在",
+   "item_total": 0.568
+  },
+  {
+   "i": 77,
+   "en": "Do a lot in my spare time.",
+   "zh": "我的闲暇时间非常充实",
+   "item_total": 0.484
+  },
+  {
+   "i": 78,
+   "en": "Dislike changes.",
+   "zh": "不喜欢改变",
+   "item_total": 0.808
+  },
+  {
+   "i": 79,
+   "en": "Insult people.",
+   "zh": "侮辱他人",
+   "item_total": 0.728
+  },
+  {
+   "i": 80,
+   "en": "Do just enough work to get by.",
+   "zh": "在工作或学习上，我不会多做，过得去就行",
+   "item_total": 0.789
+  },
+  {
+   "i": 81,
+   "en": "Easily resist temptations.",
+   "zh": "能轻松抵御诱惑",
+   "item_total": 0.74
+  },
+  {
+   "i": 82,
+   "en": "Enjoy being reckless.",
+   "zh": "喜欢不计后果地行事",
+   "item_total": 0.702
+  },
+  {
+   "i": 83,
+   "en": "Have difficulty understanding abstract ideas.",
+   "zh": "理解抽象概念对我来说有些困难",
+   "item_total": 0.818
+  },
+  {
+   "i": 84,
+   "en": "Have a high opinion of myself.",
+   "zh": "对自己的评价很高",
+   "item_total": 0.893
+  },
+  {
+   "i": 85,
+   "en": "Waste my time.",
+   "zh": "浪费时间",
+   "item_total": 0.843
+  },
+  {
+   "i": 86,
+   "en": "Feel that I'm unable to deal with things.",
+   "zh": "感觉自己处理事情力不从心",
+   "item_total": 0.746
+  },
+  {
+   "i": 87,
+   "en": "Love life.",
+   "zh": "热爱生活",
+   "item_total": 0.841
+  },
+  {
+   "i": 88,
+   "en": "View myself as predominantly conservative politically.",
+   "zh": "我在政治上比较保守",
+   "item_total": 0.777
+  },
+  {
+   "i": 89,
+   "en": "Am not interested in other people's problems.",
+   "zh": "对别人遇到的麻烦事不感兴趣",
+   "item_total": 0.707
+  },
+  {
+   "i": 90,
+   "en": "Rush into things.",
+   "zh": "仓促行事",
+   "item_total": 0.865
+  },
+  {
+   "i": 91,
+   "en": "Get stressed out easily.",
+   "zh": "我很容易觉得压力大",
+   "item_total": 0.822
+  },
+  {
+   "i": 92,
+   "en": "Keep others at a distance.",
+   "zh": "和他人保持距离",
+   "item_total": 0.806
+  },
+  {
+   "i": 93,
+   "en": "Like to get lost in thought.",
+   "zh": "喜欢陷入沉思",
+   "item_total": 0.684
+  },
+  {
+   "i": 94,
+   "en": "Distrust people.",
+   "zh": "不相信别人",
+   "item_total": 0.825
+  },
+  {
+   "i": 95,
+   "en": "Know how to get things done.",
+   "zh": "知道如何完成任务",
+   "item_total": 0.81
+  },
+  {
+   "i": 96,
+   "en": "Am not easily annoyed.",
+   "zh": "不会轻易被惹恼",
+   "item_total": 0.852
+  },
+  {
+   "i": 97,
+   "en": "Avoid crowds.",
+   "zh": "避开人多的地方",
+   "item_total": 0.764
+  },
+  {
+   "i": 98,
+   "en": "Do not enjoy going to art museums.",
+   "zh": "不喜欢去美术馆",
+   "item_total": 0.705
+  },
+  {
+   "i": 99,
+   "en": "Obstruct others' plans.",
+   "zh": "给别人使坏",
+   "item_total": 0.751
+  },
+  {
+   "i": 100,
+   "en": "Leave my belongings around.",
+   "zh": "我的东西放得到处都是",
+   "item_total": 0.87
+  },
+  {
+   "i": 101,
+   "en": "Feel comfortable with myself .",
+   "zh": "对自己感到满意",
+   "item_total": 0.714
+  },
+  {
+   "i": 102,
+   "en": "Wait for others to lead the way.",
+   "zh": "等着别人来带头",
+   "item_total": 0.693
+  },
+  {
+   "i": 103,
+   "en": "Don't understand people who get emotional.",
+   "zh": "不理解那些情绪化的人",
+   "item_total": 0.691
+  },
+  {
+   "i": 104,
+   "en": "Take no time for others.",
+   "zh": "不愿为他人花费时间",
+   "item_total": 0.805
+  },
+  {
+   "i": 105,
+   "en": "Break my promises.",
+   "zh": "违背自己的承诺",
+   "item_total": 0.782
+  },
+  {
+   "i": 106,
+   "en": "Am not bothered by difficult social situations.",
+   "zh": "不会被复杂的社交情境所困扰",
+   "item_total": -0.209
+  },
+  {
+   "i": 107,
+   "en": "Like to take it easy.",
+   "zh": "喜欢慢慢来",
+   "item_total": 0.574
+  },
+  {
+   "i": 108,
+   "en": "Am attached to conventional ways.",
+   "zh": "我喜欢传统的方式",
+   "item_total": 0.642
+  },
+  {
+   "i": 109,
+   "en": "Get back at others.",
+   "zh": "报复别人",
+   "item_total": 0.725
+  },
+  {
+   "i": 110,
+   "en": "Put little time and effort into my work.",
+   "zh": "对工作或学业不怎么投入时间和精力",
+   "item_total": 0.779
+  },
+  {
+   "i": 111,
+   "en": "Am able to control my cravings.",
+   "zh": "可以控制自己的欲望",
+   "item_total": 0.781
+  },
+  {
+   "i": 112,
+   "en": "Act wild and crazy.",
+   "zh": "我的行为狂放不羁",
+   "item_total": 0.793
+  },
+  {
+   "i": 113,
+   "en": "Am not interested in theoretical discussions.",
+   "zh": "对理论性的讨论不感兴趣",
+   "item_total": 0.742
+  },
+  {
+   "i": 114,
+   "en": "Boast about my virtues.",
+   "zh": "吹嘘自己的美德",
+   "item_total": 0.507
+  },
+  {
+   "i": 115,
+   "en": "Have difficulty starting tasks.",
+   "zh": "拖很久才开始做一件事",
+   "item_total": 0.814
+  },
+  {
+   "i": 116,
+   "en": "Remain calm under pressure.",
+   "zh": "在压力下能保持冷静",
+   "item_total": 0.702
+  },
+  {
+   "i": 117,
+   "en": "Look at the bright side of life.",
+   "zh": "看到生活中好的一面",
+   "item_total": 0.764
+  },
+  {
+   "i": 118,
+   "en": "Believe that we should be tough on crime.",
+   "zh": "认为我们应该严惩犯罪",
+   "item_total": 0.444
+  },
+  {
+   "i": 119,
+   "en": "Try not to think about the needy.",
+   "zh": "我尽量不去想那些需要帮助的人",
+   "item_total": 0.664
+  },
+  {
+   "i": 120,
+   "en": "Act without thinking.",
+   "zh": "做事不经过思考",
+   "item_total": 0.869
+  }
+ ],
+ "alpha": {
+  "N1": 0.827,
+  "N2": 0.905,
+  "N3": 0.823,
+  "N4": 0.602,
+  "N5": 0.739,
+  "N6": 0.753,
+  "E1": 0.78,
+  "E2": 0.74,
+  "E3": 0.782,
+  "E4": 0.422,
+  "E5": 0.773,
+  "E6": 0.703,
+  "O1": 0.73,
+  "O2": 0.604,
+  "O3": 0.661,
+  "O4": 0.703,
+  "O5": 0.723,
+  "O6": 0.498,
+  "C1": 0.815,
+  "C2": 0.874,
+  "C3": 0.531,
+  "C4": 0.766,
+  "C5": 0.823,
+  "C6": 0.88,
+  "A1": 0.817,
+  "A2": 0.64,
+  "A3": 0.806,
+  "A4": 0.658,
+  "A5": 0.74,
+  "A6": 0.661,
+  "N": 0.885,
+  "E": 0.84,
+  "O": 0.799,
+  "A": 0.804,
+  "C": 0.917
+ },
+ "norms_mean_sd": {
+  "N1": [
+   13.89,
+   3.8
+  ],
+  "N2": [
+   9.98,
+   4.25
+  ],
+  "N3": [
+   11.15,
+   3.82
+  ],
+  "N4": [
+   12.29,
+   3.08
+  ],
+  "N5": [
+   12.18,
+   3.46
+  ],
+  "N6": [
+   12.27,
+   3.6
+  ],
+  "E1": [
+   12.13,
+   3.55
+  ],
+  "E2": [
+   10.38,
+   3.56
+  ],
+  "E3": [
+   12.72,
+   3.56
+  ],
+  "E4": [
+   12.15,
+   2.85
+  ],
+  "E5": [
+   11.27,
+   3.66
+  ],
+  "E6": [
+   14.9,
+   2.87
+  ],
+  "O1": [
+   15.05,
+   3.22
+  ],
+  "O2": [
+   15.54,
+   2.76
+  ],
+  "O3": [
+   15.51,
+   3.02
+  ],
+  "O4": [
+   11.87,
+   3.16
+  ],
+  "O5": [
+   13.72,
+   3.51
+  ],
+  "O6": [
+   12.9,
+   2.53
+  ],
+  "A1": [
+   12.96,
+   3.24
+  ],
+  "A2": [
+   14.69,
+   2.96
+  ],
+  "A3": [
+   15.18,
+   3.25
+  ],
+  "A4": [
+   15.29,
+   3.07
+  ],
+  "A5": [
+   12.83,
+   3.3
+  ],
+  "A6": [
+   12.95,
+   3.03
+  ],
+  "C1": [
+   13.65,
+   2.95
+  ],
+  "C2": [
+   12.16,
+   4.44
+  ],
+  "C3": [
+   15.63,
+   2.37
+  ],
+  "C4": [
+   13.4,
+   3.58
+  ],
+  "C5": [
+   12.1,
+   3.93
+  ],
+  "C6": [
+   13.33,
+   4.04
+  ],
+  "N": [
+   71.77,
+   15.5
+  ],
+  "E": [
+   73.56,
+   12.36
+  ],
+  "O": [
+   84.61,
+   11.03
+  ],
+  "A": [
+   83.9,
+   10.82
+  ],
+  "C": [
+   80.26,
+   15.78
+  ]
+ }
+}

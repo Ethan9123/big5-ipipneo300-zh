@@ -1,0 +1,201 @@
+{
+ "n": 300,
+ "polarity_mismatch": 24,
+ "en_neg_zh_pos": 0,
+ "zh_neg_en_pos": 24,
+ "double_negation": 2,
+ "mismatches": [
+  {
+   "id": 48,
+   "en": "Like to visit new places.",
+   "zh": "我喜欢去没去过的地方。",
+   "reversed": false,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 59,
+   "en": "Feel sympathy for those who are worse off than myself.",
+   "zh": "我同情那些境况不如我的人。",
+   "reversed": false,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 88,
+   "en": "Believe that criminals should receive help rather than punishment.",
+   "zh": "我认为对罪犯应该给予帮助而不是惩罚。",
+   "reversed": false,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 96,
+   "en": "Am often in a bad mood.",
+   "zh": "我经常心情不好。",
+   "reversed": false,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 101,
+   "en": "Have a low opinion of myself.",
+   "zh": "我看不起自己。",
+   "reversed": false,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 111,
+   "en": "Go on binges.",
+   "zh": "我会毫无节制地放纵一场。",
+   "reversed": false,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 121,
+   "en": "Get caught up in my problems.",
+   "zh": "我会陷在自己的烦恼里出不来。",
+   "reversed": false,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 142,
+   "en": "Enjoy being reckless.",
+   "zh": "我享受肆无忌惮的感觉。",
+   "reversed": false,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 146,
+   "en": "Get overwhelmed by emotions.",
+   "zh": "我会被情绪淹没。",
+   "reversed": false,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 152,
+   "en": "Am hard to get to know.",
+   "zh": "我这个人不容易被了解。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 164,
+   "en": "Look down on others.",
+   "zh": "我看不起别人。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 167,
+   "en": "Like to take it easy.",
+   "zh": "我喜欢悠着点、不紧不慢。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 182,
+   "en": "Often feel uncomfortable around others.",
+   "zh": "和别人在一起时我常常不自在。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 184,
+   "en": "Distrust people.",
+   "zh": "我不信任别人。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 194,
+   "en": "Am indifferent to the feelings of others.",
+   "zh": "我对别人的感受漠不关心。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 195,
+   "en": "Break my promises.",
+   "zh": "我会说话不算数。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 222,
+   "en": "Have little to say.",
+   "zh": "我没什么话说。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 224,
+   "en": "Make people feel uncomfortable.",
+   "zh": "我会让别人觉得不舒服。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 245,
+   "en": "Have little to contribute.",
+   "zh": "我贡献不了什么。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 253,
+   "en": "Experience very few emotional highs and lows.",
+   "zh": "我的情绪几乎没什么大起大落。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 254,
+   "en": "Turn my back on others.",
+   "zh": "我会对别人置之不理。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 282,
+   "en": "Hold back my opinions.",
+   "zh": "我会把自己的意见憋着不说。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 290,
+   "en": "Put little time and effort into my work.",
+   "zh": "我在自己的事情上投入的时间和精力很少。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  },
+  {
+   "id": 295,
+   "en": "Postpone decisions.",
+   "zh": "我会拖着不做决定。",
+   "reversed": true,
+   "en_neg": false,
+   "zh_neg": true
+  }
+ ]
+}
