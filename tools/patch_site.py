@@ -187,12 +187,12 @@ sub(
 # ------------------------------------------------------------------ 6. copy: validity warning
 sub(
     '"。Johnson (2005) 用这个阈值筛掉「没读题就连点」的作答，被筛掉的约占 3.5%。'
-    '如果这确实是你的真实作答，忽略即可；如果是快速点选留下的，建议重测。";',
+    '如果这确实是你的真实作答，忽略即可；如果是快速点选留下的，建议重测。</p></details>";',
     '"。这套阈值来自 Johnson (2005)，用来筛出「没读题就连点」的作答。"\n'
     '      + "但请把它当作提示而不是判决：把同一套规则跑在 145,388 份常模样本上，也有 2.99% 被标记，"\n'
     '      + "而且这些标记全部来自「很不符合」一个选项——因为本量表第 238–300 题恰好全是反向题，'
     '真心一贯的人在这一段本来就会连着按同一个键（被标记的连击有 97% 起始于第 150 题之后）。"\n'
-    '      + "所以：如果这确实是你的真实作答，忽略即可；如果是快速点选留下的，建议重测。";',
+    '      + "所以：如果这确实是你的真实作答，忽略即可；如果是快速点选留下的，建议重测。</p></details>";',
     "careless-responding warning -> measured, and explains the false-positive mechanism")
 
 # (`const REV = new Set(DATA.reversed)` was declared and never used; it lived inside the
@@ -393,12 +393,12 @@ if os.path.exists(profiles_path):
     if len(json.loads(profiles_json)) != 243:
         sys.exit("REFUSING TO BUILD: profiles_ordered.json does not hold exactly 243 entries")
 
-    sub('  <h2>30 个子面向</h2>',
-        '  <h2>你的组合画像</h2>\n'
+    sub('  <h2 id="facetsHeading">30 个子面向</h2>',
+        '  <h2 id="profileHeading">你的组合画像</h2>\n'
         '  <p class="sub" style="margin-top:-6px">把五个维度各切成低／中／高，一共 243 种组合。'
         '下面是你这一格。</p>\n'
         '  <div id="profile"></div>\n\n'
-        '  <h2>30 个子面向</h2>',
+        '  <h2 id="facetsHeading">30 个子面向</h2>',
         "add the combination-profile section")
 
     sub("  buildTable(res);\n  show(\"result\");",

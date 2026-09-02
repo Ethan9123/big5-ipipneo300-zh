@@ -18,11 +18,20 @@ function grabScore(html, extraStart) {
   return { data, fn: new Function('DATA', src + '\nreturn {score, level};') };
 }
 
-// --- 1. does the whole inline script parse? ---
-const scriptSrc = newHtml.slice(newHtml.indexOf('<script>') + 8, newHtml.indexOf('</script>'));
+// --- 1. do all inline scripts parse? ---
+// The page intentionally has a tiny early theme bootstrap plus the main application.
+// Validate both, and fail loudly if the application script is accidentally missing.
+const inlineScripts = [...newHtml.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)]
+  .map((m, i) => ({src:m[1], i:i + 1}));
+const appScript = inlineScripts.find(s => s.src.includes('const DATA = ') && s.src.includes('function score('));
+if (!appScript) {
+  console.log('1. inline script ERROR: main application script not found');
+  process.exit(1);
+}
 try {
-  new vm.Script(scriptSrc, { filename: 'index.optimized.html<script>' });
-  console.log('1. inline script parses: OK (%d chars)', scriptSrc.length);
+  for (const s of inlineScripts)
+    new vm.Script(s.src, { filename: `index.optimized.html<script#${s.i}>` });
+  console.log('1. inline scripts parse: OK (%d scripts, app %d chars)', inlineScripts.length, appScript.src.length);
 } catch (e) {
   console.log('1. inline script PARSE ERROR:', e.message);
   process.exit(1);

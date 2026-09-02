@@ -56,6 +56,14 @@
 <title>大五人格测评 · IPIP-NEO-300 中文版</title>
 <meta name="description" content="免费、离线的 IPIP-NEO-300 中文版大五人格测评。300 道题，覆盖 5 个人格维度和 30 个子面向，每题附判断说明。作答与结果全部在你的浏览器里计算，不上传。">
 <meta name="theme-color" content="#f9f9f7">
+<script>
+/* 在样式绘制前恢复主题，避免深色用户刷新时先闪一次白屏。 */
+try {
+  const savedTheme = localStorage.getItem("ipipneo300-theme");
+  const theme = savedTheme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  document.documentElement.setAttribute("data-theme", theme);
+} catch(e) {}
+</script>
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://big5.try-board-game.uk/">
 <meta property="og:type" content="website">
@@ -156,6 +164,7 @@ button,summary{touch-action:manipulation}
 .iconbtn{background:none;border:1px solid var(--border);color:var(--text-secondary);border-radius:8px;
   padding:4px 9px;font-size:13px;cursor:pointer;font-family:inherit;white-space:nowrap}
 .iconbtn:hover{background:var(--wash);color:var(--text-primary)}
+.iconbtn[aria-pressed="true"]{border-color:var(--accent);background:var(--wash);color:var(--text-primary)}
 
 /* form */
 label.f{display:block;font-size:13.5px;color:var(--text-secondary);margin-bottom:6px}
@@ -207,6 +216,8 @@ body.show-hints .hint{display:block}
 .modeopt[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:var(--wash)}
 .modeopt b{display:block;font-size:15px;margin-bottom:3px}
 .modeopt span{font-size:12.5px;color:var(--text-secondary);line-height:1.5}
+.mode-badge{display:inline-block;margin-left:5px;padding:1px 6px;border-radius:999px;
+  background:var(--accent);color:#fff;font-size:10px;font-style:normal;vertical-align:2px}
 .warn{border:1px solid var(--border);border-left:3px solid #ec835a;border-radius:0 10px 10px 0;
   background:var(--surface-1);padding:13px 16px;margin:16px 0;font-size:13.5px;line-height:1.6}
 .resume{border:1px solid var(--accent);background:var(--wash);border-radius:12px;padding:16px 18px;margin:22px 0 4px}
@@ -240,15 +251,35 @@ body.show-hints .hint{display:block}
 .opt:hover{border-color:var(--accent);color:var(--text-primary)}
 .opt:active{transform:scale(.96)}
 .opt[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.opt-short{display:none}
 #kbdHint{display:none}
 @media (hover:hover) and (pointer:fine){#kbdHint{display:inline}}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(42,120,214,.45)}80%{box-shadow:0 0 0 14px rgba(42,120,214,0)}100%{box-shadow:0 0 0 0 rgba(42,120,214,0)}}
 .btn.pulse{animation:pulse 1.1s ease-out 3}
 .nav{display:flex;gap:12px;align-items:center;margin-top:24px;flex-wrap:wrap}
 .nav .spacer{flex:1}
+.page-jump{display:inline-flex;align-items:center;gap:7px;color:var(--text-muted);font-size:12.5px;white-space:nowrap}
+.page-jump select{width:auto;min-width:88px;padding:6px 28px 6px 9px;font-size:12.5px}
 .page-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-top:24px}
 .page-heading h2{margin:0}
+.page-hint{margin:4px 0 14px}
+.page-meta{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.quick-quit{border:0;background:transparent;color:var(--accent);padding:3px 0;font:inherit;font-size:12.5px;cursor:pointer}
+.quick-quit:hover{text-decoration:underline}
 .eta{font-size:12.5px;color:var(--text-muted);white-space:nowrap}
+
+.validity-panel{margin:14px 0 20px;border:1px solid var(--border);border-left:3px solid #ec835a;
+  border-radius:0 10px 10px 0;background:var(--surface-1)}
+.validity-panel summary{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:13px 15px;cursor:pointer;list-style:none}
+.validity-panel summary::-webkit-details-marker{display:none}
+.validity-panel summary span:first-child{min-width:0}
+.validity-panel summary b{display:block;font-size:13.5px}
+.validity-panel summary small{display:block;color:var(--text-muted);font-size:12px;font-weight:400;margin-top:1px}
+.validity-panel .validity-action{flex:none;color:var(--accent);font-size:12px}
+.validity-panel[open] .validity-action{font-size:0}
+.validity-panel[open] .validity-action::after{content:"收起";font-size:12px}
+.validity-panel p{margin:0;padding:0 15px 14px;color:var(--text-secondary);font-size:13px;line-height:1.7}
 
 /* combination profile */
 .pf{margin:0}
@@ -303,6 +334,14 @@ body.show-hints .hint{display:block}
   padding:4px 12px;margin:0 7px 8px 0;font-size:13px;color:var(--text-primary)}
 .hero-chip b{font-variant-numeric:tabular-nums;font-weight:650}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.result-nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:-2px 0 18px;padding:10px 12px;
+  border:1px solid var(--border);border-radius:10px;background:var(--surface-1)}
+.result-nav>span{font-size:12px;color:var(--text-muted);margin-right:2px}
+.result-nav button{display:inline-flex;align-items:center;min-height:34px;padding:5px 10px;border-radius:8px;
+  color:var(--text-secondary);font:inherit;font-size:12.5px;background:transparent;cursor:pointer;border:1px solid transparent}
+.result-nav button:hover,.result-nav button:focus-visible{background:var(--wash);color:var(--text-primary);border-color:var(--border)}
+#domainsHeading,#profileHeading,#facetsHeading{scroll-margin-top:74px}
+.result-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
 .track{position:relative;height:14px;background:var(--grid);border-radius:4px;margin:8px 0 4px}
 .track>i{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0;width:0}
 .track>u{position:absolute;top:-3px;bottom:-3px;left:50%;width:1px;background:var(--axis);text-decoration:none}
@@ -341,25 +380,40 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
   .card{padding:14px}
   .topbar-in{padding:8px 10px;gap:6px}
   .topbar .brand{display:none}
+  body[data-view="intro"] .topbar .brand,body[data-view="result"] .topbar .brand{display:block}
+  body:not([data-view="test"]) .topbar-in{justify-content:space-between}
   .topbar .bar{min-width:48px}
   .topbar .count{font-size:11.5px}
   .topbar .iconbtn{min-height:40px;padding:6px 8px}
   .intro-hero{padding:18px;border-radius:16px;gap:18px}
-  .intro-title{font-size:34px}
+  .intro-title{font-size:31px;line-height:1.16}
   .intro-lead{font-size:15.5px}
   .start-card{padding:16px}
   .modeopt{padding:11px 10px}
   .modeopt b{font-size:14px}
   .modeopt span{font-size:11.5px}
-  .page-heading{align-items:flex-start;gap:8px}
+  .page-heading{align-items:flex-start;gap:8px;margin-top:18px}
+  .page-meta{max-width:145px;gap:3px 9px}
+  .quick-quit{min-height:30px}
+  .page-hint{margin:3px 0 13px;line-height:1.5}
   .eta{white-space:normal;text-align:right;max-width:135px}
   .qrow{padding:19px 0;scroll-margin-top:64px}
   .qrow.ok{opacity:.78}
   .qrow.cur::before{left:-8px}
   .opts{margin-left:0;gap:4px}
-  .opt{font-size:11.5px;min-height:46px;padding:7px 2px;letter-spacing:-0.025em}
+  .opt{font-size:12px;min-height:48px;padding:7px 1px;letter-spacing:0;white-space:nowrap}
+  .opt-full{display:none}
+  .opt-short{display:inline}
   .hint{margin-left:0}
   .qnum{min-width:26px}
+  .nav{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .nav .btn{width:100%;min-height:46px;padding-left:10px;padding-right:10px}
+  .nav .spacer{display:none}
+  .page-jump{justify-self:start}
+  #pageStat{justify-self:end;text-align:right}
+  .result-nav{gap:5px;padding:8px;margin-bottom:14px}
+  .result-nav>span{width:100%;margin:0 0 1px 2px}
+  .result-nav button{flex:1;justify-content:center;white-space:nowrap}
   .fbar,.scaleline{grid-template-columns:72px 1fr 28px;gap:8px}
   .fname{font-size:12.5px}
   .result-check{align-items:flex-start}
@@ -420,19 +474,19 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
       <h2>准备开始</h2>
       <p class="muted">先选择作答方式，再填写用于匹配常模的资料。</p>
 
-      <div class="modecard" aria-label="作答模式">
-        <button class="modeopt" type="button" data-mode="hints" aria-pressed="true">
-          <b>详解模式</b>
-          <span>附生活情境，题意更容易判断</span>
+      <div class="modecard" role="group" aria-label="作答模式">
+        <button class="modeopt" type="button" data-mode="plain" aria-pressed="true">
+          <b>标准模式 <em class="mode-badge">推荐</em></b>
+          <span>只显示题目，贴近原版常模口径</span>
         </button>
-        <button class="modeopt" type="button" data-mode="plain" aria-pressed="false">
-          <b>标准模式</b>
-          <span>贴近原版施测，百分位更可比</span>
+        <button class="modeopt" type="button" data-mode="hints" aria-pressed="false">
+          <b>详解模式</b>
+          <span>拿不准时，用生活情境帮助判断</span>
         </button>
       </div>
       <details class="mode-note">
         <summary>两种模式有什么区别？</summary>
-        <p>详解模式会减少题意误读，但情境说明可能让分数略微上移；标准模式只显示原题译文，更接近原版常模口径。答题时仍可随时切换。</p>
+        <p>标准模式只显示原题译文，结果更适合和原版常模比较；详解模式会减少题意误读，但情境说明可能让分数略微上移。答题时仍可随时切换。</p>
       </details>
 
       <div class="row">
@@ -451,7 +505,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
         </div>
       </div>
       <div class="start-actions">
-        <button class="btn btn-primary" type="submit" id="startBtn">开始测评</button>
+        <button class="btn btn-primary" type="submit" id="startBtn">开始标准模式 · 约 20–30 分钟</button>
         <button class="iconbtn" type="button" id="importBtn">从进度文件恢复</button>
         <input type="file" id="importFile" accept=".json" class="hide">
       </div>
@@ -460,7 +514,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
     </form>
 
     <div class="trust-list">
-      <div class="trust-item"><span class="trust-icon">✓</span><span><b>约 30–45 分钟</b>，每题自动保存，可以分几次完成</span></div>
+      <div class="trust-item"><span class="trust-icon">✓</span><span><b>约 20–45 分钟</b>，每题自动保存，可以分几次完成</span></div>
       <div class="trust-item"><span class="trust-icon">30</span><span><b>30 个子面向</b>，比短测验更能看见差异</span></div>
       <div class="trust-item"><span class="trust-icon">锁</span><span><b>本地计算</b>，作答与结果不会上传到服务器</span></div>
     </div>
@@ -533,9 +587,12 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 <section id="test" class="hide">
   <div class="page-heading">
     <h2 id="pageTitle"></h2>
-    <span class="eta" id="eta"></span>
+    <div class="page-meta">
+      <span class="eta" id="eta"></span>
+      <button class="quick-quit" type="button" id="quickQuitBtn">暂存退出</button>
+    </div>
   </div>
-  <p class="muted" id="pageHint" style="margin-top:-8px">判断每句话<b>形容你准不准</b>，不是你同不同意。<span id="kbdHint"> · 键盘 1–5 可直接作答，选完自动跳下一题</span></p>
+  <p class="muted page-hint" id="pageHint">判断每句话<b>形容你准不准</b>，不是你同不同意。<span id="kbdHint"> · 键盘 1–5 可直接作答，选完自动跳下一题</span></p>
 
   <div id="breakCard" class="hide"></div>
 
@@ -555,6 +612,9 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
     <button class="btn ghost" id="prevBtn">上一页</button>
     <button class="btn" id="nextBtn">下一页</button>
     <span class="spacer"></span>
+    <label class="page-jump">跳转到
+      <select id="pageJump" aria-label="跳转到指定答题页"></select>
+    </label>
     <span class="muted" id="pageStat"></span>
   </div>
   <div class="savebar">
@@ -599,6 +659,13 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
     </div>
   </div>
 
+  <nav class="result-nav noprint" aria-label="结果快速导航">
+    <span>快速查看</span>
+    <button type="button" data-scroll-target="domainsHeading">五维总览</button>
+    <button type="button" data-scroll-target="profileHeading">组合画像</button>
+    <button type="button" data-scroll-target="facetsHeading">30 个子面向</button>
+  </nav>
+
   <div class="card result-check noprint" id="resultCheck">
     <div class="result-check-copy">
       <b>这份结果像你吗？</b>
@@ -618,22 +685,23 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
     <p class="muted" id="modeNote" style="margin:0"></p>
   </details>
 
-  <h2>五个维度</h2>
+  <h2 id="domainsHeading">五个维度</h2>
   <div id="domains"></div>
 
-  <h2>你的组合画像</h2>
+  <h2 id="profileHeading">你的组合画像</h2>
   <p class="sub" style="margin-top:-6px">把五个维度各切成低／中／高，一共 243 种组合。下面是你这一格。</p>
   <div id="profile"></div>
 
-  <h2>30 个子面向</h2>
+  <h2 id="facetsHeading">30 个子面向</h2>
   <p class="sub" style="margin-top:-6px">同一个维度的总分可以由很不一样的子面向组合而成 —— 这是 300 题版相比短版最有价值的部分。</p>
   <div id="facets"></div>
 
-  <div class="noprint" style="margin-top:32px">
+  <div class="result-actions noprint">
     <button class="iconbtn" id="tableToggle">切换表格视图</button>
     <button class="iconbtn" id="exportBtn">导出结果 JSON</button>
     <button class="iconbtn" id="printBtn">打印 / 存为 PDF</button>
     <button class="iconbtn" id="restartBtn">重新测一次</button>
+    <button class="iconbtn" id="resultTopBtn">回到结果顶部</button>
   </div>
   <div id="tableView" style="margin-top:20px"></div>
 
@@ -658,11 +726,12 @@ const DATA = {"items":[{"id":1,"zh":"我会为各种事情操心。","en":"Worry
 /* ---------- state ---------- */
 const PER_PAGE = 15, NPAGES = 300 / PER_PAGE;
 let answers = new Array(301).fill(0);
-let page = 0, sex = "", age = 0, mode = "hints";
+let page = 0, sex = "", age = 0, mode = "plain";
 /* 锚点对齐 IPIP-NEO 原版：Very Inaccurate / Moderately Inaccurate /
    Neither Inaccurate nor Accurate / Moderately Accurate / Very Accurate。
    中间档必须是描述性的（说不上准也说不上不准），不能带「我不知道」的语义。 */
 const SCALE = ["很不符合","比较不符合","一半一半","比较符合","很符合"];
+const SCALE_SHORT = ["很不像","不太像","一半","比较像","很像"];
 const KEY = "ipipneo300_zh_v1";
 const $ = s => document.querySelector(s);
 
@@ -782,7 +851,15 @@ function applyMode(){
   document.body.classList.toggle("show-hints", mode === "hints");
   document.querySelectorAll(".modeopt").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
   const t = document.querySelector("#hintToggle");
-  if (t){ t.textContent = mode === "hints" ? "详解 开" : "详解 关"; }
+  if (t){
+    t.textContent = "详解";
+    t.setAttribute("aria-pressed", mode === "hints");
+    t.setAttribute("aria-label", mode === "hints" ? "关闭详解模式" : "打开详解模式");
+  }
+  const start = document.querySelector("#startBtn");
+  if (start) start.textContent = mode === "hints"
+    ? "开始详解模式 · 约 30–45 分钟"
+    : "开始标准模式 · 约 20–30 分钟";
 }
 
 /* ================= 经验百分位查找表 =================
@@ -962,7 +1039,12 @@ function renderPage(){
   renderBreak();
   $("#legend").open = page === 0 && matchMedia("(min-width:561px)").matches;
   $("#pageTitle").textContent = "第 " + (page+1) + " 页 / 共 " + NPAGES + " 页";
-  $("#pageStat").textContent = "题目 " + (start+1) + "–" + (start+PER_PAGE);
+  const jump = $("#pageJump");
+  if (!jump.options.length){
+    jump.innerHTML = Array.from({length:NPAGES}, (_, i) =>
+      '<option value="' + i + '">第 ' + (i + 1) + ' 页</option>').join("");
+  }
+  jump.value = String(page);
   const box = $("#qlist");
   box.innerHTML = "";
   for (let n = start; n < start + PER_PAGE; n++){
@@ -974,7 +1056,8 @@ function renderPage(){
     row.setAttribute("aria-labelledby", "qtext-" + q.id);
     const opts = SCALE.map((lab, k) =>
       '<button class="opt" data-v="' + (k+1) + '" aria-label="第 ' + q.id + ' 题，' + lab + '" aria-pressed="' +
-      (answers[q.id] === k+1) + '">' + lab + '</button>').join("");
+      (answers[q.id] === k+1) + '"><span class="opt-full">' + lab + '</span><span class="opt-short" aria-hidden="true">' +
+      SCALE_SHORT[k] + '</span></button>').join("");
     const h = DATA.notes[q.id - 1];
     row.innerHTML =
       '<div class="qtext"><span class="qnum" aria-hidden="true">' + q.id + '</span><span>' +
@@ -1005,11 +1088,19 @@ function updateProgress(){
   for (let i = 1; i <= 300; i++) if (answers[i]) n++;
   $("#pbar").style.width = (n / 300 * 100) + "%";
   document.querySelector(".bar").setAttribute("aria-valuenow", n);
-  $("#pcount").textContent = n + " / 300 · " + Math.round(n / 3) + "%";
+  $("#pcount").textContent = matchMedia("(max-width:560px)").matches
+    ? n + "/300"
+    : n + " / 300 · " + Math.round(n / 3) + "%";
   const rem = 300 - n;
+  const pace = mode === "hints" ? [.10, .15] : [.065, .10];
   $("#eta").textContent = rem
-    ? "剩余约 " + Math.max(1, Math.ceil(rem * .10)) + "–" + Math.max(1, Math.ceil(rem * .15)) + " 分钟"
+    ? "剩余约 " + Math.max(1, Math.ceil(rem * pace[0])) + "–" + Math.max(1, Math.ceil(rem * pace[1])) + " 分钟"
     : "已完成";
+  const start = page * PER_PAGE;
+  let here = 0;
+  for (let i = start; i < start + PER_PAGE; i++) if (answers[DATA.items[i].id]) here++;
+  $("#pageStat").textContent = "本页 " + here + " / " + PER_PAGE + " · 题目 " +
+    (start + 1) + "–" + (start + PER_PAGE);
   return n;
 }
 
@@ -1090,7 +1181,13 @@ $("#nextBtn").addEventListener("click", () => {
   page++; persist(); renderPage();
 });
 $("#prevBtn").addEventListener("click", () => { if (page > 0){ page--; persist(); renderPage(); } });
-$("#quitBtn").addEventListener("click", () => { persist(); show("intro"); checkResume(); });
+$("#pageJump").addEventListener("change", e => {
+  const target = +e.target.value;
+  if (Number.isInteger(target) && target >= 0 && target < NPAGES){ page = target; persist(); renderPage(); }
+});
+const quitToHome = () => { persist(); show("intro"); checkResume(); };
+$("#quitBtn").addEventListener("click", quitToHome);
+$("#quickQuitBtn").addEventListener("click", quitToHome);
 
 /* ================= RESULT UI ================= */
 const COLOR = k => getComputedStyle(document.documentElement).getPropertyValue("--s-" + k).trim();
@@ -1137,12 +1234,13 @@ function showResult(){
   for (let v = 1; v <= 5; v++) if (runs[v] > RUN_CUT[v]) flags.push("连续 " + runs[v] + " 次「" + SCALE[v-1] + "」（阈值 " + RUN_CUT[v] + "）");
   const box = $("#validity");
   if (flags.length){
-    box.className = "warn";
-    box.innerHTML = "<b>作答有效性提示</b><br>" + flags.join("；") +
+    box.className = "validity-panel";
+    box.innerHTML = '<details><summary><span><b>作答有效性提示</b><small>' + flags.join("；") +
+      '</small></span><span class="validity-action">查看</span></summary><p>' + flags.join("；") +
       "。这套阈值来自 Johnson (2005)，用来筛出「没读题就连点」的作答。"
       + "但请把它当作提示而不是判决：把同一套规则跑在 145,388 份常模样本上，也有 2.99% 被标记，"
       + "而且这些标记全部来自「很不符合」一个选项——因为本量表第 238–300 题恰好全是反向题，真心一贯的人在这一段本来就会连着按同一个键（被标记的连击有 97% 起始于第 150 题之后）。"
-      + "所以：如果这确实是你的真实作答，忽略即可；如果是快速点选留下的，建议重测。";
+      + "所以：如果这确实是你的真实作答，忽略即可；如果是快速点选留下的，建议重测。</p></details>";
   } else { box.className = "hide"; box.innerHTML = ""; }
   const modeNote = $("#modeNote");
   modeNote.className = mode === "hints" ? "muted" : "hide";
@@ -1452,6 +1550,7 @@ document.addEventListener("mousemove", e => {
 /* ================= nav / io ================= */
 function show(id){
   ["intro","test","result"].forEach(s => $("#"+s).classList.toggle("hide", s !== id));
+  document.body.dataset.view = id;
   const inTest = id === "test";
   document.querySelector(".bar").classList.toggle("hide", !inTest);
   $("#pcount").classList.toggle("hide", !inTest);
@@ -1463,7 +1562,7 @@ function show(id){
 document.querySelectorAll(".modeopt").forEach(b =>
   b.addEventListener("click", () => { mode = b.dataset.mode; applyMode(); }));
 $("#hintToggle").addEventListener("click", () => {
-  mode = mode === "hints" ? "plain" : "hints"; applyMode(); persist();
+  mode = mode === "hints" ? "plain" : "hints"; applyMode(); updateProgress(); persist();
 });
 
 $("#startForm").addEventListener("submit", e => {
@@ -1657,6 +1756,12 @@ $("#exportBtn").addEventListener("click", () => {
 $("#tableToggle").addEventListener("click", () => $("#tableView").classList.toggle("on"));
 $("#printBtn").addEventListener("click", () => window.print());
 $("#printBtn2").addEventListener("click", () => window.print());
+document.querySelectorAll("[data-scroll-target]").forEach(b => b.addEventListener("click", () => {
+  const target = document.getElementById(b.dataset.scrollTarget);
+  if (target) target.scrollIntoView({behavior:smoothB(), block:"start"});
+}));
+$("#resultTopBtn").addEventListener("click", () =>
+  $("#result").scrollIntoView({behavior:smoothB(), block:"start"}));
 $("#cardBtn").addEventListener("click", saveCard);
 document.querySelectorAll(".reaction").forEach(b => b.addEventListener("click", () => {
   document.querySelectorAll(".reaction").forEach(x => x.setAttribute("aria-pressed", x === b));
@@ -1676,15 +1781,22 @@ $("#restartBtn").addEventListener("click", () => {
   show("intro"); checkResume(); updateProgress();
 });
 $("#enToggle").addEventListener("click", () => document.body.classList.toggle("show-en"));
+function syncThemeUi(){
+  const dark = document.documentElement.getAttribute("data-theme") === "dark";
+  $("#themeToggle").textContent = dark ? "浅色" : "深色";
+  $("#themeToggle").setAttribute("aria-label", dark ? "切换到浅色主题" : "切换到深色主题");
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.content = dark ? "#0d0d0d" : "#f9f9f7";
+}
 $("#themeToggle").addEventListener("click", () => {
-  const d = document.documentElement.getAttribute("data-theme") === "dark";
-  document.documentElement.setAttribute("data-theme", d ? "light" : "dark");
-  $("#themeToggle").textContent = d ? "深色" : "浅色";
+  const dark = document.documentElement.getAttribute("data-theme") === "dark";
+  const next = dark ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  try { localStorage.setItem("ipipneo300-theme", next); } catch(e) {}
+  syncThemeUi();
   if (window.__res) drawRadar(window.__res);
 });
-if (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches){
-  document.documentElement.setAttribute("data-theme","dark"); $("#themeToggle").textContent = "浅色";
-}
+syncThemeUi();
 
 function boot(){
   applyMode();
