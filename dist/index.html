@@ -245,6 +245,7 @@ body.show-hints .hint{display:block}
 :root[data-theme="dark"] #copied{color:#0ca30c}
 .opts{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-left:44px}
 .opt{
+  min-height:44px;
   min-width:0;text-align:center;font-family:inherit;font-size:12.5px;line-height:1.3;
   padding:9px 4px;border-radius:8px;border:1px solid var(--axis);background:var(--surface-1);
   color:var(--text-secondary);cursor:pointer;transition:none}
@@ -263,6 +264,10 @@ body.show-hints .hint{display:block}
 .page-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-top:24px}
 .page-heading h2{margin:0}
 .page-hint{margin:4px 0 14px}
+.page-feedback{color:var(--accent);font-size:13px;line-height:1.6;margin:0 0 14px}
+.page-feedback:empty{display:none}
+.domain-evidence{margin:12px 0 0;padding:12px 14px;border-left:2px solid var(--axis);background:var(--surface-1);border-radius:0 8px 8px 0;color:var(--text-secondary);font-size:13px;line-height:1.75}
+.domain-reflect{margin:8px 0 0;font-size:13px;line-height:1.75;color:var(--text-secondary)}
 .page-meta{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}
 .quick-quit{border:0;background:transparent;color:var(--accent);padding:3px 0;font:inherit;font-size:12.5px;cursor:pointer}
 .quick-quit:hover{text-decoration:underline}
@@ -477,7 +482,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
       <div class="modecard" role="group" aria-label="作答模式">
         <button class="modeopt" type="button" data-mode="plain" aria-pressed="true">
           <b>标准模式 <em class="mode-badge">推荐</em></b>
-          <span>只显示题目，贴近原版常模口径</span>
+          <span>专注题目，按平时的自己作答</span>
         </button>
         <button class="modeopt" type="button" data-mode="hints" aria-pressed="false">
           <b>详解模式</b>
@@ -486,7 +491,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
       </div>
       <details class="mode-note">
         <summary>两种模式有什么区别？</summary>
-        <p>标准模式只显示原题译文，结果更适合和原版常模比较；详解模式会减少题意误读，但情境说明可能让分数略微上移。答题时仍可随时切换。</p>
+        <p>标准模式显示中文题目；详解模式额外提供生活情境，帮助理解题意。两种模式使用相同题目和计分方式，但情境说明可能影响你的判断。答题时可以随时切换，请以自己的实际情况为准。</p>
       </details>
 
       <div class="row">
@@ -593,15 +598,16 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
     </div>
   </div>
   <p class="muted page-hint" id="pageHint">判断每句话<b>形容你准不准</b>，不是你同不同意。<span id="kbdHint"> · 键盘 1–5 可直接作答，选完自动跳下一题</span></p>
+  <p class="page-feedback" id="pageFeedback" role="status" aria-live="polite"></p>
 
   <div id="breakCard" class="hide"></div>
 
   <details class="legend" id="legend">
-    <summary>五个选项分别是什么意思（点开看）</summary>
+    <summary>拿不准怎么选？查看选项说明</summary>
     <table>
       <tr><td>很不符合</td><td>基本不是你，认识你的人也不会这么形容你。</td></tr>
-      <tr><td>比较不符合</td><td>偶尔有，但不是常态。这一档比你想的宽，别因为"也不是完全没有过"就往中间躲。</td></tr>
-      <tr><td>一半一半</td><td>说不上准也说不上不准：真的对半开，或者分场合差别大到没法合并。<b>不等于"我不知道"</b>——想不起来就按整体印象挑个方向。</td></tr>
+      <tr><td>比较不符合</td><td>偶尔会这样，但大多数时候不是。</td></tr>
+      <tr><td>一半一半</td><td>符合与不符合的情况差不多，或不同场合下差别很大。暂时想不起具体例子时，可以参考平时的整体表现。</td></tr>
       <tr><td>比较符合</td><td>大体是你，但有例外。</td></tr>
       <tr><td>很符合</td><td>这就是你，认识你的人也会这么说。</td></tr>
     </table>
@@ -644,9 +650,9 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
         <p class="muted" style="margin:0">外圈 = 100，加粗一圈 = 50（人群中位数）</p>
       </div>
       <div class="hero-copy">
-        <div class="muted" style="letter-spacing:.14em;font-size:11.5px">你的人格画像</div>
+        <div class="muted" style="letter-spacing:.14em;font-size:11.5px">本次作答呈现的倾向</div>
         <h3 id="heroLine" style="font-size:19px;line-height:1.5;margin:7px 0 13px"></h3>
-        <div class="muted" style="font-size:12.5px;margin-bottom:7px">最鲜明的子面向</div>
+        <div class="muted" style="font-size:12.5px;margin-bottom:7px">值得进一步了解的子面向 · 数字为百分位</div>
         <div id="heroChips"></div>
         <div class="hero-btns noprint">
           <button class="btn" id="cardBtn">保存分享卡片</button>
@@ -669,7 +675,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
   <div class="card result-check noprint" id="resultCheck">
     <div class="result-check-copy">
       <b>这份结果像你吗？</b>
-      <span>这是一次自我校验，不会改变分数，也不会上传任何内容。</span>
+      <span>可以对照近期的具体经历。符合与不符合的部分，都值得保留。</span>
     </div>
     <div class="result-check-actions" aria-label="结果相似度">
       <button class="iconbtn reaction" data-reaction="yes" aria-pressed="false">很像我</button>
@@ -681,7 +687,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 
   <details class="card result-guide noprint">
     <summary>这些百分位怎么读？</summary>
-    <p class="muted" style="margin:0 0 8px">下面所有数字都是<b>百分位</b>，直接数出来的：80 就表示常模样本里有 80% 的人分数比你低，50 就是正好落在中位数。（早先的版本用一条多项式去近似这个百分位，两端还会被压平成 1 和 99；现在是查表，不再有近似和截断。）「低／中等／高」切在 30 和 70，但这两处是模糊边界，不要把相邻的两档理解成截然不同的人格。横条上颜色较浅的一段是 <b>95% 置信区间</b>：同一个人换一天再测，分数大概率落在这段里。区间由量表信度算出（SEM = SD·√(1−α)，α 为常模样本实测值），子面向只有 10 道题，区间普遍不窄。这不是这份测评独有的毛病，是所有短量表共同的物理现实。看方向，别抠精确值。</p>
+    <p class="muted" style="margin:0 0 8px">下面的数字是<b>百分位，不是满分 100 的成绩</b>。例如，80 表示你在对应参考组中的位置约为第 80 百分位，50 接近中位数。高低只描述倾向，不代表好坏；不同维度的数字也不是能力排名。「低／中等／高」切在 30 和 70，但这两处是模糊边界，不要把相邻的两档理解成截然不同的人格。横条上的浅色区域是按测量误差模型计算的 <b>95% 估计区间</b>，用来提示分数的不确定性，不能解释为下次测验分数有 95% 概率落在其中。计算使用参考样本的标准差和内部一致性（SEM = SD·√(1−α)），依赖模型假设，未覆盖中文翻译或文化差异带来的误差。区间跨过 30 或 70 时，请结合相邻档位理解，避免只盯着一个标签。</p>
     <p class="muted" id="modeNote" style="margin:0"></p>
   </details>
 
@@ -689,7 +695,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
   <div id="domains"></div>
 
   <h2 id="profileHeading">你的组合画像</h2>
-  <p class="sub" style="margin-top:-6px">把五个维度各切成低／中／高，一共 243 种组合。下面是你这一格。</p>
+  <p class="sub" style="margin-top:-6px">以下文字根据五个维度的分数区间匹配，帮助你联想到具体情境。它是解释性参考，不是对你个人经历的识别，也不能据此预测关系或工作表现。请保留符合的部分，也留意反例。</p>
   <div id="profile"></div>
 
   <h2 id="facetsHeading">30 个子面向</h2>
@@ -697,7 +703,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
   <div id="facets"></div>
 
   <div class="result-actions noprint">
-    <button class="iconbtn" id="tableToggle">切换表格视图</button>
+    <button class="iconbtn" id="tableToggle" aria-expanded="false" aria-controls="tableView">展开分数表格</button>
     <button class="iconbtn" id="exportBtn">导出结果 JSON</button>
     <button class="iconbtn" id="printBtn">打印 / 存为 PDF</button>
     <button class="iconbtn" id="restartBtn">重新测一次</button>
@@ -1021,13 +1027,14 @@ function score(ans, sex, age){
 let breakDismissed = -1;
 function renderBreak(){
   const box = $("#breakCard");
-  const on = page > 0 && page % 5 === 0 && breakDismissed !== page;
+  const completed = answers.slice(1).filter(Boolean).length;
+  const on = page > 0 && page % 5 === 0 && completed >= page * PER_PAGE && breakDismissed !== page;
   box.className = on ? "brk" : "hide";
   if (!on){ box.innerHTML = ""; return; }
   box.innerHTML =
-    "<b>已经答了 " + (page * PER_PAGE) + " 题，要不要歇一下？</b><br>" +
-    "长问卷答到后面，注意力和刚开始不会一样。要不要歇，你自己判断。" +
-    "进度已经存好了，关掉网页也不会丢，明天再接着答也可以。" +
+    "<b>已完成 " + completed + " 题，可以休息一下</b><br>" +
+    "长时间作答可能让人疲劳。放松一下，再按平时的自己继续判断。" +
+    "离开前请确认下方的保存状态；也可以复制续答链接，方便回来继续。" +
     '<div class="btns"><button class="iconbtn" id="brkGo">先歇会儿，回首页</button>' +
     '<button class="iconbtn" id="brkOn">不用，接着答</button></div>';
   $("#brkGo").addEventListener("click", () => { breakDismissed = page; persist(); show("intro"); checkResume(); });
@@ -1035,6 +1042,9 @@ function renderBreak(){
 }
 
 function renderPage(){
+  clearTimeout(scrollT);
+  clearTimeout(autoAdvT);
+  $("#pageFeedback").textContent = "";
   const start = page * PER_PAGE;
   renderBreak();
   $("#legend").open = page === 0 && matchMedia("(min-width:561px)").matches;
@@ -1099,6 +1109,15 @@ function updateProgress(){
   const start = page * PER_PAGE;
   let here = 0;
   for (let i = start; i < start + PER_PAGE; i++) if (answers[DATA.items[i].id]) here++;
+  [...$("#pageJump").options].forEach((option, i) => {
+    const count = DATA.items.slice(i * PER_PAGE, (i + 1) * PER_PAGE).filter(q => answers[q.id]).length;
+    option.textContent = "第 " + (i + 1) + " 页 · " + (count === PER_PAGE ? "已完成" : count + "/" + PER_PAGE);
+  });
+  if ($("#qlist .flag")) {
+    $("#pageFeedback").textContent = here < PER_PAGE ? "本页还有 " + (PER_PAGE - here) + " 题未答，已为你标出。" : "";
+  } else {
+    $("#pageFeedback").textContent = "";
+  }
   $("#pageStat").textContent = "本页 " + here + " / " + PER_PAGE + " · 题目 " +
     (start + 1) + "–" + (start + PER_PAGE);
   return n;
@@ -1113,6 +1132,9 @@ $("#qlist").addEventListener("click", e => {
   if (!btn) return;
   const row = btn.closest(".qrow");
   const qid = +row.dataset.qid;
+  const revising = Boolean(answers[qid]);
+  clearTimeout(scrollT);
+  clearTimeout(autoAdvT);
   const pageStart = page * PER_PAGE;
   let answeredBefore = 0;
   for (let n = pageStart; n < pageStart + PER_PAGE; n++) if (answers[DATA.items[n].id]) answeredBefore++;
@@ -1124,6 +1146,8 @@ $("#qlist").addEventListener("click", e => {
   updateProgress();
   persist();
 
+  // 修改已答题时保留当前位置，方便核对选项。
+  if (revising) return;
   document.querySelectorAll(".qrow.cur").forEach(r => r.classList.remove("cur"));
   const next = [...document.querySelectorAll(".qrow")].find(r => !answers[+r.dataset.qid]);
   if (next){
@@ -1172,11 +1196,11 @@ $("#nextBtn").addEventListener("click", () => {
   if (missing.length){
     document.querySelectorAll(".qrow.unanswered").forEach(r => r.classList.add("flag"));
     const first = document.querySelector(".qrow.flag");
-    if (first) first.scrollIntoView({behavior:"smooth", block:"center"});
-    $("#pageHint").textContent = "这一页还有 " + missing.length + " 题没答（已高亮）。";
+    if (first) first.scrollIntoView({behavior:smoothB(), block:"center"});
+    $("#pageFeedback").textContent = "本页还有 " + missing.length + " 题未答，已为你标出。";
     return;
   }
-  $("#pageHint").textContent = "请判断每句话和平时的你有多符合。";
+  $("#pageFeedback").textContent = "";
   if (page === NPAGES - 1){ showResult(); return; }
   page++; persist(); renderPage();
 });
@@ -1190,6 +1214,53 @@ $("#quitBtn").addEventListener("click", quitToHome);
 $("#quickQuitBtn").addEventListener("click", quitToHome);
 
 /* ================= RESULT UI ================= */
+/* 解读只使用本次分数，不从档位推断个人经历或能力。 */
+const DOMAIN_READING = {
+  O: {
+    low:"你对熟悉、具体的内容可能更有兴趣，面对新想法时更看重实际用途。这个分数不代表创造力或学习能力。",
+    high:"你可能更愿意接触新想法、想象和审美体验；是否会把想法付诸行动，还需要结合其他维度与实际经历。",
+    prompt:"最近遇到一种陌生的观点或做法时，你是先想了解它，还是先确认它有什么用？不同场合下有例外吗？"
+  },
+  C: {
+    low:"你可能较少依赖固定计划和自我约束来推进事情。具体是安排、启动还是坚持更费力，可以继续看下面的子面向。",
+    high:"你可能更习惯做计划、遵守约定并持续推进目标。这描述的是做事倾向，不保证每件事都能完成，也不代表能力高低。",
+    prompt:"回想最近一项需要持续推进的任务：你怎样安排、开始和收尾？哪些环节需要提醒或外部支持？"
+  },
+  E: {
+    low:"你在主动社交、活动节奏或寻求刺激方面的总体倾向较低，可能更喜欢安静或小范围的相处；不等于不善交往。",
+    high:"你在主动社交、活动节奏或寻求刺激方面的总体倾向较高，但不意味着所有社交场合都让你自在。",
+    prompt:"最近几次聚会中，你会主动开启交流还是更愿意听别人说？熟人、小群体和陌生场合下是否不同？"
+  },
+  A: {
+    low:"你可能更愿意坚持自己的判断，对信任、让步和合作有所保留。这不等于缺乏善意，仍要看具体的待人方式。",
+    high:"你可能更重视体谅、信任与合作，出现分歧时较愿意照顾对方。这不代表你没有边界，或总会选择让步。",
+    prompt:"最近一次意见不同时，你怎样兼顾自己的要求与对方的感受？最后有没有把真正的需求说清楚？"
+  },
+  N: {
+    low:"你的作答显示，担忧、烦躁或压力下的情绪波动相对较少；这不表示你不会难受，也不能据此判断共情能力。",
+    high:"你的作答显示，担忧、烦躁或压力下的情绪波动相对较多。它描述本次自评中的情绪倾向，不是临床诊断。",
+    prompt:"最近遇到压力或批评后，情绪持续了多久？你做了什么帮助自己恢复？这与平时相似，还是近期的特殊状态？"
+  }
+};
+function domainReading(d, r){
+  const copy = DOMAIN_READING[d.key];
+  const display = p => p < 0.5 ? "低于 1" : p > 99.5 ? "高于 99" : String(Math.round(p));
+  const rank = r.facets.map((f, i) => ({pct:f.pct, name:DATA.facets[d.key][i][0]}))
+    .sort((a, b) => b.pct - a.pct);
+  const high = rank[0], low = rank[rank.length - 1];
+  const summary = r.pct <= 30 ? copy.low : r.pct >= 70 ? copy.high
+    : "本次分数位于参考样本的中间范围。总分没有明显偏向某一端，不代表每个子面向都居中，也不能据此判断你在不同场合的表现。";
+  let evidence = "分数依据：这个维度由 6 个子面向、共 60 道题汇总。本次总分百分位为 " + display(r.pct) + "。";
+  if (high.pct - low.pct < 1){
+    evidence += "6 个子面向的百分位接近，按当前显示精度不突出最高或最低项。";
+  } else {
+    evidence += "其中「" + high.name + "」的百分位相对较高（" + display(high.pct) + "），「" + low.name + "」相对较低（" + display(low.pct) + "）。这是各项在参考样本中的位置，不是能力排名，也不表示差异已达到统计显著。";
+  }
+  if (r.ci && [30,70].some(c => r.ci[0] <= c && r.ci[1] >= c)){
+    evidence += "估计区间跨过了分档边界，解读时请同时考虑相邻档位。";
+  }
+  return {summary, evidence, prompt:"对照生活：" + copy.prompt};
+}
 const COLOR = k => getComputedStyle(document.documentElement).getPropertyValue("--s-" + k).trim();
 const TENDENCY = {
   O:{lo:"熟悉与具体",hi:"好奇与探索"},
@@ -1220,6 +1291,16 @@ function longestRuns(a){
 }
 
 function showResult(){
+  const missing = DATA.items.filter(q => !answers[q.id]);
+  if (missing.length){
+    page = Math.floor(DATA.items.findIndex(q => q.id === missing[0].id) / PER_PAGE);
+    show("test");
+    renderPage();
+    persist();
+    document.querySelectorAll(".qrow.unanswered").forEach(row => row.classList.add("flag"));
+    $("#pageFeedback").textContent = "还有 " + missing.length + " 题未答，已返回第一处漏答。补齐后即可查看完整结果。";
+    return;
+  }
   const res = score(answers, sex, age);
   window.__res = res;
   const sexLabel = {M:"男", F:"女", N:"男女合并常模"}[sex] || sex;
@@ -1245,12 +1326,13 @@ function showResult(){
   const modeNote = $("#modeNote");
   modeNote.className = mode === "hints" ? "muted" : "hide";
   modeNote.innerHTML = mode === "hints"
-    ? "你用的是详解模式。情境说明会让分数整体略微上移（Schmit 等, 1995），下面的百分位请当作偏乐观的估计；想要更贴近原版常模口径的话，可以用标准模式再测一次对照着看。" : "";
+    ? "你使用了详解模式。情境说明可能影响对题目的理解，但本站尚未验证影响的方向和幅度。若以后比较两次结果，尽量保持作答模式一致，并结合当时的状态解读。" : "";
 
   /* --- domains --- */
   const dbox = $("#domains"); dbox.innerHTML = "";
   for (const d of DATA.domains){
     const r = res[d.key];
+    const reading = domainReading(d, r);
     const el = document.createElement("div");
     el.className = "dom";
     el.innerHTML =
@@ -1261,7 +1343,13 @@ function showResult(){
         '<i style="background:' + COLOR(d.key) + ';width:' + Math.max(1.2, r.pct) + '%"></i>' + ciBand(r.ci, COLOR(d.key)) + '<u></u></div>' +
       '<div class="poles"><span>← ' + d.plo + '</span><span>' + d.phi + ' →</span></div>' +
       '<p class="sub" style="margin:6px 0 0"><span class="lvl">' + tendencyTag(d, r.pct) + '</span> ' +
-        (r.level === "低" ? d.low : r.level === "高" ? d.high : d.desc) + '</p>';
+        reading.summary + '</p>';
+    for (const [className, text] of [["domain-evidence", reading.evidence], ["domain-reflect", reading.prompt]]){
+      const paragraph = document.createElement("p");
+      paragraph.className = className;
+      paragraph.textContent = text;
+      el.appendChild(paragraph);
+    }
     dbox.appendChild(el);
   }
 
@@ -1337,8 +1425,8 @@ function renderHero(res){
     .sort((a, b) => b.dev - a.dev);
   const strong = doms.filter(x => x.dev >= 15).slice(0, 3);
   $("#heroLine").textContent = strong.length
-    ? "你更偏向" + strong.map(x => tendencyPhrase(x.d, x.pct)).join("、")
-    : "五个维度都落在人群的中间地带";
+    ? "本次作答中较突出的倾向：" + strong.map(x => tendencyPhrase(x.d, x.pct)).join("、")
+    : "五个维度的总分都接近参考样本的中间位置";
 
   const chips = [];
   for (const d of DATA.domains)
@@ -1366,8 +1454,7 @@ const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ESC[c]);
 const bandOf = p => p <= PF_CUTS[0] ? 0 : (p < PF_CUTS[1] ? 1 : 2);
 const profileIndex = b => ((((b[0]*3 + b[1])*3 + b[2])*3 + b[3])*3 + b[4]);
 
-/* 离最近一条分界线还有多远。实测 66.8% 的人至少有一个维度在 5 分以内，
-   这种时候档位是随机的，必须告诉用户，而不是让他以为自己被精确归了类。 */
+/* 距离最近分界线的百分位点数；分档对边界附近的小幅变化更敏感。 */
 const cutDistance = p => Math.min(Math.abs(p - PF_CUTS[0]), Math.abs(p - PF_CUTS[1]));
 
 function cellLabel(b){
@@ -1403,10 +1490,10 @@ function renderProfile(res){
              : (res[t.k].pct >= PF_CUTS[1] ? 1
              : (Math.abs(res[t.k].pct - PF_CUTS[0]) < Math.abs(res[t.k].pct - PF_CUTS[1]) ? 0 : 2));
     const ap = PROFILES[profileIndex(alt)];
-    warn = '<div class="pf-warn"><b>先看这个：你有维度正好压在分界线上</b>' +
-      '<p>' + near + ' 离「低／中／高」的分界不到 5 分。这不是精确的归类——' +
-      '同一个人再测一次，落回同一格的概率实测只有 47.2%。下面这段请当作倾向来读。</p>' +
-      (ap ? '<details><summary>看看紧挨着的那一格（' + cellLabel(alt) + '）</summary>' +
+    warn = '<div class="pf-warn"><b>这些维度接近分界，可结合相邻画像阅读</b>' +
+      '<p>' + near + ' 距离分档边界不到 5 个百分位点。分数的小幅变化就可能切换文案，' +
+      '并不意味着人格发生了明显改变。这里比较的是最靠近边界的一个维度。</p>' +
+      (ap ? '<details><summary>对照相邻倾向（' + cellLabel(alt) + '）</summary>' +
             '<p style="margin:8px 0 0"><i>' + esc(ap.lead) + '</i></p><p>' + esc(ap.summary) + '</p></details>' : "") +
       '</div>';
   }
@@ -1418,13 +1505,13 @@ function renderProfile(res){
       warn +
       '<p class="pf-summary">' + esc(p.summary) + '</p>' +
       '<div class="pf-grid">' +
-        sect("生活", p.life) + sect("交友与朋友", p.friends) +
-        sect("恋爱", p.love) + sect("工作", p.work) +
+        sect("日常生活中可能的表现", p.life) + sect("朋友相处中的参考情境", p.friends) +
+        sect("亲密关系中的参考情境", p.love) + sect("工作协作中的参考情境", p.work) +
       '</div>' +
       '<div class="pf-lists">' +
-        list("优点", p.pros, "pf-pro") + list("缺点", p.cons, "pf-con") +
+        list("可能有帮助的方面", p.pros, "pf-pro") + list("值得留意的代价", p.cons, "pf-con") +
       '</div>' +
-      list("可以练的", p.practice, "pf-do") +
+      list("若与你的经历相符，可以尝试", p.practice, "pf-do") +
     '</div>';
 }
 
@@ -1549,6 +1636,8 @@ document.addEventListener("mousemove", e => {
 
 /* ================= nav / io ================= */
 function show(id){
+  clearTimeout(scrollT);
+  clearTimeout(autoAdvT);
   ["intro","test","result"].forEach(s => $("#"+s).classList.toggle("hide", s !== id));
   document.body.dataset.view = id;
   const inTest = id === "test";
@@ -1753,7 +1842,11 @@ $("#exportBtn").addEventListener("click", () => {
   };
   download("大五人格结果-IPIP-NEO-300.json", out);
 });
-$("#tableToggle").addEventListener("click", () => $("#tableView").classList.toggle("on"));
+$("#tableToggle").addEventListener("click", e => {
+  const expanded = $("#tableView").classList.toggle("on");
+  e.currentTarget.setAttribute("aria-expanded", String(expanded));
+  e.currentTarget.textContent = expanded ? "收起分数表格" : "展开分数表格";
+});
 $("#printBtn").addEventListener("click", () => window.print());
 $("#printBtn2").addEventListener("click", () => window.print());
 document.querySelectorAll("[data-scroll-target]").forEach(b => b.addEventListener("click", () => {
@@ -1766,9 +1859,9 @@ $("#cardBtn").addEventListener("click", saveCard);
 document.querySelectorAll(".reaction").forEach(b => b.addEventListener("click", () => {
   document.querySelectorAll(".reaction").forEach(x => x.setAttribute("aria-pressed", x === b));
   const messages = {
-    yes:"很好。可以继续看 30 个子面向，确认这些倾向在生活中具体体现在哪里。",
-    some:"很正常：五个总分会压缩细节。优先看下方 30 个子面向，通常能找到更贴近你的组合。",
-    no:"先检查作答有效性、疲劳和常模局限。结果不是诊断；如果整体明显不符，可以休息后换一种作答模式再测一次。"
+    yes:"挑一条最符合的描述，回想一个具体例子，再找一个例外。这样能分清它是常见倾向，还是只在某些场合出现。",
+    some:"可以把符合与不符合的描述分别记下来，再看相关子面向。不必让自己符合整段画像，生活中的反例同样有价值。",
+    no:"不必勉强接受这份解读。可以检查是否误解题意，并考虑近期状态、翻译和参考样本的限制；如果以后重测，尽量使用相同模式，避免把模式差异误当成自身变化。"
   };
   const msg = $("#resultCheckMsg");
   msg.textContent = messages[b.dataset.reaction];

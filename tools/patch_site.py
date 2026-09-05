@@ -170,8 +170,8 @@ sub(
 sub(
     '下面所有数字都是<b>百分位</b>：50 代表和常模人群的中位数持平，80 代表高于 80% 的人。'
     '30 和 70 附近是模糊边界，不要把相邻的“中等”和“偏高／偏低”理解成截然不同的人格。',
-    '下面所有数字都是<b>百分位</b>，直接数出来的：80 就表示常模样本里有 80% 的人分数比你低，50 就是正好落在中位数。'
-    '（早先的版本用一条多项式去近似这个百分位，两端还会被压平成 1 和 99；现在是查表，不再有近似和截断。）'
+    '下面的数字是<b>百分位，不是满分 100 的成绩</b>。例如，80 表示你在对应参考组中的位置约为第 80 百分位，50 接近中位数。'
+    '高低只描述倾向，不代表好坏；不同维度的数字也不是能力排名。'
     '「低／中等／高」切在 30 和 70，但这两处是模糊边界，不要把相邻的两档理解成截然不同的人格。',
     "percentile explanation -> empirical, 30/70")
 
@@ -320,9 +320,9 @@ sub(".ftrack>u{position:absolute;top:-2px;bottom:-2px;left:50%;width:1px;backgro
     "CI band styles")
 sub("「低／中等／高」切在 30 和 70，但这两处是模糊边界，不要把相邻的两档理解成截然不同的人格。",
     "「低／中等／高」切在 30 和 70，但这两处是模糊边界，不要把相邻的两档理解成截然不同的人格。"
-    "横条上颜色较浅的一段是 <b>95% 置信区间</b>：同一个人换一天再测，分数大概率落在这段里。"
-    "区间由量表信度算出（SEM = SD·√(1−α)，α 为常模样本实测值），子面向只有 10 道题，区间普遍不窄。"
-    "这不是这份测评独有的毛病，是所有短量表共同的物理现实。看方向，别抠精确值。",
+    "横条上的浅色区域是按测量误差模型计算的 <b>95% 估计区间</b>，用来提示分数的不确定性，不能解释为下次测验分数有 95% 概率落在其中。"
+    "计算使用参考样本的标准差和内部一致性（SEM = SD·√(1−α)），依赖模型假设，未覆盖中文翻译或文化差异带来的误差。"
+    "区间跨过 30 或 70 时，请结合相邻档位理解，避免只盯着一个标签。",
     "explain the CI band in the guide")
 
 # ------------------------------------------------------------------ 9. broken share card
@@ -365,11 +365,7 @@ sub("/* 每 5 页（75 题）提示一次休息。依据 Masuda 等 (2017)：大
     "   每 30 题），所以这是位置效应而非键控假象。既然机制说不清楚，就不说。 */",
     "break card: drop the misattributed Masuda citation")
 
-sub('"研究发现，连着答长问卷时越往后越容易往中间档靠——这是疲劳，不是你对后面的题真的更没想法。" +\n'
-    '    "歇一会儿再回来，这个漂移会被重置。进度已经存好了，关掉网页也不会丢。" +',
-    '"长问卷答到后面，注意力和刚开始不会一样。要不要歇，你自己判断。" +\n'
-    '    "进度已经存好了，关掉网页也不会丢，明天再接着答也可以。" +',
-    "break card: replace the unsupported mechanism with a plain prompt")
+# The source now owns the rest prompt and its storage-status guidance.
 
 # ------------------------------------------------------------------ 9b. combination profile
 # 3^5 = 243 cells over the 低<=30 / 中 / 高>=70 bands. All 243 are occupied in the norm
@@ -395,8 +391,8 @@ if os.path.exists(profiles_path):
 
     sub('  <h2 id="facetsHeading">30 个子面向</h2>',
         '  <h2 id="profileHeading">你的组合画像</h2>\n'
-        '  <p class="sub" style="margin-top:-6px">把五个维度各切成低／中／高，一共 243 种组合。'
-        '下面是你这一格。</p>\n'
+        '  <p class="sub" style="margin-top:-6px">以下文字根据五个维度的分数区间匹配，帮助你联想到具体情境。'
+        '它是解释性参考，不是对你个人经历的识别，也不能据此预测关系或工作表现。请保留符合的部分，也留意反例。</p>\n'
         '  <div id="profile"></div>\n\n'
         '  <h2 id="facetsHeading">30 个子面向</h2>',
         "add the combination-profile section")
@@ -420,8 +416,7 @@ const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ESC[c]);
 const bandOf = p => p <= PF_CUTS[0] ? 0 : (p < PF_CUTS[1] ? 1 : 2);
 const profileIndex = b => ((((b[0]*3 + b[1])*3 + b[2])*3 + b[3])*3 + b[4]);
 
-/* 离最近一条分界线还有多远。实测 66.8% 的人至少有一个维度在 5 分以内，
-   这种时候档位是随机的，必须告诉用户，而不是让他以为自己被精确归了类。 */
+/* 距离最近分界线的百分位点数；分档对边界附近的小幅变化更敏感。 */
 const cutDistance = p => Math.min(Math.abs(p - PF_CUTS[0]), Math.abs(p - PF_CUTS[1]));
 
 function cellLabel(b){
@@ -457,10 +452,10 @@ function renderProfile(res){
              : (res[t.k].pct >= PF_CUTS[1] ? 1
              : (Math.abs(res[t.k].pct - PF_CUTS[0]) < Math.abs(res[t.k].pct - PF_CUTS[1]) ? 0 : 2));
     const ap = PROFILES[profileIndex(alt)];
-    warn = '<div class="pf-warn"><b>先看这个：你有维度正好压在分界线上</b>' +
-      '<p>' + near + ' 离「低／中／高」的分界不到 5 分。这不是精确的归类——' +
-      '同一个人再测一次，落回同一格的概率实测只有 47.2%。下面这段请当作倾向来读。</p>' +
-      (ap ? '<details><summary>看看紧挨着的那一格（' + cellLabel(alt) + '）</summary>' +
+    warn = '<div class="pf-warn"><b>这些维度接近分界，可结合相邻画像阅读</b>' +
+      '<p>' + near + ' 距离分档边界不到 5 个百分位点。分数的小幅变化就可能切换文案，' +
+      '并不意味着人格发生了明显改变。这里比较的是最靠近边界的一个维度。</p>' +
+      (ap ? '<details><summary>对照相邻倾向（' + cellLabel(alt) + '）</summary>' +
             '<p style="margin:8px 0 0"><i>' + esc(ap.lead) + '</i></p><p>' + esc(ap.summary) + '</p></details>' : "") +
       '</div>';
   }
@@ -472,13 +467,13 @@ function renderProfile(res){
       warn +
       '<p class="pf-summary">' + esc(p.summary) + '</p>' +
       '<div class="pf-grid">' +
-        sect("生活", p.life) + sect("交友与朋友", p.friends) +
-        sect("恋爱", p.love) + sect("工作", p.work) +
+        sect("日常生活中可能的表现", p.life) + sect("朋友相处中的参考情境", p.friends) +
+        sect("亲密关系中的参考情境", p.love) + sect("工作协作中的参考情境", p.work) +
       '</div>' +
       '<div class="pf-lists">' +
-        list("优点", p.pros, "pf-pro") + list("缺点", p.cons, "pf-con") +
+        list("可能有帮助的方面", p.pros, "pf-pro") + list("值得留意的代价", p.cons, "pf-con") +
       '</div>' +
-      list("可以练的", p.practice, "pf-do") +
+      list("若与你的经历相符，可以尝试", p.practice, "pf-do") +
     '</div>';
 }
 
