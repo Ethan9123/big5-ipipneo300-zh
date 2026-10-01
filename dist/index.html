@@ -313,6 +313,61 @@ body.show-hints .hint{display:block}
 .pf-do b{color:var(--text-primary)}
 
 /* charts */
+.report-cover{position:relative;isolation:isolate;overflow:hidden;margin:26px 0 20px;padding:30px;
+  border:1px solid #354664;border-radius:24px;color:#f3f6ff;
+  background:radial-gradient(ellipse at 94% 8%,#285c715e,transparent 55%),radial-gradient(ellipse at 50% 120%,#5754a64d,transparent 60%),#101b2e;
+  box-shadow:0 18px 44px #0b16321a}
+.report-cover::before{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;
+  background-image:radial-gradient(#cadfff24 .8px,transparent .8px);background-size:22px 22px;
+  mask-image:linear-gradient(90deg,transparent 20%,#000)}
+.report-orbits{position:absolute;z-index:-1;width:260px;height:260px;right:-20px;top:-60px;transform:rotate(-28deg);pointer-events:none;opacity:.55}
+.report-orbits i{position:absolute;inset:20px;border:1px solid #96d9ff60;border-radius:50%;transform:scaleX(.55)}
+.report-orbits i:nth-child(2){transform:rotate(60deg) scaleX(.55);border-color:#ddafee80}
+.report-orbits i:nth-child(3){transform:rotate(120deg) scaleX(.55);border-color:#7ce0c680}
+.report-kicker{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px;font-size:11px;letter-spacing:.16em;color:#bacbdd}
+.report-status{display:inline-flex;align-items:center;gap:7px;letter-spacing:.03em;color:#b2eadb}
+.report-status::before{content:"";width:6px;height:6px;border-radius:50%;background:#8ce0c7;box-shadow:0 0 12px #8ce0c780}
+.report-cover h1{font-size:clamp(30px,4.8vw,44px);letter-spacing:-.035em;line-height:1.25;margin:0 0 12px;max-width:620px;text-wrap:balance}
+.report-cover h1 span{color:#a6d8fa}
+.report-intro{color:#c2cede;font-size:14px;margin:0 0 20px;max-width:560px}
+.report-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:12px;color:#c2cede;margin:0}
+.report-meta-label{margin-right:3px}
+.report-meta-chip{padding:3px 10px;border:1px solid #829abb40;border-radius:999px;background:#ffffff08;color:#e1e9f6}
+.report-spectrum{margin-top:26px;padding-top:18px;border-top:1px solid #ffffff1c}
+.report-spectrum-heading{display:flex;justify-content:space-between;gap:10px;color:#bacbdd;font-size:11px;margin-bottom:10px}
+.report-tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.report-tile{position:relative;min-width:0;padding:13px 11px 12px;display:flex;flex-direction:column;align-items:flex-start;gap:5px;
+  border:1px solid #829abb40;border-radius:12px;background:#ffffff08;color:#f3f6ff;font:inherit;text-align:left;cursor:pointer;
+  transition:background .18s,transform .18s,border-color .18s}
+.report-tile::before{content:"";height:3px;width:22px;border-radius:4px;background:var(--tile-color);margin-bottom:3px}
+.report-tile-name{font-size:12px;color:#d6dfec}
+.report-tile strong{font-size:26px;line-height:1.2;font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+.report-tile-arrow{position:absolute;right:10px;bottom:13px;color:#b9cce2;font-size:15px}
+.report-tile:hover{background:#ffffff13;border-color:var(--tile-color);transform:translateY(-3px)}
+.report-tile:focus-visible{outline-color:#c0e8ff;outline-offset:3px}
+#result:not(.hide) .report-cover{animation:report-enter .5s ease-out both}
+@keyframes report-enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.dom[id]{scroll-margin-top:84px}
+.dom:focus{outline:2px solid var(--accent);outline-offset:8px;border-radius:5px}
+@media (max-width:560px){
+  .report-cover{padding:22px 16px 17px;border-radius:20px;margin-top:18px}
+  .report-kicker{font-size:10px;letter-spacing:.1em;margin-bottom:24px}
+  .report-orbits{right:-95px;top:-80px;opacity:.35}
+  .report-intro{font-size:13px;line-height:1.7}
+  .report-meta{font-size:11px;gap:6px}
+  .report-tiles{gap:5px}
+  .report-tile{padding:10px 6px;gap:5px;border-radius:9px}
+  .report-tile-name{font-size:11px;white-space:nowrap}
+  .report-tile strong{font-size:22px}
+  .report-tile-arrow{display:none}
+  .report-spectrum-heading{font-size:10.5px}
+}
+@media print{
+  .report-cover{background:#fff;color:#111;box-shadow:none;border-color:#aaa;break-inside:avoid}
+  .report-cover h1 span,.report-intro,.report-meta,.report-meta-chip,.report-kicker,.report-status{color:#333}
+  .report-meta-chip{border-color:#aaa;background:none}
+  .report-cover::before,.report-orbits,.report-spectrum{display:none}
+}
 .dom{margin-bottom:22px}
 .dom-head{display:flex;align-items:baseline;gap:9px;margin-bottom:2px}
 .swatch{width:11px;height:11px;border-radius:3px;flex:none;transform:translateY(1px)}
@@ -639,8 +694,17 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 
 <!-- ============ RESULT ============ -->
 <section id="result" class="hide">
-  <h1 style="margin-top:32px">你的大五人格结果</h1>
-  <p class="sub" id="resMeta"></p>
+  <header class="report-cover">
+    <div class="report-orbits" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="report-kicker"><span>OCEAN / 人格探索报告</span><span class="report-status">300 题 · 已完成</span></div>
+    <h1>你的大五人格，<br><span>有自己的轮廓。</span></h1>
+    <p class="report-intro">五种倾向，交织成这一次的你。先看整体，再走进那些值得了解的细节。</p>
+    <div class="report-meta" id="resMeta" aria-label="本次报告的常模与作答信息"></div>
+    <div class="report-spectrum noprint">
+      <div class="report-spectrum-heading"><span>你的五维速览 · 百分位</span><span>点选维度，探索解读 ↗</span></div>
+      <nav class="report-tiles" id="reportTiles" aria-label="探索五个维度"></nav>
+    </div>
+  </header>
   <div id="validity" class="hide"></div>
 
   <div class="card result-hero" style="margin:20px 0">
@@ -1304,8 +1368,36 @@ function showResult(){
   const res = score(answers, sex, age);
   window.__res = res;
   const sexLabel = {M:"男", F:"女", N:"男女合并常模"}[sex] || sex;
-  $("#resMeta").textContent = "对照常模：" + sexLabel + " · " + age + " 岁（" + (age < 21 ? "21 岁以下" : "21 岁及以上") +
-    "组）· " + (mode === "hints" ? "详解模式" : "标准模式");
+  const metadata = $("#resMeta");
+  metadata.replaceChildren();
+  ["对照常模", sexLabel, age + " 岁 · " + (age < 21 ? "21 岁以下组" : "21 岁及以上组"),
+    mode === "hints" ? "详解模式" : "标准模式"].forEach((text, i) => {
+    const chip = document.createElement("span");
+    chip.className = i ? "report-meta-chip" : "report-meta-label";
+    chip.textContent = text;
+    metadata.appendChild(chip);
+  });
+  const tiles = $("#reportTiles");
+  tiles.replaceChildren();
+  const tileColors = ["#8fc4ff", "#ffaf89", "#86dfbb", "#f5d481", "#f2add1"];
+  DATA.domains.forEach((d, i) => {
+    const tile = document.createElement("button");
+    const p = res[d.key].pct;
+    const value = p < 0.5 ? "<1" : p > 99.5 ? ">99" : String(Math.round(p));
+    tile.type = "button";
+    tile.className = "report-tile";
+    tile.style.setProperty("--tile-color", tileColors[i]);
+    tile.setAttribute("aria-label", d.name + "，百分位 " + value + "，查看解读");
+    const name = document.createElement("span"); name.className = "report-tile-name"; name.textContent = d.name;
+    const number = document.createElement("strong"); number.textContent = value;
+    const arrow = document.createElement("span"); arrow.className = "report-tile-arrow"; arrow.textContent = "↗"; arrow.setAttribute("aria-hidden", "true");
+    tile.append(name, number, arrow);
+    tile.addEventListener("click", () => {
+      const target = document.getElementById("domain-" + d.key);
+      if (target){ target.focus({preventScroll:true}); target.scrollIntoView({behavior:smoothB(), block:"start"}); }
+    });
+    tiles.appendChild(tile);
+  });
   document.querySelectorAll(".reaction").forEach(b => b.setAttribute("aria-pressed", "false"));
   $("#resultCheckMsg").className = "result-check-msg hide";
   $("#resultCheckMsg").textContent = "";
@@ -1335,6 +1427,10 @@ function showResult(){
     const reading = domainReading(d, r);
     const el = document.createElement("div");
     el.className = "dom";
+    el.id = "domain-" + d.key;
+    el.tabIndex = -1;
+    el.setAttribute("role", "region");
+    el.setAttribute("aria-label", d.name + "解读");
     el.innerHTML =
       '<div class="dom-head"><span class="swatch" style="background:' + COLOR(d.key) + '"></span>' +
         '<h3>' + d.name + '</h3><span class="muted">' + d.en + '</span>' +
