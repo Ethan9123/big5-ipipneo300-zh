@@ -105,13 +105,20 @@ function ci95(g, scale, raw){
           PCT.lookup(g, scale, Math.round(raw + half))];
 }
 
-/* 轨道上的浅色区段 */
-function ciBand(ci, color){
+/* 轨道上的区间线：深色细线 + 两端短竖线，叠在彩色条上也看得见下界。
+   以前用同色半透明色块，下界被实心条盖住，读起来像单向的「缓冲条」。 */
+function ciBand(ci){
   if (!ci) return "";
   const l = Math.max(0, Math.min(100, ci[0]));
   const w = Math.max(0.8, Math.min(100, ci[1]) - l);
-  return '<s style="left:' + l.toFixed(1) + '%;width:' + w.toFixed(1) + '%;background:' + color + '"></s>';
+  return '<s style="left:' + l.toFixed(1) + '%;width:' + w.toFixed(1) + '%"></s>';
 }
+/* 两端落在同一个显示值（多见于 <1 / >99 的尾部）时只印一次，避免「<1–<1」 */
+const ciText = ci => {
+  if (!ci) return "";
+  const a = fmtPct(ci[0]), b = fmtPct(ci[1]);
+  return a === b ? a : a + "–" + b;
+};
 
 function cohortKey(sex, age){
   const s = (sex === "M" || sex === "F") ? sex : "N";
@@ -303,24 +310,59 @@ sub(
 # both inputs already ship in the page), and it extends the site's existing honesty about
 # the 47.2% cell-reproduction rate to every individual number.
 sub("'|' + r.t.toFixed(1) + '|' + fmtPct(r.pct) + '\">' +",
-    "'|' + r.t.toFixed(1) + '|' + fmtPct(r.pct) + '（95% 区间 ' + fmtPct(r.ci[0]) + '–' + fmtPct(r.ci[1]) + '）\">' +",
+    "'|' + r.t.toFixed(1) + '|' + fmtPct(r.pct) + '（95% 区间 ' + ciText(r.ci) + '）\">' +",
     "CI in the domain tooltip")
 sub("'<i style=\"background:' + COLOR(d.key) + ';width:' + Math.max(1.2, r.pct) + '%\"></i><u></u></div>' +",
-    "'<i style=\"background:' + COLOR(d.key) + ';width:' + Math.max(1.2, r.pct) + '%\"></i>' + ciBand(r.ci, COLOR(d.key)) + '<u></u></div>' +",
+    "'<i style=\"background:' + COLOR(d.key) + ';width:' + Math.max(1.2, r.pct) + '%\"></i>' + ciBand(r.ci) + '<u></u></div>' +",
     "CI band on the domain track")
+# The interval used to live only in a mousemove tooltip: invisible on touch, keyboard and
+# screen readers. Print it under the bar, give the track an accessible name, and add it
+# to the score table.
+sub("'<div class=\"track\" data-tip=\"' + d.name + '|'",
+    "'<div class=\"track\" role=\"img\" aria-label=\"' + d.name + ' 百分位 ' + fmtPct(r.pct) + (r.ci ? '，95% 估计区间 ' + ciText(r.ci) : '') + '\" data-tip=\"' + d.name + '|'",
+    "domain track: accessible name with the interval")
+sub("'<div class=\"poles\"><span>← ' + d.plo + '</span><span>' + d.phi + ' →</span></div>' +",
+    "'<div class=\"poles\"><span>← ' + d.plo + '</span>' + (r.ci ? '<span class=\"ci-txt\">95% 区间 ' + ciText(r.ci) + '</span>' : '') + '<span>' + d.phi + ' →</span></div>' +",
+    "domain: print the interval under the bar")
 sub("'|' + f.t.toFixed(1) + '|' + fmtPct(f.pct) + '|' + m[2] + '\">' +",
-    "'|' + f.t.toFixed(1) + '|' + fmtPct(f.pct) + '（95% 区间 ' + fmtPct(f.ci[0]) + '–' + fmtPct(f.ci[1]) + '）|' + m[2] + '\">' +",
+    "'|' + f.t.toFixed(1) + '|' + fmtPct(f.pct) + '（95% 区间 ' + ciText(f.ci) + '）|' + m[2] + '\">' +",
     "CI in the facet tooltip")
 sub("'<span class=\"ftrack\"><i style=\"background:' + COLOR(d.key) + ';width:' + Math.max(1.2, f.pct) + '%\"></i><u></u></span>' +",
-    "'<span class=\"ftrack\"><i style=\"background:' + COLOR(d.key) + ';width:' + Math.max(1.2, f.pct) + '%\"></i>' + ciBand(f.ci, COLOR(d.key)) + '<u></u></span>' +",
+    "'<span class=\"ftrack\" role=\"img\" aria-label=\"95% 估计区间 ' + ciText(f.ci) + '\"><i style=\"background:' + COLOR(d.key) + ';width:' + Math.max(1.2, f.pct) + '%\"></i>' + ciBand(f.ci) + '<u></u></span>' +",
     "CI band on the facet track")
 sub(".ftrack>u{position:absolute;top:-2px;bottom:-2px;left:50%;width:1px;background:var(--axis)}",
     ".ftrack>u{position:absolute;top:-2px;bottom:-2px;left:50%;width:1px;background:var(--axis)}\n"
-    ".track>s,.ftrack>s{position:absolute;top:0;bottom:0;opacity:.22;border-radius:3px;pointer-events:none}",
+    "/* 区间线：主色描深色细线，外圈一圈底色描边，压在任何颜色的条上都分得清 */\n"
+    ".track>s,.ftrack>s{position:absolute;top:50%;height:2px;margin-top:-1px;background:var(--text-primary);"
+    "box-shadow:0 0 0 1px var(--surface-1);border-radius:1px;pointer-events:none;z-index:1}\n"
+    ".track>s::before,.track>s::after,.ftrack>s::before,.ftrack>s::after{content:\"\";position:absolute;"
+    "top:-5px;bottom:-5px;width:2px;background:inherit;box-shadow:inherit;border-radius:1px}\n"
+    ".ftrack>s::before,.ftrack>s::after{top:-4px;bottom:-4px}\n"
+    ".track>s::before,.ftrack>s::before{left:-1px}.track>s::after,.ftrack>s::after{right:-1px}\n"
+    ".poles .ci-txt{color:var(--text-secondary);font-variant-numeric:tabular-nums;text-align:center}\n"
+    ".ci-legend{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-muted);margin:-4px 0 12px}\n"
+    ".ci-legend i{position:relative;display:inline-block;width:34px;height:2px;background:var(--text-primary);flex:none}\n"
+    ".ci-legend i::before,.ci-legend i::after{content:\"\";position:absolute;top:-4px;bottom:-4px;width:2px;background:inherit}\n"
+    ".ci-legend i::before{left:0}.ci-legend i::after{right:0}\n"
+    "#tableView.on{overflow-x:auto}\n"
+    "td.ci{color:var(--text-secondary);white-space:nowrap}",
     "CI band styles")
+sub("这是 300 题版相比短版最有价值的部分。</p>",
+    "这是 300 题版相比短版最有价值的部分。</p>\n"
+    "  <p class=\"ci-legend\"><i aria-hidden=\"true\"></i><span>细线是 95% 估计区间。每个子面向只有 10 题，区间通常比维度总分宽得多。</span></p>",
+    "facets: legend for the interval line")
+sub("<th class=\"n\">百分位</th><th>水平</th>",
+    "<th class=\"n\">百分位</th><th class=\"n\">95% 区间</th><th>水平</th>",
+    "table view: interval column header")
+sub("'</td><td class=\"n\"><b>' + fmtPct(r.pct) + '</b></td><td>' + r.level + '</td></tr>';",
+    "'</td><td class=\"n\"><b>' + fmtPct(r.pct) + '</b></td><td class=\"n ci\">' + ciText(r.ci) + '</td><td>' + r.level + '</td></tr>';",
+    "table view: domain interval")
+sub("'</td><td class=\"n\">' + fmtPct(f.pct) + '</td><td>' + f.level + '</td></tr>';",
+    "'</td><td class=\"n\">' + fmtPct(f.pct) + '</td><td class=\"n ci\">' + ciText(f.ci) + '</td><td>' + f.level + '</td></tr>';",
+    "table view: facet interval")
 sub("「低／中等／高」切在 30 和 70，但这两处是模糊边界，不要把相邻的两档理解成截然不同的人格。",
     "「低／中等／高」切在 30 和 70，但这两处是模糊边界，不要把相邻的两档理解成截然不同的人格。"
-    "横条上的浅色区域是按测量误差模型计算的 <b>95% 估计区间</b>，用来提示分数的不确定性，不能解释为下次测验分数有 95% 概率落在其中。"
+    "横条上那条两端带短竖线的深色细线是按测量误差模型计算的 <b>95% 估计区间</b>，用来提示分数的不确定性，不能解释为下次测验分数有 95% 概率落在其中。"
     "计算使用参考样本的标准差和内部一致性（SEM = SD·√(1−α)），依赖模型假设，未覆盖中文翻译或文化差异带来的误差。"
     "区间跨过 30 或 70 时，请结合相邻档位理解，避免只盯着一个标签。",
     "explain the CI band in the guide")

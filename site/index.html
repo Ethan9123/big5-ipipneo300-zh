@@ -447,6 +447,8 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
   .result-check{align-items:flex-start}
   .result-check-actions{width:100%}
   .result-check-actions .iconbtn{flex:1;min-height:42px}
+  /* 手机上底部是主要按钮的位置，恢复提示改到顶栏下方，避免挡住「保存卡片」「下一页」 */
+  .restore-toast{top:calc(62px + env(safe-area-inset-top,0px));bottom:auto;padding:9px 11px}
 }
 @media (max-width:390px){
   .modecard{grid-template-columns:1fr}
@@ -1100,7 +1102,16 @@ $("#qlist").addEventListener("click", e => {
   }
 });
 
-/* 桌面端键盘 1–5 直接作答 */
+/* 桌面端键盘 1–5 直接作答。
+   记下焦点是怎么来的：Tab 移过去的题，数字键就答那一题；鼠标点完留下的焦点不算。
+   不能用 :focus-visible 判断——Chrome 在按键那一刻会把鼠标点过的按钮也标成 focus-visible。 */
+let lastInput = "pointer", kbdRow = null;
+addEventListener("pointerdown", () => { lastInput = "pointer"; kbdRow = null; }, true);
+addEventListener("keydown", () => { lastInput = "key"; }, true);
+addEventListener("focusin", e => {
+  const row = e.target && e.target.closest ? e.target.closest(".qrow") : null;
+  kbdRow = lastInput === "key" ? row : null;
+}, true);
 addEventListener("keydown", e => {
   if ($("#test").classList.contains("hide")) return;
   if (e.ctrlKey || e.metaKey || e.altKey) return;
@@ -1108,10 +1119,20 @@ addEventListener("keydown", e => {
   if (/INPUT|SELECT|TEXTAREA/.test(tag)) return;
   const m = /^(?:Numpad)?([1-5])$/.exec(e.code) || (/^[1-5]$/.test(e.key) ? [0, e.key] : null);
   if (!m) return;
-  const cur = document.querySelector(".qrow.cur") || document.querySelector(".qrow:not(.ok)");
+  const focused = kbdRow && kbdRow.isConnected && kbdRow.contains(document.activeElement) ? kbdRow : null;
+  const cur = focused || document.querySelector(".qrow.cur") || document.querySelector(".qrow:not(.ok)");
   if (!cur) return;
   const opt = cur.querySelectorAll(".opt")[+m[1] - 1];
-  if (opt){ e.preventDefault(); opt.click(); }
+  if (!opt) return;
+  e.preventDefault();
+  const revising = cur.classList.contains("ok");
+  opt.click();
+  /* 焦点跟着「当前题」走，屏幕阅读器和 Tab 用户不会被留在上一题；改答已答题时原地不动。 */
+  const next = document.querySelector(".qrow.cur");
+  if (!revising && next && next !== cur && cur.contains(document.activeElement || null)){
+    const pressed = next.querySelector('.opt[aria-pressed="true"]') || next.querySelector(".opt");
+    if (pressed) pressed.focus({preventScroll:true});
+  }
 });
 
 $("#nextBtn").addEventListener("click", () => {
@@ -1175,7 +1196,8 @@ function domainReading(d, r){
   const high = rank[0], low = rank[rank.length - 1];
   const summary = r.pct <= 30 ? copy.low : r.pct >= 70 ? copy.high
     : "本次分数位于参考样本的中间范围。总分没有明显偏向某一端，不代表每个子面向都居中，也不能据此判断你在不同场合的表现。";
-  let evidence = "分数依据：这个维度由 6 个子面向、共 60 道题汇总。本次总分百分位为 " + display(r.pct) + "。";
+  const pctPhrase = p => p < 0.5 ? "低于 1" : p > 99.5 ? "高于 99" : "为 " + Math.round(p);
+  let evidence = "分数依据：这个维度由 6 个子面向、共 60 道题汇总。本次总分百分位" + pctPhrase(r.pct) + "。";
   if (high.pct - low.pct < 1){
     evidence += "6 个子面向的百分位接近，按当前显示精度不突出最高或最低项。";
   } else {
@@ -1584,18 +1606,34 @@ function naturalResumePage(s){
   return savedPage;
 }
 
-let restoreToastTimer = 0;
+let restoreToastTimer = 0, restoreToastArm = 0, restoreToastOff = null;
 function announceRestore(title, meta){
-  clearTimeout(restoreToastTimer);
+  hideRestoreToast();
   $("#restoreToastTitle").textContent = title;
   $("#restoreToastMeta").textContent = meta;
   $("#restoreToast").classList.remove("hide");
-  restoreToastTimer = setTimeout(() => $("#restoreToast").classList.add("hide"), 6500);
+  restoreToastTimer = setTimeout(hideRestoreToast, 6500);
+  /* 用户开始滚动或点别处，说明已经看到了，提示不再占位。
+     稍等再挂监听，避免启动时程序自己的滚动把提示立刻关掉。 */
+  restoreToastArm = setTimeout(() => {
+    const y0 = scrollY;
+    const onScroll = () => { if (Math.abs(scrollY - y0) > 120) hideRestoreToast(); };
+    const onDown = e => { if (!e.target.closest("#restoreToast")) hideRestoreToast(); };
+    addEventListener("scroll", onScroll, {passive:true});
+    addEventListener("pointerdown", onDown, true);
+    restoreToastOff = () => {
+      removeEventListener("scroll", onScroll);
+      removeEventListener("pointerdown", onDown, true);
+    };
+  }, 400);
 }
-$("#restoreToastClose").addEventListener("click", () => {
+function hideRestoreToast(){
   clearTimeout(restoreToastTimer);
+  clearTimeout(restoreToastArm);
   $("#restoreToast").classList.add("hide");
-});
+  if (restoreToastOff){ restoreToastOff(); restoreToastOff = null; }
+}
+$("#restoreToastClose").addEventListener("click", hideRestoreToast);
 
 /* 恢复一份存档：本地存储与网址片段取「答得更多」的那份 */
 function bestSaved(){
