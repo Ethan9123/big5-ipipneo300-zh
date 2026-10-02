@@ -112,13 +112,15 @@ function ciBand(ci){
   if (!ci) return "";
   const l = Math.max(0, Math.min(100, ci[0]));
   const w = Math.max(0.8, Math.min(100, ci[1]) - l);
-  return '<s style="left:' + l.toFixed(1) + '%;width:' + w.toFixed(1) + '%"></s>';
+  const x = Math.min(l, 100 - w);   // 下界贴着 100 时也画在轨道里面
+  return '<s style="left:' + x.toFixed(1) + '%;width:' + w.toFixed(1) + '%"></s>';
 }
 /* 两端落在同一个显示值（多见于 <1 / >99 的尾部）时只印一次，避免「<1–<1」 */
 const ciText = ci => {
   if (!ci) return "";
   const a = fmtPct(ci[0]), b = fmtPct(ci[1]);
-  return a === b ? a : a + "–" + b;
+  /* 「96–>99」的「–>」读起来像箭头：一端是 <1 / >99 时改用「至」 */
+  return a === b ? a : a + (/[<>]/.test(a + b) ? " 至 " : "–") + b;
 };
 
 function cohortKey(sex, age){
@@ -194,11 +196,11 @@ sub(
 
 # ------------------------------------------------------------------ 6. copy: validity warning
 sub(
-    '(runFlag ? "Johnson (2005) 用连续同选项的阈值筛掉「没读题就连点」的作答，被筛掉的约占 3.5%。" : "")',
-    '(runFlag ? "连续同选项的阈值来自 Johnson (2005)，用来筛出「没读题就连点」的作答。"\n'
+    '(runOnly1 ? "Johnson (2005) 用连续同选项的阈值筛掉「没读题就连点」的作答，被筛掉的约占 3.5%。"',
+    '(runOnly1 ? "连续同选项的阈值来自 Johnson (2005)，用来筛出「没读题就连点」的作答。"\n'
     '      + "但请把它当作提示而不是判决：把同一套规则跑在 145,388 份常模样本上，也有 2.99% 被标记，"\n'
     '      + "而且这些标记全部来自「很不符合」一个选项——因为本量表第 238–300 题恰好全是反向题，'
-    '真心一贯的人在这一段本来就会连着按同一个键（被标记的连击有 97% 起始于第 150 题之后）。" : "")',
+    '真心一贯的人在这一段本来就会连着按同一个键（被标记的连击有 97% 起始于第 150 题之后）。"',
     "careless-responding warning -> measured, and explains the false-positive mechanism")
 
 # (`const REV = new Set(DATA.reversed)` was declared and never used; it lived inside the
@@ -338,20 +340,22 @@ sub(".ftrack>u{position:absolute;top:-2px;bottom:-2px;left:50%;width:1px;backgro
     ".ci-legend i::before,.ci-legend i::after{content:\"\";position:absolute;top:-4px;bottom:-4px;width:2px;background:inherit}\n"
     ".ci-legend i::before{left:0}.ci-legend i::after{right:0}\n"
     "#tableView.on{overflow-x:auto}\n"
-    "td.ci{color:var(--text-secondary);white-space:nowrap}",
+    "td.ci{color:var(--text-secondary);white-space:nowrap}\n"
+    ".ci-sub{display:none}\n"
+    "@media (max-width:560px){th.ci-h,td.ci{display:none}.ci-sub{display:block;font-size:11px;font-weight:400;color:var(--text-muted);white-space:nowrap}}",
     "CI band styles")
 sub("这是 300 题版相比短版最有价值的部分。</p>",
     "这是 300 题版相比短版最有价值的部分。</p>\n"
     "  <p class=\"ci-legend\"><i aria-hidden=\"true\"></i><span>细线是 95% 估计区间。每个子面向只有 10 题，区间通常比维度总分宽得多。</span></p>",
     "facets: legend for the interval line")
 sub("<th class=\"n\">百分位</th><th>水平</th>",
-    "<th class=\"n\">百分位</th><th class=\"n\">95% 区间</th><th>水平</th>",
+    "<th class=\"n\">百分位</th><th class=\"n ci-h\">95% 区间</th><th>水平</th>",
     "table view: interval column header")
 sub("'</td><td class=\"n\"><b>' + fmtPct(r.pct) + '</b></td><td>' + r.level + '</td></tr>';",
-    "'</td><td class=\"n\"><b>' + fmtPct(r.pct) + '</b></td><td class=\"n ci\">' + ciText(r.ci) + '</td><td>' + r.level + '</td></tr>';",
+    "'</td><td class=\"n\"><b>' + fmtPct(r.pct) + '</b><small class=\"ci-sub\">' + ciText(r.ci) + '</small></td><td class=\"n ci\">' + ciText(r.ci) + '</td><td>' + r.level + '</td></tr>';",
     "table view: domain interval")
 sub("'</td><td class=\"n\">' + fmtPct(f.pct) + '</td><td>' + f.level + '</td></tr>';",
-    "'</td><td class=\"n\">' + fmtPct(f.pct) + '</td><td class=\"n ci\">' + ciText(f.ci) + '</td><td>' + f.level + '</td></tr>';",
+    "'</td><td class=\"n\">' + fmtPct(f.pct) + '<small class=\"ci-sub\">' + ciText(f.ci) + '</small></td><td class=\"n ci\">' + ciText(f.ci) + '</td><td>' + f.level + '</td></tr>';",
     "table view: facet interval")
 sub("「低／中等／高」切在 30 和 70，但这两处是模糊边界，不要把相邻的两档理解成截然不同的人格。",
     "「低／中等／高」切在 30 和 70，但这两处是模糊边界，不要把相邻的两档理解成截然不同的人格。"

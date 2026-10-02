@@ -138,7 +138,7 @@ button,summary{touch-action:manipulation}
 .intro-copy{grid-area:copy;align-self:end}
 .intro-title{font-size:clamp(32px,4.5vw,48px);line-height:1.12;letter-spacing:-.035em;margin:0 0 14px}
 .intro-lead{font-size:17px;line-height:1.7;color:var(--text-secondary);max-width:520px}
-.intro-facts{display:flex;flex-wrap:wrap;gap:2px 0;margin:10px 0 0;font-size:13.5px;color:var(--text-muted);letter-spacing:.02em}
+.intro-facts{display:flex;flex-wrap:wrap;gap:2px 0;margin:10px 0 0;font-size:13.5px;color:var(--text-secondary);letter-spacing:.02em}
 .intro-facts span{white-space:nowrap}
 .intro-facts span+span::before{content:"·";margin:0 7px}
 .trait-dots{display:flex;gap:8px;margin:20px 0 18px}
@@ -244,7 +244,7 @@ body.show-hints .hint{display:block}
 .view-banner b{display:block;font-size:15px}
 .view-banner small{display:block;color:var(--text-secondary);font-size:13px;margin-top:3px;line-height:1.55}
 .view-banner .btns{display:flex;gap:8px;flex-wrap:wrap}
-.stale-banner{top:calc(62px + env(safe-area-inset-top,0px));bottom:auto;border-color:rgba(214,120,42,.45)}
+.restore-toast.stale-banner{top:calc(62px + env(safe-area-inset-top,0px));bottom:auto;border-color:rgba(214,120,42,.45)}
 .stale-banner .mark{color:#c25a12}
 .stale-banner{flex-wrap:wrap}
 .stale-banner .stale-btns{display:flex;gap:8px;flex-wrap:wrap}
@@ -308,8 +308,6 @@ body.show-hints .hint{display:block}
 .validity-panel summary b{display:block;font-size:13.5px}
 .validity-panel summary small{display:block;color:var(--text-muted);font-size:12px;font-weight:400;margin-top:1px}
 .validity-panel .validity-action{flex:none;color:var(--accent);font-size:12px}
-.validity-panel[open] .validity-action{font-size:0}
-.validity-panel[open] .validity-action::after{content:"收起";font-size:12px}
 .validity-panel p{margin:0;padding:0 15px 14px;color:var(--text-secondary);font-size:13px;line-height:1.7}
 
 /* combination profile */
@@ -383,10 +381,11 @@ body.show-hints .hint{display:block}
 .dom:focus{outline:2px solid var(--accent);outline-offset:8px;border-radius:5px}
 @media (max-width:560px){
   .report-cover{padding:22px 16px 17px;border-radius:20px;margin-top:18px}
-  .report-kicker{font-size:10px;letter-spacing:.1em;margin-bottom:24px}
+  .report-kicker{font-size:12px;letter-spacing:.1em;margin-bottom:24px;flex-wrap:wrap;row-gap:6px}
+  .report-kicker span{white-space:nowrap}
   .report-orbits{right:-95px;top:-80px;opacity:.35}
   .report-intro{font-size:13px;line-height:1.7}
-  .report-meta{font-size:11px;gap:6px}
+  .report-meta{font-size:12px;gap:6px}
   .report-tiles{gap:5px}
   .report-tile{padding:10px 6px;gap:5px;border-radius:9px}
   .report-tile-name{font-size:clamp(11px,3.2vw,12px);white-space:nowrap}
@@ -447,8 +446,10 @@ button.hero-chip:hover{background:var(--wash)}
   color:var(--text-secondary);font:inherit;font-size:12.5px;background:transparent;cursor:pointer;border:1px solid var(--border)}
 .result-nav button:hover,.result-nav button:focus-visible{background:var(--wash);color:var(--text-primary);border-color:var(--border)}
 #domainsHeading,#profileHeading,#facetsHeading{scroll-margin-top:74px}
-#pageTitle:focus,#resultTitle:focus{outline:none}
+#pageTitle:focus,#resultTitle:focus,.intro-title:focus{outline:none}
 #resultTitle:focus-visible{outline:2px solid #8fc4ff;outline-offset:6px;border-radius:6px}
+@media print{#resultTitle,#pageTitle{outline:none !important}}
+.resume-note{margin:0 0 4px;padding:9px 12px;border-radius:8px;background:var(--wash);color:var(--text-secondary);font-size:13px}
 #pageTitle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
 .result-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
 .track{position:relative;height:14px;background:var(--grid);border-radius:4px;margin:8px 0 4px}
@@ -472,6 +473,8 @@ button.hero-chip:hover{background:var(--wash)}
 .ci-legend i::before{left:0}.ci-legend i::after{right:0}
 #tableView.on{overflow-x:auto}
 td.ci{color:var(--text-secondary);white-space:nowrap}
+.ci-sub{display:none}
+@media (max-width:560px){th.ci-h,td.ci{display:none}.ci-sub{display:block;font-size:11px;font-weight:400;color:var(--text-muted);white-space:nowrap}}
 .fpct{font-size:13px;font-variant-numeric:tabular-nums;text-align:right;color:var(--text-primary)}
 .scaleline{display:grid;grid-template-columns:96px 1fr 34px;gap:10px;margin-top:4px}
 .scaleline div:nth-child(2){display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);font-variant-numeric:tabular-nums}
@@ -489,7 +492,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 #tip b{font-weight:650}
 .hide{display:none !important}
 .card-sheet{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:16px}
-.card-sheet-box{background:var(--surface-1);color:var(--text-primary);border-radius:16px;width:100%;max-width:440px;
+.card-sheet-box{background:var(--surface-1);color:var(--text-primary);border:1px solid transparent;border-radius:16px;width:100%;max-width:440px;
   max-height:calc(100vh - 32px);overflow:auto;padding:12px 16px 16px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
 .card-sheet-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .card-sheet-head b{font-size:16px}
@@ -637,7 +640,7 @@ html.booting main.wrap::before{content:"正在载入上次的进度…";display:
   <div class="intro-hero">
     <div class="intro-copy">
       <div class="eyebrow">IPIP-NEO-300 中文版</div>
-      <h1 class="intro-title">看见你的人格轮廓，<br>不只得到一个标签</h1>
+      <h1 class="intro-title" tabindex="-1">看见你的人格轮廓，<br>不只得到一个标签</h1>
       <p class="intro-lead">用 300 道题理解你的 5 个核心维度与 30 个细分倾向。结果提供百分位、生活化解释和可保存的分享卡片。</p>
       <p class="intro-facts"><span>300 题</span><span>约 20–45 分钟</span><span>可以分几次完成</span><span>作答不上传</span></p>
       <div class="trait-dots" aria-hidden="true">
@@ -826,7 +829,7 @@ html.booting main.wrap::before{content:"正在载入上次的进度…";display:
     <h1 id="resultTitle" tabindex="-1">你的大五人格，<br><span>有自己的轮廓。</span></h1>
     <p class="report-intro">五种倾向，交织成这一次的你。先看整体，再走进那些值得了解的细节。</p>
     <div class="report-meta" id="resMeta" role="group" aria-label="本次报告的常模与作答信息"></div>
-    <p class="report-age-note hide" id="ageNote">你所在的「21 岁以下」参考组里，一半以上是 18–20 岁的人。参考样本中 14–17 岁的人在尽责性上落入「低」档的比例约 35%（整体约 30%），这更像年龄阶段的差异，这几项百分位请粗略参考。</p>
+    <p class="report-age-note hide" id="ageNote">你所在的「21 岁以下」参考组里，一半以上是 18–20 岁的人。参考样本中 10–17 岁的人在尽责性、宜人性上落入「低」档的比例约 35–37%（整组约 30%），这更像年龄阶段的差异，这两项的百分位请粗略参考。</p>
     <div class="report-spectrum noprint">
       <div class="report-spectrum-heading"><span>你的五维速览 · 百分位</span><span>点选维度，探索解读 ↗</span></div>
       <nav class="report-tiles" id="reportTiles" aria-label="探索五个维度"></nav>
@@ -961,6 +964,7 @@ const store = (() => {
     save(o){
       const s = JSON.stringify(o);
       mem = s;
+      try { sessionStorage.setItem(KEY + ":saved", String(o.savedAt || "")); } catch(e){}
       if (okL) { try { localStorage.setItem(KEY, s); } catch(e){} }
       if (okS) { try { sessionStorage.setItem(KEY, s); } catch(e){} }
     },
@@ -981,7 +985,10 @@ const store = (() => {
 })();
 
 let done = false;
-const snapshot = () => ({v:1, answers, sex, age, page, mode, done, savedAt: Date.now()});
+/* sid：每份作答一个随机编号（开始新作答、导入、采用链接时生成）。两个标签页的 sid 不同就是两份不同的作答，绝不按题合并 */
+let sid = null;
+const newSid = () => Math.random().toString(36).slice(2, 10);
+const snapshot = () => ({v:1, sid, answers, sex, age, page, mode, done, savedAt: Date.now()});
 
 /* 存档归属。网址里的 #p= 可能是自己的（刷新、收藏、发给自己的续答链接），也可能是别人发来的。
    以前一律取「答得多」的那份并写回本机：打开朋友的结果链接，自己的存档就被覆盖了。
@@ -990,8 +997,14 @@ let viewOnly = false;   // 正在查看别人的链接：不写本机存档，�
 let staleTab = false;   // 另一个标签页写了更新的存档：本页暂停保存，免得把新进度盖掉
 const OWN_KEY = KEY + ":own";
 const seenHashes = new Set();   // 本页写过或打开时带着的片段；后退 / 前进回到它们不算「新链接」
-function markOwnHash(str){ seenHashes.add(str); try { sessionStorage.setItem(OWN_KEY, str); } catch(e){} }
-function ownHash(){ try { return sessionStorage.getItem(OWN_KEY); } catch(e){ return null; } }
+/* 本标签页写过的片段（最近 60 个）。只记最后一个不够：网址写入有节流，刷新时地址栏里常常是上一个片段 */
+function ownHashes(){ try { return JSON.parse(sessionStorage.getItem(OWN_KEY) || "[]"); } catch(e){ return []; } }
+function markOwnHash(str){
+  seenHashes.add(str);
+  try { const list = ownHashes().filter(x => x !== str); list.push(str); sessionStorage.setItem(OWN_KEY, JSON.stringify(list.slice(-60))); } catch(e){}
+}
+const isOwnHash = str => ownHashes().includes(str);
+function lastOwnSave(){ try { return +sessionStorage.getItem(KEY + ":saved") || 0; } catch(e){ return 0; } }
 
 function persist(){
   if (viewOnly || staleTab) return;
@@ -1035,12 +1048,13 @@ function syncHash(force){
   clearTimeout(hashTimer);
   if (viewOnly) return;
   const write = () => {
-    if (viewOnly) return;
+    if (viewOnly || !sex) return;   // 没有作答状态时不写（以前会留下 #p=1X000…，刷新时被当成残缺链接）
     lastHashWrite = Date.now();
     const str = encodeState();
     try { history.replaceState(history.state, "", "#p=" + str); markOwnHash(str); } catch(e){ /* 超限则静默跳过 */ }
   };
-  if (force || Date.now() - lastHashWrite > 2000) write();
+  /* 没有任何存储时网址是唯一副本：每次都立即写，刷新才不会丢掉最后几题 */
+  if (force || !store.anyStorage || Date.now() - lastHashWrite > 2000) write();
   else hashTimer = setTimeout(write, 2000);
 }
 
@@ -1048,7 +1062,7 @@ function syncHash(force){
 ["visibilitychange","pagehide","beforeunload"].forEach(ev =>
   addEventListener(ev, () => {
     if (ev === "visibilitychange" && document.visibilityState !== "hidden") return;
-    if (sex && !viewOnly && !staleTab) { store.save(snapshot()); syncHash(true); }
+    if (sex && !viewOnly && !staleTab) syncHash(true);   // 存档已在每次作答时写好；这里只把网址补齐
   }, {capture:true}));
 
 function markSaved(){
@@ -1064,12 +1078,16 @@ function markSaved(){
 
 function applyMode(){
   document.body.classList.toggle("show-hints", mode === "hints");
+  /* 详解模式下把每题的说明关联到单选组，读屏移到题目上就能听到；标准模式下说明是隐藏的，不能关联 */
+  document.querySelectorAll("#qlist .qrow").forEach(r => {
+    if (mode === "hints") r.setAttribute("aria-describedby", "hint-" + r.dataset.qid); else r.removeAttribute("aria-describedby");
+  });
   document.querySelectorAll(".modeopt").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
   const t = document.querySelector("#hintToggle");
   if (t){
     t.textContent = "详解";
     t.setAttribute("aria-pressed", mode === "hints");
-    t.setAttribute("aria-label", mode === "hints" ? "关闭详解模式" : "打开详解模式");
+    t.setAttribute("aria-label", "详解模式");   // 开关状态由 aria-pressed 表达，名称不随状态改成动作
   }
   const start = document.querySelector("#startBtn");
   if (start) start.textContent = mode === "hints"
@@ -1185,13 +1203,15 @@ function ciBand(ci){
   if (!ci) return "";
   const l = Math.max(0, Math.min(100, ci[0]));
   const w = Math.max(0.8, Math.min(100, ci[1]) - l);
-  return '<s style="left:' + l.toFixed(1) + '%;width:' + w.toFixed(1) + '%"></s>';
+  const x = Math.min(l, 100 - w);   // 下界贴着 100 时也画在轨道里面
+  return '<s style="left:' + x.toFixed(1) + '%;width:' + w.toFixed(1) + '%"></s>';
 }
 /* 两端落在同一个显示值（多见于 <1 / >99 的尾部）时只印一次，避免「<1–<1」 */
 const ciText = ci => {
   if (!ci) return "";
   const a = fmtPct(ci[0]), b = fmtPct(ci[1]);
-  return a === b ? a : a + "–" + b;
+  /* 「96–>99」的「–>」读起来像箭头：一端是 <1 / >99 时改用「至」 */
+  return a === b ? a : a + (/[<>]/.test(a + b) ? " 至 " : "–") + b;
 };
 
 function cohortKey(sex, age){
@@ -1254,11 +1274,15 @@ function renderBreak(){
     "离开前请确认下方的保存状态；也可以复制续答链接，方便回来继续。" +
     '<div class="btns"><button class="iconbtn" id="brkGo">先歇会儿，回首页</button>' +
     '<button class="iconbtn" id="brkOn">不用，接着答</button></div>';
-  $("#brkGo").addEventListener("click", () => { breakDismissed = page; persist(); show("intro"); checkResume(); });
-  $("#brkOn").addEventListener("click", () => { breakDismissed = page; renderBreak(); });
+  $("#brkGo").addEventListener("click", () => { breakDismissed = page; persist(); show("intro"); checkResume(); focusIntro(); });
+  $("#brkOn").addEventListener("click", () => {
+    breakDismissed = page; renderBreak();
+    const t = $(".qrow.cur .opt[tabindex=\"0\"]");
+    (t || $("#pageTitle")).focus({preventScroll:true});
+  });
 }
 
-let pageShownAt = 0, undoT = 0;
+let pageShownAt = 0, undoT = 0, undoQid = 0;
 function renderPage(){
   clearTimeout(scrollT);
   clearTimeout(autoAdvT);
@@ -1285,6 +1309,7 @@ function renderPage(){
     row.dataset.qid = q.id;
     row.setAttribute("role", "radiogroup");
     row.setAttribute("aria-labelledby", "qnum-" + q.id + " qtext-" + q.id);
+    if (mode === "hints") row.setAttribute("aria-describedby", "hint-" + q.id);
     /* 每题只占一个 Tab 停靠点（已选项，没选就第一项）；可见文字就是无障碍名称，手机上的短标签也一样 */
     const tabAt = answers[q.id] ? answers[q.id] - 1 : 0;
     const opts = SCALE.map((lab, k) =>
@@ -1297,7 +1322,7 @@ function renderPage(){
         '<span class="qzh" id="qtext-' + q.id + '">' + q.zh + '</span>' +
         '<span class="qen" lang="en">' + q.en + '</span>' +
       '</span></div>' +
-      '<div class="hint"><div class="hn">' + h.note + '</div><div class="he">' +
+      '<div class="hint"><div class="hn" id="hint-' + q.id + '">' + h.note + '</div><div class="he">' +
         '<span><i class="tg">偏「不符合」的人</i>' + h.lo + '</span>' +
         '<span><i class="tg">偏「符合」的人</i>' + h.hi + '</span>' +
       '</div>' +
@@ -1316,7 +1341,9 @@ function renderPage(){
   /* 换页后旧题的按钮已被移除，焦点会掉回 <body>。移到页标题，读屏会报「第 n 页」；
      正在用下拉框翻页时不抢焦点，否则方向键只能翻一页。 */
   const ae = document.activeElement;
-  if (ae !== $("#pageJump") && (!ae || ae === document.body || $("#test").contains(ae))) $("#pageTitle").focus({preventScroll:true});
+  /* 开机恢复时不抢焦点（首屏会带着焦点框）；从首页「开始 / 接着答」进来时，焦点原本在已隐藏的首页按钮上 */
+  if (booted && ae !== $("#pageJump") && (!ae || ae === document.body || $("#test").contains(ae) || (ae.closest && ae.closest("section.hide"))))
+    $("#pageTitle").focus({preventScroll:true});
   updateProgress();
 }
 
@@ -1359,9 +1386,12 @@ $("#qlist").addEventListener("click", e => {
   if (!btn) return;
   /* 自动翻页后 0.45 秒内的真实点击（detail>0）多半是上一页的连点，落在了还没读的新题上；键盘作答不受影响 */
   if (e.detail && performance.now() - pageShownAt < 450) return;
-  hidePageUndo();
   const row = btn.closest(".qrow");
   const qid = +row.dataset.qid;
+  if (answers[qid] === +btn.dataset.v) return;   // 同一个选项再点一次（双击）：什么都不改，也不打断自动翻页
+  hidePageUndo();
+  const note = $("#qlist .resume-note"); if (note) note.remove();
+  const kbd = e.detail === 0 && row.contains(document.activeElement);   // 键盘作答，且焦点就在这一题里
   const revising = Boolean(answers[qid]);
   clearTimeout(scrollT);
   clearTimeout(autoAdvT);
@@ -1370,6 +1400,7 @@ $("#qlist").addEventListener("click", e => {
   for (let n = pageStart; n < pageStart + PER_PAGE; n++) if (answers[DATA.items[n].id]) answeredBefore++;
 
   answers[qid] = +btn.dataset.v;
+  done = false;   // 看过结果后又改了答案：结果需要重新提交
   row.querySelectorAll(".opt").forEach(b => { b.setAttribute("aria-checked", b === btn); b.tabIndex = b === btn ? 0 : -1; });
   row.classList.remove("unanswered", "flag");
   row.classList.add("ok");
@@ -1386,13 +1417,17 @@ $("#qlist").addEventListener("click", e => {
   if (next){
     next.classList.add("cur");
     clearTimeout(scrollT);
-    if (rows.indexOf(next) > at) scrollT = setTimeout(() => next.scrollIntoView({behavior: smoothB(), block: "center"}), 160);
+    const off = () => { const b = next.getBoundingClientRect(); return b.bottom < 60 || b.top > innerHeight; };
+    if (rows.indexOf(next) > at || (kbd && off())) scrollT = setTimeout(() => next.scrollIntoView({behavior: smoothB(), block: "center"}), 160);
+    /* 焦点跟着「当前题」走：读屏和 Tab 用户不会被留在上一题 */
+    if (kbd){ const t = next.querySelector('.opt[tabindex="0"]') || next.querySelector(".opt"); if (t) t.focus({preventScroll:true}); }
     return;
   }
   /* 本页刚好答完（不是改已答的题）才自动前进 */
   if (answeredBefore < PER_PAGE){
     if (page < NPAGES - 1){
       const scheduled = page;
+      undoQid = qid;   // 「返回检查」回到触发翻页的这一题
       clearTimeout(autoAdvT);
       autoAdvT = setTimeout(() => {
         if (page !== scheduled) return;
@@ -1432,14 +1467,7 @@ addEventListener("keydown", e => {
   const opt = cur.querySelectorAll(".opt")[+m[1] - 1];
   if (!opt) return;
   e.preventDefault();
-  const revising = cur.classList.contains("ok");
-  opt.click();
-  /* 焦点跟着「当前题」走，屏幕阅读器和 Tab 用户不会被留在上一题；改答已答题时原地不动。 */
-  const next = document.querySelector(".qrow.cur");
-  if (!revising && next && next !== cur && cur.contains(document.activeElement || null)){
-    const pressed = next.querySelector('.opt[tabindex="0"]') || next.querySelector(".opt");
-    if (pressed) pressed.focus({preventScroll:true});
-  }
+  opt.click();   // 焦点跟随在点击处理里统一做
 });
 
 /* 方向键在一题的五个选项间移动焦点，不直接作答（作答会自动跳题、翻页）；空格 / 回车 / 数字键才作答 */
@@ -1466,13 +1494,21 @@ function showPageUndo(prevPage){
 function hidePageUndo(){
   clearTimeout(undoT);
   const box = $("#pageUndo");
-  if (box) box.classList.add("hide");
+  if (!box) return;
+  /* 焦点正在按钮上时，它一消失焦点就掉回 <body>：先把焦点交还给页标题 */
+  if (!box.classList.contains("hide") && box.contains(document.activeElement)) $("#pageTitle").focus({preventScroll:true});
+  box.classList.add("hide");
 }
+/* 焦点停在「返回检查」上时不计时，离开后再开始 8 秒 */
+$("#pageUndo").addEventListener("focusin", () => clearTimeout(undoT));
+$("#pageUndo").addEventListener("focusout", () => { clearTimeout(undoT); undoT = setTimeout(hidePageUndo, 8000); });
 $("#pageUndoBtn").addEventListener("click", () => {
   hidePageUndo();
   if (page === 0) return;
+  const target = undoQid;
   page--; persist(); renderPage();
-  const rows = document.querySelectorAll("#qlist .qrow"), last = rows[rows.length - 1];
+  const rows = document.querySelectorAll("#qlist .qrow");
+  const last = document.querySelector('#qlist .qrow[data-qid="' + target + '"]') || rows[rows.length - 1];
   if (!last) return;
   document.querySelectorAll(".qrow.cur").forEach(r => r.classList.remove("cur"));
   last.classList.add("cur");
@@ -1489,6 +1525,9 @@ $("#nextBtn").addEventListener("click", () => {
     document.querySelectorAll(".qrow.unanswered").forEach(r => r.classList.add("flag"));
     const first = document.querySelector(".qrow.flag");
     if (first){
+      /* 竖条、数字键和焦点都指向第一道漏答题 */
+      document.querySelectorAll(".qrow.cur").forEach(r => r.classList.remove("cur"));
+      first.classList.add("cur");
       first.scrollIntoView({behavior:smoothB(), block:"center"});
       const o = first.querySelector('.opt[tabindex="0"]');
       if (o) o.focus({preventScroll:true});
@@ -1507,8 +1546,16 @@ function jumpTo(target){
 /* 键盘在收起的下拉框上按方向键会直接触发 change：这时不翻页，按回车或离开下拉框再翻 */
 $("#pageJump").addEventListener("change", e => { if (lastInput !== "key") jumpTo(+e.target.value); });
 $("#pageJump").addEventListener("keydown", e => { if (e.key === "Enter"){ e.preventDefault(); jumpTo(+e.target.value); } });
+/* 展开的下拉弹层里按回车提交时，select 只收到 keyup（没有 keydown） */
+$("#pageJump").addEventListener("keyup", e => { if (e.key === "Enter") jumpTo(+e.target.value); });
 $("#pageJump").addEventListener("blur", e => jumpTo(+e.target.value));
-const quitToHome = () => { persist(); show("intro"); checkResume(); };
+/* 回到首页后焦点落在续答按钮上（没有续答卡时落在首页标题上），不掉回 <body> */
+function focusIntro(){
+  const b = $("#resumeBtn");
+  if (!$("#resumeCard").classList.contains("hide")) b.focus({preventScroll:true});
+  else $(".intro-title").focus({preventScroll:true});
+}
+const quitToHome = () => { persist(); show("intro"); checkResume(); focusIntro(); };
 $("#quitBtn").addEventListener("click", quitToHome);
 $("#quickQuitBtn").addEventListener("click", quitToHome);
 
@@ -1541,6 +1588,8 @@ const DOMAIN_READING = {
     prompt:"最近遇到压力或批评后，情绪持续了多久？你做了什么帮助自己恢复？这与平时相似，还是近期的特殊状态？"
   }
 };
+const pctDisp = p => p < 0.5 ? "<1" : p > 99.5 ? ">99" : String(Math.round(p));
+
 /* 神经质偏高时的提示：说明这不是筛查，并给出求助途径。很多人都会看到，口吻不能像「发现了问题」。
    号码 2026-10-02 核对：12356 是国家卫健委设立的全国统一心理援助热线（各地每日服务不少于 18 小时）；
    北京心理援助热线 010-82951332 为 24 小时人工接听；香港撒玛利亚防止自杀会 2389 2222、台湾安心专线 1925 均为 24 小时。
@@ -1572,8 +1621,8 @@ function domainReading(d, r){
     : "高于约 " + Math.round(p) + "% 的同组参考者";
   let evidence = "分数依据：本次总分" + where(r.pct) + "。";
   if (high.pct - low.pct < 1) evidence += "6 个子面向的百分位几乎一样。";
-  else if (high.pct <= 30) evidence += "6 个子面向都偏低，相对最高的是「" + high.name + "」（" + pctDisp(high.pct) + "）。";
-  else if (low.pct >= 70) evidence += "6 个子面向都偏高，相对最低的是「" + low.name + "」（" + pctDisp(low.pct) + "）。";
+  else if (Math.round(high.pct) <= 30) evidence += "6 个子面向都偏低，相对最高的是「" + high.name + "」（" + pctDisp(high.pct) + "）。";
+  else if (Math.round(low.pct) >= 70) evidence += "6 个子面向都偏高，相对最低的是「" + low.name + "」（" + pctDisp(low.pct) + "）。";
   else evidence += "6 个子面向里最高的是「" + high.name + "」（" + pctDisp(high.pct) + "），最低的是「" + low.name + "」（" + pctDisp(low.pct) + "）。";
   /* 与组合画像同一条规则：离 30 / 70 不到 5 个百分位点才提示。区间跨界几乎人人都有，每张卡都说就没有信息量了 */
   const cut = Math.abs(rp - 30) <= Math.abs(rp - 70) ? 30 : 70, gap = Math.abs(rp - cut);
@@ -1583,7 +1632,6 @@ function domainReading(d, r){
 }
 /* 用 CSS 变量而不是算好的色值：切换深浅主题时条形、色块跟着变，也省掉每条一次的样式重算 */
 const COLOR = k => "var(--s-" + k + ")";
-const pctDisp = p => p < 0.5 ? "<1" : p > 99.5 ? ">99" : String(Math.round(p));
 const TENDENCY = {
   O:{lo:"熟悉与具体",hi:"好奇与探索"},
   C:{lo:"灵活与随性",hi:"有序与计划"},
@@ -1604,7 +1652,8 @@ function tendencyPhrase(d, p){ return p < 50 ? TENDENCY[d.key].lo : TENDENCY[d.k
 
 /* 个人信度（Johnson, 2005）：每个子面向的 10 道题按出现顺序分成前后交错的两半，
    30 个子面向两半得分的相关再经 Spearman-Brown 校正。2026-10-02 用 145,388 份常模核对：
-   中位 0.87，没有人低于 0.30；均匀随机点选的作答约 83% 低于 0.30。规律点选（如 1-5 交替）它抓不到。 */
+   中位 0.87，最低 0.301；均匀随机点选的作答约 82% 低于 0.30。规律点选（如 1-5 交替）它抓不到。
+   注意分半是交错的（第 1、3、5… 次和第 2、4、6… 次出现的题），不是前 150 题对后 150 题：后者在常模里会误报。 */
 function personalReliability(a){
   const k = a.slice();
   for (const q of DATA.reversed) k[q] = 6 - k[q];
@@ -1615,7 +1664,7 @@ function personalReliability(a){
   for (let j = 0; j < 30; j++){ const x = o[j] - mo, y = e[j] - me; sxy += x * y; sxx += x * x; syy += y * y; }
   if (!sxx || !syy) return null;
   const r = sxy / Math.sqrt(sxx * syy);
-  return r <= -1 ? -1 : 2 * r / (1 + r);
+  return r <= 0 ? Math.max(r, -1) : 2 * r / (1 + r);   // 只对正相关做 Spearman-Brown；负相关原样返回（显示为「低于 0」）
 }
 
 /* Johnson (2005) 判定无效作答的连续同选项上限，对应选项 1–5 */
@@ -1653,8 +1702,11 @@ function showResult(){
     chip.textContent = text;
     metadata.appendChild(chip);
   });
-  /* 2026-10-02 用 145,388 份常模核对：21 岁以下组中位 18 岁，18–20 岁占 55%；14–17 岁尽责性「低」档约 35%，18–20 岁约 25% */
+  /* 2026-10-02 用 145,388 份常模、按页面同样的组内中位秩百分位核对：21 岁以下组中位 18 岁，18–20 岁占 55%；
+     10–17 岁落入「低」档：尽责性 36.6%、宜人性 35.0%（18–20 岁 26.0% / 26.9%，整组约 30%） */
   $("#ageNote").classList.toggle("hide", !(age < 18));
+  $(".report-pct-note").innerHTML = "数字是<b>百分位</b>，不是考试分：例如 70 表示高于约 70% 的" +
+    (sex === "N" ? "同年龄段参考者（男女合并）" : "同性别、同年龄段参考者") + "，50 是正中间。";
   const tiles = $("#reportTiles");
   tiles.replaceChildren();
   const tileColors = ["#8fc4ff", "#ffaf89", "#86dfbb", "#f5d481", "#f2add1"];
@@ -1684,18 +1736,30 @@ function showResult(){
   const runs = longestRuns(answers), flags = [];
   for (let v = 1; v <= 5; v++) if (runs[v] > RUN_CUT[v]) flags.push("连续 " + runs[v] + " 次「" + SCALE[v-1] + "」（阈值 " + RUN_CUT[v] + "）");
   const runFlag = flags.length > 0;
+  /* 常模里连击超过阈值的全部来自选项 1（第 238–300 题全是反向题）；选项 2–5 超过阈值的一个也没有 */
+  const runOnly1 = runFlag && [2, 3, 4, 5].every(v => runs[v] <= RUN_CUT[v]);
+  const counts = [0, 0, 0, 0, 0, 0];
+  for (let i = 1; i <= 300; i++) counts[answers[i]]++;
+  const topV = counts.indexOf(Math.max(...counts.slice(1)), 1), sameLot = counts[topV] >= 270;   // 常模里没有人有 270 题以上选同一项
+  if (sameLot) flags.push("300 题里有 " + counts[topV] + " 题选了「" + SCALE[topV - 1] + "」");
   const ir = personalReliability(answers), irLow = ir !== null && ir < 0.30;
-  if (irLow) flags.push("前后同类题目的作答一致性偏低（个人信度 " + ir.toFixed(2) + "）");
+  if (irLow) flags.push("同一子面向两组题目的作答一致性偏低（个人信度 " + (ir < 0 ? "低于 0" : (Math.floor(ir * 100) / 100).toFixed(2)) + "）");
   const box = $("#validity");
   if (flags.length){
+    const open = irLow || sameLot;
     box.className = "validity-panel";
-    box.innerHTML = '<details' + (irLow ? ' open' : '') + '><summary><span><b>作答有效性提示</b><small>' + flags.join("；") +
-      '</small></span><span class="validity-action">查看</span></summary><p>' + flags.join("；") + "。" +
-      (runFlag ? "连续同选项的阈值来自 Johnson (2005)，用来筛出「没读题就连点」的作答。"
+    box.innerHTML = '<details' + (open ? ' open' : '') + '><summary><span><b>作答有效性提示</b><small>' + flags.join("；") +
+      '</small></span><span class="validity-action">' + (open ? "收起" : "查看") + '</span></summary><p>' +
+      (runFlag ? (runOnly1 ? "连续同选项的阈值来自 Johnson (2005)，用来筛出「没读题就连点」的作答。"
       + "但请把它当作提示而不是判决：把同一套规则跑在 145,388 份常模样本上，也有 2.99% 被标记，"
-      + "而且这些标记全部来自「很不符合」一个选项——因为本量表第 238–300 题恰好全是反向题，真心一贯的人在这一段本来就会连着按同一个键（被标记的连击有 97% 起始于第 150 题之后）。" : "") +
-      (irLow ? "个人信度比较每个子面向前后两半题目的作答是否一致（Johnson, 2005）：参考样本的 145,388 人里没有人低于 0.30，随机点选的作答约八成会低于它。下面的分数和画像可能主要反映随机波动。" : "") +
+      + "而且这些标记全部来自「很不符合」一个选项——因为本量表第 238–300 题恰好全是反向题，真心一贯的人在这一段本来就会连着按同一个键（被标记的连击有 97% 起始于第 150 题之后）。"
+        : "参考样本的 145,388 人里，没有人在这个选项上连续选这么多次，更可能是快速点选留下的。") : "") +
+      (sameLot ? "参考样本的 145,388 人里没有人有 270 题以上选同一个选项。" : "") +
+      (irLow ? "个人信度把每个子面向的 10 道题交错分成两组，比较两组的作答是否一致（Johnson, 2005）：参考样本的 145,388 人里没有人低于 0.30，随机点选的作答约八成会低于它。下面的分数和画像可能主要反映随机波动。" : "") +
       "如果这确实是你的真实作答，忽略即可；如果是快速点选留下的，建议重测。</p></details>";
+    box.querySelector("details").addEventListener("toggle", e => {
+      e.currentTarget.querySelector(".validity-action").textContent = e.currentTarget.open ? "收起" : "查看";
+    });
   } else { box.className = "hide"; box.innerHTML = ""; }
   const modeNote = $("#modeNote");
   modeNote.className = mode === "hints" ? "muted" : "hide";
@@ -1767,7 +1831,7 @@ function showResult(){
   show("result");
   done = true;
   syncOwnershipUi();
-  $("#resultTitle").focus({preventScroll:true});
+  if (booted) $("#resultTitle").focus({preventScroll:true});
   if (viewOnly || staleTab) return;   // 别人的结果只读，不写进本机
   store.save(snapshot());   // 结果也留着：下次打开还能直接看，不用重答
   syncHash(true);
@@ -1824,9 +1888,9 @@ function renderHero(res){
   chips.sort((a, b) => b.dev - a.dev);
   const top = chips.filter(c => c.dev >= 25).slice(0, 6);
   $("#heroChips").innerHTML = (top.length ? top : chips.slice(0, 4)).map(c => {
-    const side = c.pct >= 50 ? "偏高" : "偏低";
+    const side = top.length ? (c.pct >= 50 ? "偏高" : "偏低") : "";   // 兜底时都接近中间，不贴「偏高 / 偏低」
     return '<button type="button" class="hero-chip" data-facet="' + c.key + c.idx + '" title="衡量：' + c.gloss + '" aria-label="' +
-      c.dom + '·' + c.name + '，百分位 ' + pctDisp(c.pct) + '，' + side + '。这一项衡量：' + c.gloss + '。点按查看该子面向">' +
+      c.dom + '·' + c.name + '，百分位 ' + pctDisp(c.pct) + '，' + (side ? side + '。' : '') + '这一项衡量：' + c.gloss + '。点按查看该子面向">' +
       '<span class="swatch" style="background:' + COLOR(c.key) + '"></span><small class="chip-dom" aria-hidden="true">' + c.dom[0] + '</small>' +
       c.name + ' <b>' + pctDisp(c.pct) + '</b><span class="muted">' + side + '</span></button>';
   }).join("");
@@ -2052,15 +2116,15 @@ addEventListener("keydown", e => {
 });
 
 function buildTable(res){
-  let h = '<table><thead><tr><th>维度 / 子面向</th><th class="n">原始分</th><th class="n">T 分</th><th class="n">百分位</th><th class="n">95% 区间</th><th>水平</th></tr></thead><tbody>';
+  let h = '<table><thead><tr><th>维度 / 子面向</th><th class="n">原始分</th><th class="n">T 分</th><th class="n">百分位</th><th class="n ci-h">95% 区间</th><th>水平</th></tr></thead><tbody>';
   for (const d of DATA.domains){
     const r = res[d.key];
     h += '<tr><td><b>' + d.name + '</b></td><td class="n">' + r.raw + '</td><td class="n">' + r.t.toFixed(1) +
-         '</td><td class="n"><b>' + fmtPct(r.pct) + '</b></td><td class="n ci">' + ciText(r.ci) + '</td><td>' + r.level + '</td></tr>';
+         '</td><td class="n"><b>' + fmtPct(r.pct) + '</b><small class="ci-sub">' + ciText(r.ci) + '</small></td><td class="n ci">' + ciText(r.ci) + '</td><td>' + r.level + '</td></tr>';
     r.facets.forEach((f, i) => {
       h += '<tr><td style="padding-left:24px;color:var(--text-secondary)">' + DATA.facets[d.key][i][0] +
            '</td><td class="n">' + f.raw + '</td><td class="n">' + f.t.toFixed(1) +
-           '</td><td class="n">' + fmtPct(f.pct) + '</td><td class="n ci">' + ciText(f.ci) + '</td><td>' + f.level + '</td></tr>';
+           '</td><td class="n">' + fmtPct(f.pct) + '<small class="ci-sub">' + ciText(f.ci) + '</small></td><td class="n ci">' + ciText(f.ci) + '</td><td>' + f.level + '</td></tr>';
     });
   }
   $("#tableView").innerHTML = h + '</tbody></table>';
@@ -2148,7 +2212,7 @@ $("#startForm").addEventListener("submit", e => {
   err.textContent = "";
   const prev = validSaved(store.load()), prevN = answeredCount(prev);
   if (prevN > 0 && !confirm("本机保存着" + savedWord(prev) + "。开始新的作答会把它替换掉，确定吗？")) return;
-  answers = new Array(301).fill(0); page = 0; done = false; viewOnly = false; staleTab = false;
+  answers = new Array(301).fill(0); page = 0; done = false; viewOnly = false; staleTab = false; sid = newSid();
   persist(); show("test"); renderPage();
 });
 ["sex","age"].forEach(id => $("#" + id).addEventListener("input", () => {
@@ -2225,15 +2289,28 @@ function urlState(){
 /* 网址存档与本机存档是不是同一个人的同一份作答。
    own：本标签页自己写过这个网址，或性别年龄相同、重叠的题全部一致（重叠够多才算数）；
    other：不能确认（本机没有存档也算这一类，交给用户判断）。 */
+/* 两份副本是不是同一份作答：性别年龄相同、作答编号不冲突、重叠的题答案一致 */
+function sameTest(a, b){
+  if (!a || !b || a.sex !== b.sex || a.age !== b.age) return false;
+  if (a.sid && b.sid && a.sid !== b.sid) return false;
+  for (let i = 1; i <= 300; i++) if (a.answers[i] && b.answers[i] && a.answers[i] !== b.answers[i]) return false;
+  return true;
+}
 function linkRelation(local, link, raw){
   if (!store.anyStorage) return "own";   // 没有任何存储时网址是唯一副本，也没有东西会被覆盖
-  if (raw && raw === ownHash()) return "own";
-  if (!local) return "other";
-  if (local.sex !== link.sex || local.age !== link.age) return "other";
+  const marked = raw && isOwnHash(raw);
+  if (!local) return marked ? "own" : "other";
+  if (marked){
+    if (sameTest(local, link)) return "own";
+    /* 本标签页写过这个网址，但本机存档已经不一样：存档若是本标签页自己后来写的（网址节流没跟上），用存档；
+       若是别的标签页写的（例如那边开始了另一份作答），不替人决定，问一句 */
+    return local.savedAt && local.savedAt === lastOwnSave() ? "local" : "ask";
+  }
+  if (!sameTest(local, link)) return "other";
   let overlap = 0, same = true;
   for (let i = 1; i <= 300; i++){
     const a = local.answers[i], b = link.answers[i];
-    if (a && b){ if (a !== b) return "other"; overlap++; }
+    if (a && b) overlap++;
     else if (a || b) same = false;
   }
   return same || overlap >= 8 ? "own" : "other";
@@ -2245,12 +2322,12 @@ function mergeSaved(local, link){
   const answers = local.answers.map((v, i) => v || link.answers[i] || 0);
   const base = answeredCount(link) > answeredCount(local) ? link : local;
   const full = answers.slice(1).every(Boolean);
-  return {...base, answers, done:full && (local.done || link.done), savedAt:Math.max(local.savedAt || 0, link.savedAt || 0)};
+  return {...base, sid:local.sid || link.sid, answers, done:full && (local.done || link.done), savedAt:Math.max(local.savedAt || 0, link.savedAt || 0)};
 }
 const sexWord = s => ({M:"男", F:"女", N:"未区分性别"})[s] || "";
 const isFinished = s => !!s && s.done && answeredCount(s) === 300;
 const savedWord = s => isFinished(s) ? "一份已完成的结果" : "一份已答 " + answeredCount(s) + " 题的作答";
-function dropHash(){ try { history.replaceState(history.state, "", location.pathname + location.search); } catch(e){} }
+function dropHash(){ clearTimeout(hashTimer); try { history.replaceState(history.state, "", location.pathname + location.search); } catch(e){} }
 function blankState(){
   answers = new Array(301).fill(0); page = 0; done = false; sex = ""; age = 0;
   $("#sex").value = ""; $("#age").value = "";
@@ -2272,7 +2349,8 @@ function syncOwnershipUi(){
   if (h1 && h1.nodeType === 3) h1.textContent = viewOnly ? "这份大五人格，" : "你的大五人格，";
   $("#resultSaveNote").textContent = viewOnly
     ? "这份结果是通过链接打开的，没有保存到这个浏览器。"
-    : "结果已保存在这个浏览器，下次打开会直接回到这里。";
+    : store.durable ? "结果已保存在这个浏览器，下次打开会直接回到这里。"
+    : "这个浏览器不允许网站长期保存数据，关掉后结果就没了：请用「复制结果链接」自己留一份。";
   if (!viewOnly) return;
   const local = validSaved(store.load()), hasLocal = answeredCount(local) > 0;
   $("#viewBannerMeta").textContent = sexWord(sex) + " · " + age + " 岁 · 300 题。它不会保存到这个浏览器" +
@@ -2304,21 +2382,25 @@ $("#viewAdoptBtn").addEventListener("click", () => {
 
 /* 别人发来的、没答完的链接：不自动进入答题，先在首页问清楚 */
 let cardMode = null;   // null | {kind:"local"} | {kind:"link", link, local}
-function showLinkChoice(link, local){
+function showLinkChoice(link, local, own){
   blankState(); show("intro"); updateProgress();
-  cardMode = {kind:"link", link, local};
   const hasLocal = answeredCount(local) > 0;
+  own = own && hasLocal;   // 本机存档已经不在了，就按普通链接询问
+  cardMode = {kind:"link", link, own};
+  const who = "已答 " + answeredCount(link) + " / 300 题 · " + sexWord(link.sex) + " · " + link.age + " 岁";
   $("#resumeCard").classList.remove("hide");
-  $("#resumeTitle").textContent = "这个链接里带着一份作答";
-  $("#resumeMeta").textContent = "已答 " + answeredCount(link) + " / 300 题 · " + sexWord(link.sex) + " · " + link.age + " 岁。" +
-    "如果是你自己在别的设备上答的，可以接着答；如果是别人发来的，请开始你自己的测评。" +
-    (hasLocal ? "接着答会替换本机保存的" + savedWord(local).slice(2) + "。" : "");
-  $("#resumeBtn").textContent = "接着答这份";
-  $("#freshBtn").textContent = hasLocal ? (isFinished(local) ? "回到我自己的结果" : "继续我自己的作答") : "开始我自己的";
+  $("#resumeTitle").textContent = own ? "这个页面里的作答和本机保存的不一样" : "这个链接里带着一份作答";
+  $("#resumeMeta").textContent = own
+    ? "这个页面里是" + who + "；本机保存的是" + savedWord(local).slice(2) + "（" + sexWord(local.sex) + " · " + local.age + " 岁），可能是另一个标签页改动过。请选一份接着用。"
+    : who + "。如果是你自己在别的设备上答的，可以接着答；如果是别人发来的，请开始你自己的测评。" +
+      (hasLocal ? "接着答会替换本机保存的" + savedWord(local).slice(2) + "。" : "");
+  $("#resumeBtn").textContent = own ? "接着答这个页面里的" : "接着答这份";
+  $("#freshBtn").textContent = own ? "用本机保存的" : hasLocal ? (isFinished(local) ? "回到我自己的结果" : "继续我自己的作答") : "开始我自己的";
   storageNotice();
 }
 
 function applySaved(s){
+  sid = s.sid || newSid();
   answers = s.answers.slice(); sex = s.sex || ""; age = s.age || 0;
   page = Math.min(s.page || 0, NPAGES - 1); mode = s.mode || mode; done = !!s.done;
   applyMode();
@@ -2326,7 +2408,7 @@ function applySaved(s){
 
 $("#resumeBtn").addEventListener("click", () => {
   if (cardMode && cardMode.kind === "link"){
-    const link = cardMode.link, local = cardMode.local;
+    const link = cardMode.link, local = validSaved(store.load());   // 卡片打开期间别的标签页可能又写过，按点击时的存档判断
     if (answeredCount(local) > 0 && !confirm("本机保存着" + savedWord(local) + "。接着答链接里的作答会把它替换掉，确定吗？")) return;
     cardMode = null;
     applySaved(link); done = false; page = naturalResumePage(link);
@@ -2334,6 +2416,7 @@ $("#resumeBtn").addEventListener("click", () => {
     return;
   }
   const s = validSaved(store.load()); if (!s) return;
+  staleTab = false; $("#staleBanner").classList.add("hide");
   applySaved(s);
   if (done){ showResult(); return; }
   persist(); show("test"); renderPage();
@@ -2343,7 +2426,8 @@ $("#freshBtn").addEventListener("click", () => {
   const link = cardMode && cardMode.kind === "link" ? cardMode : null;
   cardMode = null;
   dropHash();
-  if (link && answeredCount(link.local) > 0){ resumeLocal(link.local); return; }
+  const local = link ? validSaved(store.load()) : null;   // 用点击时的存档，不用卡片打开时读到的旧副本
+  if (local && answeredCount(local) > 0){ resumeLocal(local); return; }
   blankState();
   $("#resumeCard").classList.add("hide");
   $("#sex").focus();
@@ -2531,11 +2615,14 @@ addEventListener("storage", e => {
   let s = null;
   try { s = validSaved(JSON.parse(e.newValue || "null")); } catch(_) {}
   if (document.body.dataset.view === "intro" || !sex){
-    if (!cardMode || cardMode.kind === "local") checkResume();
+    if (cardMode && cardMode.kind === "link"){ showLinkChoice(cardMode.link, s, cardMode.own); return; }
+    const typed = [$("#sex").value, $("#age").value];
+    checkResume();
+    if (typed[0] || typed[1]){ $("#sex").value = typed[0]; $("#age").value = typed[1]; }   // 别把用户正在填的表单改掉
     return;
   }
   if (!s) return;
-  let conflict = s.sex !== sex || s.age !== age, added = 0;
+  let conflict = s.sex !== sex || s.age !== age || !!(s.sid && sid && s.sid !== sid), added = 0;
   for (let i = 1; i <= 300 && !conflict; i++){
     if (answers[i] && s.answers[i] && answers[i] !== s.answers[i]) conflict = true;
     else if (!answers[i] && s.answers[i]) added++;
@@ -2619,7 +2706,11 @@ addEventListener("popstate", e => {
   if (!v || v === document.body.dataset.view) return;
   popNav = true;
   try {
-    if (v === "test" && sex && !viewOnly){ done = false; show("test"); renderPage(); syncHash(true); }
+    if (v === "test" && sex && !viewOnly){
+      const s = validSaved(store.load());
+      if (!staleTab && s && sameTest(s, {sid, sex, age, answers})) applySaved(mergeSaved(s, {sid, sex, age, answers, done, page, mode, savedAt:0}));
+      show("test"); renderPage(); syncHash(true);
+    }
     else if (v === "result" && sex && answers.slice(1).every(Boolean)) showResult();
     else { show("intro"); checkResume(); updateProgress(); }
   } finally { popNav = false; }
@@ -2628,7 +2719,13 @@ addEventListener("popstate", e => {
    重新载入，交给 boot 判断是自己的、只读查看，还是先问一句。 */
 addEventListener("hashchange", () => {
   const u = urlState();
-  if (u && u.raw && !seenHashes.has(u.raw)) location.reload();
+  if (!u || !u.raw || seenHashes.has(u.raw)) return;
+  if (navigator.onLine === false){
+    seenHashes.add(u.raw);
+    announceRestore("现在是离线状态", "要打开这条新链接，请联网后刷新页面。你本机的作答没有变化。");
+    return;
+  }
+  location.reload();
 });
 function bootInner(){
   applyMode();
@@ -2643,7 +2740,8 @@ function bootInner(){
       "可能复制时少了一截。请让对方重新复制完整的链接。"), 0);
   }
   const rel = link ? linkRelation(local, link, u.raw) : "none";
-  if (link && rel !== "own"){
+  if (rel === "ask"){ showLinkChoice(link, local, true); return; }
+  if (link && rel === "other"){
     if (isFinished(link)){ openViewOnly(link); return; }
     showLinkChoice(link, local); return;
   }
@@ -2653,7 +2751,7 @@ function bootInner(){
     if (done && n === 300){
       showResult();
       /* 不再弹浮层（会盖住主按钮）：封面状态和这行说明已经讲清楚 */
-      $("#resultSaveNote").textContent = "这是你上次的结果，保存在这个浏览器里，下次打开也会回到这里。";
+      if (store.durable) $("#resultSaveNote").textContent = "这是你上次的结果，保存在这个浏览器里，下次打开也会回到这里。";
       return;
     }
     done = false;
@@ -2663,7 +2761,10 @@ function bootInner(){
     renderPage();
     scrollToCurrent();
     /* 写进本页状态行（role=status，读屏会播报），本页第一次作答时自动清掉；不再用会盖住页标题的浮层 */
-    $("#pageFeedback").textContent = "已自动恢复上次作答：已答 " + n + " / 300 题，从第 " + (page + 1) + " 页继续。";
+    const msg = "已自动恢复上次作答：已答 " + n + " / 300 题，从这一题继续。";
+    const c = $(".qrow.cur");
+    if (c){ const p = document.createElement("p"); p.className = "resume-note"; p.setAttribute("role", "status"); p.textContent = msg; c.before(p); }
+    else $("#pageFeedback").textContent = msg;
     return;
   }
   show("intro");

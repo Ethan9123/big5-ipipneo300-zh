@@ -31,3 +31,7 @@ site/index.optimized.html
 # Scratch
 *.log
 tools/out/*.before_*.json
+
+# UI screenshots and audit scratch (regenerable with tools/ui_shots.py / the review scripts)
+tools/out/shots*/
+tools/out/ux_audit/
