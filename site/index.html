@@ -311,7 +311,9 @@ body.show-hints .hint{display:block}
 .report-meta-label{margin-right:3px}
 .report-meta-chip{padding:3px 10px;border:1px solid #829abb40;border-radius:999px;background:#ffffff08;color:#e1e9f6}
 .report-spectrum{margin-top:26px;padding-top:18px;border-top:1px solid #ffffff1c}
-.report-spectrum-heading{display:flex;justify-content:space-between;gap:10px;color:#bacbdd;font-size:11px;margin-bottom:10px}
+.report-spectrum-heading{display:flex;justify-content:space-between;gap:10px;color:#bacbdd;font-size:12px;margin-bottom:10px}
+.report-pct-note{position:relative;margin:14px 0 0;font-size:13px;line-height:1.6;color:#c9d6e6}
+.report-pct-note b{color:#fff;font-weight:650}
 .report-tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
 .report-tile{position:relative;min-width:0;padding:13px 11px 12px;display:flex;flex-direction:column;align-items:flex-start;gap:5px;
   border:1px solid #829abb40;border-radius:12px;background:#ffffff08;color:#f3f6ff;font:inherit;text-align:left;cursor:pointer;
@@ -337,11 +339,11 @@ body.show-hints .hint{display:block}
   .report-tile-name{font-size:11px;white-space:nowrap}
   .report-tile strong{font-size:22px}
   .report-tile-arrow{display:none}
-  .report-spectrum-heading{font-size:10.5px}
+  .report-spectrum-heading{font-size:12px}
 }
 @media print{
   .report-cover{background:#fff;color:#111;box-shadow:none;border-color:#aaa;break-inside:avoid}
-  .report-cover h1 span,.report-intro,.report-meta,.report-meta-chip,.report-kicker,.report-status{color:#333}
+  .report-cover h1 span,.report-intro,.report-meta,.report-meta-chip,.report-kicker,.report-status,.report-pct-note,.report-pct-note b{color:#333}
   .report-meta-chip{border-color:#aaa;background:none}
   .report-cover::before,.report-orbits,.report-spectrum{display:none}
 }
@@ -370,6 +372,18 @@ body.show-hints .hint{display:block}
 .hero-chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);border-radius:20px;
   padding:4px 12px;margin:0 7px 8px 0;font-size:13px;color:var(--text-primary)}
 .hero-chip b{font-variant-numeric:tabular-nums;font-weight:650}
+button.hero-chip{font:inherit;color:inherit;background:transparent;cursor:pointer;min-height:34px}
+button.hero-chip:hover{background:var(--wash)}
+.fgloss{grid-row:2;grid-column:2 / 4;font-size:12px;line-height:1.45;color:var(--text-secondary);margin:-2px 0 3px}
+.fgloss i{font-style:normal;color:var(--text-muted)}
+.fbar.flash{animation:fbar-flash 1.6s ease}
+@keyframes fbar-flash{0%,35%{background:var(--wash);box-shadow:0 0 0 2px var(--accent)}100%{background:transparent;box-shadow:none}}
+.care-note{margin:4px 0 26px;padding:14px 16px;border-radius:12px;border:1px solid var(--border);border-left:4px solid var(--s-N);
+  background:var(--surface-1);font-size:14px;line-height:1.7}
+.care-note b{display:block;font-size:14.5px;margin-bottom:4px}
+.care-note p{margin:0 0 6px;color:var(--text-secondary)}
+.care-note p:last-child{margin:0}
+.care-note a{color:var(--accent);font-weight:650;white-space:nowrap}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .result-nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:-2px 0 18px;padding:10px 12px;
   border:1px solid var(--border);border-radius:10px;background:var(--surface-1)}
@@ -691,11 +705,12 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
     <div class="report-kicker"><span>OCEAN / 人格探索报告</span><span class="report-status">300 题 · 已完成</span></div>
     <h1>你的大五人格，<br><span>有自己的轮廓。</span></h1>
     <p class="report-intro">五种倾向，交织成这一次的你。先看整体，再走进那些值得了解的细节。</p>
-    <div class="report-meta" id="resMeta" aria-label="本次报告的常模与作答信息"></div>
+    <div class="report-meta" id="resMeta" role="group" aria-label="本次报告的常模与作答信息"></div>
     <div class="report-spectrum noprint">
       <div class="report-spectrum-heading"><span>你的五维速览 · 百分位</span><span>点选维度，探索解读 ↗</span></div>
       <nav class="report-tiles" id="reportTiles" aria-label="探索五个维度"></nav>
     </div>
+    <p class="report-pct-note">数字是<b>百分位</b>，不是考试分：例如 70 表示高于约 70% 的同性别、同年龄段参考者，50 是正中间。</p>
   </header>
   <div id="validity" class="hide"></div>
 
@@ -703,7 +718,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
     <div class="hero-grid">
       <div style="text-align:center">
         <div id="radar"></div>
-        <p class="muted" style="margin:0">外圈 = 100，加粗一圈 = 50（人群中位数）</p>
+        <p class="muted" style="margin:0">离中心越远，百分位越高；加粗的一圈是 50（正中间）</p>
       </div>
       <div class="hero-copy">
         <div class="muted" style="letter-spacing:.14em;font-size:11.5px">本次作答呈现的倾向</div>
@@ -744,6 +759,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
   <details class="card result-guide noprint">
     <summary>这些百分位怎么读？</summary>
     <p class="muted" style="margin:0 0 8px">下面所有数字都是<b>百分位</b>：50 代表和常模人群的中位数持平，80 代表高于 80% 的人。30 和 70 附近是模糊边界，不要把相邻的“中等”和“偏高／偏低”理解成截然不同的人格。</p>
+    <p class="muted" style="margin:0 0 8px">每个维度由 6 个子面向、共 60 道题汇总。子面向的高低是各自在参考样本中的位置，不是能力排名，相邻两项的差别也不一定超出测量误差。</p>
     <p class="muted" id="modeNote" style="margin:0"></p>
   </details>
 
@@ -1227,27 +1243,47 @@ const DOMAIN_READING = {
     prompt:"最近遇到压力或批评后，情绪持续了多久？你做了什么帮助自己恢复？这与平时相似，还是近期的特殊状态？"
   }
 };
+/* 神经质偏高时的提示：说明这不是筛查，并给出求助途径。很多人都会看到，口吻不能像「发现了问题」。
+   号码 2026-10-02 核对：12356 是国家卫健委设立的全国统一心理援助热线（各地每日服务不少于 18 小时）；
+   北京心理援助热线 010-82951332 为 24 小时人工接听；香港撒玛利亚防止自杀会 2389 2222、台湾安心专线 1925 均为 24 小时。
+   tel: 是导航，不受 connect-src 'none' 限制，离线也能用。 */
+function careNote(r){
+  const high = p => p >= 85;
+  if (!(high(r.pct) || high(r.facets[2].pct) || high(r.facets[5].pct))) return null;
+  const el = document.createElement("aside");
+  el.className = "care-note";
+  el.setAttribute("aria-label", "关于情绪的提示");
+  el.innerHTML = "<b>关于这一维度</b>" +
+    "<p>神经质描述的是情绪反应的倾向，不是抑郁或焦虑的筛查：这 300 道题没有问症状持续了多久、有没有影响到生活。分数偏高的人很多，分数本身不说明有问题。</p>" +
+    "<p>如果最近两周你几乎每天都情绪低落、睡不好、提不起兴趣，或者出现伤害自己的念头，请不要只看这份报告：" +
+    "和信任的人说一说，或拨打全国心理援助热线 <a href=\"tel:12356\">12356</a>、北京心理援助热线 <a href=\"tel:01082951332\">010-82951332</a>（24 小时）。" +
+    "遇到紧急危险请拨打 <a href=\"tel:120\">120</a> 或 <a href=\"tel:110\">110</a>。" +
+    "在香港可拨 <a href=\"tel:+85223892222\">2389 2222</a>（撒玛利亚防止自杀会），在台湾可拨 <a href=\"tel:1925\">1925</a>（安心专线）。</p>";
+  return el;
+}
 function domainReading(d, r){
   const copy = DOMAIN_READING[d.key];
-  const display = p => p < 0.5 ? "低于 1" : p > 99.5 ? "高于 99" : String(Math.round(p));
   const rank = r.facets.map((f, i) => ({pct:f.pct, name:DATA.facets[d.key][i][0]}))
     .sort((a, b) => b.pct - a.pct);
   const high = rank[0], low = rank[rank.length - 1];
   const summary = r.pct <= 30 ? copy.low : r.pct >= 70 ? copy.high
     : "本次分数位于参考样本的中间范围。总分没有明显偏向某一端，不代表每个子面向都居中，也不能据此判断你在不同场合的表现。";
-  const pctPhrase = p => p < 0.5 ? "低于 1" : p > 99.5 ? "高于 99" : "为 " + Math.round(p);
-  let evidence = "分数依据：这个维度由 6 个子面向、共 60 道题汇总。本次总分百分位" + pctPhrase(r.pct) + "。";
-  if (high.pct - low.pct < 1){
-    evidence += "6 个子面向的百分位接近，按当前显示精度不突出最高或最低项。";
-  } else {
-    evidence += "其中「" + high.name + "」的百分位相对较高（" + display(high.pct) + "），「" + low.name + "」相对较低（" + display(low.pct) + "）。这是各项在参考样本中的位置，不是能力排名，也不表示差异已达到统计显著。";
-  }
-  if (r.ci && [30,70].some(c => r.ci[0] <= c && r.ci[1] >= c)){
-    evidence += "估计区间跨过了分档边界，解读时请同时考虑相邻档位。";
-  }
+  const where = p => p < 0.5 ? "处在同组参考者最低的 1% 以内" : p > 99.5 ? "处在同组参考者最高的 1% 以内"
+    : "高于约 " + Math.round(p) + "% 的同组参考者";
+  let evidence = "分数依据：本次总分" + where(r.pct) + "。";
+  if (high.pct - low.pct < 1) evidence += "6 个子面向的百分位几乎一样。";
+  else if (high.pct <= 30) evidence += "6 个子面向都偏低，相对最高的是「" + high.name + "」（" + pctDisp(high.pct) + "）。";
+  else if (low.pct >= 70) evidence += "6 个子面向都偏高，相对最低的是「" + low.name + "」（" + pctDisp(low.pct) + "）。";
+  else evidence += "6 个子面向里最高的是「" + high.name + "」（" + pctDisp(high.pct) + "），最低的是「" + low.name + "」（" + pctDisp(low.pct) + "）。";
+  /* 与组合画像同一条规则：离 30 / 70 不到 5 个百分位点才提示。区间跨界几乎人人都有，每张卡都说就没有信息量了 */
+  const cut = Math.abs(r.pct - 30) <= Math.abs(r.pct - 70) ? 30 : 70, gap = Math.abs(r.pct - cut);
+  if (gap < 5) evidence += "总分离 " + cut + " 这条分界只有" + (gap < 1 ? "不到 1" : " " + Math.round(gap)) + " 个百分位点，「" +
+    (cut === 30 ? "低" : "中等") + "」和「" + (cut === 30 ? "中等" : "高") + "」两档的描述都值得参考。";
   return {summary, evidence, prompt:"对照生活：" + copy.prompt};
 }
-const COLOR = k => getComputedStyle(document.documentElement).getPropertyValue("--s-" + k).trim();
+/* 用 CSS 变量而不是算好的色值：切换深浅主题时条形、色块跟着变，也省掉每条一次的样式重算 */
+const COLOR = k => "var(--s-" + k + ")";
+const pctDisp = p => p < 0.5 ? "<1" : p > 99.5 ? ">99" : String(Math.round(p));
 const TENDENCY = {
   O:{lo:"熟悉与具体",hi:"好奇与探索"},
   C:{lo:"灵活与随性",hi:"有序与计划"},
@@ -1256,11 +1292,12 @@ const TENDENCY = {
   N:{lo:"情绪平稳与抗压",hi:"感受敏锐与情绪起伏"}
 };
 function tendencyTag(d, p){
-  if (p <= 30) return "偏向" + d.plo.split(" · ")[0];
-  if (p < 45) return "略偏" + d.plo.split(" · ")[0];
-  if (p < 55) return "居中";
-  if (p < 70) return "略偏" + d.phi.split(" · ")[0];
-  return "偏向" + d.phi.split(" · ")[0];
+  const lo = d.plo.split(" · ")[0], hi = d.phi.split(" · ")[0];
+  if (p <= 30) return "低 · 偏向" + lo;
+  if (p < 45) return "中等 · 略偏" + lo;
+  if (p < 55) return "中等 · 居中";
+  if (p < 70) return "中等 · 略偏" + hi;
+  return "高 · 偏向" + hi;
 }
 function tendencyPhrase(d, p){ return p < 50 ? TENDENCY[d.key].lo : TENDENCY[d.key].hi; }
 
@@ -1366,6 +1403,7 @@ function showResult(){
       el.appendChild(paragraph);
     }
     dbox.appendChild(el);
+    if (d.key === "N"){ const note = careNote(r); if (note) dbox.appendChild(note); }
   }
 
   drawRadar(res);
@@ -1381,8 +1419,10 @@ function showResult(){
     r.facets.forEach((f, idx) => {
       const m = meta[idx];
       rows +=
-        '<div class="fbar" data-tip="' + m[0] + '|' + f.raw + '|' + f.t.toFixed(1) + '|' + Math.round(f.pct) + '|' + m[2] + '">' +
+        '<div class="fbar" id="facet-' + d.key + (idx + 1) + '" data-tip="' + m[0] + '|' + f.raw + '|' + f.t.toFixed(1) + '|' + Math.round(f.pct) + '|' + m[2] + '">' +
           '<span class="fname">' + m[0] + '</span>' +
+          /* 「友善 <1」「抑郁 94」这类极端值最容易按日常词义误读，直接附上它在量表里的意思 */
+          (f.pct <= 15 || f.pct >= 85 ? '<span class="fgloss"><i>衡量：</i>' + m[2] + '</span>' : '') +
           '<span class="ftrack"><i style="background:' + COLOR(d.key) + ';width:' + Math.max(1.2, f.pct) + '%"></i><u></u></span>' +
           '<span class="fpct">' + Math.round(f.pct) + '</span></div>';
     });
@@ -1416,7 +1456,8 @@ function drawRadar(res){
     const a = -Math.PI/2 + i*2*Math.PI/5;
     return (cx + Math.cos(a)*R*f).toFixed(1) + "," + (cy + Math.sin(a)*R*f).toFixed(1);
   }).join(" ");
-  let s = '<svg viewBox="0 0 ' + W + ' 330" width="100%" style="max-width:400px" role="img" aria-label="五维度百分位轮廓图">';
+  let s = '<svg viewBox="0 0 ' + W + ' 330" width="100%" style="max-width:400px" role="img" aria-label="五维度百分位轮廓图：' +
+    DATA.domains.map(d => d.name + ' ' + pctDisp(res[d.key].pct)).join('，') + '">';
   [0.25, 0.75, 1].forEach(f => s += '<polygon points="' + ring(f) + '" fill="none" stroke="var(--grid)" stroke-width="1"/>');
   s += '<polygon points="' + ring(0.5) + '" fill="none" stroke="var(--axis)" stroke-width="1.5"/>';
   pts.forEach(p => s += '<line x1="' + cx + '" y1="' + cy + '" x2="' + p.ax.toFixed(1) + '" y2="' + p.ay.toFixed(1) + '" stroke="var(--grid)" stroke-width="1"/>');
@@ -1447,14 +1488,26 @@ function renderHero(res){
   const chips = [];
   for (const d of DATA.domains)
     res[d.key].facets.forEach((f, i) => chips.push({
-      key: d.key, name: DATA.facets[d.key][i][0], pct: Math.round(f.pct), dev: Math.abs(f.pct - 50)
+      key: d.key, idx: i + 1, dom: d.name, name: DATA.facets[d.key][i][0], gloss: DATA.facets[d.key][i][2],
+      pct: f.pct, dev: Math.abs(f.pct - 50)
     }));
   chips.sort((a, b) => b.dev - a.dev);
   const top = chips.filter(c => c.dev >= 25).slice(0, 6);
-  $("#heroChips").innerHTML = (top.length ? top : chips.slice(0, 4)).map(c =>
-    '<span class="hero-chip"><span class="swatch" style="background:' + COLOR(c.key) + '"></span>' +
-    c.name + ' <b>' + c.pct + '</b><span class="muted">' + (c.pct >= 50 ? "↑" : "↓") + '</span></span>').join("");
+  $("#heroChips").innerHTML = (top.length ? top : chips.slice(0, 4)).map(c => {
+    const side = c.pct >= 50 ? "偏高" : "偏低";
+    return '<button type="button" class="hero-chip" data-facet="' + c.key + c.idx + '" title="衡量：' + c.gloss + '" aria-label="' +
+      c.dom + '·' + c.name + '，百分位 ' + pctDisp(c.pct) + '，' + side + '。这一项衡量：' + c.gloss + '。点按查看该子面向">' +
+      '<span class="swatch" style="background:' + COLOR(c.key) + '"></span>' +
+      c.name + ' <b>' + pctDisp(c.pct) + '</b><span class="muted">' + side + '</span></button>';
+  }).join("");
 }
+$("#heroChips").addEventListener("click", e => {
+  const chip = e.target.closest("[data-facet]");
+  const row = chip && document.getElementById("facet-" + chip.dataset.facet);
+  if (!row) return;
+  row.scrollIntoView({behavior:smoothB(), block:"center"});
+  row.classList.remove("flash"); void row.offsetWidth; row.classList.add("flash");
+});
 
 /* --- 分享卡片：纯前端 canvas 生成 PNG，只含分数概览 --- */
 function saveCard(){

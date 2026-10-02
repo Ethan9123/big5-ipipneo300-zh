@@ -238,13 +238,7 @@ for old, new, what in [
      "'<span class=\"fpct\">' + fmtPct(f.pct) + '</span></div>';", "facet bar pct"),
     ("'</h3><span class=\"muted\">总分百分位 ' + Math.round(r.pct) + '</span></div>' +",
      "'</h3><span class=\"muted\">总分百分位 ' + fmtPct(r.pct) + '</span></div>' +", "facet card header"),
-    # keep the numeric pct (the ↑/↓ arrow compares it) and carry the display string separately
-    ("key: d.key, name: DATA.facets[d.key][i][0], pct: Math.round(f.pct), dev: Math.abs(f.pct - 50)",
-     "key: d.key, name: DATA.facets[d.key][i][0], pct: f.pct, disp: fmtPct(f.pct), dev: Math.abs(f.pct - 50)",
-     "hero chip: carry both the number and its display form"),
-    ("c.name + ' <b>' + c.pct + '</b><span class=\"muted\">' + (c.pct >= 50 ? \"↑\" : \"↓\") + '</span></span>').join(\"\");",
-     "c.name + ' <b>' + c.disp + '</b><span class=\"muted\">' + (c.pct >= 50 ? \"↑\" : \"↓\") + '</span></span>').join(\"\");",
-     "hero chip: render the display form"),
+    # (hero chips: the template now prints its own <1 / >99 display form -- no patch needed)
     ("'</td><td class=\"n\"><b>' + Math.round(r.pct) + '</b></td><td>' + r.level + '</td></tr>';",
      "'</td><td class=\"n\"><b>' + fmtPct(r.pct) + '</b></td><td>' + r.level + '</td></tr>';",
      "table view domain pct"),
