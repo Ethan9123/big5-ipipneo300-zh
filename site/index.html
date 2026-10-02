@@ -1869,8 +1869,12 @@ function keepRowInPlace(fn){
     });
   }
   const top = anchor ? anchor.getBoundingClientRect().top : 0;
+  /* 浏览器自带的滚动锚定也会补偿，两者叠加时方向和幅度都不可靠：这一下先关掉它 */
+  const root = document.documentElement, prev = root.style.overflowAnchor;
+  root.style.overflowAnchor = "none";
   fn();
-  if (anchor) window.scrollBy(0, anchor.getBoundingClientRect().top - top);
+  if (anchor) window.scrollTo(0, scrollY + anchor.getBoundingClientRect().top - top);
+  root.style.overflowAnchor = prev;
 }
 $("#hintToggle").addEventListener("click", () => keepRowInPlace(() => {
   mode = mode === "hints" ? "plain" : "hints"; applyMode(); updateProgress(); persist();
