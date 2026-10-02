@@ -224,6 +224,14 @@ body.show-hints .hint{display:block}
 .resume b{font-size:16px}
 .resume .meta{color:var(--text-secondary);font-size:13.5px;margin:4px 0 12px}
 .resume .btns{display:flex;gap:10px;flex-wrap:wrap}
+.view-banner{display:flex;align-items:center;gap:12px 16px;flex-wrap:wrap;border:1px solid var(--accent);background:var(--wash);border-radius:14px;padding:14px 16px;margin:16px 0 14px}
+.view-banner .copy{flex:1 1 260px;min-width:0}
+.view-banner b{display:block;font-size:15px}
+.view-banner small{display:block;color:var(--text-secondary);font-size:13px;margin-top:3px;line-height:1.55}
+.view-banner .btns{display:flex;gap:8px;flex-wrap:wrap}
+.stale-banner{top:calc(62px + env(safe-area-inset-top,0px));bottom:auto;border-color:rgba(214,120,42,.45)}
+.stale-banner .mark{color:#c25a12}
+.stale-banner .btn{min-height:38px;padding:7px 13px;flex:none}
 .restore-toast{position:fixed;z-index:30;bottom:22px;left:50%;transform:translateX(-50%);
   width:min(560px,calc(100% - 28px));display:flex;align-items:center;gap:11px;
   border:1px solid rgba(42,120,214,.32);border-radius:12px;padding:11px 13px;
@@ -514,6 +522,11 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
   <button class="iconbtn" id="themeToggle" aria-label="切换深色或浅色主题">深色</button>
 </div></header>
 
+<div class="restore-toast stale-banner hide noprint" id="staleBanner" role="alert">
+  <span class="mark" aria-hidden="true">!</span>
+  <span class="copy"><b>这份作答在另一个标签页里更新过</b><small id="staleMeta">为免互相覆盖，这个页面已暂停保存。</small></span>
+  <button class="btn" type="button" id="staleLoadBtn">载入最新</button>
+</div>
 <div class="restore-toast hide noprint" id="restoreToast" role="status" aria-live="polite">
   <span class="mark" aria-hidden="true">✓</span>
   <span class="copy"><b id="restoreToastTitle"></b><small id="restoreToastMeta"></small></span>
@@ -709,6 +722,13 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 
 <!-- ============ RESULT ============ -->
 <section id="result" class="hide">
+  <div id="viewBanner" class="view-banner hide noprint" role="region" aria-labelledby="viewBannerTitle">
+    <div class="copy"><b id="viewBannerTitle">你正在查看一份通过链接打开的结果</b><small id="viewBannerMeta"></small></div>
+    <div class="btns">
+      <button class="btn" type="button" id="viewMineBtn">我也来测一测</button>
+      <button class="btn ghost" type="button" id="viewAdoptBtn">这是我的结果，保存到本机</button>
+    </div>
+  </div>
   <header class="report-cover">
     <div class="report-orbits" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="report-kicker"><span>OCEAN / 人格探索报告</span><span class="report-status">300 题 · 已完成</span></div>
@@ -738,7 +758,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
           <button class="btn ghost" id="resultLinkBtn">复制结果链接</button>
           <button class="btn ghost" id="printBtn2">打印 / PDF</button>
         </div>
-        <p class="muted" style="margin:11px 0 0">结果已保存在这个浏览器，下次打开会直接回到这里。分享卡片不含逐题作答；结果链接包含本次作答与常模资料，请只发给你信任的人。</p>
+        <p class="muted" style="margin:11px 0 0"><span id="resultSaveNote">结果已保存在这个浏览器，下次打开会直接回到这里。</span>分享卡片不含逐题作答；结果链接包含本次作答与常模资料，请只发给你信任的人。</p>
         <p class="muted" id="resultCopied" role="status" style="margin:4px 0 0"></p>
       </div>
     </div>
@@ -868,7 +888,17 @@ const store = (() => {
 let done = false;
 const snapshot = () => ({v:1, answers, sex, age, page, mode, done, savedAt: Date.now()});
 
+/* 存档归属。网址里的 #p= 可能是自己的（刷新、收藏、发给自己的续答链接），也可能是别人发来的。
+   以前一律取「答得多」的那份并写回本机：打开朋友的结果链接，自己的存档就被覆盖了。
+   现在能确认是自己的才自动恢复；别人的结果只读查看（viewOnly），未答完的先问一句。 */
+let viewOnly = false;   // 正在查看别人的链接：不写本机存档，也不改地址栏
+let staleTab = false;   // 另一个标签页写了更新的存档：本页暂停保存，免得把新进度盖掉
+const OWN_KEY = KEY + ":own";
+function markOwnHash(str){ try { sessionStorage.setItem(OWN_KEY, str); } catch(e){} }
+function ownHash(){ try { return sessionStorage.getItem(OWN_KEY); } catch(e){ return null; } }
+
 function persist(){
+  if (viewOnly || staleTab) return;
   store.save(snapshot());
   syncHash(false);
   markSaved();
@@ -907,9 +937,12 @@ function decodeState(str){
 let hashTimer = 0, lastHashWrite = 0;
 function syncHash(force){
   clearTimeout(hashTimer);
+  if (viewOnly) return;
   const write = () => {
+    if (viewOnly) return;
     lastHashWrite = Date.now();
-    try { history.replaceState(null, "", "#p=" + encodeState()); } catch(e){ /* 超限则静默跳过 */ }
+    const str = encodeState();
+    try { history.replaceState(null, "", "#p=" + str); markOwnHash(str); } catch(e){ /* 超限则静默跳过 */ }
   };
   if (force || Date.now() - lastHashWrite > 2000) write();
   else hashTimer = setTimeout(write, 2000);
@@ -919,7 +952,7 @@ function syncHash(force){
 ["visibilitychange","pagehide","beforeunload"].forEach(ev =>
   addEventListener(ev, () => {
     if (ev === "visibilitychange" && document.visibilityState !== "hidden") return;
-    if (sex) { store.save(snapshot()); syncHash(true); }
+    if (sex && !viewOnly && !staleTab) { store.save(snapshot()); syncHash(true); }
   }, {capture:true}));
 
 function markSaved(){
@@ -1526,6 +1559,8 @@ function showResult(){
   buildTable(res);
   show("result");
   done = true;
+  syncOwnershipUi();
+  if (viewOnly || staleTab) return;   // 别人的结果只读，不写进本机
   store.save(snapshot());   // 结果也留着：下次打开还能直接看，不用重答
   syncHash(true);
 }
@@ -1815,7 +1850,9 @@ $("#startForm").addEventListener("submit", e => {
   }
   err.className = "form-error hide";
   err.textContent = "";
-  answers = new Array(301).fill(0); page = 0; done = false;
+  const prev = validSaved(store.load()), prevN = answeredCount(prev);
+  if (prevN > 0 && !confirm("本机保存着" + savedWord(prev) + "。开始新的作答会把它替换掉，确定吗？")) return;
+  answers = new Array(301).fill(0); page = 0; done = false; viewOnly = false; staleTab = false;
   persist(); show("test"); renderPage();
 });
 ["sex","age"].forEach(id => $("#" + id).addEventListener("input", () => {
@@ -1881,17 +1918,105 @@ function hideRestoreToast(){
 }
 $("#restoreToastClose").addEventListener("click", hideRestoreToast);
 
-/* 恢复一份存档：本地存储与网址片段取「答得更多」的那份 */
-function bestSaved(){
+/* 网址里的存档：raw 是原始片段，s 是解析结果（片段残缺时为 null） */
+function urlState(){
+  const m = /[#&]p=([0-9A-Za-z-]*)/.exec(location.hash || "");
+  return m ? {raw:m[1], s:validSaved(decodeState(m[1]))} : null;
+}
+/* 网址存档与本机存档是不是同一个人的同一份作答。
+   own：本标签页自己写过这个网址，或性别年龄相同、重叠的题全部一致（重叠够多才算数）；
+   other：不能确认（本机没有存档也算这一类，交给用户判断）。 */
+function linkRelation(local, link, raw){
+  if (!store.anyStorage) return "own";   // 没有任何存储时网址是唯一副本，也没有东西会被覆盖
+  if (raw && raw === ownHash()) return "own";
+  if (!local) return "other";
+  if (local.sex !== link.sex || local.age !== link.age) return "other";
+  let overlap = 0, same = true;
+  for (let i = 1; i <= 300; i++){
+    const a = local.answers[i], b = link.answers[i];
+    if (a && b){ if (a !== b) return "other"; overlap++; }
+    else if (a || b) same = false;
+  }
+  return same || overlap >= 8 ? "own" : "other";
+}
+/* 同一份作答的两份副本（本机 / 网址）按题取并集，谁也不丢 */
+function mergeSaved(local, link){
+  if (!local) return link;
+  if (!link) return local;
+  const answers = local.answers.map((v, i) => v || link.answers[i] || 0);
+  const base = answeredCount(link) > answeredCount(local) ? link : local;
+  const full = answers.slice(1).every(Boolean);
+  return {...base, answers, done:full && (local.done || link.done), savedAt:Math.max(local.savedAt || 0, link.savedAt || 0)};
+}
+const sexWord = s => ({M:"男", F:"女", N:"未区分性别"})[s] || "";
+const isFinished = s => !!s && s.done && answeredCount(s) === 300;
+const savedWord = s => isFinished(s) ? "一份已完成的结果" : "一份已答 " + answeredCount(s) + " 题的作答";
+function dropHash(){ try { history.replaceState(null, "", location.pathname + location.search); } catch(e){} }
+function blankState(){
+  answers = new Array(301).fill(0); page = 0; done = false; sex = ""; age = 0;
+  $("#sex").value = ""; $("#age").value = "";
+}
+
+/* 从本机存档接着走：做完了看结果，没做完回到该答的那一页 */
+function resumeLocal(s){
+  applySaved(s);
+  if (isFinished(s)){ showResult(); return; }
+  done = false; page = naturalResumePage(s);
+  persist(); show("test"); renderPage();
+}
+
+/* 结果页上与归属有关的文案：自己的结果 / 通过链接查看 */
+function syncOwnershipUi(){
+  $("#viewBanner").classList.toggle("hide", !viewOnly);
+  $(".report-status").textContent = viewOnly ? "通过链接查看 · 未保存到本机" : "300 题 · 已完成";
+  const h1 = $(".report-cover h1").firstChild;
+  if (h1 && h1.nodeType === 3) h1.textContent = viewOnly ? "这份大五人格，" : "你的大五人格，";
+  $("#resultSaveNote").textContent = viewOnly
+    ? "这份结果是通过链接打开的，没有保存到这个浏览器。"
+    : "结果已保存在这个浏览器，下次打开会直接回到这里。";
+  if (!viewOnly) return;
+  const local = validSaved(store.load()), hasLocal = answeredCount(local) > 0;
+  $("#viewBannerMeta").textContent = sexWord(sex) + " · " + age + " 岁 · 300 题。它不会保存到这个浏览器" +
+    (hasLocal ? "，你本机的" + savedWord(local).slice(2) + "也没有被改动。" : "。如果是你自己在别的设备上做的，可以保存到本机。");
+  $("#viewMineBtn").textContent = hasLocal ? (isFinished(local) ? "回到我自己的结果" : "回到我自己的作答") : "我也来测一测";
+}
+function openViewOnly(link){
+  viewOnly = true;
+  applySaved(link);
+  showResult();
+}
+function leaveViewOnly(){
+  viewOnly = false;
+  dropHash();
   const local = validSaved(store.load());
-  const m = /[#&]p=([0-9A-Za-z-]+)/.exec(location.hash || "");
-  const fromUrl = validSaved(m ? decodeState(m[1]) : null);
-  const count = s => s ? answeredCount(s) : -1;
-  if (!local && !fromUrl) return null;
-  if (!fromUrl) return local;
-  if (!local) return fromUrl;
-  /* 同样完整时优先尊重当前网址，行为与 TYPES 的结果链接一致。 */
-  return count(fromUrl) >= count(local) ? fromUrl : local;
+  if (answeredCount(local) > 0){ resumeLocal(local); return; }
+  blankState(); show("intro"); checkResume(); updateProgress();
+  $("#sex").focus({preventScroll:true});
+}
+$("#viewMineBtn").addEventListener("click", leaveViewOnly);
+$("#viewAdoptBtn").addEventListener("click", () => {
+  const local = validSaved(store.load());
+  if (answeredCount(local) > 0 && !confirm("本机保存着" + savedWord(local) + "。保存这份结果会把它替换掉，确定吗？")) return;
+  viewOnly = false; staleTab = false; done = true;
+  store.save(snapshot()); syncHash(true);
+  syncOwnershipUi();
+  announceRestore("已保存到这个浏览器", "下次打开会直接回到这份结果");
+});
+
+/* 别人发来的、没答完的链接：不自动进入答题，先在首页问清楚 */
+let cardMode = null;   // null | {kind:"local"} | {kind:"link", link, local}
+function showLinkChoice(link, local){
+  blankState(); show("intro"); updateProgress();
+  cardMode = {kind:"link", link, local};
+  const hasLocal = answeredCount(local) > 0;
+  $("#resumeCard").classList.remove("hide");
+  $("#resumeTitle").textContent = "这个链接里带着一份作答";
+  $("#resumeMeta").textContent = "已答 " + answeredCount(link) + " / 300 题 · " + sexWord(link.sex) + " · " + link.age + " 岁。" +
+    "如果是你自己在别的设备上答的，可以接着答；如果是别人发来的，请开始你自己的测评。" +
+    (hasLocal ? "接着答会替换本机保存的" + savedWord(local).slice(2) + "。" : "");
+  $("#resumeBtn").textContent = "接着答这份";
+  $("#freshBtn").textContent = hasLocal ? (isFinished(local) ? "回到我自己的结果" : "继续我自己的作答") : "开始我自己的";
+  storageNotice();
 }
 
 function applySaved(s){
@@ -1901,24 +2026,37 @@ function applySaved(s){
 }
 
 $("#resumeBtn").addEventListener("click", () => {
-  const s = bestSaved(); if (!s) return;
+  if (cardMode && cardMode.kind === "link"){
+    const link = cardMode.link, local = cardMode.local;
+    if (answeredCount(local) > 0 && !confirm("本机保存着" + savedWord(local) + "。接着答链接里的作答会把它替换掉，确定吗？")) return;
+    cardMode = null;
+    applySaved(link); done = false; page = naturalResumePage(link);
+    persist(); show("test"); renderPage();   // 采用这份：写进本机，网址也记为自己的
+    return;
+  }
+  const s = validSaved(store.load()); if (!s) return;
   applySaved(s);
   if (done){ showResult(); return; }
   persist(); show("test"); renderPage();
 });
+/* 「重新开始」不再立刻清空存档：旧存档留到真正开始新作答时才被替换（那时会再确认一次） */
 $("#freshBtn").addEventListener("click", () => {
-  store.clear();
-  try { history.replaceState(null, "", location.pathname + location.search); } catch(e){}
-  answers = new Array(301).fill(0); page = 0; done = false;
+  const link = cardMode && cardMode.kind === "link" ? cardMode : null;
+  cardMode = null;
+  dropHash();
+  if (link && answeredCount(link.local) > 0){ resumeLocal(link.local); return; }
+  blankState();
   $("#resumeCard").classList.add("hide");
   $("#sex").focus();
 });
 
 function checkResume(){
-  const s = bestSaved();
-  const n = s ? s.answers.filter(Boolean).length : 0;
+  const s = validSaved(store.load());
+  const n = answeredCount(s);
   const card = $("#resumeCard");
   card.classList.toggle("hide", !(s && n > 0));
+  cardMode = s && n > 0 ? {kind:"local"} : null;
+  $("#freshBtn").textContent = "重新开始一次";
   if (s && n > 0){
     $("#sex").value = s.sex || ""; $("#age").value = s.age || "";
     if (s.mode){ mode = s.mode; applyMode(); }
@@ -1935,7 +2073,10 @@ function checkResume(){
       $("#resumeBtn").textContent = "接着上次继续答";
     }
   }
-  /* 存储不可用时立刻讲清楚，别等用户答到一半才发现 */
+  storageNotice();
+}
+/* 存储不可用时立刻讲清楚，别等用户答到一半才发现 */
+function storageNotice(){
   const w = $("#storageWarn");
   if (!store.durable){
     w.className = "warn";
@@ -2027,10 +2168,33 @@ document.querySelectorAll(".reaction").forEach(b => b.addEventListener("click", 
   msg.className = "result-check-msg";
 }));
 $("#restartBtn").addEventListener("click", () => {
-  store.clear();
-  try { history.replaceState(null, "", location.pathname + location.search); } catch(e){}
-  answers = new Array(301).fill(0); page = 0; done = false;
+  /* 不清空存档：回首页，旧结果留在续答卡里，开始新作答时才替换（会再确认） */
+  viewOnly = false;
+  dropHash();
+  blankState();
   show("intro"); checkResume(); updateProgress();
+  $("#sex").focus({preventScroll:true});
+});
+
+/* 另一个标签页写了新存档：本页暂停保存，给出「载入最新」 */
+addEventListener("storage", e => {
+  if (e.key !== KEY || viewOnly) return;
+  let s = null;
+  try { s = validSaved(JSON.parse(e.newValue || "null")); } catch(_) {}
+  if (document.body.dataset.view === "intro" || !sex){
+    if (!cardMode || cardMode.kind === "local") checkResume();
+    return;
+  }
+  if (!s) return;
+  staleTab = true;
+  $("#staleMeta").textContent = "那边是" + savedWord(s) + "。为免互相覆盖，这个页面已暂停保存。";
+  $("#staleBanner").classList.remove("hide");
+});
+$("#staleLoadBtn").addEventListener("click", () => {
+  const s = validSaved(store.load());
+  staleTab = false;
+  $("#staleBanner").classList.add("hide");
+  if (answeredCount(s) > 0) resumeLocal(s);
 });
 $("#enToggle").addEventListener("click", () => document.body.classList.toggle("show-en"));
 function syncThemeUi(){
@@ -2052,7 +2216,21 @@ syncThemeUi();
 
 function boot(){
   applyMode();
-  const s = bestSaved(), n = answeredCount(s);
+  const local = validSaved(store.load());
+  const u = urlState();
+  const link = u && u.s && answeredCount(u.s) > 0 ? u.s : null;
+  if (u && !u.s){
+    /* 链接被截断或改坏了：讲清楚，再按本机存档继续 */
+    dropHash();
+    setTimeout(() => announceRestore("这个链接不完整，没能读出里面的作答",
+      "可能复制时少了一截。请让对方重新复制完整的链接。"), 0);
+  }
+  const rel = link ? linkRelation(local, link, u.raw) : "none";
+  if (link && rel !== "own"){
+    if (isFinished(link)){ openViewOnly(link); return; }
+    showLinkChoice(link, local); return;
+  }
+  const s = rel === "own" ? mergeSaved(local, link) : local, n = answeredCount(s);
   if (s && n > 0){
     applySaved(s);
     if (done && n === 300){
