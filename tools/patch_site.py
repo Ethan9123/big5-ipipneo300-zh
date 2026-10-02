@@ -538,8 +538,8 @@ function renderProfile(res){
 .pf-list b{display:block;font-size:13px;margin-bottom:5px}
 .pf-list ul{margin:0;padding-left:18px}
 .pf-list li{font-size:13.5px;line-height:1.7;color:var(--text-secondary)}
-.pf-pro b{color:#1baf7a}
-.pf-con b{color:#eb6834}
+.pf-pro b{color:var(--text-primary)}
+.pf-con b{color:var(--text-primary)}
 .pf-do{border-top:1px solid var(--grid);padding-top:14px}
 .pf-do b{color:var(--text-primary)}
 

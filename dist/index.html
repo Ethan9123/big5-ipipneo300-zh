@@ -63,6 +63,13 @@ try {
   const theme = savedTheme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
   document.documentElement.setAttribute("data-theme", theme);
 } catch(e) {}
+/* 有存档或带链接打开时，脚本跑完之前先不显示首页，免得首页闪一下再跳走（4G 下约 1–3 秒）。
+   主脚本出错或迟迟不结束，也不能让页面一直空着。 */
+try {
+  if (/[#&]p=1/.test(location.hash) || localStorage.getItem("ipipneo300_zh_v1")) document.documentElement.classList.add("booting");
+} catch(e) {}
+addEventListener("error", function(){ document.documentElement.classList.remove("booting"); });
+setTimeout(function(){ document.documentElement.classList.remove("booting"); }, 10000);
 </script>
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://big5.try-board-game.uk/">
@@ -87,7 +94,9 @@ try {
   --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#6f6d67;
   --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,0.10);
   --s-O:#2a78d6; --s-C:#eb6834; --s-E:#1baf7a; --s-A:#eda100; --s-N:#e87ba4;
-  --accent:#2a78d6; --wash:rgba(42,120,214,0.08); --radar-fill:rgba(82,81,78,0.10);
+  /* --accent 用于文字和描边，--accent-fill 用于白字底色：两个主题下都 ≥4.5:1 */
+  --accent:#256bc0; --accent-fill:#256bc0; --wash:rgba(42,120,214,0.08); --radar-fill:rgba(82,81,78,0.10);
+  --control-border:#86847d;
 }
 :root[data-theme="dark"]{
   color-scheme: dark;
@@ -95,7 +104,8 @@ try {
   --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#aaa79f;
   --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,0.10);
   --s-O:#3987e5; --s-C:#d95926; --s-E:#199e70; --s-A:#c98500; --s-N:#d55181;
-  --accent:#3987e5; --wash:rgba(57,135,229,0.14); --radar-fill:rgba(195,194,183,0.14);
+  --accent:#5095e8; --accent-fill:#1f6fd1; --wash:rgba(57,135,229,0.14); --radar-fill:rgba(195,194,183,0.14);
+  --control-border:#6a6964;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -128,6 +138,9 @@ button,summary{touch-action:manipulation}
 .intro-copy{grid-area:copy;align-self:end}
 .intro-title{font-size:clamp(32px,4.5vw,48px);line-height:1.12;letter-spacing:-.035em;margin:0 0 14px}
 .intro-lead{font-size:17px;line-height:1.7;color:var(--text-secondary);max-width:520px}
+.intro-facts{display:flex;flex-wrap:wrap;gap:2px 0;margin:10px 0 0;font-size:13.5px;color:var(--text-muted);letter-spacing:.02em}
+.intro-facts span{white-space:nowrap}
+.intro-facts span+span::before{content:"·";margin:0 7px}
 .trait-dots{display:flex;gap:8px;margin:20px 0 18px}
 .trait-dots i{width:12px;height:12px;border-radius:50%;box-shadow:0 0 0 4px var(--surface-1)}
 .trust-list{grid-area:trust;display:grid;gap:9px;margin-top:0}
@@ -157,38 +170,38 @@ button,summary{touch-action:manipulation}
 .topbar{position:sticky;top:0;z-index:20;background:var(--page);border-bottom:1px solid var(--grid)}
 .topbar-in{max-width:900px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px}
 .brand{font-weight:650;font-size:14px;white-space:nowrap}
+body:not([data-view="test"]) .topbar-in{justify-content:space-between}
 .bar{flex:1;height:6px;background:var(--grid);border-radius:3px;overflow:hidden;position:relative}
 .bar>i{display:block;height:100%;background:var(--accent);border-radius:0 3px 3px 0;width:0;transition:width .18s ease}
 .bar>b{position:absolute;top:0;bottom:0;width:2px;background:var(--page)}
 .count{font-size:13px;color:var(--text-secondary);font-variant-numeric:tabular-nums;white-space:nowrap}
 .iconbtn{background:none;border:1px solid var(--border);color:var(--text-secondary);border-radius:8px;
   padding:4px 9px;font-size:13px;cursor:pointer;font-family:inherit;white-space:nowrap}
-.iconbtn:hover{background:var(--wash);color:var(--text-primary)}
+@media (hover:hover){.iconbtn:hover{background:var(--wash);color:var(--text-primary)}}
 .iconbtn[aria-pressed="true"]{border-color:var(--accent);background:var(--wash);color:var(--text-primary)}
 
 /* form */
 label.f{display:block;font-size:13.5px;color:var(--text-secondary);margin-bottom:6px}
 input[type=number],select{
   font-family:inherit;font-size:15px;padding:8px 10px;border-radius:8px;
-  border:1px solid var(--axis);background:var(--surface-1);color:var(--text-primary);width:100%}
+  border:1px solid var(--control-border);background:var(--surface-1);color:var(--text-primary);width:100%}
+input[aria-invalid="true"],select[aria-invalid="true"]{border-color:#c94714;box-shadow:0 0 0 1px #c94714}
 .row{display:flex;gap:16px;flex-wrap:wrap}
 .row>div{flex:1;min-width:150px}
 .btn{
   font-family:inherit;font-size:15px;font-weight:600;padding:11px 22px;border-radius:9px;
-  border:1px solid transparent;background:var(--accent);color:#fff;cursor:pointer}
+  border:1px solid transparent;background:var(--accent-fill);color:#fff;cursor:pointer}
 .btn:hover{filter:brightness(1.07)}
 .btn[disabled]{opacity:.4;cursor:not-allowed;filter:none}
 .btn.ghost{background:transparent;color:var(--text-primary);border-color:var(--axis)}
 .btn.ghost:hover{background:var(--wash);filter:none}
 
 /* questions */
-.qrow{padding:16px 0;border-bottom:1px solid var(--grid);transition:opacity .25s ease;position:relative}
+.qrow{padding:16px 0;border-bottom:1px solid var(--grid);position:relative}
 .qrow:last-child{border-bottom:0}
-.qrow.ok{opacity:.72}
-.qrow.ok:hover,.qrow.ok:focus-within{opacity:1}
-.qrow.cur{opacity:1}
+.qrow.ok .qzh{color:var(--text-secondary)}
 .qrow.cur::before{content:"";position:absolute;left:-14px;top:16px;bottom:16px;width:3px;border-radius:2px;background:var(--accent)}
-.qrow.unanswered.flag{background:var(--wash);margin:0 -12px;padding-left:12px;padding-right:12px;border-radius:8px;opacity:1}
+.qrow.unanswered.flag{background:var(--wash);margin:0 -12px;padding-left:12px;padding-right:12px;border-radius:8px;box-shadow:inset 3px 0 0 #c94714}
 .qtext{display:flex;gap:10px;margin-bottom:10px}
 .qnum{color:var(--text-muted);font-size:13px;font-variant-numeric:tabular-nums;min-width:34px;padding-top:2px}
 .qzh{font-size:16.5px;line-height:1.5}
@@ -217,7 +230,7 @@ body.show-hints .hint{display:block}
 .modeopt b{display:block;font-size:15px;margin-bottom:3px}
 .modeopt span{font-size:12.5px;color:var(--text-secondary);line-height:1.5}
 .mode-badge{display:inline-block;margin-left:5px;padding:1px 6px;border-radius:999px;
-  background:var(--accent);color:#fff;font-size:10px;font-style:normal;vertical-align:2px}
+  background:var(--accent-fill);color:#fff;font-size:10px;font-style:normal;vertical-align:2px}
 .warn{border:1px solid var(--border);border-left:3px solid #ec835a;border-radius:0 10px 10px 0;
   background:var(--surface-1);padding:13px 16px;margin:16px 0;font-size:13.5px;line-height:1.6}
 .resume{border:1px solid var(--accent);background:var(--wash);border-radius:12px;padding:16px 18px;margin:22px 0 4px}
@@ -257,9 +270,9 @@ body.show-hints .hint{display:block}
   min-width:0;text-align:center;font-family:inherit;font-size:12.5px;line-height:1.3;
   padding:9px 4px;border-radius:8px;border:1px solid var(--axis);background:var(--surface-1);
   color:var(--text-secondary);cursor:pointer;transition:none}
-.opt:hover{border-color:var(--accent);color:var(--text-primary)}
+@media (hover:hover){.opt:hover{border-color:var(--accent);color:var(--text-primary)}}
 .opt:active{transform:scale(.96)}
-.opt[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.opt[aria-checked="true"]{background:var(--accent-fill);border-color:var(--accent-fill);color:#fff;font-weight:600}
 .opt-short{display:none}
 #kbdHint{display:none}
 @media (hover:hover) and (pointer:fine){#kbdHint{display:inline}}
@@ -270,11 +283,12 @@ body.show-hints .hint{display:block}
 .page-jump{display:inline-flex;align-items:center;gap:7px;color:var(--text-muted);font-size:12.5px;white-space:nowrap}
 .page-jump select{width:auto;min-width:88px;padding:6px 28px 6px 9px;font-size:12.5px}
 .page-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-top:24px}
-.page-heading h2{margin:0}
+.page-heading h1{margin:0;font-size:19px}
 .page-hint{margin:4px 0 14px}
 .page-feedback{color:var(--accent);font-size:13px;line-height:1.6;margin:0 0 14px}
 .page-feedback:empty{display:none}
-.domain-evidence{margin:12px 0 0;padding:12px 14px;border-left:2px solid var(--axis);background:var(--surface-1);border-radius:0 8px 8px 0;color:var(--text-secondary);font-size:13px;line-height:1.75}
+.dom>p.sub{font-size:15px;color:var(--text-primary);line-height:1.75}
+.domain-evidence{margin:12px 0 0;padding:12px 14px;border-left:2px solid var(--axis);background:var(--surface-1);border-radius:0 8px 8px 0;color:var(--text-muted);font-size:13px;line-height:1.75}
 .domain-reflect{margin:8px 0 0;font-size:13px;line-height:1.75;color:var(--text-secondary)}
 .page-meta{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}
 .quick-quit{border:0;background:transparent;color:var(--accent);padding:3px 0;font:inherit;font-size:12.5px;cursor:pointer}
@@ -315,8 +329,8 @@ body.show-hints .hint{display:block}
 .pf-list b{display:block;font-size:13px;margin-bottom:5px}
 .pf-list ul{margin:0;padding-left:18px}
 .pf-list li{font-size:13.5px;line-height:1.7;color:var(--text-secondary)}
-.pf-pro b{color:#1baf7a}
-.pf-con b{color:#eb6834}
+.pf-pro b{color:var(--text-primary)}
+.pf-con b{color:var(--text-primary)}
 .pf-do{border-top:1px solid var(--grid);padding-top:14px}
 .pf-do b{color:var(--text-primary)}
 
@@ -416,14 +430,16 @@ button.hero-chip:hover{background:var(--wash)}
 .care-note p:last-child{margin:0}
 .care-note a{color:var(--accent);font-weight:650;white-space:nowrap}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+@media (pointer:coarse){#printBtn2{display:none}}   /* 手机上很少打印：底部仍保留一个入口 */
 .result-nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:-2px 0 18px;padding:10px 12px;
   border:1px solid var(--border);border-radius:10px;background:var(--surface-1)}
 .result-nav>span{font-size:12px;color:var(--text-muted);margin-right:2px}
 .result-nav button{display:inline-flex;align-items:center;min-height:34px;padding:5px 10px;border-radius:8px;
-  color:var(--text-secondary);font:inherit;font-size:12.5px;background:transparent;cursor:pointer;border:1px solid transparent}
+  color:var(--text-secondary);font:inherit;font-size:12.5px;background:transparent;cursor:pointer;border:1px solid var(--border)}
 .result-nav button:hover,.result-nav button:focus-visible{background:var(--wash);color:var(--text-primary);border-color:var(--border)}
 #domainsHeading,#profileHeading,#facetsHeading{scroll-margin-top:74px}
-#pageTitle:focus{outline:none}
+#pageTitle:focus,#resultTitle:focus{outline:none}
+#resultTitle:focus-visible{outline:2px solid #8fc4ff;outline-offset:6px;border-radius:6px}
 #pageTitle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
 .result-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
 .track{position:relative;height:14px;background:var(--grid);border-radius:4px;margin:8px 0 4px}
@@ -463,7 +479,25 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
   box-shadow:0 6px 20px rgba(0,0,0,.14);z-index:60;max-width:250px;line-height:1.5}
 #tip b{font-weight:650}
 .hide{display:none !important}
+html.booting #intro{display:none}
+html.booting main.wrap::before{content:"正在载入上次的进度…";display:block;padding:72px 0;text-align:center;color:var(--text-muted);font-size:14px}
+.page-undo{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:-4px 0 12px;font-size:13px;color:var(--text-secondary)}
+.page-undo button{border:1px solid var(--accent);background:var(--wash);color:var(--accent);border-radius:999px;
+  padding:4px 12px;min-height:34px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.manual-copy{margin:8px 0 0;font-size:13px;color:var(--text-secondary)}
+.manual-copy input{display:block;width:100%;margin-top:6px;padding:8px 10px;font:inherit;font-size:12.5px;border-radius:8px;
+  border:1px solid var(--control-border);background:var(--surface-1);color:var(--text-primary)}
 @media print{.topbar,.noprint{display:none !important} body{background:#fff}}
+@media print{
+  :root,:root[data-theme="dark"]{color-scheme:light;--page:#fff;--surface-1:#fff;--text-primary:#0b0b0b;--text-secondary:#52514e;
+    --text-muted:#6f6d67;--grid:#e1e0d9;--axis:#c3c2b7;--border:rgba(11,11,11,.16);--radar-fill:rgba(82,81,78,.10);
+    --s-O:#2a78d6;--s-C:#eb6834;--s-E:#1baf7a;--s-A:#eda100;--s-N:#e87ba4;--accent:#256bc0;--accent-fill:#256bc0;--wash:rgba(42,120,214,.08)}
+  /* 浏览器默认不打印背景：条形、色块、区间线都靠背景色，单独要求按原色打印 */
+  .track,.ftrack,.track>*,.ftrack>*,.swatch,.ci-legend i,.care-note{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card,.domain-evidence{background:#fff !important}
+  .dom,#facets>.card,.pf-sect,.pf-list,.pf-warn,.care-note{break-inside:avoid}
+  h2,h3,#facetsHeading+.sub{break-after:avoid}
+}
 @media (max-width:760px){
   .intro-hero{grid-template-columns:1fr;grid-template-areas:"copy" "start" "trust";padding:24px;margin-top:20px}
   .intro-copy{padding:2px 2px 0}
@@ -476,7 +510,6 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
   .topbar-in{padding:8px 10px;gap:6px}
   .topbar .brand{display:none}
   body[data-view="intro"] .topbar .brand,body[data-view="result"] .topbar .brand{display:block}
-  body:not([data-view="test"]) .topbar-in{justify-content:space-between}
   .topbar .bar{min-width:48px}
   .topbar .count{font-size:11.5px}
   .topbar .iconbtn{min-height:40px;padding:6px 8px}
@@ -489,11 +522,10 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
   .modeopt span{font-size:11.5px}
   .page-heading{align-items:flex-start;gap:8px;margin-top:18px}
   .page-meta{max-width:145px;gap:3px 9px}
-  .quick-quit{min-height:30px}
+  .quick-quit{min-height:40px}
   .page-hint{margin:3px 0 13px;line-height:1.5}
   .eta{white-space:normal;text-align:right;max-width:135px}
   .qrow{padding:19px 0;scroll-margin-top:64px}
-  .qrow.ok{opacity:.78}
   .qrow.cur::before{left:-8px}
   .opts{margin-left:0;gap:4px}
   .opt{font-size:12px;min-height:48px;padding:7px 1px;letter-spacing:0;white-space:nowrap}
@@ -514,6 +546,10 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
   .result-check{align-items:flex-start}
   .result-check-actions{width:100%}
   .result-check-actions .iconbtn{flex:1;min-height:42px}
+  .iconbtn{min-height:44px;padding:8px 12px}
+  .legend summary,.mode-note summary,.result-guide summary,.guide-card>summary{padding:10px 0}
+  .result-guide{padding:6px 16px}
+  .trait-dots{display:none}
   /* 手机上底部是主要按钮的位置，恢复提示改到顶栏下方，避免挡住「保存卡片」「下一页」 */
   .restore-toast{top:calc(62px + env(safe-area-inset-top,0px));bottom:auto;padding:9px 11px}
 }
@@ -529,10 +565,10 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 <body>
 <header class="topbar noprint"><div class="topbar-in">
   <span class="brand">IPIP-NEO-300</span>
-  <div class="bar" role="progressbar" aria-label="测评完成进度" aria-valuemin="0" aria-valuemax="300" aria-valuenow="0"><i id="pbar"></i><b style="left:25%"></b><b style="left:50%"></b><b style="left:75%"></b></div>
-  <span class="count" id="pcount" aria-live="polite">0 / 300</span>
-  <button class="iconbtn" id="hintToggle" aria-label="切换详解模式">详解</button>
-  <button class="iconbtn" id="enToggle" aria-label="显示或隐藏英文原题" title="显示或隐藏英文原题">EN</button>
+  <div class="bar hide" role="progressbar" aria-label="测评完成进度" aria-valuemin="0" aria-valuemax="300" aria-valuenow="0"><i id="pbar"></i><b style="left:25%"></b><b style="left:50%"></b><b style="left:75%"></b></div>
+  <span class="count hide" id="pcount">0 / 300</span>
+  <button class="iconbtn hide" id="hintToggle" aria-label="切换详解模式">详解</button>
+  <button class="iconbtn hide" id="enToggle" aria-label="EN 英文原题" aria-pressed="false" title="显示或隐藏英文原题">EN</button>
   <button class="iconbtn" id="themeToggle" aria-label="切换深色或浅色主题">深色</button>
 </div></header>
 
@@ -565,6 +601,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
       <div class="eyebrow">IPIP-NEO-300 中文版</div>
       <h1 class="intro-title">看见你的人格轮廓，<br>不只得到一个标签</h1>
       <p class="intro-lead">用 300 道题理解你的 5 个核心维度与 30 个细分倾向。结果提供百分位、生活化解释和可保存的分享卡片。</p>
+      <p class="intro-facts"><span>300 题</span><span>约 20–45 分钟</span><span>可以分几次完成</span><span>作答不上传</span></p>
       <div class="trait-dots" aria-hidden="true">
         <i style="background:var(--s-O)"></i><i style="background:var(--s-C)"></i>
         <i style="background:var(--s-E)"></i><i style="background:var(--s-A)"></i>
@@ -606,14 +643,15 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
           <input type="number" id="age" min="10" max="110" inputmode="numeric" placeholder="例如 30">
         </div>
       </div>
+      <p class="form-error hide" id="startError" role="alert"></p>
       <div class="start-actions">
-        <button class="btn btn-primary" type="submit" id="startBtn">开始标准模式 · 约 20–30 分钟</button>
+        <button class="btn btn-primary" type="submit" id="startBtn" disabled>正在加载…</button>
         <button class="iconbtn" type="button" id="importBtn">从进度文件恢复</button>
         <input type="file" id="importFile" accept=".json" class="hide">
       </div>
-      <p class="form-error hide" id="startError" role="alert"></p>
       <p class="start-note">年龄和性别只用于选择对照常模，不会离开你的浏览器。</p>
     </form>
+    <script>document.getElementById("startForm").addEventListener("submit", function(e){ e.preventDefault(); });</script>
 
     <div class="trust-list">
       <div class="trust-item"><span class="trust-icon">✓</span><span><b>约 20–45 分钟</b>，每题自动保存，可以分几次完成</span></div>
@@ -688,14 +726,15 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 <!-- ============ TEST ============ -->
 <section id="test" class="hide">
   <div class="page-heading">
-    <h2 id="pageTitle" tabindex="-1"></h2>
+    <h1 id="pageTitle" tabindex="-1"></h1>
     <div class="page-meta">
       <span class="eta" id="eta"></span>
       <button class="quick-quit" type="button" id="quickQuitBtn">暂存退出</button>
     </div>
   </div>
-  <p class="muted page-hint" id="pageHint">判断每句话<b>形容你准不准</b>，不是你同不同意。<span id="kbdHint"> · 键盘 1–5 可直接作答，选完自动跳下一题</span></p>
+  <p class="muted page-hint" id="pageHint">判断每句话<b>形容你准不准</b>，不是你同不同意。<span id="kbdHint"> · 键盘 1–5 直接作答并跳到下一题；Tab 换题，方向键换选项</span></p>
   <p class="page-feedback" id="pageFeedback" role="status" aria-live="polite"></p>
+  <p class="page-undo hide" id="pageUndo"><span></span><button type="button" id="pageUndoBtn">返回检查</button></p>
 
   <div id="breakCard" class="hide"></div>
 
@@ -724,7 +763,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
     <span class="dot" id="saveDot"></span>
     <span id="saveState">进度已自动保存</span>
     <span class="spacer"></span>
-    <span id="copied"></span>
+    <span id="copied" role="status"></span>
     <button class="iconbtn" id="linkBtn">复制续答链接</button>
     <button class="iconbtn" id="saveBtn">导出进度文件</button>
     <button class="iconbtn" id="quitBtn">暂存并返回首页</button>
@@ -746,7 +785,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
   <header class="report-cover">
     <div class="report-orbits" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="report-kicker"><span>OCEAN / 人格探索报告</span><span class="report-status">300 题 · 已完成</span></div>
-    <h1>你的大五人格，<br><span>有自己的轮廓。</span></h1>
+    <h1 id="resultTitle" tabindex="-1">你的大五人格，<br><span>有自己的轮廓。</span></h1>
     <p class="report-intro">五种倾向，交织成这一次的你。先看整体，再走进那些值得了解的细节。</p>
     <div class="report-meta" id="resMeta" role="group" aria-label="本次报告的常模与作答信息"></div>
     <div class="report-spectrum noprint">
@@ -765,16 +804,16 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
       </div>
       <div class="hero-copy">
         <div class="muted" style="letter-spacing:.14em;font-size:11.5px">本次作答呈现的倾向</div>
-        <h3 id="heroLine" style="font-size:19px;line-height:1.5;margin:7px 0 13px"></h3>
+        <p id="heroLine" style="font-size:19px;font-weight:700;line-height:1.5;margin:7px 0 13px"></p>
         <div class="muted" style="font-size:12.5px;margin-bottom:7px">值得进一步了解的子面向 · 数字为百分位</div>
         <div id="heroChips"></div>
         <div class="hero-btns noprint">
           <button class="btn" id="cardBtn">保存分享卡片</button>
           <button class="btn ghost" id="resultLinkBtn">复制结果链接</button>
-          <button class="btn ghost" id="printBtn2">打印 / PDF</button>
+          <button class="btn ghost" id="printBtn2">打印 / 存为 PDF</button>
         </div>
-        <p class="muted" style="margin:11px 0 0"><span id="resultSaveNote">结果已保存在这个浏览器，下次打开会直接回到这里。</span>分享卡片不含逐题作答；结果链接包含本次作答与常模资料，请只发给你信任的人。</p>
-        <p class="muted" id="resultCopied" role="status" style="margin:4px 0 0"></p>
+        <p class="muted" id="resultCopied" role="status" style="margin:6px 0 0"></p>
+        <p class="muted noprint" style="margin:11px 0 0"><span id="resultSaveNote">结果已保存在这个浏览器，下次打开会直接回到这里。</span>分享卡片不含逐题作答；结果链接包含本次作答与常模资料，请只发给你信任的人。</p>
       </div>
     </div>
   </div>
@@ -853,7 +892,7 @@ let page = 0, sex = "", age = 0, mode = "plain";
    Neither Inaccurate nor Accurate / Moderately Accurate / Very Accurate。
    中间档必须是描述性的（说不上准也说不上不准），不能带「我不知道」的语义。 */
 const SCALE = ["很不符合","比较不符合","一半一半","比较符合","很符合"];
-const SCALE_SHORT = ["很不像","不太像","一半","比较像","很像"];
+const SCALE_SHORT = ["很不像","不太像","一半一半","比较像","很像"];
 const KEY = "ipipneo300_zh_v1";
 const $ = s => document.querySelector(s);
 
@@ -958,7 +997,7 @@ function syncHash(force){
     if (viewOnly) return;
     lastHashWrite = Date.now();
     const str = encodeState();
-    try { history.replaceState(null, "", "#p=" + str); markOwnHash(str); } catch(e){ /* 超限则静默跳过 */ }
+    try { history.replaceState(history.state, "", "#p=" + str); markOwnHash(str); } catch(e){ /* 超限则静默跳过 */ }
   };
   if (force || Date.now() - lastHashWrite > 2000) write();
   else hashTimer = setTimeout(write, 2000);
@@ -978,7 +1017,7 @@ function markSaved(){
   const now = new Date();
   const hhmm = String(now.getHours()).padStart(2,"0") + ":" + String(now.getMinutes()).padStart(2,"0");
   t.textContent = store.durable
-    ? "进度已保存 · " + hhmm + "（关掉网页也不会丢）"
+    ? "进度已保存在这个浏览器 · " + hhmm
     : "⚠ 这个浏览器不允许长期保存（可能是无痕模式）——请复制续答链接或导出进度文件";
 }
 
@@ -1177,14 +1216,18 @@ function renderBreak(){
   $("#brkOn").addEventListener("click", () => { breakDismissed = page; renderBreak(); });
 }
 
+let pageShownAt = 0, undoT = 0;
 function renderPage(){
   clearTimeout(scrollT);
   clearTimeout(autoAdvT);
+  hidePageUndo();
+  pageShownAt = performance.now();
   $("#pageFeedback").textContent = "";
   const start = page * PER_PAGE;
   renderBreak();
   $("#legend").open = page === 0 && matchMedia("(min-width:561px)").matches;
   $("#pageTitle").textContent = "第 " + (page+1) + " 页 / 共 " + NPAGES + " 页";
+  document.title = "第 " + (page+1) + " / " + NPAGES + " 页 · 大五人格测评";
   const jump = $("#pageJump");
   if (!jump.options.length){
     jump.innerHTML = Array.from({length:NPAGES}, (_, i) =>
@@ -1198,15 +1241,17 @@ function renderPage(){
     const row = document.createElement("div");
     row.className = "qrow" + (answers[q.id] ? " ok" : " unanswered");
     row.dataset.qid = q.id;
-    row.setAttribute("role", "group");
-    row.setAttribute("aria-labelledby", "qtext-" + q.id);
+    row.setAttribute("role", "radiogroup");
+    row.setAttribute("aria-labelledby", "qnum-" + q.id + " qtext-" + q.id);
+    /* 每题只占一个 Tab 停靠点（已选项，没选就第一项）；可见文字就是无障碍名称，手机上的短标签也一样 */
+    const tabAt = answers[q.id] ? answers[q.id] - 1 : 0;
     const opts = SCALE.map((lab, k) =>
-      '<button class="opt" data-v="' + (k+1) + '" aria-label="第 ' + q.id + ' 题，' + lab + '" aria-pressed="' +
-      (answers[q.id] === k+1) + '"><span class="opt-full">' + lab + '</span><span class="opt-short" aria-hidden="true">' +
+      '<button type="button" class="opt" role="radio" data-v="' + (k+1) + '" aria-checked="' + (answers[q.id] === k+1) +
+      '" tabindex="' + (k === tabAt ? 0 : -1) + '"><span class="opt-full">' + lab + '</span><span class="opt-short">' +
       SCALE_SHORT[k] + '</span></button>').join("");
     const h = DATA.notes[q.id - 1];
     row.innerHTML =
-      '<div class="qtext"><span class="qnum" aria-hidden="true">' + q.id + '</span><span>' +
+      '<div class="qtext"><span class="qnum" id="qnum-' + q.id + '">' + q.id + '</span><span>' +
         '<span class="qzh" id="qtext-' + q.id + '">' + q.zh + '</span>' +
         '<span class="qen" lang="en">' + q.en + '</span>' +
       '</span></div>' +
@@ -1270,6 +1315,9 @@ let scrollT = 0, autoAdvT = 0;
 $("#qlist").addEventListener("click", e => {
   const btn = e.target.closest(".opt");
   if (!btn) return;
+  /* 自动翻页后 0.45 秒内的真实点击（detail>0）多半是上一页的连点，落在了还没读的新题上；键盘作答不受影响 */
+  if (e.detail && performance.now() - pageShownAt < 450) return;
+  hidePageUndo();
   const row = btn.closest(".qrow");
   const qid = +row.dataset.qid;
   const revising = Boolean(answers[qid]);
@@ -1280,7 +1328,7 @@ $("#qlist").addEventListener("click", e => {
   for (let n = pageStart; n < pageStart + PER_PAGE; n++) if (answers[DATA.items[n].id]) answeredBefore++;
 
   answers[qid] = +btn.dataset.v;
-  row.querySelectorAll(".opt").forEach(b => b.setAttribute("aria-pressed", b === btn));
+  row.querySelectorAll(".opt").forEach(b => { b.setAttribute("aria-checked", b === btn); b.tabIndex = b === btn ? 0 : -1; });
   row.classList.remove("unanswered", "flag");
   row.classList.add("ok");
   updateProgress();
@@ -1305,6 +1353,7 @@ $("#qlist").addEventListener("click", e => {
         if (page !== scheduled) return;
         for (let n = pageStart; n < pageStart + PER_PAGE; n++) if (!answers[DATA.items[n].id]) return;
         page++; persist(); renderPage();
+        showPageUndo(scheduled);
       }, 650);
     } else {
       const nb = $("#nextBtn");
@@ -1327,7 +1376,7 @@ addEventListener("focusin", e => {
 }, true);
 addEventListener("keydown", e => {
   if ($("#test").classList.contains("hide")) return;
-  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  if (e.ctrlKey || e.metaKey || e.altKey || e.repeat) return;   // 按住不放会自动重复，一下子填满整页
   const tag = (document.activeElement || {}).tagName || "";
   if (/INPUT|SELECT|TEXTAREA/.test(tag)) return;
   const m = /^(?:Numpad)?([1-5])$/.exec(e.code) || (/^[1-5]$/.test(e.key) ? [0, e.key] : null);
@@ -1343,9 +1392,48 @@ addEventListener("keydown", e => {
   /* 焦点跟着「当前题」走，屏幕阅读器和 Tab 用户不会被留在上一题；改答已答题时原地不动。 */
   const next = document.querySelector(".qrow.cur");
   if (!revising && next && next !== cur && cur.contains(document.activeElement || null)){
-    const pressed = next.querySelector('.opt[aria-pressed="true"]') || next.querySelector(".opt");
+    const pressed = next.querySelector('.opt[tabindex="0"]') || next.querySelector(".opt");
     if (pressed) pressed.focus({preventScroll:true});
   }
+});
+
+/* 方向键在一题的五个选项间移动焦点，不直接作答（作答会自动跳题、翻页）；空格 / 回车 / 数字键才作答 */
+$("#qlist").addEventListener("keydown", e => {
+  const opt = e.target.closest && e.target.closest(".opt");
+  if (!opt || e.altKey || e.ctrlKey || e.metaKey) return;
+  const all = [...opt.parentNode.querySelectorAll(".opt")], i = all.indexOf(opt);
+  const to = {ArrowRight:i + 1, ArrowDown:i + 1, ArrowLeft:i - 1, ArrowUp:i - 1, Home:0, End:all.length - 1}[e.key];
+  if (to === undefined) return;
+  e.preventDefault();
+  const t = all[(to + all.length) % all.length];
+  all.forEach(b => { b.tabIndex = b === t ? 0 : -1; });
+  t.focus();
+});
+
+/* 自动翻页后给一个「返回检查」：发现最后一题点错，不用再翻回去找（以前要滚约 5 屏） */
+function showPageUndo(prevPage){
+  const box = $("#pageUndo");
+  box.querySelector("span").textContent = "第 " + (prevPage + 1) + " 页已答完，已自动翻页。";
+  box.classList.remove("hide");
+  clearTimeout(undoT);
+  undoT = setTimeout(hidePageUndo, 8000);
+}
+function hidePageUndo(){
+  clearTimeout(undoT);
+  const box = $("#pageUndo");
+  if (box) box.classList.add("hide");
+}
+$("#pageUndoBtn").addEventListener("click", () => {
+  hidePageUndo();
+  if (page === 0) return;
+  page--; persist(); renderPage();
+  const rows = document.querySelectorAll("#qlist .qrow"), last = rows[rows.length - 1];
+  if (!last) return;
+  document.querySelectorAll(".qrow.cur").forEach(r => r.classList.remove("cur"));
+  last.classList.add("cur");
+  last.scrollIntoView({block:"center"});
+  const o = last.querySelector('.opt[tabindex="0"]');
+  if (o) o.focus({preventScroll:true});
 });
 
 $("#nextBtn").addEventListener("click", () => {
@@ -1355,7 +1443,11 @@ $("#nextBtn").addEventListener("click", () => {
   if (missing.length){
     document.querySelectorAll(".qrow.unanswered").forEach(r => r.classList.add("flag"));
     const first = document.querySelector(".qrow.flag");
-    if (first) first.scrollIntoView({behavior:smoothB(), block:"center"});
+    if (first){
+      first.scrollIntoView({behavior:smoothB(), block:"center"});
+      const o = first.querySelector('.opt[tabindex="0"]');
+      if (o) o.focus({preventScroll:true});
+    }
     $("#pageFeedback").textContent = "本页还有 " + missing.length + " 题未答，已为你标出。";
     return;
   }
@@ -1600,6 +1692,7 @@ function showResult(){
   show("result");
   done = true;
   syncOwnershipUi();
+  $("#resultTitle").focus({preventScroll:true});
   if (viewOnly || staleTab) return;   // 别人的结果只读，不写进本机
   store.save(snapshot());   // 结果也留着：下次打开还能直接看，不用重答
   syncHash(true);
@@ -1853,7 +1946,8 @@ function buildTable(res){
 
 /* --- hover tooltip --- */
 const tip = $("#tip");
-document.addEventListener("mousemove", e => {
+document.addEventListener("pointermove", e => {
+  if (e.pointerType !== "mouse") return;   // 触屏点一下会固定成浮层、随滚动压住正文；区间数字已直接印在页面上
   const el = e.target.closest("[data-tip]");
   if (!el){ tip.style.opacity = 0; return; }
   const p = el.dataset.tip.split("|");
@@ -1865,12 +1959,23 @@ document.addEventListener("mousemove", e => {
   tip.style.top  = Math.max(8, e.clientY - h - 12) + "px";
 });
 
+addEventListener("scroll", () => { tip.style.opacity = 0; }, {passive:true});
+
 /* ================= nav / io ================= */
+let booted = false, popNav = false;
+const BASE_TITLE = document.title;
 function show(id){
   clearTimeout(scrollT);
   clearTimeout(autoAdvT);
+  const prev = document.body.dataset.view;
   ["intro","test","result"].forEach(s => $("#"+s).classList.toggle("hide", s !== id));
   document.body.dataset.view = id;
+  if (id !== "test") document.title = id === "result" ? "测评结果 · " + BASE_TITLE : BASE_TITLE;
+  /* 只在切换视图时记一条历史（翻页不记），返回键 = 回到上一个视图；地址栏片段仍由 syncHash 原地更新 */
+  try {
+    if (booted && !popNav && prev && prev !== id) history.pushState({view:id}, "", location.href);
+    else history.replaceState({view:id}, "", location.href);
+  } catch(e){}
   const inTest = id === "test";
   document.querySelector(".bar").classList.toggle("hide", !inTest);
   $("#pcount").classList.toggle("hide", !inTest);
@@ -1881,26 +1986,37 @@ function show(id){
 
 document.querySelectorAll(".modeopt").forEach(b =>
   b.addEventListener("click", () => { mode = b.dataset.mode; applyMode(); }));
-$("#hintToggle").addEventListener("click", () => {
+/* 切换详解 / 英文时题目高度会变：把视口中间那一题钉在原位，不让它被推出屏幕 */
+function keepRowInPlace(fn){
+  let anchor = null, best = Infinity;
+  if (!$("#test").classList.contains("hide")){
+    const mid = innerHeight / 2;
+    document.querySelectorAll("#qlist .qrow").forEach(r => {
+      const b = r.getBoundingClientRect(), d = Math.abs((b.top + b.bottom) / 2 - mid);
+      if (d < best){ best = d; anchor = r; }
+    });
+  }
+  const top = anchor ? anchor.getBoundingClientRect().top : 0;
+  fn();
+  if (anchor) window.scrollBy(0, anchor.getBoundingClientRect().top - top);
+}
+$("#hintToggle").addEventListener("click", () => keepRowInPlace(() => {
   mode = mode === "hints" ? "plain" : "hints"; applyMode(); updateProgress(); persist();
-});
+}));
 
 $("#startForm").addEventListener("submit", e => {
   e.preventDefault();
   sex = $("#sex").value; age = parseInt($("#age").value, 10);
   const err = $("#startError");
-  if (!sex){
-    err.textContent = "请选择性别，或选择「不作区分 / 其他」使用男女合并常模。";
-    err.className = "form-error";
-    $("#sex").focus();
-    return;
-  }
-  if (!(age >= 10 && age <= 110)){
-    err.textContent = "请填写 10–110 之间的年龄，用于匹配相应的对照常模。";
-    err.className = "form-error";
-    $("#age").focus();
-    return;
-  }
+  const fieldError = (sel, msg) => {
+    err.textContent = msg; err.className = "form-error";
+    ["#sex", "#age"].forEach(x => $(x).removeAttribute("aria-invalid"));
+    $(sel).setAttribute("aria-invalid", "true"); $(sel).setAttribute("aria-describedby", "startError");
+    err.scrollIntoView({block:"center", behavior:smoothB()});
+    setTimeout(() => $(sel).focus({preventScroll:true}), 0);
+  };
+  if (!sex){ fieldError("#sex", "请选择性别，或选择「不作区分 / 其他」使用男女合并常模。"); return; }
+  if (!(age >= 10 && age <= 110)){ fieldError("#age", "请填写 10–110 之间的年龄，用于匹配相应的对照常模。"); return; }
   err.className = "form-error hide";
   err.textContent = "";
   const prev = validSaved(store.load()), prevN = answeredCount(prev);
@@ -1909,6 +2025,7 @@ $("#startForm").addEventListener("submit", e => {
   persist(); show("test"); renderPage();
 });
 ["sex","age"].forEach(id => $("#" + id).addEventListener("input", () => {
+  $("#" + id).removeAttribute("aria-invalid");
   $("#startError").className = "form-error hide";
   $("#startError").textContent = "";
 }));
@@ -1945,9 +2062,9 @@ function naturalResumePage(s){
 let restoreToastTimer = 0, restoreToastArm = 0, restoreToastOff = null;
 function announceRestore(title, meta){
   hideRestoreToast();
+  $("#restoreToast").classList.remove("hide");
   $("#restoreToastTitle").textContent = title;
   $("#restoreToastMeta").textContent = meta;
-  $("#restoreToast").classList.remove("hide");
   restoreToastTimer = setTimeout(hideRestoreToast, 6500);
   /* 用户开始滚动或点别处，说明已经看到了，提示不再占位。
      稍等再挂监听，避免启动时程序自己的滚动把提示立刻关掉。 */
@@ -2004,7 +2121,7 @@ function mergeSaved(local, link){
 const sexWord = s => ({M:"男", F:"女", N:"未区分性别"})[s] || "";
 const isFinished = s => !!s && s.done && answeredCount(s) === 300;
 const savedWord = s => isFinished(s) ? "一份已完成的结果" : "一份已答 " + answeredCount(s) + " 题的作答";
-function dropHash(){ try { history.replaceState(null, "", location.pathname + location.search); } catch(e){} }
+function dropHash(){ try { history.replaceState(history.state, "", location.pathname + location.search); } catch(e){} }
 function blankState(){
   answers = new Array(301).fill(0); page = 0; done = false; sex = ""; age = 0;
   $("#sex").value = ""; $("#age").value = "";
@@ -2015,7 +2132,7 @@ function resumeLocal(s){
   applySaved(s);
   if (isFinished(s)){ showResult(); return; }
   done = false; page = naturalResumePage(s);
-  persist(); show("test"); renderPage();
+  persist(); show("test"); renderPage(); scrollToCurrent();
 }
 
 /* 结果页上与归属有关的文案：自己的结果 / 通过链接查看 */
@@ -2134,34 +2251,56 @@ function storageNotice(){
   if (!store.durable){
     w.className = "warn";
     w.innerHTML = "<b>这个浏览器不会长期保存进度</b><br>可能是无痕/隐私模式，或者你关闭了网站数据存储。" +
-      (store.anyStorage ? "本次会话内还能续答，但<b>关掉浏览器后进度会丢失</b>。" : "进度<b>刷新页面就会丢失</b>。") +
+      (store.anyStorage ? "本次会话内还能续答，但<b>关掉浏览器后进度会丢失</b>。" : "刷新本页通常还能从网址恢复，但<b>关掉这个标签页后进度会丢失</b>。") +
       "建议答题过程中随时用页面底部的「复制续答链接」或「导出进度文件」自己留一份。";
   } else { w.className = "hide"; w.innerHTML = ""; }
 }
 
-$("#linkBtn").addEventListener("click", async () => {
-  syncHash(true);
+/* 复制链接：先用剪贴板接口，不行再用 execCommand，最后把链接摆出来让人长按复制。
+   微信内置浏览器没有地址栏，不能叫用户「去复制地址栏」。 */
+async function copyText(text){
+  try { await navigator.clipboard.writeText(text); return true; } catch(e){}
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;top:0;left:0;width:1px;height:1px;opacity:0";
+    document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+    const ok = document.execCommand("copy");
+    ta.remove();
+    return ok;
+  } catch(e){ return false; }
+}
+function flashLabel(btn, text){
+  if (!btn.dataset.label) btn.dataset.label = btn.textContent;
+  btn.textContent = text;
+  clearTimeout(btn._flash);
+  btn._flash = setTimeout(() => { btn.textContent = btn.dataset.label; }, 2200);
+}
+function showManualCopy(after, text){
+  let box = after.nextElementSibling;
+  if (!box || !box.classList.contains("manual-copy")){
+    box = document.createElement("div");
+    box.className = "manual-copy";
+    box.innerHTML = '<label>没能自动复制。请长按下面的链接，全选后复制：<input type="text" readonly></label>';
+    after.after(box);
+  }
+  const input = box.querySelector("input");
+  input.value = text; input.focus(); input.select();
+}
+async function copyLink(btn, tip, okText, after){
   const url = location.href;
-  const tip = $("#copied");
-  try {
-    await navigator.clipboard.writeText(url);
-    tip.textContent = "已复制，发给自己保存即可";
-  } catch(e){
-    tip.textContent = "复制失败，请手动复制地址栏的完整网址";
-  }
-  setTimeout(() => { tip.textContent = ""; }, 4000);
-});
-
-$("#resultLinkBtn").addEventListener("click", async () => {
+  if (await copyText(url)){ flashLabel(btn, "已复制 ✓"); tip.textContent = okText; }
+  else { tip.textContent = "没能自动复制，链接已显示在下方。"; showManualCopy(after, url); }
+  clearTimeout(tip._t);
+  tip._t = setTimeout(() => { tip.textContent = ""; }, 5000);
+}
+$("#linkBtn").addEventListener("click", e => {
   syncHash(true);
-  const tip = $("#resultCopied");
-  try {
-    await navigator.clipboard.writeText(location.href);
-    tip.textContent = "结果链接已复制。";
-  } catch(e){
-    tip.textContent = "复制失败，请手动复制地址栏中的完整网址。";
-  }
-  setTimeout(() => { tip.textContent = ""; }, 4000);
+  copyLink(e.currentTarget, $("#copied"), "续答链接已复制，发给自己保存即可。", $(".savebar"));
+});
+$("#resultLinkBtn").addEventListener("click", e => {
+  syncHash(true);
+  copyLink(e.currentTarget, $("#resultCopied"), "结果链接已复制。", $("#resultCopied"));
 });
 
 function download(name, obj){
@@ -2174,15 +2313,28 @@ $("#importBtn").addEventListener("click", () => $("#importFile").click());
 $("#importFile").addEventListener("change", e => {
   const f = e.target.files[0]; if (!f) return;
   const r = new FileReader();
-  r.onload = () => { try {
-    const s = JSON.parse(r.result);
-    if (!Array.isArray(s.answers) || s.answers.length !== 301) throw 0;
-    applySaved(s);
+  r.onload = () => {
+    let v = null;
+    try {
+      let s = JSON.parse(r.result);
+      /* 「导出结果 JSON」存的是 300 个答案、文字版的模式名，也能导入 */
+      if (s && Array.isArray(s.answers) && s.answers.length === 300) s = {...s, answers:[0, ...s.answers]};
+      if (s && typeof s.mode === "string" && /standard|plain/.test(s.mode)) s.mode = "plain";
+      v = validSaved(s);
+    } catch(err){}
+    if (!v){ alert("这个文件读不出来，请确认是本工具导出的进度文件或结果文件，且没有被改动过。"); return; }
+    if (answeredCount(v) === 300) v.done = true;
+    const local = validSaved(store.load());
+    if (answeredCount(local) > 0 && !confirm("本机保存着" + savedWord(local) + "。导入这个文件会把它替换掉，确定吗？")) return;
+    viewOnly = false; staleTab = false;
+    applySaved(v);
     persist();
-    if (done && sex && age){ showResult(); return; }
+    if (done && answeredCount(v) === 300){ showResult(); return; }
+    done = false; page = naturalResumePage(v); persist();
     show("test"); renderPage();
-  } catch(err){ alert("这个文件读不出来，请确认是本工具导出的进度文件。"); } };
+  };
   r.readAsText(f);
+  e.target.value = "";   // 同一个文件再选一次也能触发
 });
 $("#exportBtn").addEventListener("click", () => {
   const r = window.__res, out = {instrument:"IPIP-NEO-300", lang:"zh-CN", sex, age,
@@ -2249,7 +2401,9 @@ $("#staleLoadBtn").addEventListener("click", () => {
   $("#staleBanner").classList.add("hide");
   if (answeredCount(s) > 0) resumeLocal(s);
 });
-$("#enToggle").addEventListener("click", () => document.body.classList.toggle("show-en"));
+$("#enToggle").addEventListener("click", () => keepRowInPlace(() => {
+  $("#enToggle").setAttribute("aria-pressed", document.body.classList.toggle("show-en"));
+}));
 function syncThemeUi(){
   const dark = document.documentElement.getAttribute("data-theme") === "dark";
   $("#themeToggle").textContent = dark ? "浅色" : "深色";
@@ -2268,6 +2422,31 @@ $("#themeToggle").addEventListener("click", () => {
 syncThemeUi();
 
 function boot(){
+  try { bootInner(); }
+  finally {
+    booted = true;
+    document.documentElement.classList.remove("booting");
+    $("#startBtn").disabled = false;
+  }
+}
+/* 恢复到答题页时，把当前该答的题放到视口中间（以前停在页顶，当前题在折叠线以下） */
+function scrollToCurrent(){
+  requestAnimationFrame(() => {
+    const c = $(".qrow.cur");
+    if (c && c !== $("#qlist .qrow")) c.scrollIntoView({block:"center"});
+  });
+}
+addEventListener("popstate", e => {
+  const v = e.state && e.state.view;
+  if (!v || v === document.body.dataset.view) return;
+  popNav = true;
+  try {
+    if (v === "test" && sex && !viewOnly){ done = false; show("test"); renderPage(); }
+    else if (v === "result" && sex && answers.slice(1).every(Boolean)) showResult();
+    else { show("intro"); checkResume(); updateProgress(); }
+  } finally { popNav = false; }
+});
+function bootInner(){
   applyMode();
   const local = validSaved(store.load());
   const u = urlState();
@@ -2296,6 +2475,7 @@ function boot(){
     persist();
     show("test");
     renderPage();
+    scrollToCurrent();
     announceRestore("已自动恢复上次作答", "已答 " + n + " / 300 题 · 从第 " + (page + 1) + " 页继续");
     return;
   }
