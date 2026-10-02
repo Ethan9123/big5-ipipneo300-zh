@@ -70,7 +70,7 @@ try:
     pg.wait_for_selector("#result:not(.hide)")
     box = pg.evaluate("(()=>{const t=document.getElementById('restoreToast');const r=t.getBoundingClientRect();return {hidden:t.classList.contains('hide'),top:Math.round(r.top),bottom:Math.round(r.bottom)}})()")
     res["toast_phone"] = box
-    pg.screenshot(path=os.path.join(os.path.dirname(__file__), "p0_toast_phone.png"))
+    import tempfile; pg.screenshot(path=os.path.join(tempfile.gettempdir(), "ux_p0_toast_phone.png"))   # never write into the repo
     pg.wait_for_timeout(600)
     pg.mouse.wheel(0, 400); pg.wait_for_timeout(400)
     pg.evaluate("window.scrollBy(0, 400)"); pg.wait_for_timeout(300)

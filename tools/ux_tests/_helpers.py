@@ -2,6 +2,8 @@
 import os, sys, json, time, subprocess, socket
 
 OUT = os.path.dirname(os.path.abspath(__file__))
+import tempfile
+DUMP_DIR = tempfile.gettempdir()
 ROOT = os.path.dirname(os.path.dirname(OUT))
 DIST = os.path.join(ROOT, "dist")
 SERVER = os.path.join(ROOT, "tools", "csp_test_server.py")
@@ -117,7 +119,7 @@ def start_test(pg, sex, age, wait=700):
 
 
 def dump(name, obj):
-    path = os.path.join(OUT, name)
+    path = os.path.join(DUMP_DIR, name)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(obj, f, ensure_ascii=False, indent=1)
     return path
