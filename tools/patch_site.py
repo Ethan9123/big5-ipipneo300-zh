@@ -92,7 +92,8 @@ const PCT = decodePctTables(PCT_PAYLOAD);
    原版用 45/55，那是 T 分的惯用分界，套在百分位上只会把 88% 的量表
    推进「低」或「高」两端。百分位在常模样本上是均匀分布的，
    30/70 恰好切出 30% / 40% / 30%。                                    */
-const level = p => p <= 30 ? "低" : (p < 70 ? "中等" : "高");
+/* 按显示出来的整数分档：页面印「70」时档位就是「高」，不会出现「70 · 中等」 */
+const level = q => { const p = Math.round(q); return p <= 30 ? "低" : (p < 70 ? "中等" : "高"); };
 
 /* 各量表的 Cronbach α（145,388 份常模样本实测），用于置信区间。
    SEM = SD·√(1−α)；95% 区间 = 原始分 ±1.96·SEM，再过同一张经验百分位表——
@@ -193,13 +194,11 @@ sub(
 
 # ------------------------------------------------------------------ 6. copy: validity warning
 sub(
-    '"。Johnson (2005) 用这个阈值筛掉「没读题就连点」的作答，被筛掉的约占 3.5%。'
-    '如果这确实是你的真实作答，忽略即可；如果是快速点选留下的，建议重测。</p></details>";',
-    '"。这套阈值来自 Johnson (2005)，用来筛出「没读题就连点」的作答。"\n'
+    '(runFlag ? "Johnson (2005) 用连续同选项的阈值筛掉「没读题就连点」的作答，被筛掉的约占 3.5%。" : "")',
+    '(runFlag ? "连续同选项的阈值来自 Johnson (2005)，用来筛出「没读题就连点」的作答。"\n'
     '      + "但请把它当作提示而不是判决：把同一套规则跑在 145,388 份常模样本上，也有 2.99% 被标记，"\n'
     '      + "而且这些标记全部来自「很不符合」一个选项——因为本量表第 238–300 题恰好全是反向题，'
-    '真心一贯的人在这一段本来就会连着按同一个键（被标记的连击有 97% 起始于第 150 题之后）。"\n'
-    '      + "所以：如果这确实是你的真实作答，忽略即可；如果是快速点选留下的，建议重测。</p></details>";',
+    '真心一贯的人在这一段本来就会连着按同一个键（被标记的连击有 97% 起始于第 150 题之后）。" : "")',
     "careless-responding warning -> measured, and explains the false-positive mechanism")
 
 # (`const REV = new Set(DATA.reversed)` was declared and never used; it lived inside the
@@ -439,7 +438,15 @@ if os.path.exists(profiles_path):
 
     sub("/* --- 分享卡片：纯前端 canvas 生成 PNG，只含分数概览 --- */",
         '''/* --- 组合画像：243 格 --- */
-const PROFILES = ''' + profiles_json + ''';
+/* 243 篇画像放在主脚本之后的 JSON 块里：主脚本不必等这约 200 KB 文本下载完才运行 */
+let PROFILES = null;
+function loadProfiles(){
+  if (!PROFILES){ const el = document.getElementById("profiles-data"); if (el) try { PROFILES = JSON.parse(el.textContent); } catch(e){} }
+  return PROFILES;
+}
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.__res && !$("#result").classList.contains("hide")) renderProfile(window.__res);
+});
 const PF_KEYS = ["O","C","E","A","N"];
 const PF_LV = ["低","中","高"];
 const PF_CUTS = [30, 70];
@@ -449,11 +456,11 @@ const PF_CUTS = [30, 70];
 const ESC = {"&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"};
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ESC[c]);
 
-const bandOf = p => p <= PF_CUTS[0] ? 0 : (p < PF_CUTS[1] ? 1 : 2);
+const bandOf = q => { const p = Math.round(q); return p <= PF_CUTS[0] ? 0 : (p < PF_CUTS[1] ? 1 : 2); };
 const profileIndex = b => ((((b[0]*3 + b[1])*3 + b[2])*3 + b[3])*3 + b[4]);
 
 /* 距离最近分界线的百分位点数；分档对边界附近的小幅变化更敏感。 */
-const cutDistance = p => Math.min(Math.abs(p - PF_CUTS[0]), Math.abs(p - PF_CUTS[1]));
+const cutDistance = q => { const p = Math.round(q); return Math.min(Math.abs(p - PF_CUTS[0]), Math.abs(p - PF_CUTS[1])); };
 
 function cellLabel(b){
   return PF_KEYS.map((k, i) => DATA.domains.find(d => d.key === k).name + PF_LV[b[i]]).join(" · ");
@@ -461,15 +468,17 @@ function cellLabel(b){
 
 function renderProfile(res){
   const box = $("#profile");
-  if (!box || !PROFILES || PROFILES.length !== 243){ if (box) box.innerHTML = ""; return; }
+  if (!box || !loadProfiles() || PROFILES.length !== 243){ if (box) box.innerHTML = ""; return; }
 
   const bands = PF_KEYS.map(k => bandOf(res[k].pct));
   const p = PROFILES[profileIndex(bands)];
   if (!p){ box.innerHTML = ""; return; }
 
   /* 贴近分界的维度，按贴得多近排序 */
-  const border = PF_KEYS.map((k, i) => ({k, i, d: cutDistance(res[k].pct), pct: res[k].pct}))
-    .filter(x => x.d < 5).sort((a, b) => a.d - b.d);
+  /* 是否算「贴近」按显示出来的整数判断（与维度卡一致）；谁最贴近仍按精确值排序，免得取整后并列时随维度顺序挑邻格 */
+  const exact = p => Math.min(Math.abs(p - PF_CUTS[0]), Math.abs(p - PF_CUTS[1]));
+  const border = PF_KEYS.map((k, i) => ({k, i, d: cutDistance(res[k].pct), e: exact(res[k].pct), pct: res[k].pct}))
+    .filter(x => x.d < 5).sort((a, b) => a.e - b.e);
 
   const sect = (t, body) => '<div class="pf-sect"><b>' + t + '</b><p>' + esc(body) + '</p></div>';
   const list = (t, arr, cls) => '<div class="pf-list ' + cls + '"><b>' + t + '</b><ul>' +
@@ -484,9 +493,10 @@ function renderProfile(res){
     /* 邻格：把最贴边的那个维度挪到分界另一侧 */
     const alt = bands.slice();
     const t = border[0];
-    alt[t.i] = res[t.k].pct <= PF_CUTS[0] ? 1
-             : (res[t.k].pct >= PF_CUTS[1] ? 1
-             : (Math.abs(res[t.k].pct - PF_CUTS[0]) < Math.abs(res[t.k].pct - PF_CUTS[1]) ? 0 : 2));
+    const tp = Math.round(res[t.k].pct);
+    alt[t.i] = tp <= PF_CUTS[0] ? 1
+             : (tp >= PF_CUTS[1] ? 1
+             : (Math.abs(tp - PF_CUTS[0]) < Math.abs(tp - PF_CUTS[1]) ? 0 : 2));
     const ap = PROFILES[profileIndex(alt)];
     warn = '<div class="pf-warn"><b>这些维度接近分界，可结合相邻画像阅读</b>' +
       '<p>' + near + ' 距离分档边界不到 5 个百分位点。分数的小幅变化就可能切换文案，' +
@@ -515,6 +525,12 @@ function renderProfile(res){
 
 /* --- 分享卡片：纯前端 canvas 生成 PNG，只含分数概览 --- */''',
         "add the 243-profile data and renderer")
+
+    # the JSON block itself, right after the main script ('<' escaped so the text can never close the tag)
+    sub("boot();\n</script>",
+        "boot();\n</script>\n<script type=\"application/json\" id=\"profiles-data\">" +
+        profiles_json.replace("<", "\\u003c") + "</script>",
+        "move the profiles into a JSON block after the main script")
 
     sub("/* charts */",
         '''/* combination profile */

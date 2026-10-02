@@ -216,6 +216,8 @@ body.show-hints .hint{display:block}
 .legend table{margin-top:9px;font-size:12.5px}
 .legend td{padding:4px 8px;border-bottom:1px solid var(--grid);vertical-align:top}
 .legend td:first-child{white-space:nowrap;font-weight:600;color:var(--text-primary);width:1%}
+.lg-short{display:none;font-weight:400;color:var(--text-muted)}
+@media (max-width:560px){.lg-short{display:inline}}
 .brk{border:1px solid var(--accent);background:var(--wash);border-radius:10px;padding:13px 16px;margin:0 0 16px;font-size:13.5px;line-height:1.6}
 .brk .btns{display:flex;gap:9px;margin-top:10px;flex-wrap:wrap}
 .modecard{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0 14px}
@@ -239,7 +241,9 @@ body.show-hints .hint{display:block}
 .view-banner .btns{display:flex;gap:8px;flex-wrap:wrap}
 .stale-banner{top:calc(62px + env(safe-area-inset-top,0px));bottom:auto;border-color:rgba(214,120,42,.45)}
 .stale-banner .mark{color:#c25a12}
-.stale-banner .btn{min-height:38px;padding:7px 13px;flex:none}
+.stale-banner{flex-wrap:wrap}
+.stale-banner .stale-btns{display:flex;gap:8px;flex-wrap:wrap}
+.stale-banner .btn{min-height:38px;padding:7px 13px;flex:none;font-size:13.5px}
 .restore-toast{position:fixed;z-index:30;bottom:22px;left:50%;transform:translateX(-50%);
   width:min(560px,calc(100% - 28px));display:flex;align-items:center;gap:11px;
   border:1px solid rgba(42,120,214,.32);border-radius:12px;padding:11px 13px;
@@ -315,7 +319,10 @@ body.show-hints .hint{display:block}
 .report-orbits i{position:absolute;inset:20px;border:1px solid #96d9ff60;border-radius:50%;transform:scaleX(.55)}
 .report-orbits i:nth-child(2){transform:rotate(60deg) scaleX(.55);border-color:#ddafee80}
 .report-orbits i:nth-child(3){transform:rotate(120deg) scaleX(.55);border-color:#7ce0c680}
-.report-kicker{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px;font-size:11px;letter-spacing:.16em;color:#bacbdd}
+.report-kicker{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px;font-size:12px;letter-spacing:.16em;color:#bacbdd}
+/* 深色主题下封面与页面几乎同色（1.13:1）：底色略提亮、描边加深，结构和配色方向不变 */
+:root[data-theme="dark"] .report-cover{border-color:#40557a;
+  background:radial-gradient(ellipse at 94% 8%,#285c715e,transparent 55%),radial-gradient(ellipse at 50% 120%,#5754a64d,transparent 60%),#13213a}
 .report-status{display:inline-flex;align-items:center;gap:7px;letter-spacing:.03em;color:#b2eadb}
 .report-status::before{content:"";width:6px;height:6px;border-radius:50%;background:#8ce0c7;box-shadow:0 0 12px #8ce0c780}
 .report-cover h1{font-size:clamp(30px,4.8vw,44px);letter-spacing:-.035em;line-height:1.25;margin:0 0 12px;max-width:620px;text-wrap:balance}
@@ -327,6 +334,7 @@ body.show-hints .hint{display:block}
 .report-spectrum{margin-top:26px;padding-top:18px;border-top:1px solid #ffffff1c}
 .report-spectrum-heading{display:flex;justify-content:space-between;gap:10px;color:#bacbdd;font-size:12px;margin-bottom:10px}
 .report-pct-note{position:relative;margin:14px 0 0;font-size:13px;line-height:1.6;color:#c9d6e6}
+.report-age-note{margin:10px 0 0;font-size:13px;line-height:1.6;color:#c9d6e6;max-width:620px}
 .report-pct-note b{color:#fff;font-weight:650}
 .report-tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
 .report-tile{position:relative;min-width:0;padding:13px 11px 12px;display:flex;flex-direction:column;align-items:flex-start;gap:5px;
@@ -350,14 +358,14 @@ body.show-hints .hint{display:block}
   .report-meta{font-size:11px;gap:6px}
   .report-tiles{gap:5px}
   .report-tile{padding:10px 6px;gap:5px;border-radius:9px}
-  .report-tile-name{font-size:11px;white-space:nowrap}
+  .report-tile-name{font-size:clamp(11px,3.2vw,12px);white-space:nowrap}
   .report-tile strong{font-size:22px}
   .report-tile-arrow{display:none}
   .report-spectrum-heading{font-size:12px}
 }
 @media print{
   .report-cover{background:#fff;color:#111;box-shadow:none;border-color:#aaa;break-inside:avoid}
-  .report-cover h1 span,.report-intro,.report-meta,.report-meta-chip,.report-kicker,.report-status,.report-pct-note,.report-pct-note b{color:#333}
+  .report-cover h1 span,.report-intro,.report-meta,.report-meta-chip,.report-kicker,.report-status,.report-pct-note,.report-pct-note b,.report-age-note{color:#333}
   .report-meta-chip{border-color:#aaa;background:none}
   .report-cover::before,.report-orbits,.report-spectrum{display:none}
 }
@@ -388,6 +396,7 @@ body.show-hints .hint{display:block}
 .hero-chip b{font-variant-numeric:tabular-nums;font-weight:650}
 button.hero-chip{font:inherit;color:inherit;background:transparent;cursor:pointer;min-height:34px}
 button.hero-chip:hover{background:var(--wash)}
+.chip-dom{font-size:11.5px;color:var(--text-muted);margin-right:-3px}
 .fgloss{grid-row:2;grid-column:2 / 4;font-size:12px;line-height:1.45;color:var(--text-secondary);margin:-2px 0 3px}
 .fgloss i{font-style:normal;color:var(--text-muted)}
 .fbar.flash{animation:fbar-flash 1.6s ease}
@@ -399,7 +408,7 @@ button.hero-chip:hover{background:var(--wash)}
 .care-note p:last-child{margin:0}
 .care-note a{color:var(--accent);font-weight:650;white-space:nowrap}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-@media (pointer:coarse){#printBtn2{display:none}}   /* 手机上很少打印：底部仍保留一个入口 */
+@media (max-width:560px){#printBtn2{display:none}}   /* 手机上很少打印，底部仍保留一个入口；iPad 等触屏大屏照常显示 */
 .result-nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:-2px 0 18px;padding:10px 12px;
   border:1px solid var(--border);border-radius:10px;background:var(--surface-1)}
 .result-nav>span{font-size:12px;color:var(--text-muted);margin-right:2px}
@@ -416,7 +425,7 @@ button.hero-chip:hover{background:var(--wash)}
 .track>u{position:absolute;top:-3px;bottom:-3px;left:50%;width:1px;background:var(--axis);text-decoration:none}
 .fbar{display:grid;grid-template-columns:96px 1fr 34px;gap:10px;align-items:center;padding:5px 0;cursor:default}
 .fbar:hover{background:var(--wash);border-radius:6px}
-.fname{font-size:13.5px;color:var(--text-secondary);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fname{font-size:13.5px;color:var(--text-secondary);text-align:right;line-height:1.3;overflow-wrap:anywhere}
 .ftrack{position:relative;height:10px;background:var(--grid);border-radius:3px}
 .ftrack>i{position:absolute;left:0;top:0;bottom:0;border-radius:0 3px 3px 0}
 .ftrack>u{position:absolute;top:-2px;bottom:-2px;left:50%;width:1px;background:var(--axis)}
@@ -436,6 +445,16 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
   box-shadow:0 6px 20px rgba(0,0,0,.14);z-index:60;max-width:250px;line-height:1.5}
 #tip b{font-weight:650}
 .hide{display:none !important}
+.card-sheet{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:16px}
+.card-sheet-box{background:var(--surface-1);color:var(--text-primary);border-radius:16px;width:100%;max-width:440px;
+  max-height:calc(100vh - 32px);overflow:auto;padding:12px 16px 16px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.card-sheet-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.card-sheet-head b{font-size:16px}
+.card-sheet-close{border:0;background:transparent;color:var(--text-muted);font:inherit;font-size:24px;width:44px;height:44px;border-radius:8px;cursor:pointer}
+.card-sheet-tip{margin:2px 0 10px;font-size:13px;line-height:1.6;color:var(--text-secondary)}
+.card-sheet img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--border);-webkit-touch-callout:default}
+.card-sheet-btns{display:flex;gap:10px;margin-top:12px}
+.card-sheet-btns .btn{flex:1;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;min-height:46px}
 html.booting #intro{display:none}
 html.booting main.wrap::before{content:"正在载入上次的进度…";display:block;padding:72px 0;text-align:center;color:var(--text-muted);font-size:14px}
 .page-undo{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:-4px 0 12px;font-size:13px;color:var(--text-secondary)}
@@ -485,7 +504,7 @@ html.booting main.wrap::before{content:"正在载入上次的进度…";display:
   .qrow{padding:19px 0;scroll-margin-top:64px}
   .qrow.cur::before{left:-8px}
   .opts{margin-left:0;gap:4px}
-  .opt{font-size:12px;min-height:48px;padding:7px 1px;letter-spacing:0;white-space:nowrap}
+  .opt{font-size:12px;min-height:48px;padding:7px 1px;letter-spacing:0;white-space:normal;line-height:1.15;overflow-wrap:anywhere}
   .opt-full{display:none}
   .opt-short{display:inline}
   .hint{margin-left:0}
@@ -506,12 +525,23 @@ html.booting main.wrap::before{content:"正在载入上次的进度…";display:
   .iconbtn{min-height:44px;padding:8px 12px}
   .legend summary,.mode-note summary,.result-guide summary,.guide-card>summary{padding:10px 0}
   .result-guide{padding:6px 16px}
-  .trait-dots{display:none}
+  .trait-dots{margin:12px 0 10px}
+  .intro-hero{padding:16px 16px 18px;gap:14px;margin-top:14px}
+  .intro-title{font-size:28px}
   /* 手机上底部是主要按钮的位置，恢复提示改到顶栏下方，避免挡住「保存卡片」「下一页」 */
   .restore-toast{top:calc(62px + env(safe-area-inset-top,0px));bottom:auto;padding:9px 11px}
 }
+@media (max-width:340px){.opt{font-size:11.5px;letter-spacing:-.02em}}
 @media (max-width:390px){
   .modecard{grid-template-columns:1fr}
+}
+@media (forced-colors:active){
+  .opt[aria-checked="true"]{forced-color-adjust:none;background:Highlight;color:HighlightText;border-color:Highlight}
+  .qrow.cur{outline:2px solid Highlight;outline-offset:4px}
+  .qrow.unanswered.flag{outline:2px dashed CanvasText}
+  .track,.ftrack{border:1px solid CanvasText}
+  .track>i,.ftrack>i,.swatch{forced-color-adjust:none;background:CanvasText !important}
+  .track>s,.ftrack>s,.track>s::before,.track>s::after,.ftrack>s::before,.ftrack>s::after{forced-color-adjust:none;background:Highlight;box-shadow:none}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto !important;animation-duration:.01ms !important;
@@ -531,8 +561,16 @@ html.booting main.wrap::before{content:"正在载入上次的进度…";display:
 
 <div class="restore-toast stale-banner hide noprint" id="staleBanner" role="alert">
   <span class="mark" aria-hidden="true">!</span>
-  <span class="copy"><b>这份作答在另一个标签页里更新过</b><small id="staleMeta">为免互相覆盖，这个页面已暂停保存。</small></span>
-  <button class="btn" type="button" id="staleLoadBtn">载入最新</button>
+  <span class="copy"><b>另一个标签页里的作答和这里不一样</b><small id="staleMeta">为免互相覆盖，这个页面已暂停保存。</small></span>
+  <span class="stale-btns"><button class="btn" type="button" id="staleLoadBtn">用那边的</button><button class="btn ghost" type="button" id="staleKeepBtn">保留这边的</button></span>
+</div>
+<div id="cardSheet" class="card-sheet hide noprint" role="dialog" aria-modal="true" aria-labelledby="cardSheetTitle">
+  <div class="card-sheet-box">
+    <div class="card-sheet-head"><b id="cardSheetTitle">分享卡片已生成</b><button type="button" class="card-sheet-close" aria-label="关闭">×</button></div>
+    <p class="card-sheet-tip">在手机上长按图片，可以保存到相册或直接发给朋友。卡片只含五个维度的百分位，不含逐题作答。</p>
+    <img alt="大五人格分享卡片：五个维度的百分位">
+    <div class="card-sheet-btns"><a class="btn" download="大五人格画像-IPIP300.png">下载图片</a><button type="button" class="btn ghost card-sheet-done">完成</button></div>
+  </div>
 </div>
 <div class="restore-toast hide noprint" id="restoreToast" role="status" aria-live="polite">
   <span class="mark" aria-hidden="true">✓</span>
@@ -698,11 +736,11 @@ html.booting main.wrap::before{content:"正在载入上次的进度…";display:
   <details class="legend" id="legend">
     <summary>拿不准怎么选？查看选项说明</summary>
     <table>
-      <tr><td>很不符合</td><td>基本不是你，认识你的人也不会这么形容你。</td></tr>
-      <tr><td>比较不符合</td><td>偶尔会这样，但大多数时候不是。</td></tr>
+      <tr><td>很不符合<small class="lg-short">（很不像）</small></td><td>基本不是你，认识你的人也不会这么形容你。</td></tr>
+      <tr><td>比较不符合<small class="lg-short">（不太像）</small></td><td>偶尔会这样，但大多数时候不是。</td></tr>
       <tr><td>一半一半</td><td>符合与不符合的情况差不多，或不同场合下差别很大。暂时想不起具体例子时，可以参考平时的整体表现。</td></tr>
-      <tr><td>比较符合</td><td>大体是你，但有例外。</td></tr>
-      <tr><td>很符合</td><td>这就是你，认识你的人也会这么说。</td></tr>
+      <tr><td>比较符合<small class="lg-short">（比较像）</small></td><td>大体是你，但有例外。</td></tr>
+      <tr><td>很符合<small class="lg-short">（很像）</small></td><td>这就是你，认识你的人也会这么说。</td></tr>
     </table>
   </details>
 
@@ -745,6 +783,7 @@ html.booting main.wrap::before{content:"正在载入上次的进度…";display:
     <h1 id="resultTitle" tabindex="-1">你的大五人格，<br><span>有自己的轮廓。</span></h1>
     <p class="report-intro">五种倾向，交织成这一次的你。先看整体，再走进那些值得了解的细节。</p>
     <div class="report-meta" id="resMeta" role="group" aria-label="本次报告的常模与作答信息"></div>
+    <p class="report-age-note hide" id="ageNote">你所在的「21 岁以下」参考组里，一半以上是 18–20 岁的人。参考样本中 14–17 岁的人在尽责性上落入「低」档的比例约 35%（整体约 30%），这更像年龄阶段的差异，这几项百分位请粗略参考。</p>
     <div class="report-spectrum noprint">
       <div class="report-spectrum-heading"><span>你的五维速览 · 百分位</span><span>点选维度，探索解读 ↗</span></div>
       <nav class="report-tiles" id="reportTiles" aria-label="探索五个维度"></nav>
@@ -803,6 +842,7 @@ html.booting main.wrap::before{content:"正在载入上次的进度…";display:
   </details>
 
   <h2 id="domainsHeading">五个维度</h2>
+  <p class="sub" style="margin-top:-6px">每个维度由 6 个子面向、共 60 道题汇总。高低是在参考样本中的位置，不是能力排名。</p>
   <div id="domains"></div>
 
   <h2 id="facetsHeading">30 个子面向</h2>
@@ -901,7 +941,8 @@ const snapshot = () => ({v:1, answers, sex, age, page, mode, done, savedAt: Date
 let viewOnly = false;   // 正在查看别人的链接：不写本机存档，也不改地址栏
 let staleTab = false;   // 另一个标签页写了更新的存档：本页暂停保存，免得把新进度盖掉
 const OWN_KEY = KEY + ":own";
-function markOwnHash(str){ try { sessionStorage.setItem(OWN_KEY, str); } catch(e){} }
+const seenHashes = new Set();   // 本页写过或打开时带着的片段；后退 / 前进回到它们不算「新链接」
+function markOwnHash(str){ seenHashes.add(str); try { sessionStorage.setItem(OWN_KEY, str); } catch(e){} }
 function ownHash(){ try { return sessionStorage.getItem(OWN_KEY); } catch(e){ return null; } }
 
 function persist(){
@@ -1179,11 +1220,14 @@ $("#qlist").addEventListener("click", e => {
   // 修改已答题时保留当前位置，方便核对选项。
   if (revising) return;
   document.querySelectorAll(".qrow.cur").forEach(r => r.classList.remove("cur"));
-  const next = [...document.querySelectorAll(".qrow")].find(r => !answers[+r.dataset.qid]);
+  /* 下一题从刚答的这题往后找，找不到再回头；只在它位于下方时自动滚动（跳着答时不再被拽回页首） */
+  const rows = [...document.querySelectorAll("#qlist .qrow")], at = rows.indexOf(row);
+  const open = r => !answers[+r.dataset.qid];
+  const next = rows.slice(at + 1).find(open) || rows.slice(0, at).find(open);
   if (next){
     next.classList.add("cur");
     clearTimeout(scrollT);
-    scrollT = setTimeout(() => next.scrollIntoView({behavior: smoothB(), block: "center"}), 160);
+    if (rows.indexOf(next) > at) scrollT = setTimeout(() => next.scrollIntoView({behavior: smoothB(), block: "center"}), 160);
     return;
   }
   /* 本页刚好答完（不是改已答的题）才自动前进 */
@@ -1298,10 +1342,13 @@ $("#nextBtn").addEventListener("click", () => {
   page++; persist(); renderPage();
 });
 $("#prevBtn").addEventListener("click", () => { if (page > 0){ page--; persist(); renderPage(); } });
-$("#pageJump").addEventListener("change", e => {
-  const target = +e.target.value;
-  if (Number.isInteger(target) && target >= 0 && target < NPAGES){ page = target; persist(); renderPage(); }
-});
+function jumpTo(target){
+  if (Number.isInteger(target) && target >= 0 && target < NPAGES && target !== page){ page = target; persist(); renderPage(); }
+}
+/* 键盘在收起的下拉框上按方向键会直接触发 change：这时不翻页，按回车或离开下拉框再翻 */
+$("#pageJump").addEventListener("change", e => { if (lastInput !== "key") jumpTo(+e.target.value); });
+$("#pageJump").addEventListener("keydown", e => { if (e.key === "Enter"){ e.preventDefault(); jumpTo(+e.target.value); } });
+$("#pageJump").addEventListener("blur", e => jumpTo(+e.target.value));
 const quitToHome = () => { persist(); show("intro"); checkResume(); };
 $("#quitBtn").addEventListener("click", quitToHome);
 $("#quickQuitBtn").addEventListener("click", quitToHome);
@@ -1340,8 +1387,9 @@ const DOMAIN_READING = {
    北京心理援助热线 010-82951332 为 24 小时人工接听；香港撒玛利亚防止自杀会 2389 2222、台湾安心专线 1925 均为 24 小时。
    tel: 是导航，不受 connect-src 'none' 限制，离线也能用。 */
 function careNote(r){
-  const high = p => p >= 85;
-  if (!(high(r.pct) || high(r.facets[2].pct) || high(r.facets[5].pct))) return null;
+  /* 总分偏高、且「抑郁」或「脆弱」也偏高才显示（参考样本里约 13.5%；只看任一项 ≥85 会到 23.5%） */
+  const high = p => Math.round(p) >= 85;
+  if (!(high(r.pct) && (high(r.facets[2].pct) || high(r.facets[5].pct)))) return null;
   const el = document.createElement("aside");
   el.className = "care-note";
   el.setAttribute("aria-label", "关于情绪的提示");
@@ -1358,7 +1406,8 @@ function domainReading(d, r){
   const rank = r.facets.map((f, i) => ({pct:f.pct, name:DATA.facets[d.key][i][0]}))
     .sort((a, b) => b.pct - a.pct);
   const high = rank[0], low = rank[rank.length - 1];
-  const summary = r.pct <= 30 ? copy.low : r.pct >= 70 ? copy.high
+  const rp = Math.round(r.pct);
+  const summary = rp <= 30 ? copy.low : rp >= 70 ? copy.high
     : "本次分数位于参考样本的中间范围。总分没有明显偏向某一端，不代表每个子面向都居中，也不能据此判断你在不同场合的表现。";
   const where = p => p < 0.5 ? "处在同组参考者最低的 1% 以内" : p > 99.5 ? "处在同组参考者最高的 1% 以内"
     : "高于约 " + Math.round(p) + "% 的同组参考者";
@@ -1368,8 +1417,8 @@ function domainReading(d, r){
   else if (low.pct >= 70) evidence += "6 个子面向都偏高，相对最低的是「" + low.name + "」（" + pctDisp(low.pct) + "）。";
   else evidence += "6 个子面向里最高的是「" + high.name + "」（" + pctDisp(high.pct) + "），最低的是「" + low.name + "」（" + pctDisp(low.pct) + "）。";
   /* 与组合画像同一条规则：离 30 / 70 不到 5 个百分位点才提示。区间跨界几乎人人都有，每张卡都说就没有信息量了 */
-  const cut = Math.abs(r.pct - 30) <= Math.abs(r.pct - 70) ? 30 : 70, gap = Math.abs(r.pct - cut);
-  if (gap < 5) evidence += "总分离 " + cut + " 这条分界只有" + (gap < 1 ? "不到 1" : " " + Math.round(gap)) + " 个百分位点，「" +
+  const cut = Math.abs(rp - 30) <= Math.abs(rp - 70) ? 30 : 70, gap = Math.abs(rp - cut);
+  if (gap < 5) evidence += (gap === 0 ? "总分正好落在 " + cut + " 这条分界上" : "总分离 " + cut + " 这条分界只有 " + gap + " 个百分位点") + "，「" +
     (cut === 30 ? "低" : "中等") + "」和「" + (cut === 30 ? "中等" : "高") + "」两档的描述都值得参考。";
   return {summary, evidence, prompt:"对照生活：" + copy.prompt};
 }
@@ -1383,7 +1432,8 @@ const TENDENCY = {
   A:{lo:"直率与立场优先",hi:"温和与合作"},
   N:{lo:"情绪平稳与抗压",hi:"感受敏锐与情绪起伏"}
 };
-function tendencyTag(d, p){
+function tendencyTag(d, q){
+  const p = Math.round(q);   // 按显示出来的整数分档：页面写「70」时标签就是「高」
   const lo = d.plo.split(" · ")[0], hi = d.phi.split(" · ")[0];
   if (p <= 30) return "低 · 偏向" + lo;
   if (p < 45) return "中等 · 略偏" + lo;
@@ -1392,6 +1442,22 @@ function tendencyTag(d, p){
   return "高 · 偏向" + hi;
 }
 function tendencyPhrase(d, p){ return p < 50 ? TENDENCY[d.key].lo : TENDENCY[d.key].hi; }
+
+/* 个人信度（Johnson, 2005）：每个子面向的 10 道题按出现顺序分成前后交错的两半，
+   30 个子面向两半得分的相关再经 Spearman-Brown 校正。2026-10-02 用 145,388 份常模核对：
+   中位 0.87，没有人低于 0.30；均匀随机点选的作答约 83% 低于 0.30。规律点选（如 1-5 交替）它抓不到。 */
+function personalReliability(a){
+  const k = a.slice();
+  for (const q of DATA.reversed) k[q] = 6 - k[q];
+  const o = new Array(30).fill(0), e = new Array(30).fill(0);
+  for (let q = 1; q <= 300; q++){ const j = (q - 1) % 30, half = Math.floor((q - 1) / 30) % 2; (half ? e : o)[j] += k[q]; }
+  const mean = v => v.reduce((x, y) => x + y, 0) / 30, mo = mean(o), me = mean(e);
+  let sxy = 0, sxx = 0, syy = 0;
+  for (let j = 0; j < 30; j++){ const x = o[j] - mo, y = e[j] - me; sxy += x * y; sxx += x * x; syy += y * y; }
+  if (!sxx || !syy) return null;
+  const r = sxy / Math.sqrt(sxx * syy);
+  return r <= -1 ? -1 : 2 * r / (1 + r);
+}
 
 /* Johnson (2005) 判定无效作答的连续同选项上限，对应选项 1–5 */
 const RUN_CUT = [0, 6, 9, 10, 14, 9];
@@ -1428,6 +1494,8 @@ function showResult(){
     chip.textContent = text;
     metadata.appendChild(chip);
   });
+  /* 2026-10-02 用 145,388 份常模核对：21 岁以下组中位 18 岁，18–20 岁占 55%；14–17 岁尽责性「低」档约 35%，18–20 岁约 25% */
+  $("#ageNote").classList.toggle("hide", !(age < 18));
   const tiles = $("#reportTiles");
   tiles.replaceChildren();
   const tileColors = ["#8fc4ff", "#ffaf89", "#86dfbb", "#f5d481", "#f2add1"];
@@ -1456,12 +1524,17 @@ function showResult(){
   /* 作答有效性检查 */
   const runs = longestRuns(answers), flags = [];
   for (let v = 1; v <= 5; v++) if (runs[v] > RUN_CUT[v]) flags.push("连续 " + runs[v] + " 次「" + SCALE[v-1] + "」（阈值 " + RUN_CUT[v] + "）");
+  const runFlag = flags.length > 0;
+  const ir = personalReliability(answers), irLow = ir !== null && ir < 0.30;
+  if (irLow) flags.push("前后同类题目的作答一致性偏低（个人信度 " + ir.toFixed(2) + "）");
   const box = $("#validity");
   if (flags.length){
     box.className = "validity-panel";
-    box.innerHTML = '<details><summary><span><b>作答有效性提示</b><small>' + flags.join("；") +
-      '</small></span><span class="validity-action">查看</span></summary><p>' + flags.join("；") +
-      "。Johnson (2005) 用这个阈值筛掉「没读题就连点」的作答，被筛掉的约占 3.5%。如果这确实是你的真实作答，忽略即可；如果是快速点选留下的，建议重测。</p></details>";
+    box.innerHTML = '<details' + (irLow ? ' open' : '') + '><summary><span><b>作答有效性提示</b><small>' + flags.join("；") +
+      '</small></span><span class="validity-action">查看</span></summary><p>' + flags.join("；") + "。" +
+      (runFlag ? "Johnson (2005) 用连续同选项的阈值筛掉「没读题就连点」的作答，被筛掉的约占 3.5%。" : "") +
+      (irLow ? "个人信度比较每个子面向前后两半题目的作答是否一致（Johnson, 2005）：参考样本的 145,388 人里没有人低于 0.30，随机点选的作答约八成会低于它。下面的分数和画像可能主要反映随机波动。" : "") +
+      "如果这确实是你的真实作答，忽略即可；如果是快速点选留下的，建议重测。</p></details>";
   } else { box.className = "hide"; box.innerHTML = ""; }
   const modeNote = $("#modeNote");
   modeNote.className = mode === "hints" ? "muted" : "hide";
@@ -1502,6 +1575,8 @@ function showResult(){
   renderHero(res);
 
   /* --- facets --- */
+  /* 只给热点 chip 里那几项（最极端的至多 6 项）附释义：误读主要发生在那里，也不让页面再长三分之一屏 */
+  const glossed = new Set([...document.querySelectorAll("#heroChips [data-facet]")].map(b => b.dataset.facet));
   const fbox = $("#facets"); fbox.innerHTML = "";
   for (const d of DATA.domains){
     const r = res[d.key], meta = DATA.facets[d.key];
@@ -1511,10 +1586,10 @@ function showResult(){
     r.facets.forEach((f, idx) => {
       const m = meta[idx];
       rows +=
-        '<div class="fbar" id="facet-' + d.key + (idx + 1) + '" data-tip="' + m[0] + '|' + f.raw + '|' + f.t.toFixed(1) + '|' + Math.round(f.pct) + '|' + m[2] + '">' +
+        '<div class="fbar" id="facet-' + d.key + (idx + 1) + '" tabindex="-1" data-tip="' + m[0] + '|' + f.raw + '|' + f.t.toFixed(1) + '|' + Math.round(f.pct) + '|' + m[2] + '">' +
           '<span class="fname">' + m[0] + '</span>' +
           /* 「友善 <1」「抑郁 94」这类极端值最容易按日常词义误读，直接附上它在量表里的意思 */
-          (f.pct <= 15 || f.pct >= 85 ? '<span class="fgloss"><i>衡量：</i>' + m[2] + '</span>' : '') +
+          (glossed.has(d.key + (idx + 1)) ? '<span class="fgloss"><i>衡量：</i>' + m[2] + '</span>' : '') +
           '<span class="ftrack"><i style="background:' + COLOR(d.key) + ';width:' + Math.max(1.2, f.pct) + '%"></i><u></u></span>' +
           '<span class="fpct">' + Math.round(f.pct) + '</span></div>';
     });
@@ -1522,7 +1597,7 @@ function showResult(){
       '<div class="dom-head" style="margin-bottom:8px"><span class="swatch" style="background:' + COLOR(d.key) + '"></span>' +
         '<h3>' + d.name + '</h3><span class="muted">总分百分位 ' + Math.round(r.pct) + '</span></div>' +
       rows +
-      '<div class="scaleline"><span></span><div><span>0</span><span>50</span><span>100</span></div><span></span></div>';
+      '<div class="scaleline" aria-hidden="true"><span></span><div><span>0</span><span>50</span><span>100</span></div><span></span></div>';
     fbox.appendChild(el);
   }
 
@@ -1590,7 +1665,7 @@ function renderHero(res){
     const side = c.pct >= 50 ? "偏高" : "偏低";
     return '<button type="button" class="hero-chip" data-facet="' + c.key + c.idx + '" title="衡量：' + c.gloss + '" aria-label="' +
       c.dom + '·' + c.name + '，百分位 ' + pctDisp(c.pct) + '，' + side + '。这一项衡量：' + c.gloss + '。点按查看该子面向">' +
-      '<span class="swatch" style="background:' + COLOR(c.key) + '"></span>' +
+      '<span class="swatch" style="background:' + COLOR(c.key) + '"></span><small class="chip-dom" aria-hidden="true">' + c.dom[0] + '</small>' +
       c.name + ' <b>' + pctDisp(c.pct) + '</b><span class="muted">' + side + '</span></button>';
   }).join("");
 }
@@ -1599,6 +1674,7 @@ $("#heroChips").addEventListener("click", e => {
   const row = chip && document.getElementById("facet-" + chip.dataset.facet);
   if (!row) return;
   row.scrollIntoView({behavior:smoothB(), block:"center"});
+  row.focus({preventScroll:true});
   row.classList.remove("flash"); void row.offsetWidth; row.classList.add("flash");
 });
 
@@ -1621,8 +1697,11 @@ function saveCard(){
   x.fillText("大 五 人 格 测 评 · I P I P - N E O - 3 0 0", 72, 64);
   x.fillStyle = ink; x.font = "700 58px " + F;
   x.fillText("我的人格画像", 72, 104);
-  x.fillStyle = sub; x.font = "400 30px " + F;
-  x.fillText($("#heroLine").textContent, 72, 182);
+  /* 倾向句按宽度缩字号：最长的组合（30px 时 1110px）以前会被画布右缘切掉，约两成的卡片缺字 */
+  const hero = $("#heroLine").textContent;
+  let fs = 30;
+  do { x.font = "400 " + fs + "px " + F; } while (x.measureText(hero).width > W - 144 && --fs > 20);
+  x.fillStyle = sub; x.fillText(hero, 72, 182 + (30 - fs) / 2, W - 144);
 
   /* 雷达 */
   const cx = W / 2, cy = 520, R = 218;
@@ -1650,7 +1729,7 @@ function saveCard(){
     const lx = cx + Math.cos(a) * (R + 56), ly = cy + Math.sin(a) * (R + 56);
     x.textAlign = Math.abs(lx - cx) < 20 ? "center" : (lx > cx ? "left" : "right");
     x.fillStyle = sub; x.font = "500 28px " + F; x.fillText(d.name, lx, ly - 20);
-    x.fillStyle = ink; x.font = "700 32px " + F; x.fillText(String(Math.round(res[d.key].pct)), lx, ly + 14);
+    x.fillStyle = ink; x.font = "700 32px " + F; x.fillText(pctDisp(res[d.key].pct), lx, ly + 14);
   });
   x.textAlign = "left";
 
@@ -1682,12 +1761,44 @@ function saveCard(){
   x.fillText(new Date().toLocaleDateString("zh-CN"), W - 72, y + 28);
   x.textAlign = "left";
 
-  c.toBlob(b => {
-    const u = URL.createObjectURL(b), a = document.createElement("a");
-    a.href = u; a.download = "大五人格画像-IPIP300.png"; a.click();
-    URL.revokeObjectURL(u);
-  }, "image/png");
+  c.toBlob(b => { if (b) openCardSheet(b); }, "image/png");
 }
+
+/* 手机上 <a download> 不可靠：微信内置浏览器多半没反应，iOS 会存进「文件」而不是相册，而且点完没有任何反馈。
+   先把卡片显示出来：长按图片保存或转发；支持下载的浏览器再点「下载图片」。 */
+let cardUrl = null, cardReturn = null;
+function openCardSheet(blob){
+  closeCardSheet(true);
+  cardUrl = URL.createObjectURL(blob);
+  const sheet = $("#cardSheet");
+  sheet.querySelector("img").src = cardUrl;
+  sheet.querySelector("a").href = cardUrl;
+  cardReturn = $("#cardBtn");
+  sheet.classList.remove("hide");
+  document.documentElement.style.overflow = "hidden";
+  /* 返回键先关掉预览，而不是离开结果页 */
+  try { history.pushState({view:document.body.dataset.view, sheet:1}, "", location.href); } catch(e){}
+  document.querySelectorAll("main, header.topbar").forEach(el => { el.inert = true; });
+  sheet.querySelector(".card-sheet-close").focus();
+}
+function closeCardSheet(silent, fromPop){
+  const wasOpen = !$("#cardSheet").classList.contains("hide");
+  $("#cardSheet").classList.add("hide");
+  document.documentElement.style.overflow = "";
+  if (wasOpen && !fromPop && history.state && history.state.sheet) history.back();
+  document.querySelectorAll("main, header.topbar").forEach(el => { el.inert = false; });
+  if (cardUrl){ URL.revokeObjectURL(cardUrl); cardUrl = null; }
+  if (!silent && cardReturn && cardReturn.focus) cardReturn.focus({preventScroll:true});
+  cardReturn = null;
+}
+$("#cardSheet").addEventListener("click", e => {
+  if (e.target === e.currentTarget || e.target.closest(".card-sheet-close, .card-sheet-done")) closeCardSheet();
+});
+addEventListener("keydown", e => {
+  if (e.key !== "Escape") return;
+  if (!$("#cardSheet").classList.contains("hide")) closeCardSheet();
+  else if (!$("#restoreToast").classList.contains("hide")) hideRestoreToast();
+});
 
 function buildTable(res){
   let h = '<table><thead><tr><th>维度 / 子面向</th><th class="n">原始分</th><th class="n">T 分</th><th class="n">百分位</th><th>水平</th></tr></thead><tbody>';
@@ -1730,6 +1841,7 @@ function show(id){
   const prev = document.body.dataset.view;
   ["intro","test","result"].forEach(s => $("#"+s).classList.toggle("hide", s !== id));
   document.body.dataset.view = id;
+  if (prev && prev !== id) hideRestoreToast();
   if (id !== "test") document.title = id === "result" ? "测评结果 · " + BASE_TITLE : BASE_TITLE;
   /* 只在切换视图时记一条历史（翻页不记），返回键 = 回到上一个视图；地址栏片段仍由 syncHash 原地更新 */
   try {
@@ -1850,7 +1962,9 @@ $("#restoreToastClose").addEventListener("click", hideRestoreToast);
 
 /* 网址里的存档：raw 是原始片段，s 是解析结果（片段残缺时为 null） */
 function urlState(){
-  const m = /[#&]p=([0-9A-Za-z-]*)/.exec(location.hash || "");
+  let h = location.hash || "";
+  try { h = decodeURIComponent(h); } catch(e){}   // 有的 App 会把片段转义成 #p%3D…
+  const m = /[#&]p=([0-9A-Za-z-]*)/.exec(h);
   return m ? {raw:m[1], s:validSaved(decodeState(m[1]))} : null;
 }
 /* 网址存档与本机存档是不是同一个人的同一份作答。
@@ -2066,7 +2180,8 @@ $("#resultLinkBtn").addEventListener("click", e => {
 function download(name, obj){
   const b = new Blob([JSON.stringify(obj, null, 1)], {type:"application/json"});
   const u = URL.createObjectURL(b), a = document.createElement("a");
-  a.href = u; a.download = name; a.click(); URL.revokeObjectURL(u);
+  a.href = u; a.download = name; a.click();
+  setTimeout(() => URL.revokeObjectURL(u), 30000);   // 同步释放会让部分 WebKit 的下载失败
 }
 $("#saveBtn").addEventListener("click", () => download("ipipneo300-进度.json", snapshot()));
 $("#importBtn").addEventListener("click", () => $("#importFile").click());
@@ -2113,6 +2228,12 @@ $("#tableToggle").addEventListener("click", e => {
   e.currentTarget.textContent = expanded ? "收起分数表格" : "展开分数表格";
 });
 $("#printBtn").addEventListener("click", () => window.print());
+let printOpened = [];
+addEventListener("beforeprint", () => {
+  printOpened = [...document.querySelectorAll("#result details:not([open])")];
+  printOpened.forEach(d => { d.open = true; });
+});
+addEventListener("afterprint", () => { printOpened.forEach(d => { d.open = false; }); printOpened = []; });
 $("#printBtn2").addEventListener("click", () => window.print());
 document.querySelectorAll("[data-scroll-target]").forEach(b => b.addEventListener("click", () => {
   const target = document.getElementById(b.dataset.scrollTarget);
@@ -2120,7 +2241,12 @@ document.querySelectorAll("[data-scroll-target]").forEach(b => b.addEventListene
 }));
 $("#resultTopBtn").addEventListener("click", () =>
   $("#result").scrollIntoView({behavior:smoothB(), block:"start"}));
-$("#cardBtn").addEventListener("click", saveCard);
+$("#cardBtn").addEventListener("click", e => {
+  /* 画卡片是一段约 0.2 秒的同步任务：先让「正在生成…」画出来，再开始画 */
+  const btn = e.currentTarget, label = btn.textContent;
+  btn.textContent = "正在生成…"; btn.disabled = true;
+  setTimeout(() => { try { saveCard(); } finally { btn.textContent = label; btn.disabled = false; } }, 40);
+});
 document.querySelectorAll(".reaction").forEach(b => b.addEventListener("click", () => {
   document.querySelectorAll(".reaction").forEach(x => x.setAttribute("aria-pressed", x === b));
   const messages = {
@@ -2141,7 +2267,10 @@ $("#restartBtn").addEventListener("click", () => {
   $("#sex").focus({preventScroll:true});
 });
 
-/* 另一个标签页写了新存档：本页暂停保存，给出「载入最新」 */
+/* 另一个标签页写了存档：
+   - 内容一样（例如只是新开了一个标签页、它回写了一次）→ 忽略；
+   - 那边只是多答了几题、没有冲突 → 并进来，照常保存；
+   - 同一题答案不同，或换了性别年龄 → 暂停保存，让用户选保留哪一份。题数少的那份不叫「最新」。 */
 addEventListener("storage", e => {
   if (e.key !== KEY || viewOnly) return;
   let s = null;
@@ -2151,15 +2280,48 @@ addEventListener("storage", e => {
     return;
   }
   if (!s) return;
-  staleTab = true;
-  $("#staleMeta").textContent = "那边是" + savedWord(s) + "。为免互相覆盖，这个页面已暂停保存。";
-  $("#staleBanner").classList.remove("hide");
+  let conflict = s.sex !== sex || s.age !== age, added = 0;
+  for (let i = 1; i <= 300 && !conflict; i++){
+    if (answers[i] && s.answers[i] && answers[i] !== s.answers[i]) conflict = true;
+    else if (!answers[i] && s.answers[i]) added++;
+  }
+  if (conflict){
+    staleTab = true;
+    $("#staleMeta").textContent = "那边是" + savedWord(s) + "，这边已答 " + answeredCount({answers}) + " 题。为免互相覆盖，这个页面已暂停保存。";
+    $("#staleLoadBtn").textContent = "用那边的（" + answeredCount(s) + " 题）";
+    $("#staleKeepBtn").textContent = "保留这边的（" + answeredCount({answers}) + " 题）";
+    $("#staleBanner").classList.remove("hide");
+    const t = $("#saveState");
+    if (t){ t.textContent = "⚠ 已暂停保存：另一个标签页有不同的作答"; $("#saveDot").classList.add("bad"); }
+    return;
+  }
+  if (!added) return;
+  for (let i = 1; i <= 300; i++) if (!answers[i] && s.answers[i]) answers[i] = s.answers[i];
+  syncRows();
+  updateProgress();
+  persist();
 });
+/* 不重画整页（会滚回页顶），只把本页各题的选中状态对齐到 answers */
+function syncRows(){
+  document.querySelectorAll("#qlist .qrow").forEach(row => {
+    const v = answers[+row.dataset.qid];
+    row.classList.toggle("ok", !!v); row.classList.toggle("unanswered", !v);
+    row.querySelectorAll(".opt").forEach((b, k) => {
+      b.setAttribute("aria-checked", v === k + 1);
+      b.tabIndex = (v ? v - 1 : 0) === k ? 0 : -1;
+    });
+  });
+}
 $("#staleLoadBtn").addEventListener("click", () => {
   const s = validSaved(store.load());
   staleTab = false;
   $("#staleBanner").classList.add("hide");
   if (answeredCount(s) > 0) resumeLocal(s);
+});
+$("#staleKeepBtn").addEventListener("click", () => {
+  staleTab = false;
+  $("#staleBanner").classList.add("hide");
+  persist();
 });
 $("#enToggle").addEventListener("click", () => keepRowInPlace(() => {
   $("#enToggle").setAttribute("aria-pressed", document.body.classList.toggle("show-en"));
@@ -2197,19 +2359,27 @@ function scrollToCurrent(){
   });
 }
 addEventListener("popstate", e => {
+  if (!$("#cardSheet").classList.contains("hide")){ closeCardSheet(false, true); return; }
   const v = e.state && e.state.view;
   if (!v || v === document.body.dataset.view) return;
   popNav = true;
   try {
-    if (v === "test" && sex && !viewOnly){ done = false; show("test"); renderPage(); }
+    if (v === "test" && sex && !viewOnly){ done = false; show("test"); renderPage(); syncHash(true); }
     else if (v === "result" && sex && answers.slice(1).every(Boolean)) showResult();
     else { show("intro"); checkResume(); updateProgress(); }
   } finally { popNav = false; }
+});
+/* 在已经打开的页面里粘贴另一条链接：地址栏变了但页面不会重新启动，以前还会被 syncHash 悄悄改回去。
+   重新载入，交给 boot 判断是自己的、只读查看，还是先问一句。 */
+addEventListener("hashchange", () => {
+  const u = urlState();
+  if (u && u.raw && !seenHashes.has(u.raw)) location.reload();
 });
 function bootInner(){
   applyMode();
   const local = validSaved(store.load());
   const u = urlState();
+  if (u && u.raw) seenHashes.add(u.raw);
   const link = u && u.s && answeredCount(u.s) > 0 ? u.s : null;
   if (u && !u.s){
     /* 链接被截断或改坏了：讲清楚，再按本机存档继续 */
@@ -2227,7 +2397,8 @@ function bootInner(){
     applySaved(s);
     if (done && n === 300){
       showResult();
-      announceRestore("已回到你的上次结果", "300 / 300 题 · 结果仍保存在这个浏览器");
+      /* 不再弹浮层（会盖住主按钮）：封面状态和这行说明已经讲清楚 */
+      $("#resultSaveNote").textContent = "这是你上次的结果，保存在这个浏览器里，下次打开也会回到这里。";
       return;
     }
     done = false;
@@ -2236,7 +2407,8 @@ function bootInner(){
     show("test");
     renderPage();
     scrollToCurrent();
-    announceRestore("已自动恢复上次作答", "已答 " + n + " / 300 题 · 从第 " + (page + 1) + " 页继续");
+    /* 写进本页状态行（role=status，读屏会播报），本页第一次作答时自动清掉；不再用会盖住页标题的浮层 */
+    $("#pageFeedback").textContent = "已自动恢复上次作答：已答 " + n + " / 300 题，从第 " + (page + 1) + " 页继续。";
     return;
   }
   show("intro");
